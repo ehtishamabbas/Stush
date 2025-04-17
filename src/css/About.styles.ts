@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 56,
-    backgroundColor: 'rgba(41, 45, 50, 0.5)', // Dark semi-transparent as per Figma
+    backgroundColor: '#091522', // Dark semi-transparent as per Figma
     borderRadius: 44,
     paddingHorizontal: 16,
     color: '#FFFFFF',

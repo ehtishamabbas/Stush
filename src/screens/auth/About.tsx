@@ -141,7 +141,7 @@ const AboutScreen = () => {
                     <View style={styles.inputContainer}>
                       <TextInput
                         placeholder="Date of Birth (MM/DD/YYYY)"
-                        placeholderTextColor="rgba(141, 142, 153, 1)"
+                        placeholderTextColor="#8D8E99"
                         style={[
                           styles.input,
                           errors.dob ? styles.inputError : null,
@@ -165,7 +165,7 @@ const AboutScreen = () => {
                     <View style={styles.inputContainer}>
                       <TextInput
                         placeholder="Home Address"
-                        placeholderTextColor="rgba(141, 142, 153, 1)"
+                        placeholderTextColor="#8D8E99"
                         style={[
                           styles.input,
                           errors.address ? styles.inputError : null,

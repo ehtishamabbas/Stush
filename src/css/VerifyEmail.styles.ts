@@ -1,21 +1,31 @@
-// src/css/EmailInput.styles.ts
-import { StyleSheet, Dimensions, Platform } from 'react-native';
+// src/css/VerifyEmail.styles.ts
+import {StyleSheet, Dimensions, Platform, StatusBar} from 'react-native';
 
-const { height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
+
+const baseWidth = 414;
+const baseHeight = 896;
+
+const widthScale = width / baseWidth;
+const heightScale = height / baseHeight;
+const scale = Math.min(widthScale, heightScale);
+
+const normalize = (size: number) => Math.round(size * scale);
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   backgroundImage: {
     flex: 1,
     width: '100%',
     height: '100%',
     backgroundColor: '#091522',
   },
-  safeArea: {
-    flex: 1,
-    backgroundColor: 'transparent',
-  },
   container: {
     flex: 1,
+    alignItems: 'center',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   backButton: {
     position: 'absolute',
@@ -37,112 +47,75 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    position: 'absolute',
-    top: Platform.OS === 'ios' ? 60 : 80,
-    left: 0,
-    right: 0,
-    zIndex: 1,
+    marginTop: Platform.OS === 'ios' ? 60 : 80, // Adjusted based on Figma spacing
   },
   logoImage: {
     width: 140, // Exact width from Figma
     height: 45, // Exact height from Figma
     resizeMode: 'contain',
   },
-  formContainer: {
-    height: height * 0.7, // Exactly 70% of screen height
-    marginTop: height * 0.3, // Top 30% reserved for content above
-    paddingHorizontal: 16,
-    backgroundColor: 'rgba(9, 21, 34, 0.16)',
-    shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 16,
-    elevation: 4,
-    paddingTop: 30,
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.15)',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-  },
-  formSubContainer: {
-    width: '90%',
-    marginHorizontal: 'auto',
-    alignSelf: 'center', // Added to center the container
+  contentContainer: {
+    width: '100%',
+    backgroundColor: 'rgba(9, 22, 37, 0.85)',
+    borderTopLeftRadius: normalize(30),
+    borderTopRightRadius: normalize(30),
+    paddingHorizontal: normalize(45),
+    paddingTop: normalize(50),
+    paddingBottom: normalize(20),
+    height: '100%',
   },
   heading: {
-    fontSize: 24,
-    fontFamily: 'Aquire',
+    fontSize: normalize(26),
     fontWeight: '700',
+    letterSpacing: 1.2,
     color: '#FFFFFF',
-    marginBottom: 30,
-    textAlign: 'left',
-    letterSpacing: 1.5,
+    marginBottom: normalize(30),
+    textAlign: 'center',
+    lineHeight: normalize(41),
+    fontFamily: 'Aquire',
   },
-  inputContainer: {
-    marginBottom: 16,
-  },
-  input: {
-    height: 56,
-    backgroundColor: 'rgba(41, 45, 50, 0.5)', // Dark semi-transparent as per Figma
-    borderRadius: 44,
-    paddingHorizontal: 16,
+  subText: {
+    textAlign: 'center',
+    fontWeight: '400',
+    fontSize: normalize(12),
     color: '#FFFFFF',
-    fontSize: 16,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.15)', // Subtle border
+    lineHeight: normalize(24),
   },
-  inputError: {
-    borderColor: '#FF3B30', // Red color for error
-    borderWidth: 1,
+  warningText: {
+    textAlign: 'center',
+    fontWeight: '400',
+    fontSize: normalize(12),
+    color: '#FFFFFF',
+    lineHeight: normalize(37),
+    marginTop: normalize(10),
   },
-  errorText: {
-    color: '#FF3B30',
-    fontSize: 12,
-    marginTop: 4,
-    marginLeft: 16,
-  },
-  nextButton: {
-    height: 56,
-    backgroundColor: 'rgba(31, 117, 254, 1)',
-    borderRadius: 44,
+  continueButton: {
+    backgroundColor: '#1F75FE',
+    borderRadius: normalize(25),
+    height: normalize(50),
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: height * 0.15, // Adjusted spacing
-    shadowColor: '#2E5CFF',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 5,
-  },
-  nextButtonDisabled: {
-    backgroundColor: 'rgba(31, 117, 254, 0.6)', // Lighter blue for disabled state
-  },
-  nextButtonText: {
+    marginTop: normalize(110),
+    width: '100%',
+   },
+  continueButtonText: {
     color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '600',
-    letterSpacing: 0.5,
+    fontSize: normalize(17),
+    fontWeight: '700',
+    lineHeight: normalize(22),
   },
   signInContainer: {
-    marginTop: height * 0.04,
+    width: '100%',
     alignItems: 'center',
-    marginBottom: 30, // Added bottom margin for better spacing
-  },
+    marginTop: '20%',
+   },
   signInText: {
-    color: 'rgba(255, 255, 255, 1)', // Slightly transparent white
-    fontSize: 14,
+    color: '#AAAAAA',
+    fontSize: normalize(18),
   },
   signInLink: {
-    color: 'rgba(31, 117, 254, 1)',
-    fontWeight: '700',
-    textDecorationLine: 'underline',
+    color: '#1F75FE',
+    fontWeight: '600',
   },
 });
 

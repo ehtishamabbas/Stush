@@ -142,7 +142,7 @@ const RegisterScreen = () => {
                   <View style={styles.inputContainer}>
                     <TextInput
                       placeholder="First Name"
-                      placeholderTextColor="rgba(141, 142, 153, 1)"
+                      placeholderTextColor="#8D8E99"
                       style={[
                         styles.input,
                         errors.firstName ? styles.inputError : null,
@@ -166,7 +166,7 @@ const RegisterScreen = () => {
                   <View style={styles.inputContainer}>
                     <TextInput
                       placeholder="Last Name"
-                      placeholderTextColor="rgba(141, 142, 153, 1)"
+                      placeholderTextColor="#8D8E99"
                       style={[
                         styles.input,
                         errors.lastName ? styles.inputError : null,
