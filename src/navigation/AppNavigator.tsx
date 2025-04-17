@@ -8,6 +8,7 @@ import LoginScreen from '../screens/auth/LoginScreen';
 import RegisterScreen from '../screens/auth/RegisterScreen';
 import HomeScreen from '../screens/LoggedInLayouts/HomeScreen';
 import About from '../screens/auth/About';
+import BankAccountSelectionScreen from '../screens/LoggedInLayouts/BankAccountSelectionScreen';
 
 const Stack = createStackNavigator();
 
@@ -41,6 +42,7 @@ const AppNavigator = () => {
           <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="About" component={About} />
           <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="BankAccountSelection" component={BankAccountSelectionScreen} />
         </>
     </Stack.Navigator>
   );

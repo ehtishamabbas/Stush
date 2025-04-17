@@ -6,9 +6,12 @@ import styles from '../../css/About.styles';
 import {useNavigation} from '@react-navigation/native';
 
 const HomeScreen = () => {
-  const navigation = useNavigation();
+  const navigation: any = useNavigation();
   const handleBack = () => {
     navigation.goBack();
+  };
+  const handleBankSelection = () => {
+    navigation.navigate('BankAccountSelection');
   };
   return (
     <View style={homeScreenStyles.container}>
@@ -25,6 +28,11 @@ const HomeScreen = () => {
       </TouchableOpacity>
       <Text style={homeScreenStyles.text}>Home Screen</Text>
       <Text style={homeScreenStyles.subtext}>Welcome to Stush App</Text>
+      <TouchableOpacity style={styles.signInButton} onPress={handleBankSelection}>
+        <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 16}}>
+          Select Bank Account
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };

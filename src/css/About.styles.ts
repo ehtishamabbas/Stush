@@ -142,6 +142,15 @@ const styles = StyleSheet.create({
     height: 24,
     resizeMode: 'contain',
   },
+  signInButton: {
+    backgroundColor: '#1F75FE',
+    borderRadius: normalize(25),
+    height: normalize(50),
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: normalize(20),
+    marginTop: normalize(50),
+  },
 });
 
 export default styles;
