@@ -42,7 +42,7 @@ const About: React.FC = () => {
               />
             </View>
             <View style={styles.formContainer}>
-              <Text style={styles.heading}>TELL US ABOUT YOURSELF</Text>
+              <Text style={styles.heading}>TELL US ABOUT YOURSELFS</Text>
 
               <TextInput
                 placeholder="Date of Birth"
