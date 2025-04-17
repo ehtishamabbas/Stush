@@ -10,6 +10,9 @@ import LoginScreen from '../screens/auth/LoginScreen';
 import RegisterScreen from '../screens/auth/RegisterScreen';
 import HomeScreen from '../screens/LoggedInLayouts/HomeScreen';
 import About from '../screens/auth/About';
+import EmailInputScreen from '../screens/auth/EmailInputScreen';
+import VerifyEmail from '../screens/auth/VerifyEmailScreen';
+
 
 const Stack = createStackNavigator();
 
@@ -42,6 +45,10 @@ const AppNavigator = () => {
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="About" component={About} />
+          <Stack.Screen name="EmailInput" component={EmailInputScreen} />
+          <Stack.Screen name="VerifyEmail" component={VerifyEmail} />
+          {/* Add other authentication screens */}
+
         </>
       ) : (
         // Main App Stack

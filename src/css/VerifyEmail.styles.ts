@@ -1,4 +1,4 @@
-// src/css/About.styles.ts
+// src/css/EmailInput.styles.ts
 import { StyleSheet, Dimensions, Platform } from 'react-native';
 
 const { height } = Dimensions.get('window');
@@ -37,7 +37,11 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 60 : 80, // Adjusted based on Figma spacing
+    position: 'absolute',
+    top: Platform.OS === 'ios' ? 60 : 80,
+    left: 0,
+    right: 0,
+    zIndex: 1,
   },
   logoImage: {
     width: 140, // Exact width from Figma
@@ -45,7 +49,8 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   formContainer: {
-    marginTop: height * 0.15, // Positioned about 15% down from the logo
+    height: height * 0.7, // Exactly 70% of screen height
+    marginTop: height * 0.3, // Top 30% reserved for content above
     paddingHorizontal: 16,
     backgroundColor: 'rgba(9, 21, 34, 0.16)',
     shadowColor: '#000000',
@@ -61,6 +66,10 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
     borderTopWidth: 1,
     borderTopColor: 'rgba(255, 255, 255, 0.15)',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   formSubContainer: {
     width: '90%',
@@ -73,7 +82,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#FFFFFF',
     marginBottom: 30,
-    textAlign: 'center',
+    textAlign: 'left',
     letterSpacing: 1.5,
   },
   inputContainer: {
