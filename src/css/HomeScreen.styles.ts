@@ -5,16 +5,17 @@ const homeScreenStyles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'rgba(9, 21, 34, 1)',
   },
   text: {
+    color: '#fff',
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
   },
   subtext: {
+    color: '#fff',
     fontSize: 16,
-    color: '#333',
   },
 });
 
