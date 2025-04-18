@@ -37,7 +37,7 @@ const SuccessScreen = () => {
 
   return (
     <>
-      <View style={homeScreenStyles.container}>
+      <View style={homeScreenStyles.successContainer}>
         <TouchableOpacity
           style={styles.backButton}
           activeOpacity={0.8}

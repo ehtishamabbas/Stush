@@ -1,5 +1,12 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {View, Text, TouchableOpacity, Platform} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Platform,
+  SafeAreaView,
+  ActivityIndicator,
+} from 'react-native';
 import {
   create,
   open,
@@ -11,14 +18,15 @@ import {
   LinkTokenConfiguration,
   destroy,
 } from 'react-native-plaid-link-sdk';
-
-import { useNavigation } from '@react-navigation/native';
+import * as Keychain from 'react-native-keychain';
+import {useNavigation} from '@react-navigation/native';
 import homeScreenStyles from '../../css/HomeScreen.styles';
 import styles from '../../css/About.styles';
 
 const BankAccountSelectionScreen = () => {
   const [linkToken, setLinkToken] = useState(null);
   const navigation: any = useNavigation();
+  const [isLoading, setIsLoading] = useState(false);
   const platform = Platform.OS;
 
   const createLinkToken = useCallback(async () => {
@@ -81,10 +89,12 @@ const BankAccountSelectionScreen = () => {
           console.log(err);
         });
         navigation.navigate('Success');
+        setIsLoading(false);
       },
       onExit: (linkExit: LinkExit) => {
         console.log('Exit: ', linkExit);
         dismissLink();
+        setIsLoading(false);
       },
       iOSPresentationStyle: LinkIOSPresentationStyle.MODAL,
       logLevel: LinkLogLevel.ERROR,
@@ -92,22 +102,53 @@ const BankAccountSelectionScreen = () => {
   };
 
   const handleOpenLink = () => {
+    setIsLoading(true);
     const openProps = createLinkOpenProps();
     open(openProps);
   };
 
+  const handleLogout = async () => {
+    try {
+      setIsLoading(true);
+      // Clear Keychain storage
+      await Keychain.resetGenericPassword();
+      // Navigate back to login screen
+      navigation.navigate('Login');
+    } catch (error) {
+      console.error('Error during logout:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
-
-    <View style={homeScreenStyles.container}>
-      <Text style={homeScreenStyles.text}>Home Screen</Text>
-      <Text style={homeScreenStyles.subtext}>Welcome to Stush App</Text>
-      <TouchableOpacity style={styles.signInButton} onPress={handleOpenLink}>
-        <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 16}}>
-          Connect Bank Account
-        </Text>
-      </TouchableOpacity>
-    </View>
+      <View style={homeScreenStyles.container}>
+        <SafeAreaView style={styles.safeArea}>
+          <View style={homeScreenStyles.logOutContainer}>
+            <TouchableOpacity onPress={handleLogout} style={styles.signInButton}>
+              <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 16}}>
+                Log out
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={homeScreenStyles.subContainer}>
+            <Text style={homeScreenStyles.text}>Home Screen</Text>
+            <Text style={homeScreenStyles.subtext}>Welcome to Stush App</Text>
+            <TouchableOpacity
+              style={styles.signInButton}
+              onPress={handleOpenLink}>
+              {isLoading ? (
+                <ActivityIndicator color="#FFFFFF" />
+              ) : (
+                <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 16}}>
+                  Connect Bank Account
+                </Text>
+              )}
+            </TouchableOpacity>
+          </View>
+        </SafeAreaView>
+      </View>
     </>
   );
 };
