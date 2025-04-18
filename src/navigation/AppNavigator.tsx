@@ -14,6 +14,15 @@ import EmailInputScreen from '../screens/auth/EmailInputScreen';
 import VerifyEmail from '../screens/auth/VerifyEmailScreen';
 import ContactInfoScreen from '../screens/auth/ContactInfoScreen';
 import CodeVerify from '../screens/auth/CodeVerifyScreen';
+import SuccessSignup from '../screens/auth/SuccessSignupScreen';
+import CreatePasswordScreen from '../screens/auth/CreateAccountScreen';
+import AccountSuccess from '../screens/auth/AccountSuccessScreen';
+import BonusScreen from '../screens/auth/BonusScreen';
+
+
+
+
+
 
 
 
@@ -52,7 +61,12 @@ const AppNavigator = () => {
           <Stack.Screen name="VerifyEmail" component={VerifyEmail} />
           <Stack.Screen name="ContactInfo" component={ContactInfoScreen} />
           <Stack.Screen name="CodeVerify" component={CodeVerify} />
-
+          <Stack.Screen name="SuccessSignup" component={SuccessSignup} />
+          <Stack.Screen name="CreatePassword" component={CreatePasswordScreen} />
+          <Stack.Screen name="AccountSuccess" component={AccountSuccess} />
+          <Stack.Screen name="BonusScreen" component={BonusScreen} />
+          {/* Add other authentication screens */}
+ 
 
 
 

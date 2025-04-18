@@ -8,12 +8,23 @@ import {
   Image,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import styles from '../../css/ContactInfo.styles';
 
+type RootStackParamList = {
+  SuccessSignup: undefined;
+};
+
 const CodeVerify = ({}) => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
   const handleBack = () => {
     navigation.goBack();
+  };
+
+  const handleVerifyOTP = () => {
+    navigation.navigate('SuccessSignup');
   };
 
   return (
@@ -131,8 +142,10 @@ const CodeVerify = ({}) => {
           </View>
 
           {/* Verify button */}
-          <TouchableOpacity style={styles.verifyButton}>
-            <Text style={styles.verifyText}>Verify Phone Number</Text>
+          <TouchableOpacity
+            style={styles.verifyButton}
+            onPress={handleVerifyOTP}>
+            <Text style={styles.verifyText}>Verify OTP</Text>
           </TouchableOpacity>
         </View>
       </View>

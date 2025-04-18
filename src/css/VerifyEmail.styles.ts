@@ -19,108 +19,98 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
-    backgroundColor: '#091522',
+    backgroundColor: '#091522', // Dark background that matches the image
   },
   container: {
     flex: 1,
     alignItems: 'center',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
-  backButton: {
-    position: 'absolute',
-    top: Platform.OS === 'ios' ? 50 : 40,
-    left: 16,
-    zIndex: 10,
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: 'rgba(0, 0, 0, 1)',
-  },
-  backIcon: {
-    width: 24,
-    height: 24,
-    resizeMode: 'contain',
-  },
   logoContainer: {
     alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 60 : 80, // Adjusted based on Figma spacing
+    marginTop: Platform.OS === 'ios' ? 50 : 40,
+    width: '100%',
   },
   logoImage: {
-    width: 140, // Exact width from Figma
-    height: 45, // Exact height from Figma
+    width: 120,
+    height: 40,
     resizeMode: 'contain',
   },
   contentContainer: {
-    position: 'absolute',
-    top: '30%', // Position at 20% from the top
+    flex: 1,
     width: '100%',
-    backgroundColor: 'rgba(9, 21, 34, 0.16)',
-    shadowOpacity: 0.25,
-    shadowRadius: 16,
-    elevation: 4,
-     borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.15)',
-    paddingHorizontal: normalize(45),
-    paddingTop: normalize(50),
-    paddingBottom: normalize(20),
-    height: '80%', // Take up the bottom 80% of the screen
+    alignItems: 'center',
+    paddingHorizontal: normalize(30),
+    paddingTop: normalize(10),
   },
   heading: {
-    fontSize: normalize(26),
+    fontSize: normalize(24),
     fontWeight: '700',
-    letterSpacing: 1.2,
     color: '#FFFFFF',
-    marginBottom: normalize(30),
     textAlign: 'center',
-    lineHeight: normalize(41),
-    fontFamily: 'Aquire',
+    marginTop: normalize(40),
+    letterSpacing: 1,
+    textTransform: 'uppercase',
   },
   subText: {
     textAlign: 'center',
     fontWeight: '400',
-    fontSize: normalize(12),
+    fontSize: normalize(14),
     color: '#FFFFFF',
-    lineHeight: normalize(24),
+    lineHeight: normalize(22),
+    marginTop: normalize(15),
+    marginHorizontal: normalize(20),
   },
-  warningText: {
+  imageContainer: {
+    marginTop: normalize(50),
+    marginBottom: normalize(20),
+    alignItems: 'center',
+  },
+  walletImage: {
+    width: normalize(120),
+    height: normalize(100),
+    resizeMode: 'contain',
+  },
+  resendText: {
     textAlign: 'center',
-    fontWeight: '400',
     fontSize: normalize(12),
-    color: '#FFFFFF',
-    lineHeight: normalize(37),
-    marginTop: normalize(10),
+    color: '#AAAAAA',
+    marginTop: normalize(15),
   },
-  continueButton: {
+  whatsNextContainer: {
+    marginTop: 'auto',
+    width: '100%',
+    alignItems: 'center',
+    marginBottom: normalize(20),
+  },
+  whatsNextHeading: {
+    fontSize: normalize(16),
+    fontWeight: '600',
+    color: '#FFFFFF',
+    marginBottom: normalize(5),
+  },
+  credentialsText: {
+    fontSize: normalize(14),
+    color: '#FFFFFF',
+    textAlign: 'center',
+  },
+  buttonContainer: {
+    width: '100%',
+    alignItems: 'center',
+    paddingHorizontal: normalize(20),
+    marginBottom: normalize(30),
+  },
+  nextButton: {
     backgroundColor: '#1F75FE',
     borderRadius: normalize(25),
     height: normalize(50),
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: normalize(100), // Increased to use more of the available space
     width: '100%',
   },
-  continueButtonText: {
+  nextButtonText: {
     color: '#FFFFFF',
-    fontSize: normalize(17),
-    fontWeight: '700',
-    lineHeight: normalize(22),
-  },
-  signInContainer: {
-    width: '100%',
-    alignItems: 'center',
-    marginTop: normalize(100), // Reduced from 20% to a fixed size that fits better
-  },
-  signInText: {
-    color: '#AAAAAA',
-    fontSize: normalize(18),
-  },
-  signInLink: {
-    color: '#1F75FE',
+    fontSize: normalize(16),
     fontWeight: '600',
   },
 });

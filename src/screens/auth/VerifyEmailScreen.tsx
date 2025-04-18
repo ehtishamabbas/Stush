@@ -8,7 +8,7 @@ import {
   StatusBar,
   SafeAreaView,
 } from 'react-native';
-import styles from '../../css/VerifyEmail.styles';
+import styles from '../../css/Email.Screen';
 
 interface VerifyEmailScreenProps {
   navigation?: any;
@@ -24,10 +24,6 @@ const VerifyEmailScreen: React.FC<VerifyEmailScreenProps> = ({navigation}) => {
     navigation.navigate('Login');
   };
 
-  const handleBack = () => {
-    navigation.goBack();
-  };
-
   return (
     <>
       <StatusBar
@@ -41,17 +37,6 @@ const VerifyEmailScreen: React.FC<VerifyEmailScreenProps> = ({navigation}) => {
         resizeMode="cover">
         <SafeAreaView style={styles.safeArea}>
           <View style={styles.container}>
-            <TouchableOpacity
-              style={styles.backButton}
-              activeOpacity={0.8}
-              onPress={handleBack}
-              accessibilityLabel="Go back"
-              accessibilityRole="button">
-              <Image
-                source={require('../../../assets/images/back-arrow.png')}
-                style={styles.backIcon}
-              />
-            </TouchableOpacity>
             <View style={styles.logoContainer}>
               <Image
                 source={require('../../../assets/images/stushlogo.png')}
@@ -61,7 +46,6 @@ const VerifyEmailScreen: React.FC<VerifyEmailScreenProps> = ({navigation}) => {
               />
             </View>
 
-            {/* Content - now positioned absolutely starting from middle of screen */}
             <View style={styles.contentContainer}>
               <Text style={styles.heading}>
                 VERIFY YOUR EMAIL{'\n'}
@@ -69,7 +53,7 @@ const VerifyEmailScreen: React.FC<VerifyEmailScreenProps> = ({navigation}) => {
               </Text>
 
               <Text style={styles.subText}>
-                Please verify your email within 24-48 hours to unlock all{'\n'}
+                Please verify your email within 24-48 hours to unlock all
                 features and enhance your security.
               </Text>
 
@@ -78,9 +62,9 @@ const VerifyEmailScreen: React.FC<VerifyEmailScreenProps> = ({navigation}) => {
               </Text>
 
               <TouchableOpacity
-                style={styles.continueButton}
+                style={styles.nextButton}
                 onPress={handleContinue}>
-                <Text style={styles.continueButtonText}>
+                <Text style={styles.nextButtonText}>
                   Continue & Verify Later
                 </Text>
               </TouchableOpacity>
