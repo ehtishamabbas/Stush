@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet, Dimensions, Platform} from 'react-native';
 
 // Get screen dimensions for responsive design
 const {width, height} = Dimensions.get('window');
@@ -9,7 +9,7 @@ const baseHeight = 667;
 const horizontalScale = (size: number): number => (width / baseWidth) * size;
 const verticalScale = (size: number): number => (height / baseHeight) * size;
 const moderateScale = (size: number, factor: number = 0.5): number =>
-    size + (horizontalScale(size) - size) * factor;
+  size + (horizontalScale(size) - size) * factor;
 
 export default StyleSheet.create({
   backgroundImage: {
@@ -33,12 +33,14 @@ export default StyleSheet.create({
     lineHeight: verticalScale(28),
   },
   instruction: {
-    fontSize: moderateScale(14),
+    fontSize: moderateScale(15),
     color: 'rgba(255, 255, 255, 0.7)',
     textAlign: 'center',
     marginTop: verticalScale(20),
     marginBottom: verticalScale(30),
-    lineHeight: verticalScale(20),
+    lineHeight: verticalScale(22),
+    opacity: 0.8,
+    maxWidth: '80%',
   },
   codeContainer: {
     flexDirection: 'row',
@@ -51,7 +53,7 @@ export default StyleSheet.create({
     width: horizontalScale(50),
     height: verticalScale(50),
     borderRadius: moderateScale(8),
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: '#091522',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
@@ -62,7 +64,7 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   filledCodeBox: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: '#091522',
     borderColor: 'rgba(255, 255, 255, 0.4)',
   },
   codeText: {
@@ -83,59 +85,121 @@ export default StyleSheet.create({
   },
   keypadContainer: {
     width: '100%',
-    alignItems: 'center',
     justifyContent: 'center',
-    marginTop: verticalScale(2),
+    alignItems: 'center',
+    marginTop: '5%',
+    marginBottom: 30,
   },
   keypadRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: horizontalScale(240),
-    marginBottom: verticalScale(10),
+    width: '80%',
+    marginBottom: 10,
   },
   keypadButton: {
-    width: horizontalScale(60),
-    height: horizontalScale(60),
-    borderRadius: horizontalScale(30),
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.3)',
     justifyContent: 'center',
     alignItems: 'center',
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.5,
   },
   keypadText: {
-    fontSize: moderateScale(20),
-    fontWeight: '500',
-    color: 'white',
+    color: '#FFFFFF',
+    fontSize: 24,
+    fontWeight: '400',
   },
   forgotText: {
-    fontSize: moderateScale(14),
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: '#FFFFFF',
+    fontSize: 14,
   },
   backspaceText: {
-    fontSize: moderateScale(20),
-    color: 'white',
+    color: '#FFFFFF',
+    fontSize: 24,
   },
   verifyButton: {
     width: '85%',
-    height: verticalScale(45),
-    borderRadius: moderateScale(25),
-    backgroundColor: '#2374E1',
+    height: verticalScale(35),
+    borderRadius: moderateScale(45),
+    backgroundColor: '#1F75FE',
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: verticalScale(20),
     elevation: 3,
     shadowColor: '#2374E1',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.3,
     shadowRadius: 3,
   },
   verifyText: {
     fontSize: moderateScale(16),
     fontWeight: '600',
-    color: 'white',
+    maxWidth: '80%',
   },
+  phoneInputContainer: {
+    flexDirection: 'row',
+    width: '90%',
+    height: 50,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: 25,
+    marginBottom: 20,
+    overflow: 'hidden',
+  },
+  countrySelector: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '30%',
+    height: '100%',
+    paddingLeft: 15,
+    borderRightWidth: 1,
+    borderRightColor: '#091522',
+    backgroundColor: '#091522',
+
+  },
+  flagIcon: {
+    width: 24,
+    height: 16,
+    marginRight: 5,
+  },
+  countryCode: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    marginRight: 5,
+    
+  },
+  dropdownIcon: {
+    marginLeft: 'auto',
+    marginRight: 10,
+  },
+  phoneNumberInput: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  phoneInput: {
+    color: '#091522',
+    fontSize: 16,
+    paddingHorizontal: 15,
+    height: '100%',
+    backgroundColor: '#091522',
+  },
+   backButton: {
+      position: 'absolute',
+      top: Platform.OS === 'ios' ? 50 : 40,
+      left: 16,
+      zIndex: 10,
+      width: 40,
+      height: 40,
+      borderRadius: 20,
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderWidth: 2,
+      borderColor: 'rgba(0, 0, 0, 1)',
+    },
+    backIcon: {
+      width: 24,
+      height: 24,
+      resizeMode: 'contain',
+    },
 });

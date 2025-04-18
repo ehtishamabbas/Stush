@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -7,23 +7,11 @@ import {
   TextInput,
   Image,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native';
 import styles from '../../css/ContactInfo.styles';
 
-type RootStackParamList = {
-  CodeVerify: { phoneNumber: string };
-};
-
-const ContactInfoScreen = () => {
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-  const [phoneNumber, setPhoneNumber] = useState('');
-
-  const handleVerify = () => {
-    // Navigate to the CodeVerify screen
-    navigation.navigate('CodeVerify', { phoneNumber });
-  };
-
+const CodeVerify = ({}) => {
+  const navigation = useNavigation();
   const handleBack = () => {
     navigation.goBack();
   };
@@ -33,49 +21,59 @@ const ContactInfoScreen = () => {
       source={require('../../../assets/images/background.png')}
       style={styles.backgroundImage}
       resizeMode="cover">
-      <View style={styles.container}>
       <TouchableOpacity
-              style={styles.backButton}
-              activeOpacity={0.8}
-              onPress={handleBack}
-              accessibilityLabel="Go back"
-              accessibilityRole="button">
-              <Image
-                source={require('../../../assets/images/back-arrow.png')}
-                style={styles.backIcon}
-              />
-            </TouchableOpacity>
+        style={styles.backButton}
+        activeOpacity={0.8}
+        onPress={handleBack}
+        accessibilityLabel="Go back"
+        accessibilityRole="button">
+        <Image
+          source={require('../../../assets/images/back-arrow.png')}
+          style={styles.backIcon}
+        />
+      </TouchableOpacity>
+      <View style={styles.container}>
         {/* Title */}
-        <Text style={styles.title}>Phone</Text>
-        <Text style={styles.title}>Number</Text>
+        <Text style={styles.title}>OTP Verification</Text>
+        <Text style={styles.title}>Verification</Text>
 
         {/* Instruction */}
         <Text style={styles.instruction}>
-          Enter your phone number below. It will be used for verification and
-          updates.
+          Please enter 6-digit code we have sent you at +1234567890{' '}
         </Text>
 
-        {/* Country selector and phone input */}
-        <View style={styles.phoneInputContainer}>
-          <View style={styles.countrySelector}>
-            <Image 
-              style={styles.flagIcon} 
-            />
-            <Text style={styles.countryCode}>+1</Text>
-            <View style={styles.dropdownIcon}>
-              <Text>▼</Text>
-            </View>
-          </View>
-          <View style={styles.phoneNumberInput}>
-            <TextInput
-              style={styles.phoneInput}
-              placeholder="Phone Number"
-              placeholderTextColor="#8D8E99"
-              keyboardType="phone-pad"
-              value={phoneNumber}
-              onChangeText={setPhoneNumber}
-            />
-          </View>
+        {/* Code input boxes */}
+        <View style={styles.codeContainer}>
+          <TextInput
+            style={[styles.codeBox, styles.filledCodeBox]}
+            maxLength={1}
+            keyboardType="numeric"
+          />
+          <TextInput
+            style={styles.codeBox}
+            maxLength={1}
+            keyboardType="numeric"
+          />
+          <TextInput
+            style={styles.codeBox}
+            maxLength={1}
+            keyboardType="numeric"
+          />
+          <TextInput
+            style={styles.codeBox}
+            maxLength={1}
+            keyboardType="numeric"
+          />
+          <TextInput
+            style={styles.codeBox}
+            maxLength={1}
+            keyboardType="numeric"
+          />
+        </View>
+
+        {/* Resend timer */}
+        <View style={styles.resendButton}>
+          <Text style={styles.resendText}>Resend in 00:48</Text>
         </View>
 
         {/* Keypad container */}
@@ -133,7 +131,7 @@ const ContactInfoScreen = () => {
           </View>
 
           {/* Verify button */}
-          <TouchableOpacity style={styles.verifyButton} onPress={handleVerify}>
+          <TouchableOpacity style={styles.verifyButton}>
             <Text style={styles.verifyText}>Verify Phone Number</Text>
           </TouchableOpacity>
         </View>
@@ -142,4 +140,4 @@ const ContactInfoScreen = () => {
   );
 };
 
-export default ContactInfoScreen;
+export default CodeVerify;

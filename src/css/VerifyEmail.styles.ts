@@ -1,4 +1,3 @@
-// src/css/VerifyEmail.styles.ts
 import {StyleSheet, Dimensions, Platform, StatusBar} from 'react-native';
 
 const {width, height} = Dimensions.get('window');
@@ -55,14 +54,21 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   contentContainer: {
+    position: 'absolute',
+    top: '30%', // Position at 20% from the top
     width: '100%',
-    backgroundColor: 'rgba(9, 22, 37, 0.85)',
-    borderTopLeftRadius: normalize(30),
-    borderTopRightRadius: normalize(30),
+    backgroundColor: 'rgba(9, 21, 34, 0.16)',
+    shadowOpacity: 0.25,
+    shadowRadius: 16,
+    elevation: 4,
+     borderTopRightRadius: 30,
+    borderTopLeftRadius: 30,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255, 255, 255, 0.15)',
     paddingHorizontal: normalize(45),
     paddingTop: normalize(50),
     paddingBottom: normalize(20),
-    height: '100%',
+    height: '80%', // Take up the bottom 80% of the screen
   },
   heading: {
     fontSize: normalize(26),
@@ -95,9 +101,9 @@ const styles = StyleSheet.create({
     height: normalize(50),
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: normalize(110),
+    marginTop: normalize(100), // Increased to use more of the available space
     width: '100%',
-   },
+  },
   continueButtonText: {
     color: '#FFFFFF',
     fontSize: normalize(17),
@@ -107,8 +113,8 @@ const styles = StyleSheet.create({
   signInContainer: {
     width: '100%',
     alignItems: 'center',
-    marginTop: '20%',
-   },
+    marginTop: normalize(100), // Reduced from 20% to a fixed size that fits better
+  },
   signInText: {
     color: '#AAAAAA',
     fontSize: normalize(18),

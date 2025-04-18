@@ -17,7 +17,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import styles from '../../css/RegisterScreen.styles';
 
-const EmailInputScreen: React.FC = () => {
+const EmailInputScreen = () => {
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState({
     email: '',
@@ -87,7 +87,7 @@ const EmailInputScreen: React.FC = () => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <>
+      <View style={{flex: 1}}>
         <StatusBar
           translucent
           backgroundColor="transparent"
@@ -181,7 +181,7 @@ const EmailInputScreen: React.FC = () => {
             </View>
           </SafeAreaView>
         </ImageBackground>
-      </>
+      </View>
     </TouchableWithoutFeedback>
   );
 };

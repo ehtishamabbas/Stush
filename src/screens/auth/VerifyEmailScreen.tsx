@@ -1,4 +1,3 @@
-// src/screens/auth/VerifyEmailScreen.tsx
 import React from 'react';
 import {
   View,
@@ -62,7 +61,7 @@ const VerifyEmailScreen: React.FC<VerifyEmailScreenProps> = ({navigation}) => {
               />
             </View>
 
-            {/* Content */}
+            {/* Content - now positioned absolutely starting from middle of screen */}
             <View style={styles.contentContainer}>
               <Text style={styles.heading}>
                 VERIFY YOUR EMAIL{'\n'}

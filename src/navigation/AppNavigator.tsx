@@ -13,6 +13,7 @@ import About from '../screens/auth/About';
 import EmailInputScreen from '../screens/auth/EmailInputScreen';
 import VerifyEmail from '../screens/auth/VerifyEmailScreen';
 import ContactInfoScreen from '../screens/auth/ContactInfoScreen';
+import CodeVerify from '../screens/auth/CodeVerifyScreen';
 
 
 
@@ -50,6 +51,10 @@ const AppNavigator = () => {
           <Stack.Screen name="EmailInput" component={EmailInputScreen} />
           <Stack.Screen name="VerifyEmail" component={VerifyEmail} />
           <Stack.Screen name="ContactInfo" component={ContactInfoScreen} />
+          <Stack.Screen name="CodeVerify" component={CodeVerify} />
+
+
+
 
         </>
       ) : (
