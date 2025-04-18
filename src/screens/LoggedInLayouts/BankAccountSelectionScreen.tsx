@@ -12,12 +12,12 @@ import {
   destroy,
 } from 'react-native-plaid-link-sdk';
 
-import styles from './style';
 import { useNavigation } from '@react-navigation/native';
+import homeScreenStyles from '../../css/HomeScreen.styles';
+import styles from '../../css/About.styles';
 
 const BankAccountSelectionScreen = () => {
   const [linkToken, setLinkToken] = useState(null);
-  const [linkCopy, setLinkCopy] = useState(null);
   const navigation: any = useNavigation();
   const platform = Platform.OS;
 
@@ -32,12 +32,11 @@ const BankAccountSelectionScreen = () => {
       .then(response => response.json())
       .then(data => {
         setLinkToken(data.linkToken);
-        setLinkCopy(data.linkToken);
       })
       .catch(err => {
         console.log(err);
       });
-  }, [setLinkToken, setLinkCopy, platform]);
+  }, [setLinkToken, platform]);
 
   useEffect(() => {
     if (linkToken == null) {
@@ -98,19 +97,18 @@ const BankAccountSelectionScreen = () => {
   };
 
   return (
-    <View style={{flex: 1}}>
-      <View style={styles.heading}>
-        <Text style={styles.titleText}>
-          Tiny Quickstart – React Native {linkToken}
+    <>
+
+    <View style={homeScreenStyles.container}>
+      <Text style={homeScreenStyles.text}>Home Screen</Text>
+      <Text style={homeScreenStyles.subtext}>Welcome to Stush App</Text>
+      <TouchableOpacity style={styles.signInButton} onPress={handleOpenLink}>
+        <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 16}}>
+          Connect Bank Account
         </Text>
-        <Text style={styles.baseText}>{linkCopy}</Text>
-      </View>
-      <View style={styles.bottom}>
-        <TouchableOpacity onPress={handleOpenLink}>
-          <Text style={styles.baseText}>Open Link</Text>
-        </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     </View>
+    </>
   );
 };
 

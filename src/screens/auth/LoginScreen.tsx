@@ -102,7 +102,7 @@ const LoginScreen = () => {
       setPassword('');
 
       // Navigate to home screen or dashboard
-      navigation.navigate('Home');
+      navigation.navigate('BankAccountSelection');
 
     } catch (error) {
       // Handle errors
