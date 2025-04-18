@@ -20,6 +20,7 @@ import {
 import * as Keychain from 'react-native-keychain';
 import styles from '../../css/LoginScreen.styles';
 import {useNavigation} from '@react-navigation/native';
+import SocialIcons from '../../components/SocialMediaIcons';
 
 // Email validation regex
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -188,14 +189,6 @@ const LoginScreen = () => {
     }
   };
 
-  // Handle social login
-  const handleSocialLogin = (provider: string) => {
-    Alert.alert(
-      'Social Login',
-      `Login with ${provider} will be implemented soon.`,
-      [{text: 'OK'}],
-    );
-  };
 
   const handleSignUp = () => {
     navigation.navigate('Register');
@@ -319,61 +312,7 @@ const LoginScreen = () => {
 
                       {/* Social Login */}
                       <View style={styles.socialContainer}>
-                        {/* Twitter */}
-                        <TouchableOpacity
-                          style={styles.socialIconWrap}
-                          onPress={() => handleSocialLogin('Twitter')}>
-                          <View
-                            style={[styles.socialIconButton, styles.twitterButton]}>
-                            <Text style={styles.twitterIcon}>𝕏</Text>
-                          </View>
-                        </TouchableOpacity>
-
-                        {/* Facebook */}
-                        <TouchableOpacity
-                          style={styles.socialIconWrap}
-                          onPress={() => handleSocialLogin('Facebook')}>
-                          <View
-                            style={[
-                              styles.socialIconButton,
-                              styles.facebookButton,
-                            ]}>
-                            <Text style={styles.facebookIcon}>f</Text>
-                          </View>
-                        </TouchableOpacity>
-
-                        {/* Google */}
-                        <TouchableOpacity
-                          style={styles.socialIconWrap}
-                          onPress={() => handleSocialLogin('Google')}>
-                          <View
-                            style={[styles.socialIconButton, styles.googleButton]}>
-                            <Text style={styles.googleIcon}>G</Text>
-                          </View>
-                        </TouchableOpacity>
-
-                        {/* TikTok */}
-                        <TouchableOpacity
-                          style={styles.socialIconWrap}
-                          onPress={() => handleSocialLogin('TikTok')}>
-                          <View
-                            style={[styles.socialIconButton, styles.tiktokButton]}>
-                            <Text style={styles.tiktokIcon}>♪</Text>
-                          </View>
-                        </TouchableOpacity>
-
-                        {/* Instagram */}
-                        <TouchableOpacity
-                          style={styles.socialIconWrap}
-                          onPress={() => handleSocialLogin('Instagram')}>
-                          <View
-                            style={[
-                              styles.socialIconButton,
-                              styles.instagramButton,
-                            ]}>
-                            <View style={styles.instagramIcon} />
-                          </View>
-                        </TouchableOpacity>
+                        <SocialIcons />
                       </View>
 
                       {/* Sign Up Link */}
