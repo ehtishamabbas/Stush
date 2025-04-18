@@ -16,7 +16,7 @@
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		832E6C5BB2D1433AA2663CDA /* Aquire-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EFC41D1196C4432C815C5D0C /* Aquire-Regular.otf */; };
-		EAC0EE344F939B6E7D97397D /* libPods-StushApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BCD986F25DFD0210CD8C26 /* libPods-StushApp.a */; };
+		E67E27D15EA339A51645028A /* libPods-StushApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D287253B21FB0BEE032A0E4E /* libPods-StushApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,12 +25,12 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = StushApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = StushApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = StushApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		34B724B17F88F2F7E2CCF52F /* Pods-StushApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StushApp.release.xcconfig"; path = "Target Support Files/Pods-StushApp/Pods-StushApp.release.xcconfig"; sourceTree = "<group>"; };
 		5703B6E50CC54888BB21046D /* BungeeSpice-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "BungeeSpice-Regular.ttf"; path = "../assets/fonts/BungeeSpice-Regular.ttf"; sourceTree = "<group>"; };
-		618FD198EC3D5DCC4E902E9B /* Pods-StushApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StushApp.release.xcconfig"; path = "Target Support Files/Pods-StushApp/Pods-StushApp.release.xcconfig"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = StushApp/AppDelegate.swift; sourceTree = "<group>"; };
+		7DD570453AAC3C6527AC5714 /* Pods-StushApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StushApp.debug.xcconfig"; path = "Target Support Files/Pods-StushApp/Pods-StushApp.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = StushApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B25ECEC4D6E2A496391A5C5A /* Pods-StushApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StushApp.debug.xcconfig"; path = "Target Support Files/Pods-StushApp/Pods-StushApp.debug.xcconfig"; sourceTree = "<group>"; };
-		C2BCD986F25DFD0210CD8C26 /* libPods-StushApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StushApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D287253B21FB0BEE032A0E4E /* libPods-StushApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StushApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D51552E2DC7040209BFF6DCB /* Aquire-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aquire-Light.otf"; path = "../assets/fonts/Aquire-Light.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EFC41D1196C4432C815C5D0C /* Aquire-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Aquire-Regular.otf"; path = "../assets/fonts/Aquire-Regular.otf"; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAC0EE344F939B6E7D97397D /* libPods-StushApp.a in Frameworks */,
+				E67E27D15EA339A51645028A /* libPods-StushApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				C2BCD986F25DFD0210CD8C26 /* libPods-StushApp.a */,
+				D287253B21FB0BEE032A0E4E /* libPods-StushApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,8 +116,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B25ECEC4D6E2A496391A5C5A /* Pods-StushApp.debug.xcconfig */,
-				618FD198EC3D5DCC4E902E9B /* Pods-StushApp.release.xcconfig */,
+				7DD570453AAC3C6527AC5714 /* Pods-StushApp.debug.xcconfig */,
+				34B724B17F88F2F7E2CCF52F /* Pods-StushApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -129,13 +129,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "StushApp" */;
 			buildPhases = (
-				C29B712DC2D8A9292A2F0AEC /* [CP] Check Pods Manifest.lock */,
+				561C926773A52F0C92396BB6 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				CDEC790DAC7669BC3578438C /* [CP] Embed Pods Frameworks */,
-				6D4EAADB1015F53AC38CF41E /* [CP] Copy Pods Resources */,
+				6AEA417B4B0841691809F786 /* [CP] Embed Pods Frameworks */,
+				A7C05DD5F8398AA1EA0A583B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,24 +212,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		6D4EAADB1015F53AC38CF41E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StushApp/Pods-StushApp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StushApp/Pods-StushApp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StushApp/Pods-StushApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C29B712DC2D8A9292A2F0AEC /* [CP] Check Pods Manifest.lock */ = {
+		561C926773A52F0C92396BB6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -251,7 +234,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CDEC790DAC7669BC3578438C /* [CP] Embed Pods Frameworks */ = {
+		6AEA417B4B0841691809F786 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,6 +249,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StushApp/Pods-StushApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7C05DD5F8398AA1EA0A583B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StushApp/Pods-StushApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StushApp/Pods-StushApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StushApp/Pods-StushApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -284,7 +284,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B25ECEC4D6E2A496391A5C5A /* Pods-StushApp.debug.xcconfig */;
+			baseConfigurationReference = 7DD570453AAC3C6527AC5714 /* Pods-StushApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -312,7 +312,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 618FD198EC3D5DCC4E902E9B /* Pods-StushApp.release.xcconfig */;
+			baseConfigurationReference = 34B724B17F88F2F7E2CCF52F /* Pods-StushApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

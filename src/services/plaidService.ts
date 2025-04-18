@@ -1,32 +1,18 @@
-import { Platform } from 'react-native';
 import axios from 'axios';
-
-const API_URL = 'http://your-api-url.com/api'; // Replace with your actual API URL
-
-// Different URL based on platform (for local development)
-const getApiUrl = () => {
-  if (__DEV__) {
-    return Platform.OS === 'android'
-      ? 'http://10.0.2.2:5000/api' // Android emulator localhost
-      : 'http://localhost:5000/api'; // iOS simulator localhost
-  }
-  return API_URL;
-};
 
 export const plaidApi = {
   // Get link token from our backend
   async getLinkToken(): Promise<string> {
     try {
       const response = await axios.post(
-        `${getApiUrl()}/plaid/create-link-token`,
+        'http://localhost:3000/api/plaid/create-link-token',
         {},
         {
           headers: {
-            Authorization: `Bearer ${await getAuthToken()}`, // Function to get your auth token
+            'Content-Type': 'application/json',
           },
         }
       );
-      console.log('🚀 ~ getLinkToken ~ response.data.linkToken:', response.data.linkToken);
       return response.data.linkToken;
     } catch (error) {
       console.error('Error getting link token:', error);
@@ -38,11 +24,11 @@ export const plaidApi = {
   async exchangePublicToken(publicToken: string, metadata: any): Promise<any> {
     try {
       const response = await axios.post(
-        `${getApiUrl()}/plaid/exchange-token`,
+        'http://localhost:3000/api/plaid/exchange-token',
         { publicToken, metadata },
         {
           headers: {
-            Authorization: `Bearer ${await getAuthToken()}`,
+            'Content-Type': 'application/json',
           },
         }
       );
@@ -56,9 +42,9 @@ export const plaidApi = {
   // Get connected bank accounts
   async getAccounts(): Promise<any[]> {
     try {
-      const response = await axios.get(`${getApiUrl()}/plaid/accounts`, {
+      const response = await axios.get('http://localhost:3000/api/plaid/accounts', {
         headers: {
-          Authorization: `Bearer ${await getAuthToken()}`,
+          'Content-Type': 'application/json',
         },
       });
       return response.data.accounts || [];
@@ -67,13 +53,6 @@ export const plaidApi = {
       throw error;
     }
   },
-};
-
-// Function to get authentication token (implement based on your auth system)
-const getAuthToken = async (): Promise<string> => {
-  // Replace with your actual token retrieval logic
-  // This could be from secure storage, Redux, etc.
-  return 'your-auth-token';
 };
 
 // Function to open Plaid Link
