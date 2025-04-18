@@ -11,8 +11,8 @@ import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.soloader.OpenSourceMergedSoMapping
 import com.facebook.soloader.SoLoader
-// Import Plaid Link SDK
-import com.plaid.link.OpenPlaidLink
+// Remove the incorrect import
+// import com.plaid.link.OpenPlaidLink
 
 class MainApplication : Application(), ReactApplication {
 
@@ -43,7 +43,7 @@ class MainApplication : Application(), ReactApplication {
       load()
     }
     
-    // Initialize Plaid Link
-    OpenPlaidLink.initialize(this)
+    // Remove the Plaid initialization - it's handled by the React Native module
+    // OpenPlaidLink.initialize(this)
   }
 }
