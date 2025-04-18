@@ -1,21 +1,135 @@
-// src/css/About.styles.ts
-import { StyleSheet, Dimensions, Platform } from 'react-native';
+import { Dimensions, Platform, StatusBar, StyleSheet } from 'react-native';
 
-const { height } = Dimensions.get('window');
+
+const {width, height} = Dimensions.get('window');
+
+
+const baseWidth = 414;
+const baseHeight = 896;
+
+
+const widthScale = width / baseWidth;
+const heightScale = height / baseHeight;
+const scale = Math.min(widthScale, heightScale);
+
+
+const normalize = (size: number) => Math.round(size * scale);
+
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   backgroundImage: {
     flex: 1,
     width: '100%',
     height: '100%',
     backgroundColor: '#091522',
   },
-  safeArea: {
-    flex: 1,
-    backgroundColor: 'transparent',
-  },
   container: {
     flex: 1,
+    alignItems: 'center',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+  },
+  logoContainer: {
+    width: '100%',
+    height: '30%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logoImage: {
+    width: normalize(140),
+    height: normalize(80),
+    marginTop: normalize(5),
+  },
+  formOuterContainer: {
+    width: '100%',
+    height: '80%',
+    justifyContent: 'flex-start',
+  },
+  formContainer: {
+    width: '100%',
+    backgroundColor: 'rgba(9, 22, 37, 0.51)',
+    borderTopLeftRadius: normalize(30),
+    borderTopRightRadius: normalize(30),
+    paddingHorizontal: normalize(45),
+    paddingTop: normalize(50),
+    paddingBottom: normalize(20),
+    height: '100%',
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255, 255, 255, 0.15)',
+    shadowColor: '#000000',
+    shadowOffset: { width: 2, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  heading: {
+    fontSize: normalize(25),
+    fontWeight: '900',
+    letterSpacing: 1.2,
+    color: '#FFFFFF',
+    marginBottom: normalize(30),
+    textAlign: 'left',
+    flexWrap: 'wrap',
+    width: '100%',
+    fontFamily: 'Aquire',
+    lineHeight: normalize(32),
+  },
+  header:{
+      textAlign: 'center',
+      fontWeight: '400',
+      fontSize: normalize(12),
+      color: '#FFFFFF',
+      lineHeight: normalize(24),
+
+
+  },
+  headerr:{
+    textAlign: 'center',
+    fontWeight: '400',
+    fontSize: normalize(12),
+    color: '#FFFFFF',
+    lineHeight: normalize(37),
+
+
+},
+  input: {
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    borderRadius: normalize(25),
+    height: normalize(50),
+    paddingHorizontal: normalize(20),
+    color: '#FFFFFF',
+    marginBottom: normalize(15),
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.15)',
+  },
+  nextButton: {
+    backgroundColor: '#1F75FE',
+    borderRadius: normalize(25),
+    height: normalize(50),
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: normalize(110),
+  },
+  nextButtonText: {
+    color: '#FFFFFF',
+    fontSize: normalize(16),
+    fontWeight: '600',
+  },
+  signInContainer: {
+    width: '100%',
+    alignItems: 'center',
+    marginTop: '20%',
+    marginBottom: normalize(30),
+  },
+  signInText: {
+    color: '#AAAAAA',
+    fontSize: normalize(16),
+  },
+  signInLink: {
+    color: '#1F75FE',
+    fontWeight: '600',
   },
   backButton: {
     position: 'absolute',
@@ -35,106 +149,19 @@ const styles = StyleSheet.create({
     height: 24,
     resizeMode: 'contain',
   },
-  logoContainer: {
-    alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 60 : 80, // Adjusted based on Figma spacing
-  },
-  logoImage: {
-    width: 140, // Exact width from Figma
-    height: 45, // Exact height from Figma
-    resizeMode: 'contain',
-  },
-  formContainer: {
-    marginTop: height * 0.15, // Positioned about 15% down from the logo
-    paddingHorizontal: 16,
-    backgroundColor: 'rgba(9, 21, 34, 0.16)',
-    shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 16,
-    elevation: 4,
-    paddingTop: 30,
-    borderTopRightRadius: 30,
-    borderTopLeftRadius: 30,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.15)',
-  },
-  formSubContainer: {
-    width: '90%',
-    marginHorizontal: 'auto',
-    alignSelf: 'center', // Added to center the container
-  },
-  heading: {
-    fontSize: 24,
-    fontFamily: 'Aquire',
-    fontWeight: '700',
-    color: '#FFFFFF',
-    marginBottom: 30,
-    textAlign: 'center',
-    letterSpacing: 1.5,
-  },
-  inputContainer: {
-    marginBottom: 16,
-  },
-  input: {
-    height: 56,
-    backgroundColor: '#091522', // Dark semi-transparent as per Figma
-    borderRadius: 44,
-    paddingHorizontal: 16,
-    color: '#FFFFFF',
-    fontSize: 16,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.15)', // Subtle border
-  },
-  inputError: {
-    borderColor: '#FF3B30', // Red color for error
-    borderWidth: 1,
-  },
-  errorText: {
-    color: '#FF3B30',
-    fontSize: 12,
-    marginTop: 4,
-    marginLeft: 16,
-  },
-  nextButton: {
-    height: 56,
-    backgroundColor: 'rgba(31, 117, 254, 1)',
-    borderRadius: 44,
+  signInButton: {
+    backgroundColor: '#1F75FE',
+    borderRadius: normalize(25),
+    height: normalize(50),
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: height * 0.15, // Adjusted spacing
-    shadowColor: '#2E5CFF',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 5,
-  },
-  nextButtonDisabled: {
-    backgroundColor: 'rgba(31, 117, 254, 0.6)', // Lighter blue for disabled state
-  },
-  nextButtonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '600',
-    letterSpacing: 0.5,
-  },
-  signInContainer: {
-    marginTop: height * 0.04,
-    alignItems: 'center',
-    marginBottom: 30, // Added bottom margin for better spacing
-  },
-  signInText: {
-    color: 'rgba(255, 255, 255, 1)', // Slightly transparent white
-    fontSize: 14,
-  },
-  signInLink: {
-    color: 'rgba(31, 117, 254, 1)',
-    fontWeight: '700',
-    textDecorationLine: 'underline',
+    paddingHorizontal: normalize(20),
+    marginTop: normalize(50),
   },
 });
 
+
 export default styles;
+
+
+

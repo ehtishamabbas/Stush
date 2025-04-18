@@ -11,6 +11,8 @@ import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.soloader.OpenSourceMergedSoMapping
 import com.facebook.soloader.SoLoader
+// Import Plaid Link SDK
+import com.plaid.link.OpenPlaidLink
 
 class MainApplication : Application(), ReactApplication {
 
@@ -40,5 +42,8 @@ class MainApplication : Application(), ReactApplication {
       // If you opted-in for the New Architecture, we load the native entry point for this app.
       load()
     }
+    
+    // Initialize Plaid Link
+    OpenPlaidLink.initialize(this)
   }
 }

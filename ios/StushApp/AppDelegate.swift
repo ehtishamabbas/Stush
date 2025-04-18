@@ -31,6 +31,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     return true
   }
+  
+  // Add this method to handle deep linking for Plaid
+  // Using direct method call without importing any specific module
+  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    // Get the shared application
+    if let reactInstance = reactNativeFactory?.bridge {
+      // Use the performSelector approach to avoid direct imports
+      let selector = NSSelectorFromString("handleOpenURL:")
+      if reactInstance.responds(to: selector) {
+        reactInstance.perform(selector, with: url)
+        return true
+      }
+    }
+    
+    return false
+  }
 }
 
 class ReactNativeDelegate: RCTDefaultReactNativeFactoryDelegate {

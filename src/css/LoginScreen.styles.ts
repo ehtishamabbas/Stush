@@ -199,6 +199,12 @@ const loginScreenStyles = StyleSheet.create({
     color: '#1F75FE',
     fontWeight: '600',
   },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#091522',
+  },
 });
 
 export default loginScreenStyles;
