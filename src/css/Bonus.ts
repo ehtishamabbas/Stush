@@ -61,8 +61,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: normalize(24),
     paddingTop: normalize(30),
-    backgroundColor: 'rgba(1, 5, 10, 0.8)', // Increased opacity for better contrast
-    borderLeftWidth: 0.5,
+     borderLeftWidth: 0.5,
     borderRightWidth: 0.5,
     borderColor: 'rgba(255, 255, 255, 0.2)',
   },
