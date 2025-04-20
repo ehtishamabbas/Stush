@@ -1,5 +1,4 @@
-// src/screens/auth/RegisterScreen.tsx
-import React, {useState} from 'react';
+ import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -27,8 +26,7 @@ const RegisterScreen = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigation: any = useNavigation();
 
-  // Clear errors when user starts typing
-  const clearError = (field: 'firstName' | 'lastName') => {
+   const clearError = (field: 'firstName' | 'lastName') => {
     if (errors[field]) {
       setErrors({...errors, [field]: ''});
     }
@@ -38,8 +36,7 @@ const RegisterScreen = () => {
     let isValid = true;
     const newErrors = {firstName: '', lastName: ''};
 
-    // First name validation
-    if (!firstName.trim()) {
+     if (!firstName.trim()) {
       newErrors.firstName = 'First name is required';
       isValid = false;
     } else if (firstName.trim().length < 2) {
@@ -53,8 +50,7 @@ const RegisterScreen = () => {
       isValid = false;
     }
 
-    // Last name validation
-    if (!lastName.trim()) {
+     if (!lastName.trim()) {
       newErrors.lastName = 'Last name is required';
       isValid = false;
     } else if (lastName.trim().length < 2) {
@@ -76,16 +72,14 @@ const RegisterScreen = () => {
     Keyboard.dismiss();
     if (validateForm()) {
       setIsSubmitting(true);
-      // Log the validated user details
-      console.log('Registration details:', {
+       console.log('Registration details:', {
         firstName: firstName.trim(),
         lastName: lastName.trim(),
         timestamp: new Date().toISOString(),
       });
-      navigation.navigate('About');
+      navigation.navigate('Dashboard');
     } else {
-      // Show the first error in an alert for accessibility
-      const firstError = errors.firstName || errors.lastName;
+       const firstError = errors.firstName || errors.lastName;
       if (firstError) {
         Alert.alert('Registration Error', firstError);
       }
@@ -115,8 +109,7 @@ const RegisterScreen = () => {
           resizeMode="cover">
           <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
-              {/* Back Button */}
-              <TouchableOpacity
+               <TouchableOpacity
                 style={styles.backButton}
                 activeOpacity={0.8}
                 onPress={handleBack}

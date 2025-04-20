@@ -14,6 +14,7 @@ const normalize = (size: number) => Math.round(size * scale);
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
+    top: 0,
   },
   backgroundImage: {
     flex: 1,
@@ -24,6 +25,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    top: 0,
   },
   backButton: {
     position: 'absolute',

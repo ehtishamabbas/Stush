@@ -7,15 +7,15 @@ import {
   TextInput,
   Image,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import styles from '../../css/ContactInfo.styles';
 
 type RootStackParamList = {
   SuccessSignup: undefined;
 };
 
-const CodeVerify = ({}) => {
+const CodeVerify = ({ }) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
@@ -44,17 +44,14 @@ const CodeVerify = ({}) => {
         />
       </TouchableOpacity>
       <View style={styles.container}>
-        {/* Title */}
-        <Text style={styles.title}>OTP Verification</Text>
+         <Text style={styles.title}>OTP Verification</Text>
         <Text style={styles.title}>Verification</Text>
 
-        {/* Instruction */}
-        <Text style={styles.instruction}>
+         <Text style={styles.instruction}>
           Please enter 6-digit code we have sent you at +1234567890{' '}
         </Text>
 
-        {/* Code input boxes */}
-        <View style={styles.codeContainer}>
+         <View style={styles.codeContainer}>
           <TextInput
             style={[styles.codeBox, styles.filledCodeBox]}
             maxLength={1}
@@ -82,15 +79,12 @@ const CodeVerify = ({}) => {
           />
         </View>
 
-        {/* Resend timer */}
-        <View style={styles.resendButton}>
+         <View style={styles.resendButton}>
           <Text style={styles.resendText}>Resend in 00:48</Text>
         </View>
 
-        {/* Keypad container */}
-        <View style={styles.keypadContainer}>
-          {/* Row 1 */}
-          <View style={styles.keypadRow}>
+         <View style={styles.keypadContainer}>
+           <View style={styles.keypadRow}>
             <TouchableOpacity style={styles.keypadButton}>
               <Text style={styles.keypadText}>1</Text>
             </TouchableOpacity>
@@ -102,8 +96,7 @@ const CodeVerify = ({}) => {
             </TouchableOpacity>
           </View>
 
-          {/* Row 2 */}
-          <View style={styles.keypadRow}>
+           <View style={styles.keypadRow}>
             <TouchableOpacity style={styles.keypadButton}>
               <Text style={styles.keypadText}>4</Text>
             </TouchableOpacity>
@@ -115,8 +108,7 @@ const CodeVerify = ({}) => {
             </TouchableOpacity>
           </View>
 
-          {/* Row 3 */}
-          <View style={styles.keypadRow}>
+           <View style={styles.keypadRow}>
             <TouchableOpacity style={styles.keypadButton}>
               <Text style={styles.keypadText}>7</Text>
             </TouchableOpacity>
@@ -128,8 +120,7 @@ const CodeVerify = ({}) => {
             </TouchableOpacity>
           </View>
 
-          {/* Row 4 */}
-          <View style={styles.keypadRow}>
+           <View style={styles.keypadRow}>
             <TouchableOpacity style={styles.keypadButton}>
               <Text style={styles.forgotText}>Forgot?</Text>
             </TouchableOpacity>
@@ -141,8 +132,7 @@ const CodeVerify = ({}) => {
             </TouchableOpacity>
           </View>
 
-          {/* Verify button */}
-          <TouchableOpacity
+           <TouchableOpacity
             style={styles.verifyButton}
             onPress={handleVerifyOTP}>
             <Text style={styles.verifyText}>Verify OTP</Text>

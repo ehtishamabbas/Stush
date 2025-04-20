@@ -1,5 +1,4 @@
-// src/screens/auth/EmailInputScreen.tsx
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -25,8 +24,7 @@ const EmailInputScreen = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigation: any = useNavigation();
 
-  // Clear errors when user starts typing
-  const clearError = () => {
+   const clearError = () => {
     if (errors.email) {
       setErrors({ ...errors, email: '' });
     }
@@ -36,13 +34,11 @@ const EmailInputScreen = () => {
     let isValid = true;
     const newErrors = { email: '' };
 
-    // Email validation
-    if (!email.trim()) {
+     if (!email.trim()) {
       newErrors.email = 'Email address is required';
       isValid = false;
     } else {
-      // Basic email format validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email.trim())) {
         newErrors.email = 'Please enter a valid email address';
         isValid = false;
@@ -57,20 +53,17 @@ const EmailInputScreen = () => {
     Keyboard.dismiss();
     if (validateForm()) {
       setIsSubmitting(true);
-      // Log the validated email
-      console.log('Email details:', {
+       console.log('Email details:', {
         email: email.trim(),
         timestamp: new Date().toISOString(),
       });
       
-      // Navigate to VerifyEmail screen
-      setTimeout(() => {
+       setTimeout(() => {
         setIsSubmitting(false);
         navigation.navigate('VerifyEmail'); 
       }, 500);
     } else {
-      // Show the error in an alert for accessibility
-      if (errors.email) {
+       if (errors.email) {
         Alert.alert('Input Error', errors.email);
       }
       setIsSubmitting(false);
@@ -99,8 +92,7 @@ const EmailInputScreen = () => {
           resizeMode="cover">
           <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
-              {/* Back Button */}
-              <TouchableOpacity
+               <TouchableOpacity
                 style={styles.backButton}
                 activeOpacity={0.8}
                 onPress={handleBack}

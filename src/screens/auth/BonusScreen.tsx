@@ -17,7 +17,7 @@ interface ReferFriendScreenProps {
 const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
   const handleNext = () => {
     // Navigate to next screen
-    navigation.navigate('NextScreen'); // Replace with your actual next screen
+    navigation.navigate('WelcomeUser');
   };
 
   const handleBack = () => {
@@ -68,7 +68,7 @@ const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
                 {/* Left border line */}
                 <View
                   style={{
-                    width: 20,
+                    width: 5,
                     alignItems: 'flex-end',
                   }}>
                   <View
@@ -120,7 +120,7 @@ const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
                 {/* Right border line */}
                 <View
                   style={{
-                    width: 20,
+                    width: 5,
                     alignItems: 'flex-start',
                   }}>
                   <View
@@ -135,11 +135,16 @@ const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
                 </View>
               </View>
 
-              <View style={styles.buttonContainer}>
-                <TouchableOpacity onPress={handleNext}>
+              <TouchableOpacity 
+                style={styles.buttonContainer}
+                onPress={handleNext}
+                activeOpacity={0.8}
+                accessibilityLabel="Go to Welcome screen"
+                accessibilityRole="button">
+                <View>
                   <Text style={styles.nextButtonText}>Next</Text>
-                </TouchableOpacity>
-              </View>
+                </View>
+              </TouchableOpacity>
             </View>
           </View>
         </SafeAreaView>
