@@ -51,13 +51,16 @@ const loginScreenStyles = StyleSheet.create({
     paddingBottom: normalize(20),
     height: '100%',
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.15)',
+    borderLeftWidth: 1,
+    borderTopColor: 'rgba(255, 255, 255, 0.04)',
+    borderLeftColor: 'rgba(255, 255, 255, 0.12)',
     shadowColor: '#000000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.16,
     shadowRadius: 8,
     elevation: 5,
   },
+  
   heading: {
     fontFamily: 'Aquire',
     fontSize: normalize(32),

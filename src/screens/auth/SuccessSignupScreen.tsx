@@ -17,8 +17,7 @@ interface SuccessSignupProps {
 const SuccessSignup: React.FC<SuccessSignupProps> = ({navigation}) => {
   const handleNext = () => {
     // Navigate to the CreatePassword screen
-    // Use the exact name as registered in your navigation stack
-    navigation.navigate('CreatePassword'); // Changed from 'CreatePasswordScreen'
+    navigation.navigate('CreatePassword');
   };
 
   return (
@@ -29,11 +28,12 @@ const SuccessSignup: React.FC<SuccessSignupProps> = ({navigation}) => {
         barStyle="light-content"
       />
       <ImageBackground
-        source={require('../../../assets/images/background.png')}
+        source={require('../../../assets/images/backgrounds.png')}
         style={styles.backgroundImage}
         resizeMode="cover">
         <SafeAreaView style={styles.safeArea}>
           <View style={styles.container}>
+            {/* Logo Container */}
             <View style={styles.logoContainer}>
               <Image
                 source={require('../../../assets/images/stushlogo.png')}
@@ -42,33 +42,83 @@ const SuccessSignup: React.FC<SuccessSignupProps> = ({navigation}) => {
                 resizeMode="contain"
               />
             </View>
-
+            
+            {/* Content Container */}
             <View style={styles.contentContainer}>
-              <Text style={styles.heading}>SUCCESS!</Text>
+              {/* Content with subtle border lines */}
+              <View style={{
+                width: '100%',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'stretch',
+              }}>
+                {/* Left border line */}
+                <View style={{
+                  width: 20,
+                  alignItems: 'flex-end',
+                }}>
+                  <View style={{
+                    width: 1,
+                    height: '70%',
+                    backgroundColor: '#FFFFFF',
+                    opacity: 0.13,
+                    marginTop: 40,
+                  }} />
+                </View>
+                
+                {/* Main content */}
+                <View style={{
+                  flex: 1,
+                  alignItems: 'center',
+                  paddingHorizontal: 10,
+                  maxWidth: '95%',
+                }}>
+                  <Text style={styles.heading}>SUCCESS!</Text>
 
-              <Text style={styles.subText}>
-                Your phone has been verified.{'\n'}
-                Your Stush Pay account is now secure{'\n'}
-                and ready to use.
-              </Text>
+                  <Text style={styles.subText}>
+                    Your phone has been verified.{'\n'}
+                    Your Stush Pay account is now secure{'\n'}
+                    and ready to use.
+                  </Text>
 
-              <View style={styles.imageContainer}>
-                <Image
-                  source={require('../../../assets/images/wallet-success.png')}
-                  style={styles.walletImage}
-                  accessibilityLabel="Success Image"
-                />
-              </View>
+                  <View style={styles.imageContainer}>
+                    <Image
+                      source={require('../../../assets/images/wallet-success.png')}
+                      style={styles.walletImage}
+                      accessibilityLabel="Success Image"
+                    />
+                  </View>
 
-              <Text style={styles.resendText}>
-                Resend Verification if Needed
-              </Text>
-
-              <View style={styles.whatsNextContainer}>
-                <Text style={styles.whatsNextHeading}>What's Next?</Text>
-                <Text style={styles.credentialsText}>
-                  Create Login Credentials
-                </Text>
+                  <Text style={styles.resendText}>
+                    Resend Verification if Needed
+                  </Text>
+                  
+                  {/* What's Next section */}
+                  <View style={{
+                    marginTop: '40%',
+                    width: '100%',
+                    alignItems: 'center',
+                  }}>
+                    <Text style={styles.whatsNextHeading}>What's Next?</Text>
+                    <Text style={styles.credentialsText}>
+                      Create Login Credentials
+                    </Text>
+                  </View>
+                </View>
+                
+                {/* Right border line */}
+                <View style={{
+                  width: 20,
+                  alignItems: 'flex-start',
+                }}>
+                  <View style={{
+                    width: 1,
+                    height: '70%',
+                    backgroundColor: '#FFFFFF',
+                    opacity: 0.13,
+                    marginTop: 40,
+                  }} />
+                </View>
               </View>
 
               <View style={styles.buttonContainer}>

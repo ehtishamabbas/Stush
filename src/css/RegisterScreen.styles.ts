@@ -1,7 +1,7 @@
 // src/css/RegisterScreen.styles.ts
-import { StyleSheet, Dimensions, Platform } from 'react-native';
+import {StyleSheet, Dimensions, Platform} from 'react-native';
 
-const { height } = Dimensions.get('window');
+const {height} = Dimensions.get('window');
 
 const registerScreenStyles = StyleSheet.create({
   backgroundImage: {
@@ -44,29 +44,32 @@ const registerScreenStyles = StyleSheet.create({
     height: 45, // Exact height from Figma
     resizeMode: 'contain',
   },
+
   formContainer: {
-    marginTop: height * 0.15, // Positioned about 15% down from the logo
-    paddingHorizontal: 16,
+    marginTop: height * 0.15, // 15% down from the top
+    height: height * 0.85, // fill the rest of the screen
+    paddingHorizontal: 36,
     backgroundColor: 'rgba(9, 21, 34, 0.16)',
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
       height: 4,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 16,
+    shadowOpacity: 0.115,
+    shadowRadius: 1,
     elevation: 4,
     paddingTop: 30,
     borderTopRightRadius: 30,
     borderTopLeftRadius: 30,
+    borderLeftWidth: 1,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.15)',
+    borderTopColor: 'rgba(255, 255, 255, 0.06)',
+    borderLeftColor: 'rgba(255, 255, 255, 0.12)',
   },
   formSubContainer: {
-    width: '90%',
-    marginHorizontal: 'auto',
-    alignSelf: 'center', // Added to center the container
+    elevation: 0,
   },
+
   heading: {
     fontSize: 24,
     fontFamily: 'Aquire',
@@ -107,7 +110,7 @@ const registerScreenStyles = StyleSheet.create({
     alignItems: 'center',
     marginTop: height * 0.15, // Adjusted spacing
     shadowColor: '#2E5CFF',
-    shadowOffset: { width: 0, height: 4 },
+    shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 5,

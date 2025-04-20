@@ -37,8 +37,6 @@ const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
         resizeMode="cover">
         <SafeAreaView style={styles.safeArea}>
           <View style={styles.container}>
-            {/* Header */}
-            <View style={styles.header}>
             <TouchableOpacity
               style={styles.backButton}
               activeOpacity={0.8}
@@ -58,35 +56,90 @@ const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
                 resizeMode="contain"
               />
             </View>
-            </View>
 
-            {/* Content */}
             <View style={styles.contentContainer}>
-              <Text style={styles.title}>REFER A FRIEND AND GET PAID</Text>
+              <View
+                style={{
+                  width: '100%',
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'stretch',
+                }}>
+                {/* Left border line */}
+                <View
+                  style={{
+                    width: 20,
+                    alignItems: 'flex-end',
+                  }}>
+                  <View
+                    style={{
+                      width: 1,
+                      height: '70%',
+                      backgroundColor: '#FFFFFF',
+                      opacity: 0.13,
+                      marginTop: 40,
+                    }}
+                  />
+                </View>
 
-              <View style={styles.imageContainer}>
-                <Image
-                  source={require('../../../assets/images/Cashcoins.png')}
-                  style={styles.moneyImage}
-                  accessibilityLabel="Money Stack"
-                />
+                {/* Main content */}
+                <View
+                  style={{
+                    flex: 1,
+                    alignItems: 'center',
+                    paddingHorizontal: 10,
+                    maxWidth: '95%',
+                  }}>
+                  <Text style={styles.title}>REFER A FRIEND AND GET PAID</Text>
+
+                  <View style={styles.imageContainer}>
+                    <Image
+                      source={require('../../../assets/images/Cashcoins.png')}
+                      style={styles.moneyImage}
+                      accessibilityLabel="Money Stack"
+                    />
+                  </View>
+
+                  <Text style={styles.earnText}>EARN UP TO</Text>
+                  <Text style={styles.amountText}>$7,500</Text>
+
+                  <View style={styles.bulletContainer}>
+                    <View style={styles.bulletPoint}>
+                      <Text style={styles.bulletText}>
+                        • Earn Bonuses for Referrals
+                      </Text>
+                    </View>
+                    <View style={styles.bulletPoint}>
+                      <Text style={styles.bulletText}>
+                        • Get $5 minimum for each referral
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+
+                {/* Right border line */}
+                <View
+                  style={{
+                    width: 20,
+                    alignItems: 'flex-start',
+                  }}>
+                  <View
+                    style={{
+                      width: 1,
+                      height: '70%',
+                      backgroundColor: '#FFFFFF',
+                      opacity: 0.13,
+                      marginTop: 40,
+                    }}
+                  />
+                </View>
               </View>
 
-              <Text style={styles.earnText}>EARN UP TO</Text>
-              <Text style={styles.amountText}>$7,500</Text>
-
-              <View style={styles.bulletContainer}>
-                <View style={styles.bulletPoint}>
-                  <Text style={styles.bulletText}>• Earn Bonuses for Referrals</Text>
-                </View>
-                <View style={styles.bulletPoint}>
-                  <Text style={styles.bulletText}>• Get $5 minimum for each referral</Text>
-                </View>
+              <View style={styles.buttonContainer}>
+                <TouchableOpacity onPress={handleNext}>
+                  <Text style={styles.nextButtonText}>Next</Text>
+                </TouchableOpacity>
               </View>
-
-              <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
-                <Text style={styles.nextButtonText}>Next</Text>
-              </TouchableOpacity>
             </View>
           </View>
         </SafeAreaView>

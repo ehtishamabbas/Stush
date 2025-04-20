@@ -28,8 +28,22 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 60 : 40, 
+    justifyContent: 'center',
+    height: '25%', // Changed from 20% to 10%
     width: '100%',
+    backgroundColor: 'rgba(9, 21, 34, 0.42)',
+    borderRadius: normalize(20),
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 10,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 8,
+    position: 'absolute', // Added position absolute
+    top: 0, // Position at the top of the screen
+    paddingTop: Platform.OS === 'ios' ? normalize(30) : normalize(10),
   },
   logoImage: {
     width: 140,
@@ -41,17 +55,17 @@ const styles = StyleSheet.create({
     borderRightWidth: 0.5,
     borderColor:
       'linear-gradient(90deg, rgba(153, 153, 153, 0.2) 0%, rgba(255, 255, 255, 0.2) 49%, rgba(153, 153, 153, 0) 100%)',
-    backgroundColor: 'rgba(1, 5, 10, 0.16)',
-  },
+   },
   contentContainerr: {
-    top: '10%',
+    backgroundColor: 'rgba(1, 5, 10, 0.16)',
+
+    top: '20%',
     width: '100%',
     height: '80%',
     alignItems: 'center',
     paddingHorizontal: normalize(24),
     paddingTop: normalize(40),
-    backgroundColor: 'rgba(1, 1, 19, 0.16)',
-  },
+   },
 
   heading: {
     fontSize: normalize(28),
@@ -87,8 +101,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   walletImagee: {
-    width: normalize(290),
-    height: normalize(220),
+    width: normalize(350),
+    height: normalize(310),
     resizeMode: 'contain',
   },
   resendText: {

@@ -28,30 +28,37 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 60 : 40,
+    justifyContent: 'center',
+    height: '25%', // Changed from 20% to 10%
     width: '100%',
+    backgroundColor: 'rgba(9, 21, 34, 0.55)',
+    borderRadius: normalize(20),
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 10,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 8,
+    position: 'absolute', // Added position absolute
+    top: 0, // Position at the top of the screen
+    paddingTop: Platform.OS === 'ios' ? normalize(30) : normalize(10),
   },
   logoImage: {
-    width: 140,
-    height: 45,
+    width: normalize(140),
+    height: normalize(45),
     resizeMode: 'contain',
   },
   contentContainer: {
-    position: 'absolute',
-    top: '20%',
+    height: '75%', // Takes 70% of screen height
     width: '100%',
-    height: '80%',
-     alignItems: 'center',
+    alignItems: 'center',
     paddingHorizontal: normalize(24),
-    paddingTop: normalize(40),
-    shadowColor: 'rgba(32, 90, 170, 0.85)',
-    shadowOffset: {
-      width: 0,
-      height: -4,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    paddingTop: normalize(30),
+    borderTopLeftRadius: normalize(30),
+    borderTopRightRadius: normalize(30),
+    marginTop: '50%', // Changed from 10% to 20% (10% logo + 10% gap)
   },
   heading: {
     fontSize: normalize(28),
@@ -72,7 +79,7 @@ const styles = StyleSheet.create({
     marginHorizontal: normalize(20),
   },
   imageContainer: {
-    marginTop: normalize(40),
+    marginTop: normalize(30),
     marginBottom: normalize(20),
     alignItems: 'center',
   },
@@ -81,25 +88,15 @@ const styles = StyleSheet.create({
     height: normalize(120),
     resizeMode: 'contain',
   },
-  imageContainerr: {
-    marginTop: normalize(40),
-    marginBottom: normalize(20),
-    alignItems: 'center',
-  },
-  walletImagee: {
-    width: normalize(290),
-    height: normalize(220),
-    resizeMode: 'contain',
-  },
   resendText: {
     textAlign: 'center',
-    fontSize: normalize(12),
+    fontSize: normalize(14),
     color: '#AAAAAA',
-    marginTop: normalize(10),
+    marginTop: normalize(40),
     fontWeight: '700',
   },
   whatsNextContainer: {
-    marginTop: '42%',
+    marginTop: normalize(100),
     width: '100%',
     alignItems: 'center',
   },
@@ -120,7 +117,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: normalize(20),
     marginTop: 'auto',
-    marginBottom: normalize(60),
+    marginBottom: normalize(30),
   },
   nextButton: {
     backgroundColor: '#1F75FE',

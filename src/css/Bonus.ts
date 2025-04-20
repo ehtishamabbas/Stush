@@ -39,12 +39,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     flex: 1,
   },
-  backButton: {
-    width: normalize(30),
-    height: normalize(30),
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+ 
   closeButton: {
     width: normalize(30),
     height: normalize(30),
@@ -60,7 +55,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     position: 'absolute',
-    top: '25%', // Start from 30% of the screen height
+    top: '27%', // Start from 30% of the screen height
     width: '100%',
     height: '75%', // Take up 70% of the screen height
     alignItems: 'center',
@@ -78,7 +73,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 1,
     marginBottom: normalize(40),
-    textAlign: 'center',
+    textAlign: 'left',
   },
   imageContainer: {
     alignItems: 'center',
@@ -121,14 +116,14 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: normalize(10), // Add left margin to simulate bullet point indentation
   },
-  nextButton: {
+  buttonContainer: {
     backgroundColor: '#1F75FE',
     borderRadius: normalize(25),
     height: normalize(50),
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    marginTop: normalize(50),
+    marginTop: normalize(40),
     
   },
   nextButtonText: {
@@ -142,11 +137,39 @@ const styles = StyleSheet.create({
     height: 24,
     resizeMode: 'contain',
   },
-   logoContainer: {
+ logoContainer: {
     alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 60 : 40,
+    justifyContent: 'center',
+    height: '25%', // Changed from 20% to 10%
     width: '100%',
+    backgroundColor: 'rgba(9, 21, 34, 0.42)',
+    borderRadius: normalize(20),
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 10,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 8,
+    position: 'absolute', // Added position absolute
+    top: 0, // Position at the top of the screen
+    paddingTop: Platform.OS === 'ios' ? normalize(30) : normalize(10),
   },
+  backButton: {
+    position: 'absolute',
+    top: Platform.OS === 'ios' ? 50 : 40,
+    left: 16,
+    zIndex: 10,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(0, 0, 0, 1)',
+  },
+ 
   logoImage: {
     width: 140,
     height: 45,
