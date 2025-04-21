@@ -26,8 +26,7 @@ const CreatePasswordScreen: React.FC<CreatePasswordScreenProps> = ({
   const [enableFaceID, setEnableFaceID] = useState(false);
 
   const handleNext = () => {
-    // Navigate to next screen
-    navigation.navigate('AccountSuccess'); // Replace with your actual next screen
+     navigation.navigate('AccountSuccess');  
   };
 
   const handleBack = () => {

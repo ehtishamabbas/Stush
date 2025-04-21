@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
-    backgroundColor: '#080C21', // Dark blue/black background
+    backgroundColor: '#080C21', 
   },
   container: {
     flex: 1,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     fontSize: normalize(24),
-    color: '#FFFFFF', // White color to ensure visibility
+    color: '#FFFFFF', 
     fontWeight: '600',
     textAlign: 'center',
     flex: 1,
@@ -51,13 +51,13 @@ const styles = StyleSheet.create({
     width: normalize(15),
     height: normalize(15),
     resizeMode: 'contain',
-    tintColor: '#FFFFFF', // White color
+    tintColor: '#FFFFFF',
   },
   contentContainer: {
     position: 'absolute',
-    top: '27%', // Start from 30% of the screen height
+    top: '27%', 
     width: '100%',
-    height: '75%', // Take up 70% of the screen height
+    height: '75%', 
     alignItems: 'center',
     paddingHorizontal: normalize(24),
     paddingTop: normalize(30),
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: normalize(16),
     fontWeight: '600',
-    color: '#FFFFFF', // White color to ensure visibility
+    color: '#FFFFFF', 
     textTransform: 'uppercase',
     letterSpacing: 1,
     marginBottom: normalize(40),
@@ -87,14 +87,14 @@ const styles = StyleSheet.create({
   },
   earnText: {
     fontSize: normalize(19),
-    color: '#FFFFFF', // White color to ensure visibility
+    color: '#FFFFFF', 
     marginBottom: normalize(10),
     textAlign: 'center',
   },
   amountText: {
     fontSize: normalize(36),
     fontWeight: 'bold',
-    color: '#00FF87', // Bright green
+    color: '#00FF87', 
     textAlign: 'center',
     marginBottom: normalize(40),
   },
@@ -110,10 +110,10 @@ const styles = StyleSheet.create({
     marginBottom: normalize(10),
   },
   bulletText: {
-    color: '#FFFFFF', // Red color as requested
+    color: '#FFFFFF',
     fontSize: normalize(14),
     flex: 1,
-    marginLeft: normalize(10), // Add left margin to simulate bullet point indentation
+    marginLeft: normalize(10), 
   },
   buttonContainer: {
     backgroundColor: '#1F75FE',
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     
   },
   nextButtonText: {
-    color: '#FFFFFF', // White color to ensure visibility
+    color: '#FFFFFF', 
     fontSize: normalize(16),
     fontWeight: '600',
   },
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
  logoContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: '25%', // Changed from 20% to 10%
+    height: '25%', 
     width: '100%',
     backgroundColor: 'rgba(9, 21, 34, 0.42)',
     borderRadius: normalize(20),
@@ -151,8 +151,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 6,
     elevation: 8,
-    position: 'absolute', // Added position absolute
-    top: 0, // Position at the top of the screen
+    position: 'absolute', 
+    top: 0, 
     paddingTop: Platform.OS === 'ios' ? normalize(30) : normalize(10),
   },
   backButton: {

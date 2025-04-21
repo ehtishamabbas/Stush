@@ -20,8 +20,7 @@ const About = () => {
   };
 
   const handleNext = () => {
-    // Navigate to the EmailInputScreen component
-    navigation.navigate('EmailInput');
+     navigation.navigate('EmailInput');
   };
 
   return (
@@ -33,8 +32,7 @@ const About = () => {
         resizeMode="cover">
         <SafeAreaView style={styles.safeArea}>
           <View style={styles.container}>
-            {/* Back Button */}
-            <TouchableOpacity
+             <TouchableOpacity
               style={styles.backButton}
               activeOpacity={0.8}
               onPress={handleBack}

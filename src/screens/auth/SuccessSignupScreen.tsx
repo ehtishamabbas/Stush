@@ -16,8 +16,7 @@ interface SuccessSignupProps {
 
 const SuccessSignup: React.FC<SuccessSignupProps> = ({navigation}) => {
   const handleNext = () => {
-    // Navigate to the CreatePassword screen
-    navigation.navigate('CreatePassword');
+     navigation.navigate('CreatePassword');
   };
 
   return (
@@ -33,8 +32,7 @@ const SuccessSignup: React.FC<SuccessSignupProps> = ({navigation}) => {
         resizeMode="cover">
         <SafeAreaView style={styles.safeArea}>
           <View style={styles.container}>
-            {/* Logo Container */}
-            <View style={styles.logoContainer}>
+             <View style={styles.logoContainer}>
               <Image
                 source={require('../../../assets/images/stushlogo.png')}
                 style={styles.logoImage}
@@ -43,17 +41,14 @@ const SuccessSignup: React.FC<SuccessSignupProps> = ({navigation}) => {
               />
             </View>
             
-            {/* Content Container */}
-            <View style={styles.contentContainer}>
-              {/* Content with subtle border lines */}
-              <View style={{
+             <View style={styles.contentContainer}>
+               <View style={{
                 width: '100%',
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'stretch',
               }}>
-                {/* Left border line */}
-                <View style={{
+                 <View style={{
                   width: 20,
                   alignItems: 'flex-end',
                 }}>
@@ -66,8 +61,7 @@ const SuccessSignup: React.FC<SuccessSignupProps> = ({navigation}) => {
                   }} />
                 </View>
                 
-                {/* Main content */}
-                <View style={{
+                 <View style={{
                   flex: 1,
                   alignItems: 'center',
                   paddingHorizontal: 10,
@@ -93,8 +87,7 @@ const SuccessSignup: React.FC<SuccessSignupProps> = ({navigation}) => {
                     Resend Verification if Needed
                   </Text>
                   
-                  {/* What's Next section */}
-                  <View style={{
+                   <View style={{
                     marginTop: '40%',
                     width: '100%',
                     alignItems: 'center',
@@ -106,8 +99,7 @@ const SuccessSignup: React.FC<SuccessSignupProps> = ({navigation}) => {
                   </View>
                 </View>
                 
-                {/* Right border line */}
-                <View style={{
+                 <View style={{
                   width: 20,
                   alignItems: 'flex-start',
                 }}>

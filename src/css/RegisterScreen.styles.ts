@@ -1,5 +1,4 @@
-// src/css/RegisterScreen.styles.ts
-import {StyleSheet, Dimensions, Platform} from 'react-native';
+ import {StyleSheet, Dimensions, Platform} from 'react-native';
 
 const {height} = Dimensions.get('window');
 
@@ -37,17 +36,17 @@ const registerScreenStyles = StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 60 : 80, // Adjusted based on Figma spacing
+    marginTop: Platform.OS === 'ios' ? 60 : 80, 
   },
   logoImage: {
-    width: 140, // Exact width from Figma
-    height: 45, // Exact height from Figma
+    width: 140, 
+    height: 45, 
     resizeMode: 'contain',
   },
 
   formContainer: {
-    marginTop: height * 0.15, // 15% down from the top
-    height: height * 0.85, // fill the rest of the screen
+    marginTop: height * 0.15, 
+    height: height * 0.85, 
     paddingHorizontal: 36,
     backgroundColor: 'rgba(9, 21, 34, 0.16)',
     shadowColor: '#000000',
@@ -84,16 +83,16 @@ const registerScreenStyles = StyleSheet.create({
   },
   input: {
     height: 56,
-    backgroundColor: '#091522', // Dark semi-transparent as per Figma
+    backgroundColor: '#091522', 
     borderRadius: 44,
     paddingHorizontal: 16,
     color: '#FFFFFF',
     fontSize: 16,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.15)', // Subtle border
+    borderColor: 'rgba(255, 255, 255, 0.15)', 
   },
   inputError: {
-    borderColor: '#FF3B30', // Red color for error
+    borderColor: '#FF3B30', 
     borderWidth: 1,
   },
   errorText: {
@@ -108,7 +107,7 @@ const registerScreenStyles = StyleSheet.create({
     borderRadius: 44,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: height * 0.15, // Adjusted spacing
+    marginTop: height * 0.15, 
     shadowColor: '#2E5CFF',
     shadowOffset: {width: 0, height: 4},
     shadowOpacity: 0.3,
@@ -116,7 +115,7 @@ const registerScreenStyles = StyleSheet.create({
     elevation: 5,
   },
   nextButtonDisabled: {
-    backgroundColor: 'rgba(31, 117, 254, 0.6)', // Lighter blue for disabled state
+    backgroundColor: 'rgba(31, 117, 254, 0.6)', 
   },
   nextButtonText: {
     color: '#FFFFFF',
@@ -127,10 +126,10 @@ const registerScreenStyles = StyleSheet.create({
   signInContainer: {
     marginTop: height * 0.04,
     alignItems: 'center',
-    marginBottom: 30, // Added bottom margin for better spacing
+    marginBottom: 30, 
   },
   signInText: {
-    color: 'rgba(255, 255, 255, 1)', // Slightly transparent white
+    color: 'rgba(255, 255, 255, 1)', 
     fontSize: 14,
   },
   signInLink: {

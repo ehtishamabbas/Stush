@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: '25%', // Changed from 20% to 10%
+    height: '25%', 
     width: '100%',
     backgroundColor: 'rgba(9, 21, 34, 0.55)',
     borderRadius: normalize(20),
@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 6,
     elevation: 8,
-    position: 'absolute', // Added position absolute
-    top: 0, // Position at the top of the screen
+    position: 'absolute',
+    top: 0, 
     paddingTop: Platform.OS === 'ios' ? normalize(30) : normalize(10),
   },
   logoImage: {
@@ -51,14 +51,14 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   contentContainer: {
-    height: '75%', // Takes 70% of screen height
+    height: '75%', 
     width: '100%',
     alignItems: 'center',
     paddingHorizontal: normalize(24),
     paddingTop: normalize(30),
     borderTopLeftRadius: normalize(30),
     borderTopRightRadius: normalize(30),
-    marginTop: '50%', // Changed from 10% to 20% (10% logo + 10% gap)
+    marginTop: '50%', 
   },
   heading: {
     fontSize: normalize(28),

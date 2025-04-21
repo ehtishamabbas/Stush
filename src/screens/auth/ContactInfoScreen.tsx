@@ -20,8 +20,7 @@ const ContactInfoScreen = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   const handleVerify = () => {
-    // Navigate to the CodeVerify screen
-    navigation.navigate('CodeVerify', { phoneNumber });
+     navigation.navigate('CodeVerify', { phoneNumber });
   };
 
   const handleBack = () => {
@@ -45,18 +44,15 @@ const ContactInfoScreen = () => {
                 style={styles.backIcon}
               />
             </TouchableOpacity>
-        {/* Title */}
-        <Text style={styles.title}>Phone</Text>
+         <Text style={styles.title}>Phone</Text>
         <Text style={styles.title}>Number</Text>
 
-        {/* Instruction */}
-        <Text style={styles.instruction}>
+         <Text style={styles.instruction}>
           Enter your phone number below. It will be used for verification and
           updates.
         </Text>
 
-        {/* Country selector and phone input */}
-        <View style={styles.phoneInputContainer}>
+         <View style={styles.phoneInputContainer}>
           <View style={styles.countrySelector}>
             <Image 
               style={styles.flagIcon} 
@@ -78,10 +74,8 @@ const ContactInfoScreen = () => {
           </View>
         </View>
 
-        {/* Keypad container */}
-        <View style={styles.keypadContainer}>
-          {/* Row 1 */}
-          <View style={styles.keypadRow}>
+         <View style={styles.keypadContainer}>
+           <View style={styles.keypadRow}>
             <TouchableOpacity style={styles.keypadButton}>
               <Text style={styles.keypadText}>1</Text>
             </TouchableOpacity>
@@ -93,8 +87,7 @@ const ContactInfoScreen = () => {
             </TouchableOpacity>
           </View>
 
-          {/* Row 2 */}
-          <View style={styles.keypadRow}>
+           <View style={styles.keypadRow}>
             <TouchableOpacity style={styles.keypadButton}>
               <Text style={styles.keypadText}>4</Text>
             </TouchableOpacity>
@@ -106,8 +99,7 @@ const ContactInfoScreen = () => {
             </TouchableOpacity>
           </View>
 
-          {/* Row 3 */}
-          <View style={styles.keypadRow}>
+           <View style={styles.keypadRow}>
             <TouchableOpacity style={styles.keypadButton}>
               <Text style={styles.keypadText}>7</Text>
             </TouchableOpacity>
@@ -119,8 +111,7 @@ const ContactInfoScreen = () => {
             </TouchableOpacity>
           </View>
 
-          {/* Row 4 */}
-          <View style={styles.keypadRow}>
+           <View style={styles.keypadRow}>
             <TouchableOpacity style={styles.keypadButton}>
               <Text style={styles.forgotText}>Forgot?</Text>
             </TouchableOpacity>
@@ -132,8 +123,7 @@ const ContactInfoScreen = () => {
             </TouchableOpacity>
           </View>
 
-          {/* Verify button */}
-          <TouchableOpacity style={styles.verifyButton} onPress={handleVerify}>
+           <TouchableOpacity style={styles.verifyButton} onPress={handleVerify}>
             <Text style={styles.verifyText}>Verify Phone Number</Text>
           </TouchableOpacity>
         </View>

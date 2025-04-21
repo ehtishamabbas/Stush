@@ -10,7 +10,7 @@ const splashScreenStyles = (width: number, height: number) => {
     backgroundImage: {
       width: '100%',
       height: '100%',
-      backgroundColor: '#091522', // Dark blue background as fallback
+      backgroundColor: '#091522', 
     },
     container: {
       flex: 1,

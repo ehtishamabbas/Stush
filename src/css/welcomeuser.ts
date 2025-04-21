@@ -62,7 +62,6 @@ const welcomeUserStyles = (width: number, height: number) => {
       letterSpacing: 0.2,
       marginTop: '20%',
     },
-    // Circular progress element styles - needs to be added to the image
     circularTrack: {
       position: 'absolute',
       width: circleSize,

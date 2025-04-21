@@ -1,10 +1,8 @@
 import {StyleSheet, Dimensions, Platform} from 'react-native';
 
-// Get screen dimensions for responsive design
-const {width, height} = Dimensions.get('window');
+ const {width, height} = Dimensions.get('window');
 
-// Calculate scale based on screen size (using iPhone 8 as baseline)
-const baseWidth = 375;
+ const baseWidth = 375;
 const baseHeight = 667;
 const horizontalScale = (size: number): number => (width / baseWidth) * size;
 const verticalScale = (size: number): number => (height / baseHeight) * size;
@@ -16,7 +14,7 @@ export default StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
-    backgroundColor: '#050B18', // Fallback dark blue color
+    backgroundColor: '#050B18', 
   },
   container: {
     flex: 1,

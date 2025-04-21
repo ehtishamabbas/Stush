@@ -16,8 +16,7 @@ interface ReferFriendScreenProps {
 
 const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
   const handleNext = () => {
-    // Navigate to next screen
-    navigation.navigate('WelcomeUser');
+     navigation.navigate('WelcomeUser');
   };
 
   const handleBack = () => {
@@ -65,8 +64,7 @@ const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
                   justifyContent: 'center',
                   alignItems: 'stretch',
                 }}>
-                {/* Left border line */}
-                <View
+                 <View
                   style={{
                     width: 5,
                     alignItems: 'flex-end',
@@ -82,8 +80,7 @@ const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
                   />
                 </View>
 
-                {/* Main content */}
-                <View
+                 <View
                   style={{
                     flex: 1,
                     alignItems: 'center',
@@ -117,8 +114,7 @@ const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
                   </View>
                 </View>
 
-                {/* Right border line */}
-                <View
+                 <View
                   style={{
                     width: 5,
                     alignItems: 'flex-start',

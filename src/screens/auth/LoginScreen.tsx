@@ -22,60 +22,48 @@ import styles from '../../css/LoginScreen.styles';
 import {useNavigation} from '@react-navigation/native';
 import SocialIcons from '../../components/SocialMediaIcons';
 
-// Email validation regex
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const LoginScreen = () => {
   const navigation: any = useNavigation();
 
-  // Form state
-  const [email, setEmail] = useState('');
+   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isCheckingSession, setIsCheckingSession] = useState(true);
 
-  // Error states
-  const [emailError, setEmailError] = useState('');
+   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  // References for input focus
-  const passwordRef = useRef<RNTextInput>(null);
+   const passwordRef = useRef<RNTextInput>(null);
 
-  // Check for existing session on component mount
-  useEffect(() => {
+   useEffect(() => {
     checkExistingSession();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+   }, []);
 
   const checkExistingSession = async () => {
     try {
-      // Check if Keychain is available
-      if (!Keychain || typeof Keychain.getGenericPassword !== 'function') {
+       if (!Keychain || typeof Keychain.getGenericPassword !== 'function') {
         console.error('Keychain is not properly initialized');
         setIsCheckingSession(false);
         return;
       }
 
-      // Retrieve credentials from secure storage
-      const credentials = await Keychain.getGenericPassword();
+       const credentials = await Keychain.getGenericPassword();
 
       if (credentials) {
-        // Parse the stored data
-        const userData = JSON.parse(credentials.password);
+         const userData = JSON.parse(credentials.password);
 
-        // Check if session is still valid (within 24 hours)
-        const sessionTime = new Date(userData.timestamp);
+         const sessionTime = new Date(userData.timestamp);
         const currentTime = new Date();
         const timeDifference = currentTime.getTime() - sessionTime.getTime();
         const hoursDifference = timeDifference / (1000 * 60 * 60);
 
         if (hoursDifference < 24) {
-          // Session is still valid, navigate to Bank Account Selection
-          navigation.replace('BankAccountSelection');
+           navigation.replace('BankAccountSelection');
           return;
         } else {
-          // Session expired, clear it
-          await Keychain.resetGenericPassword();
+           await Keychain.resetGenericPassword();
         }
       }
     } catch (error) {
@@ -85,8 +73,7 @@ const LoginScreen = () => {
     }
   };
 
-  // Save user session
-  const saveUserSession = async (userEmail: string, userPassword: string) => {
+   const saveUserSession = async (userEmail: string, userPassword: string) => {
     try {
       const userData = {
         email: userEmail,
@@ -94,8 +81,7 @@ const LoginScreen = () => {
         timestamp: new Date().toISOString(),
       };
 
-      // Store user data securely
-      await Keychain.setGenericPassword(
+       await Keychain.setGenericPassword(
         'user_session',
         JSON.stringify(userData),
       );
@@ -107,8 +93,7 @@ const LoginScreen = () => {
     }
   };
 
-  // Validate email
-  const validateEmail = () => {
+   const validateEmail = () => {
     if (!email.trim()) {
       setEmailError('Email is required');
       return false;
@@ -120,8 +105,7 @@ const LoginScreen = () => {
     return true;
   };
 
-  // Validate password
-  const validatePassword = () => {
+   const validatePassword = () => {
     if (!password.trim()) {
       setPasswordError('Password is required');
       return false;
@@ -133,19 +117,14 @@ const LoginScreen = () => {
     return true;
   };
 
-  // Handle forgot password
-  const handleForgotPassword = () => {
-    // Navigate to forgot password screen
-    navigation.navigate('ForgotPassword');
+   const handleForgotPassword = () => {
+     navigation.navigate('ForgotPassword');
   };
 
-  // Handle sign in
-  const handleSignIn = async () => {
-    // Dismiss keyboard
-    Keyboard.dismiss();
+   const handleSignIn = async () => {
+     Keyboard.dismiss();
 
-    // Validate form
-    const isEmailValid = validateEmail();
+     const isEmailValid = validateEmail();
     const isPasswordValid = validatePassword();
 
     if (!isEmailValid || !isPasswordValid) {
@@ -155,31 +134,23 @@ const LoginScreen = () => {
     try {
       setIsLoading(true);
 
-      // Simulate API call with timeout
-      await new Promise(resolve => setTimeout(resolve, 1500));
+       await new Promise(resolve => setTimeout(resolve, 1500));
 
-      // Log credentials (for demo purposes only)
-      console.log('Login Credentials:', {
+       console.log('Login Credentials:', {
         email,
         password,
         timestamp: new Date().toISOString(),
       });
 
-      // In a real app, you would make an API call here
-      // const response = await authService.login(email, password);
-
-      // Save user session for 24 hours
+       
       await saveUserSession(email, password);
 
-      // Reset form
-      setEmail('');
+       setEmail('');
       setPassword('');
 
-      // Navigate to home screen or dashboard
-      navigation.navigate('BankAccountSelection');
+       navigation.navigate('BankAccountSelection');
     } catch (error) {
-      // Handle errors
-      Alert.alert(
+       Alert.alert(
         'Login Failed',
         'Invalid email or password. Please try again.',
         [{text: 'OK'}],
@@ -198,8 +169,7 @@ const LoginScreen = () => {
     setPassword('');
   };
 
-  // Show loading indicator while checking session
-  if (isCheckingSession) {
+   if (isCheckingSession) {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#FFFFFF" />
@@ -229,8 +199,7 @@ const LoginScreen = () => {
                 keyboardShouldPersistTaps="handled"
                 showsVerticalScrollIndicator={false}>
                 <View style={styles.container}>
-                  {/* Logo */}
-                  <View style={styles.logoContainer}>
+                   <View style={styles.logoContainer}>
                     <Image
                       source={require('../../../assets/images/stushlogo.png')}
                       style={styles.logoImage}
@@ -238,13 +207,11 @@ const LoginScreen = () => {
                     />
                   </View>
 
-                  {/* Login Form */}
-                  <View style={styles.formOuterContainer}>
+                   <View style={styles.formOuterContainer}>
                     <View style={styles.formContainer}>
                       <Text style={styles.heading}>SIGN IN</Text>
 
-                      {/* Email Input */}
-                      <TextInput
+                       <TextInput
                         placeholder="Email"
                         placeholderTextColor="rgba(255, 255, 255, 0.5)"
                         style={[
@@ -264,8 +231,7 @@ const LoginScreen = () => {
                         <Text style={styles.errorText}>{emailError}</Text>
                       ) : null}
 
-                      {/* Password Input */}
-                      <TextInput
+                       <TextInput
                         ref={passwordRef}
                         placeholder="Password"
                         placeholderTextColor="rgba(255, 255, 255, 0.5)"
@@ -284,15 +250,13 @@ const LoginScreen = () => {
                         <Text style={styles.errorText}>{passwordError}</Text>
                       ) : null}
 
-                      {/* Forgot Password */}
-                      <TouchableOpacity
+                       <TouchableOpacity
                         style={styles.forgotPasswordContainer}
                         onPress={handleForgotPassword}>
                         <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
                       </TouchableOpacity>
 
-                      {/* Sign In Button */}
-                      <TouchableOpacity
+                       <TouchableOpacity
                         style={styles.signInButton}
                         onPress={handleSignIn}
                         disabled={isLoading}>
@@ -303,20 +267,17 @@ const LoginScreen = () => {
                         )}
                       </TouchableOpacity>
 
-                      {/* Divider */}
-                      <View style={styles.dividerContainer}>
+                       <View style={styles.dividerContainer}>
                         <View style={styles.divider} />
                         <Text style={styles.dividerText}>or sign in using</Text>
                         <View style={styles.divider} />
                       </View>
 
-                      {/* Social Login */}
-                      <View style={styles.socialContainer}>
+                       <View style={styles.socialContainer}>
                         <SocialIcons />
                       </View>
 
-                      {/* Sign Up Link */}
-                      <View style={styles.signUpContainer}>
+                       <View style={styles.signUpContainer}>
                         <Text style={styles.signUpText}>
                           Don't have an account?{' '}
                         </Text>

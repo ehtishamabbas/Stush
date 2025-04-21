@@ -14,28 +14,24 @@ const WelcomeUser: React.FC<WelcomeUser> = ({ navigation }) => {
     const rotateAnim = useRef(new Animated.Value(0)).current;
 
     const { width, height } = useWindowDimensions();
-    // Dynamically import styles with current dimensions
-    const styles = require('../../css/welcomeuser').default(width, height);
+     const styles = require('../../css/welcomeuser').default(width, height);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // Fade-in animation
-        Animated.timing(fadeAnim, {
+         Animated.timing(fadeAnim, {
             toValue: 1,
             duration: 1000,
             useNativeDriver: true,
         }).start();
 
-        // Rotation animation for the circle
-        Animated.timing(rotateAnim, {
+         Animated.timing(rotateAnim, {
             toValue: 1,
             duration: 15000,
             useNativeDriver: true,
         }).start();
     }, [navigation, dispatch, fadeAnim, rotateAnim]);
 
-    // Calculate rotation for the circle
-    const spin = rotateAnim.interpolate({
+     const spin = rotateAnim.interpolate({
         inputRange: [0, 1],
         outputRange: ['0deg', '360deg']
     });
@@ -51,19 +47,16 @@ const WelcomeUser: React.FC<WelcomeUser> = ({ navigation }) => {
 
                     <SafeAreaView style={styles.container}>
                         <Animated.View style={[styles.contentContainer, { opacity: fadeAnim }]}>
-                            {/* Circular track (static) */}
-                            <View style={styles.circularTrack} />
+                             <View style={styles.circularTrack} />
                             
-                            {/* Animated circular progress */}
-                            <Animated.View 
+                             <Animated.View 
                                 style={[
                                     styles.circularProgress, 
                                     { transform: [{ rotateZ: spin }] }
                                 ]} 
                             />
                             
-                            {/* Logo in center */}
-                            <Text style={{
+                             <Text style={{
                                 color: 'white',
                                 fontSize: Math.min(width, height) * 0.12,
                                 fontWeight: '600',
@@ -73,8 +66,7 @@ const WelcomeUser: React.FC<WelcomeUser> = ({ navigation }) => {
                         </Animated.View>
                     </SafeAreaView>
 
-                    {/* Feature list */}
-                    <View style={styles.featureList}>
+                     <View style={styles.featureList}>
                         <View style={styles.featureItem}>
                             <FontAwesome5
                                 name="chevron-right"

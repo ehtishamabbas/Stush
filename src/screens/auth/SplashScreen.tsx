@@ -12,13 +12,11 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const { width, height } = useWindowDimensions();
-  // Dynamically import styles with current dimensions
-  const styles = require('../../css/SplashScreen.styles').default(width, height);
+   const styles = require('../../css/SplashScreen.styles').default(width, height);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Fade-in animation
-    Animated.timing(fadeAnim, {
+     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 1000,
       useNativeDriver: true,

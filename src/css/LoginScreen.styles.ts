@@ -79,7 +79,7 @@ const loginScreenStyles = StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0.15)',
   },
   inputError: {
-    borderColor: 'rgba(255, 59, 48, 0.7)', // Red border for errors
+    borderColor: 'rgba(255, 59, 48, 0.7)', 
   },
   errorText: {
     color: 'rgba(255, 59, 48, 0.9)',

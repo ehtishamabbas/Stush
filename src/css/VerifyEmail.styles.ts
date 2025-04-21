@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
-    backgroundColor: '#091522', // Dark background that matches the image
+    backgroundColor: '#091522',
   },
   container: {
     flex: 1,
