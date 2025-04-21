@@ -16,8 +16,32 @@ import BankAccountSelectionScreen from '../screens/LoggedInLayouts/BankAccountSe
 import SuccessScreen from '../screens/LoggedInLayouts/SuccessScreen';
 import About from '../screens/auth/AboutScreen';
 import Dashboard from '../screens/LoggedInLayouts/Dashboard';
+import WelcomeStush from '../screens/LoggedInLayouts/WelcomeStush';
+import Wedifferent from '../screens/LoggedInLayouts/WeDifferent';
 
-const Stack = createStackNavigator();
+
+ export type RootStackParamList = {
+  Splash: undefined;
+  Login: undefined;
+  Register: undefined;
+  About: undefined;
+  EmailInput: undefined;
+  VerifyEmail: undefined;
+  ContactInfo: undefined;
+  CodeVerify: undefined;
+  SuccessSignup: undefined;
+  CreatePassword: undefined;
+  AccountSuccess: undefined;
+  BonusScreen: undefined;
+  WelcomeUser: undefined;
+  Dashboard: undefined;
+  BankAccountSelection: undefined;
+  Success: undefined;
+  WelcomeStush: undefined;
+  Wedifferent: undefined;
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 const AppNavigator = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,6 +77,8 @@ const AppNavigator = () => {
       <Stack.Screen name="Dashboard" component={Dashboard} />
       <Stack.Screen name="BankAccountSelection" component={BankAccountSelectionScreen} />
       <Stack.Screen name="Success" component={SuccessScreen} />
+      <Stack.Screen name="WelcomeStush" component={WelcomeStush} />
+      <Stack.Screen name="Wedifferent" component={Wedifferent} />
     </Stack.Navigator>
   );
 };

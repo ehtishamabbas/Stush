@@ -162,7 +162,7 @@ const LoginScreen = () => {
 
 
   const handleSignUp = () => {
-    navigation.navigate('Register');
+    navigation.navigate('Dashboard');
     setEmailError('');
     setPasswordError('');
     setEmail('');

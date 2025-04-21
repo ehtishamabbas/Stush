@@ -28,7 +28,7 @@ const loginScreenStyles = StyleSheet.create({
   },
   logoContainer: {
     width: '100%',
-    height: '40%',
+    height: '30%',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -39,7 +39,7 @@ const loginScreenStyles = StyleSheet.create({
   },
   formOuterContainer: {
     width: '100%',
-    height: '60%',
+    height: '70%',
   },
   formContainer: {
     width: '100%',

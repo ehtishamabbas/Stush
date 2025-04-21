@@ -1,104 +1,79 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import {
     View,
     Text,
-    Image,
-    ImageBackground,
     TouchableOpacity,
-    StatusBar,
-    SafeAreaView,
-    Animated,
     Dimensions,
-
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../navigation/AppNavigator';
 import styles from '../../css/centerpart';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import SocialIcons from '../../components/SocialMediaIcons';
 
+type CenterPartNavigationProp = StackNavigationProp<RootStackParamList, 'Dashboard'>;
 
 const CenterPart = () => {
-
-
     const { width, height } = Dimensions.get('window');
     const style = styles(width, height);
+    const navigation = useNavigation<CenterPartNavigationProp>();
+
+    const handleNavigate = () => {
+        navigation.navigate('WelcomeStush');
+    };
 
     return (
-        <>
-            <StatusBar
-                translucent
-                backgroundColor="transparent"
-                barStyle="light-content"
-            />
-            <ImageBackground
-                source={require('../../../assets/images/backgrounds.png')}
-                style={style.backgroundImage}
-                resizeMode="cover">
-                <SafeAreaView style={style.container}>
-                    <View style={style.contentContainer}>
-                        <View style={style.profile} >
+        <View style={style.centerContainer}>
+            <TouchableOpacity style={style.circleContainer} onPress={handleNavigate}>
+                <View style={style.circle}>
+                    <Text style={style.circleText}>
+                        GET{'\n'}STARTED
+                    </Text>
+                    <Text style={style.clickHereText}>
+                        Click here
+                    </Text>
+                </View>
 
-                            <Text style={style.tagline}>
-                                GET{'\n'}STARTED
-                            </Text>
-                            <Text style={style.taglinee}>
-                                Click here
-                            </Text>
+                <TouchableOpacity style={style.goButton}>
+                    <Text style={style.goText}>GO</Text>
+                </TouchableOpacity>
+            </TouchableOpacity>
 
-                        </View>
-                        <View style={style.socialIconsContainer} >
+            <View style={style.bottomNavContainer}>
+                <FontAwesome5
+                    name="home"
+                    size={24}
+                    color="#FFFFFF"
+                    style={style.activeNavIcon}
+                />
+                <FontAwesome5
+                    name="copy"
+                    size={24}
+                    color="#1F75FE"
+                />
+                <FontAwesome5
+                    name="question-circle"
+                    size={24}
+                    color="#FFFFFF"
+                />
+                <FontAwesome5
+                    name="bell"
+                    size={24}
+                    color="#FFFFFF"
+                />
+            </View>
 
-                            <View style={style.socialIcons}>
-                                <FontAwesome5
-                                    name={'home'}
-                                    size={22}
-                                    color={'#FFFFFF'}
-                                    brand
-                                />
-                                <FontAwesome5
-                                    name={'copy'}
-                                    size={22}
-                                    color={'#1F75FE'}
-                                    brand
-                                />
+            <View style={style.getPaidContainer}>
+                <Text style={style.getPaidTitle}>GET PAID ANYTIME</Text>
 
-                            </View>
-
-
-                            <View style={style.socialIcons}>
-
-                                <FontAwesome5
-                                    name={'question-circle'}
-                                    size={22}
-                                    color={'#FFFFFF'}
-                                    brand
-                                />
-                                <FontAwesome5
-                                    name={'bell'}
-                                    size={22}
-                                    color={'#FFFFFF'}
-                                    brand
-                                />
-                            </View>
-
-                        </View>
-                        <View style={style.tagContainer}>
-                            <Text style={style.tag} >GET PAID ANYTHING</Text>
-                        </View>
-                        <View style={style.textContainer}>
-                            <Text style={style.tags} >How does Stush Pay work?</Text>
-                            <Text style={style.tagss} >Learn More</Text>
-
-                        </View>
-                        <View style={style.OrderContainer}>
-                            <Text style={style.tag} >stush pay benefits:</Text>
-                        </View>
-                    </View>
-
-
-
-                </SafeAreaView>
-            </ImageBackground>
-        </>
+                <View style={style.learnMoreContainer}>
+                    <Text style={style.howDoesItWorkText}>How does Stush Pay work?</Text>
+                    <TouchableOpacity>
+                        <Text style={style.learnMoreText}>Learn More</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </View>
     );
 };
 
