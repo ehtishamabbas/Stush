@@ -1,10 +1,8 @@
 import { StyleSheet } from 'react-native';
 
 const splashScreenStyles = (width: number, height: number) => {
-  // Calculate scale based on device dimensions
-  const scale = Math.min(width, height) / 375;
-  // Base circle size - optimized for responsiveness
-  const circleSize = Math.min(width * 0.85, height * 0.55);
+   const scale = Math.min(width, height) / 375;
+   const circleSize = Math.min(width * 0.85, height * 0.55);
 
   return StyleSheet.create({
     backgroundImage: {
@@ -25,8 +23,7 @@ const splashScreenStyles = (width: number, height: number) => {
       alignItems: 'center',
     },
     logoImage: {
-      position: 'relative',
-      width: width,
+       width: width,
       height: height,
       marginBottom: 16 * scale,
     },

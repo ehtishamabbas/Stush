@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -19,51 +19,51 @@ import {
 } from 'react-native';
 import * as Keychain from 'react-native-keychain';
 import styles from '../../css/LoginScreen.styles';
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import SocialIcons from '../../components/SocialMediaIcons';
 
- const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const LoginScreen = () => {
   const navigation: any = useNavigation();
 
-   const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isCheckingSession, setIsCheckingSession] = useState(true);
 
-   const [emailError, setEmailError] = useState('');
+  const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-   const passwordRef = useRef<RNTextInput>(null);
+  const passwordRef = useRef<RNTextInput>(null);
 
-   useEffect(() => {
+  useEffect(() => {
     checkExistingSession();
-   }, []);
+  }, []);
 
   const checkExistingSession = async () => {
     try {
-       if (!Keychain || typeof Keychain.getGenericPassword !== 'function') {
+      if (!Keychain || typeof Keychain.getGenericPassword !== 'function') {
         console.error('Keychain is not properly initialized');
         setIsCheckingSession(false);
         return;
       }
 
-       const credentials = await Keychain.getGenericPassword();
+      const credentials = await Keychain.getGenericPassword();
 
       if (credentials) {
-         const userData = JSON.parse(credentials.password);
+        const userData = JSON.parse(credentials.password);
 
-         const sessionTime = new Date(userData.timestamp);
+        const sessionTime = new Date(userData.timestamp);
         const currentTime = new Date();
         const timeDifference = currentTime.getTime() - sessionTime.getTime();
         const hoursDifference = timeDifference / (1000 * 60 * 60);
 
         if (hoursDifference < 24) {
-           navigation.replace('BankAccountSelection');
+          navigation.replace('BankAccountSelection');
           return;
         } else {
-           await Keychain.resetGenericPassword();
+          await Keychain.resetGenericPassword();
         }
       }
     } catch (error) {
@@ -73,7 +73,7 @@ const LoginScreen = () => {
     }
   };
 
-   const saveUserSession = async (userEmail: string, userPassword: string) => {
+  const saveUserSession = async (userEmail: string, userPassword: string) => {
     try {
       const userData = {
         email: userEmail,
@@ -81,7 +81,7 @@ const LoginScreen = () => {
         timestamp: new Date().toISOString(),
       };
 
-       await Keychain.setGenericPassword(
+      await Keychain.setGenericPassword(
         'user_session',
         JSON.stringify(userData),
       );
@@ -93,7 +93,7 @@ const LoginScreen = () => {
     }
   };
 
-   const validateEmail = () => {
+  const validateEmail = () => {
     if (!email.trim()) {
       setEmailError('Email is required');
       return false;
@@ -105,7 +105,7 @@ const LoginScreen = () => {
     return true;
   };
 
-   const validatePassword = () => {
+  const validatePassword = () => {
     if (!password.trim()) {
       setPasswordError('Password is required');
       return false;
@@ -117,14 +117,14 @@ const LoginScreen = () => {
     return true;
   };
 
-   const handleForgotPassword = () => {
-     navigation.navigate('ForgotPassword');
+  const handleForgotPassword = () => {
+    navigation.navigate('ForgotPassword');
   };
 
-   const handleSignIn = async () => {
-     Keyboard.dismiss();
+  const handleSignIn = async () => {
+    Keyboard.dismiss();
 
-     const isEmailValid = validateEmail();
+    const isEmailValid = validateEmail();
     const isPasswordValid = validatePassword();
 
     if (!isEmailValid || !isPasswordValid) {
@@ -134,26 +134,26 @@ const LoginScreen = () => {
     try {
       setIsLoading(true);
 
-       await new Promise(resolve => setTimeout(resolve, 1500));
+      await new Promise(resolve => setTimeout(resolve, 1500));
 
-       console.log('Login Credentials:', {
+      console.log('Login Credentials:', {
         email,
         password,
         timestamp: new Date().toISOString(),
       });
 
-       
+
       await saveUserSession(email, password);
 
-       setEmail('');
+      setEmail('');
       setPassword('');
 
-       navigation.navigate('BankAccountSelection');
+      navigation.navigate('BankAccountSelection');
     } catch (error) {
-       Alert.alert(
+      Alert.alert(
         'Login Failed',
         'Invalid email or password. Please try again.',
-        [{text: 'OK'}],
+        [{ text: 'OK' }],
       );
     } finally {
       setIsLoading(false);
@@ -169,7 +169,7 @@ const LoginScreen = () => {
     setPassword('');
   };
 
-   if (isCheckingSession) {
+  if (isCheckingSession) {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#FFFFFF" />
@@ -180,10 +180,10 @@ const LoginScreen = () => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{flex: 1, backgroundColor: '#000000'}}
+      style={{ flex: 1, backgroundColor: '#000000' }}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           <StatusBar
             barStyle="light-content"
             translucent
@@ -194,12 +194,12 @@ const LoginScreen = () => {
             style={styles.backgroundImage}
             resizeMode="cover">
             <SafeAreaView style={styles.safeArea}>
-              <ScrollView 
-                contentContainerStyle={{flexGrow: 1}}
+              <ScrollView
+                contentContainerStyle={{ flexGrow: 1 }}
                 keyboardShouldPersistTaps="handled"
                 showsVerticalScrollIndicator={false}>
                 <View style={styles.container}>
-                   <View style={styles.logoContainer}>
+                  <View style={styles.logoContainer}>
                     <Image
                       source={require('../../../assets/images/stushlogo.png')}
                       style={styles.logoImage}
@@ -207,11 +207,11 @@ const LoginScreen = () => {
                     />
                   </View>
 
-                   <View style={styles.formOuterContainer}>
+                  <View style={styles.formOuterContainer}>
                     <View style={styles.formContainer}>
                       <Text style={styles.heading}>SIGN IN</Text>
 
-                       <TextInput
+                      <TextInput
                         placeholder="Email"
                         placeholderTextColor="rgba(255, 255, 255, 0.5)"
                         style={[
@@ -231,7 +231,7 @@ const LoginScreen = () => {
                         <Text style={styles.errorText}>{emailError}</Text>
                       ) : null}
 
-                       <TextInput
+                      <TextInput
                         ref={passwordRef}
                         placeholder="Password"
                         placeholderTextColor="rgba(255, 255, 255, 0.5)"
@@ -250,13 +250,13 @@ const LoginScreen = () => {
                         <Text style={styles.errorText}>{passwordError}</Text>
                       ) : null}
 
-                       <TouchableOpacity
+                      <TouchableOpacity
                         style={styles.forgotPasswordContainer}
                         onPress={handleForgotPassword}>
                         <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
                       </TouchableOpacity>
 
-                       <TouchableOpacity
+                      <TouchableOpacity
                         style={styles.signInButton}
                         onPress={handleSignIn}
                         disabled={isLoading}>
@@ -267,17 +267,17 @@ const LoginScreen = () => {
                         )}
                       </TouchableOpacity>
 
-                       <View style={styles.dividerContainer}>
+                      <View style={styles.dividerContainer}>
                         <View style={styles.divider} />
                         <Text style={styles.dividerText}>or sign in using</Text>
                         <View style={styles.divider} />
                       </View>
 
-                       <View style={styles.socialContainer}>
+                      <View style={styles.socialContainer}>
                         <SocialIcons />
                       </View>
 
-                       <View style={styles.signUpContainer}>
+                      <View style={styles.signUpContainer}>
                         <Text style={styles.signUpText}>
                           Don't have an account?{' '}
                         </Text>

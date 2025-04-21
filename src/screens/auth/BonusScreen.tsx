@@ -8,7 +8,7 @@ import {
   StatusBar,
   SafeAreaView,
 } from 'react-native';
-import styles from '../../css/Bonus'; // Updated path with extension
+import styles from '../../css/Bonus'; 
 
 interface ReferFriendScreenProps {
   navigation?: any;
@@ -16,7 +16,7 @@ interface ReferFriendScreenProps {
 
 const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
   const handleNext = () => {
-     navigation.navigate('WelcomeUser');
+     navigation.navigate('Dashboard');
   };
 
   const handleBack = () => {

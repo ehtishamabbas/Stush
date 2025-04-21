@@ -3,14 +3,11 @@ import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const SocialIcons = () => {
-  // Define social login handlers
-  const handleSocialLogin = (platform: string) => {
+   const handleSocialLogin = (platform: string) => {
     console.log(`Login with ${platform}`);
-    // Implement your social auth logic here
-  };
+   };
 
-  // Social icon styles and colors
-  const socialIcons = [
+   const socialIcons = [
     {name: 'twitter', color: 'rgba(3, 169, 244, 1)', iconName: 'twitter'},
     {name: 'facebook', color: 'rgba(66, 103, 178, 1)', iconName: 'facebook'},
     {name: 'google', color: '#EA4335', iconName: 'google'},

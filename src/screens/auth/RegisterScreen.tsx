@@ -77,7 +77,7 @@ const RegisterScreen = () => {
         lastName: lastName.trim(),
         timestamp: new Date().toISOString(),
       });
-      navigation.navigate('Dashboard');
+      navigation.navigate('About');
     } else {
        const firstError = errors.firstName || errors.lastName;
       if (firstError) {
