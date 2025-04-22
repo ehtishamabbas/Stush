@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {
   View,
   Text,
@@ -19,8 +19,9 @@ import {
 } from 'react-native';
 import * as Keychain from 'react-native-keychain';
 import styles from '../../css/LoginScreen.styles';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import SocialIcons from '../../components/SocialMediaIcons';
+import TextInputComponent from '../../components/reusableComponents/inputs';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -34,8 +35,6 @@ const LoginScreen = () => {
 
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-
-  const passwordRef = useRef<RNTextInput>(null);
 
   useEffect(() => {
     checkExistingSession();
@@ -96,13 +95,11 @@ const LoginScreen = () => {
   const validateEmail = () => {
     if (!email.trim()) {
       setEmailError('Email is required');
-      return false;
     } else if (!EMAIL_REGEX.test(email)) {
       setEmailError('Please enter a valid email');
-      return false;
+    } else {
+      setEmailError('');
     }
-    setEmailError('');
-    return true;
   };
 
   const validatePassword = () => {
@@ -124,10 +121,7 @@ const LoginScreen = () => {
   const handleSignIn = async () => {
     Keyboard.dismiss();
 
-    const isEmailValid = validateEmail();
-    const isPasswordValid = validatePassword();
-
-    if (!isEmailValid || !isPasswordValid) {
+    if (emailError || passwordError) {
       return;
     }
 
@@ -142,7 +136,6 @@ const LoginScreen = () => {
         timestamp: new Date().toISOString(),
       });
 
-
       await saveUserSession(email, password);
 
       setEmail('');
@@ -153,13 +146,12 @@ const LoginScreen = () => {
       Alert.alert(
         'Login Failed',
         'Invalid email or password. Please try again.',
-        [{ text: 'OK' }],
+        [{text: 'OK'}],
       );
     } finally {
       setIsLoading(false);
     }
   };
-
 
   const handleSignUp = () => {
     navigation.navigate('Dashboard');
@@ -180,10 +172,10 @@ const LoginScreen = () => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{ flex: 1, backgroundColor: '#000000' }}
+      style={{flex: 1, backgroundColor: '#000000'}}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={{ flex: 1 }}>
+        <View style={{flex: 1}}>
           <StatusBar
             barStyle="light-content"
             translucent
@@ -195,7 +187,7 @@ const LoginScreen = () => {
             resizeMode="cover">
             <SafeAreaView style={styles.safeArea}>
               <ScrollView
-                contentContainerStyle={{ flexGrow: 1 }}
+                contentContainerStyle={{flexGrow: 1}}
                 keyboardShouldPersistTaps="handled"
                 showsVerticalScrollIndicator={false}>
                 <View style={styles.container}>
@@ -211,49 +203,31 @@ const LoginScreen = () => {
                     <View style={styles.formContainer}>
                       <Text style={styles.heading}>SIGN IN</Text>
 
-                      <TextInput
+                      <TextInputComponent
+                        label="Email"
                         placeholder="Email"
-                        placeholderTextColor="rgba(255, 255, 255, 0.5)"
-                        style={[
-                          styles.input,
-                          emailError ? styles.inputError : null,
-                        ]}
-                        value={email}
-                        onChangeText={setEmail}
-                        onBlur={validateEmail}
                         keyboardType="email-address"
-                        autoCapitalize="none"
-                        returnKeyType="next"
-                        onSubmitEditing={() => passwordRef.current?.focus()}
-                        autoCorrect={false}
+                        error={emailError}
+                        secureTextEntry={false}
+                        onChangeText={setEmail}
+                        validate={validateEmail}
                       />
-                      {emailError ? (
-                        <Text style={styles.errorText}>{emailError}</Text>
-                      ) : null}
-
-                      <TextInput
-                        ref={passwordRef}
+                      <TextInputComponent
+                        label="Password"
                         placeholder="Password"
-                        placeholderTextColor="rgba(255, 255, 255, 0.5)"
-                        secureTextEntry
-                        style={[
-                          styles.input,
-                          passwordError ? styles.inputError : null,
-                        ]}
-                        value={password}
+                        keyboardType="default"
+                        secureTextEntry={true}
+                        error={passwordError}
                         onChangeText={setPassword}
-                        onBlur={validatePassword}
-                        returnKeyType="done"
-                        onSubmitEditing={handleSignIn}
+                        validate={validatePassword}
                       />
-                      {passwordError ? (
-                        <Text style={styles.errorText}>{passwordError}</Text>
-                      ) : null}
 
                       <TouchableOpacity
                         style={styles.forgotPasswordContainer}
                         onPress={handleForgotPassword}>
-                        <Text style={styles.forgotPassword}>FORGOT PASSWORD?</Text>
+                        <Text style={styles.forgotPassword}>
+                          FORGOT PASSWORD?
+                        </Text>
                       </TouchableOpacity>
 
                       <TouchableOpacity
