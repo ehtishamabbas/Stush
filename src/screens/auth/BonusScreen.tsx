@@ -8,15 +8,15 @@ import {
   StatusBar,
   SafeAreaView,
 } from 'react-native';
-import styles from '../../css/Bonus'; 
+import styles from '../../css/Bonus';
 
 interface ReferFriendScreenProps {
   navigation?: any;
 }
 
-const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
+const BonusScreen: React.FC<ReferFriendScreenProps> = ({ navigation }) => {
   const handleNext = () => {
-     navigation.navigate('Dashboard');
+    navigation.navigate('Dashboard');
   };
 
   const handleBack = () => {
@@ -64,7 +64,7 @@ const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
                   justifyContent: 'center',
                   alignItems: 'stretch',
                 }}>
-                 <View
+                <View
                   style={{
                     width: 5,
                     alignItems: 'flex-end',
@@ -80,7 +80,7 @@ const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
                   />
                 </View>
 
-                 <View
+                <View
                   style={{
                     flex: 1,
                     alignItems: 'center',
@@ -114,7 +114,7 @@ const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
                   </View>
                 </View>
 
-                 <View
+                <View
                   style={{
                     width: 5,
                     alignItems: 'flex-start',
@@ -131,7 +131,7 @@ const BonusScreen: React.FC<ReferFriendScreenProps> = ({navigation}) => {
                 </View>
               </View>
 
-              <TouchableOpacity 
+              <TouchableOpacity
                 style={styles.buttonContainer}
                 onPress={handleNext}
                 activeOpacity={0.8}

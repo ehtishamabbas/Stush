@@ -18,6 +18,13 @@ import About from '../screens/auth/AboutScreen';
 import Dashboard from '../screens/LoggedInLayouts/Dashboard';
 import WelcomeStush from '../screens/LoggedInLayouts/WelcomeStush';
 import Wedifferent from '../screens/LoggedInLayouts/WeDifferent';
+import UserIdentification from '../screens/LoggedInLayouts/Identification';
+import Disclouser from '../screens/LoggedInLayouts/Disclouser';
+import MyJob from '../screens/LoggedInLayouts/MyJob';
+import CompanyInfo from '../screens/LoggedInLayouts/CompanyInfo';
+import InfoAbouCompany from '../screens/LoggedInLayouts/InfoAbouCompany';
+import WorkInfo from '../screens/LoggedInLayouts/WorkInfo';
+
 
 
  export type RootStackParamList = {
@@ -39,6 +46,12 @@ import Wedifferent from '../screens/LoggedInLayouts/WeDifferent';
   Success: undefined;
   WelcomeStush: undefined;
   Wedifferent: undefined;
+  UserIdentification: undefined;
+  Disclouser: undefined;
+  MyJob: undefined;
+  CompanyInfo: undefined;
+  InfoAbouCompany: undefined;
+  WorkInfo: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -79,6 +92,12 @@ const AppNavigator = () => {
       <Stack.Screen name="Success" component={SuccessScreen} />
       <Stack.Screen name="WelcomeStush" component={WelcomeStush} />
       <Stack.Screen name="Wedifferent" component={Wedifferent} />
+      <Stack.Screen name="UserIdentification" component={UserIdentification} />  
+      <Stack.Screen name="Disclouser" component={Disclouser} />
+      <Stack.Screen name="MyJob" component={MyJob} />
+      <Stack.Screen name="CompanyInfo" component={CompanyInfo} />
+      <Stack.Screen name="InfoAbouCompany" component={InfoAbouCompany} />
+      <Stack.Screen name="WorkInfo" component={WorkInfo} />
     </Stack.Navigator>
   );
 };

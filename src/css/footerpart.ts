@@ -2,71 +2,74 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     bottomContainer: {
-        padding: 15,
-        backgroundColor: 'transparent',
+         backgroundColor: 'transparent',
+         paddingVertical: 0,
+         paddingHorizontal: 45,
     },
     bulletIcon: {
         marginTop: 4,
       },
      benefitsTitle: {
         color: '#FFFFFF',
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginBottom: 15,
+        fontSize: 22,
+         marginBottom: 15,
+         fontWeight: 'bold',
         textTransform: 'uppercase',
     },
     benefitsList: {
-        marginBottom: 30,
+         paddingHorizontal: 5,
     },
     benefitItem: {
-        marginBottom: 15,
-    },
+     },
     benefitText: {
         color: '#FFFFFF',
         fontSize: 14,
-        lineHeight: 20,
-    },
-    
-     charityContainer: {
-        alignItems: 'center',
-        paddingTop: 20,
-        paddingBottom: 40,
-        borderTopWidth: 1,
-        borderTopColor: 'rgba(255, 255, 255, 0.2)',
-    },
-    charityLogo: {
-        width: 200,
-        height: 80,
-        marginBottom: 15,
-    },
-    charityTitle: {
-        color: '#FFFFFF',
-        fontSize: 16,
-        fontWeight: 'bold',
-        marginBottom: 5,
-    },
-    charityName: {
-        color: '#FFFFFF',
-        fontSize: 18,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        marginBottom: 10,
-    },
-    charityDescription: {
+        lineHeight: 25,
+        fontWeight: '500',
+     },
+     benefitTexts: {
         color: '#FFFFFF',
         fontSize: 14,
-        textAlign: 'center',
+        lineHeight: 25,
+         fontWeight: '900',
+
+     },
+    
+     charityContainer: {
+        width: '100%',
+        marginBottom: 40,
+        
+    },
+    charityLogo: {
+        width: 360,
+        height: 290,
+     },
+    charityTitle: {
+        color: '#FFFFFF',
+        fontSize: 22,
+        fontWeight: 'bold',
+        lineHeight: 35,
+     },
+    charityName: {
+        color: '#FFFFFF',
+        fontSize: 22,
+        fontWeight: 'bold',
+        textAlign: 'left',
+        marginBottom: 15,
+     },
+    charityDescription: {
+        color: '#FFFFFF',
+        fontSize: 16,
+        textAlign: 'left',
         marginBottom: 20,
     },
     learnMoreButton: {
-        backgroundColor: 'rgba(0, 191, 255, 0.2)',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 20,
+       
     },
     learnMoreButtonText: {
-        color: '#00BFFF',
-        fontSize: 14,
+        color: '#11DEE8',
+        fontSize: 18,
         fontWeight: 'bold',
+        textDecorationLine: 'underline',
     },
 });

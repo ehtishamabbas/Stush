@@ -15,14 +15,21 @@ export default StyleSheet.create({
     },
     
      headerContainer: {
-        padding: 15,
+        padding: 35,
         backgroundColor: 'transparent',
     },
     headerTitleContainer: {
         alignItems: 'center',
-        marginTop: 40,
+        top: 0,
+        paddingVertical: 60,
         marginBottom: 20,
+        backgroundColor: 'rgba(4, 30, 45, 0.17)',  
+        borderBottomWidth: 0,
+        borderRadius: 25,  
     },
+    
+    
+    
     headerTitle: {
         color: '#FFFFFF',
         fontSize: 20,
@@ -69,9 +76,14 @@ export default StyleSheet.create({
     iconSpacing: {
         marginRight: 20,
     },
-    
+    iconSpacings: {
+        backgroundColor: '#1F7FFE',
+        borderRadius: 50,
+        paddingHorizontal: 8,
+         paddingVertical: 6,
+      },
      coinImageContainer: {
-        alignItems: 'center',
+        alignItems: 'flex-start',
         marginBottom: 15,
     },
     coinImage: {
@@ -89,14 +101,15 @@ export default StyleSheet.create({
         flex: 1,
     },
     balanceLabel: {
-        color: '#FFFFFF',
-        fontSize: 14,
+        color: 'white',
+        fontSize: 17,
         opacity: 0.7,
+        fontWeight: '400',
     },
     balanceAmount: {
-        color: '#00FF00',
+        color: '#3EDA7F',
         fontSize: 20,
-        fontWeight: 'bold',
+         fontWeight: '700',
     },
     statusContainer: {
         alignItems: 'flex-end',
@@ -104,10 +117,10 @@ export default StyleSheet.create({
     statusLabel: {
         color: '#FFFFFF',
         fontSize: 14,
-        opacity: 0.7,
-    },
+        fontWeight: '400',
+            },
     statusValue: {
-        color: '#00FF00',
+        color: '#4CE444',
         fontSize: 16,
         fontWeight: 'bold',
     },
@@ -124,10 +137,10 @@ export default StyleSheet.create({
     periodLabel: {
         color: '#FFFFFF',
         fontSize: 14,
-        opacity: 0.7,
-    },
+        fontWeight: '400',
+      },
     periodValue: {
-        color: '#FFFFFF',
+        color: '#11DCE8',
         fontSize: 16,
         fontWeight: 'bold',
     },
@@ -137,26 +150,29 @@ export default StyleSheet.create({
     hoursLabel: {
         color: '#FFFFFF',
         fontSize: 14,
-        opacity: 0.7,
+        fontWeight: '400',
     },
     hoursValue: {
-        color: '#00BFFF',
+        color: '#11DCE8',
         fontSize: 16,
         fontWeight: 'bold',
     },
     rateValue: {
         color: '#FFFFFF',
-        fontSize: 12,
-        opacity: 0.7,
+        fontSize: 13,
+        fontWeight: '400',
     },
     
      referContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: 'rgba(128, 0, 128, 0.6)',
-        borderRadius: 25,
-        padding: 10,
-        justifyContent: 'center',
+        borderRadius: 10,
+        paddingHorizontal: 50,
+        paddingVertical: 15,
+         justifyContent: 'center',
+        alignSelf: 'center',
+        marginTop: 40,
         marginBottom: 20,
     },
     referIcon: {

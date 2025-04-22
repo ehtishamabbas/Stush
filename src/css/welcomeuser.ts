@@ -1,16 +1,14 @@
 import { StyleSheet } from 'react-native';
 
 const welcomeUserStyles = (width: number, height: number) => {
-  // Calculate scale based on device dimensions
-  const scale = Math.min(width, height) / 375;
-  // Base circle size - optimized for responsiveness
-  const circleSize = Math.min(width * 0.8, height * 0.4);
+   const scale = Math.min(width, height) / 375;
+   const circleSize = Math.min(width * 0.8, height * 0.4);
 
   return StyleSheet.create({
     backgroundImage: {
       width: '100%',
       height: '100%',
-      backgroundColor: '#050B18', // Dark blue background as fallback
+      backgroundColor: '#050B18', 
     },
     containerr: {
       flex: 1,

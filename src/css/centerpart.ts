@@ -2,12 +2,12 @@ import { StyleSheet } from 'react-native';
 
 const styles = (width: number, height: number) => StyleSheet.create({
     centerContainer: {
-        padding: 15,
+        paddingTop: 15,
         alignItems: 'center',
         backgroundColor: 'transparent',
     },
-    
-     circleContainer: {
+
+    circleContainer: {
         alignItems: 'center',
         marginVertical: 20,
         position: 'relative',
@@ -16,7 +16,7 @@ const styles = (width: number, height: number) => StyleSheet.create({
         width: width * 0.7,
         height: width * 0.7,
         borderRadius: width * 0.35,
-        borderWidth: 2,
+        borderWidth: 7,
         borderColor: '#FFFFFF',
         justifyContent: 'center',
         alignItems: 'center',
@@ -29,17 +29,17 @@ const styles = (width: number, height: number) => StyleSheet.create({
         letterSpacing: 1,
     },
     clickHereText: {
-        color: '#00BFFF',
+        color: '#11DCE8',
         fontSize: 16,
         marginTop: 5,
     },
     goButton: {
         position: 'absolute',
         bottom: -20,
-        width: 60,
-        height: 60,
-        borderRadius: 30,
-        backgroundColor: '#00BFFF',
+        width: 80,
+        height: 80,
+        borderRadius: 50,
+        backgroundColor: '#0965F6',
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -48,48 +48,49 @@ const styles = (width: number, height: number) => StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
     },
-    
-     bottomNavContainer: {
+
+    bottomNavContainer: {
         flexDirection: 'row',
         justifyContent: 'space-around',
         width: '100%',
-        paddingVertical: 15,
-        paddingHorizontal: 20,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        borderRadius: 30,
-        marginTop: 20,
+
+        marginTop: 0,
         marginBottom: 20,
     },
     activeNavIcon: {
         color: '#FFFFFF',
     },
-    
-     getPaidContainer: {
+
+    getPaidContainer: {
         width: '100%',
-        marginTop: 10,
+        marginTop: 20,
+        paddingHorizontal: 30,
     },
     getPaidTitle: {
         color: '#FFFFFF',
-        fontSize: 18,
+        fontSize: 28,
         fontWeight: 'bold',
         textAlign: 'center',
         marginBottom: 15,
     },
     learnMoreContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        gap: 15,
         alignItems: 'center',
-        marginTop: 10,
+        marginTop: 20,
         marginBottom: 20,
+        textAlign: 'left',
     },
     howDoesItWorkText: {
         color: '#FFFFFF',
         fontSize: 16,
     },
     learnMoreText: {
-        color: '#00BFFF',
+        color: '#11DEE8',
         fontSize: 16,
         fontWeight: 'bold',
+        textAlign: 'center',
+        textDecorationLine: 'underline',
     },
 });
 

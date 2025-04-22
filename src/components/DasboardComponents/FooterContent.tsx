@@ -15,28 +15,28 @@ const BottomPart = () => {
             <View style={styles.benefitsList}>
                 <View style={styles.benefitItem}>
                     <Text style={styles.benefitText}>
-                        Why Wait For Payday? Flexible Withdrawals.
+                        Why Wait for Payday? <Text style={{ fontWeight: 'bold' }}>Flexible Withdrawals.</Text>{'\n'}
                         Users can take out as much or as little as they
                         need!
                     </Text>
                 </View>
 
                 <View style={styles.benefitItem}>
-                    <Text style={styles.benefitText}>
+                    <Text style={styles.benefitTexts}>
                          No Hidden Fees.
                     </Text>
                 </View>
 
                 <View style={styles.benefitItem}>
                     <Text style={styles.benefitText}>
-                        Financial Growth & Education - Smart Money
-                        Tips.
+                        Financial Growth & Education  <Text style={{ fontWeight: 'bold' }}> - Smart Money
+                        Tips.</Text>
                     </Text>
                 </View>
 
                 <View style={styles.benefitItem}>
-                    <Text style={styles.benefitText}>
-                        • Learn More with Stush Pay.
+                    <Text style={styles.benefitTexts}>
+                         Learn More with Stush Pay.
                     </Text>
                 </View>
             </View>
@@ -52,7 +52,7 @@ const BottomPart = () => {
                 <Text style={styles.charityName}>VALLEY CHILDREN'S HOSPITAL</Text>
 
                 <Text style={styles.charityDescription}>
-                    Your subscription helps raise $50,000 for children!
+                    Your subscription helps raise <Text style={{ fontWeight: 'bold' }}> $50,000 </Text> for children!
                 </Text>
 
                 <TouchableOpacity style={styles.learnMoreButton}>
