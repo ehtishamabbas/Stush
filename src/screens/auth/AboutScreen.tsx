@@ -1,86 +1,85 @@
-import React from 'react';
-import {
-  StatusBar,
-  ImageBackground,
-  SafeAreaView,
-  View,
-  Image,
-  Text,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
-import styles from '../../css/About.styles.ts';
-import {useNavigation} from '@react-navigation/native';
+import React, { useState } from 'react';
+import { Keyboard } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const About = () => {
+import AppScreen from '../../components/common/AppScreen';
+import FormContainer from '../../components/common/FormContainer';
+import FormInput from '../../components/common/FormInput';
+import FormButton from '../../components/common/FormButton';
+import SignInLink from '../../components/common/SignInLink';
+
+const AboutScreen = () => {
   const navigation: any = useNavigation();
+  
+  const [dob, setDob] = useState('');
+  const [address, setAddress] = useState('');
+  const [errors, setErrors] = useState({
+    dob: '',
+    address: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleBack = () => {
-    navigation.goBack();
+  const clearError = (field: 'dob' | 'address') => {
+    if (errors[field]) {
+      setErrors({ ...errors, [field]: '' });
+    }
+  };
+
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = { dob: '', address: '' };
+
+     
+    setErrors(newErrors);
+    return isValid;
   };
 
   const handleNext = () => {
-     navigation.navigate('EmailInput');
+    Keyboard.dismiss();
+    if (validateForm()) {
+      setIsSubmitting(true);
+      console.log('About details:', {
+        dob: dob.trim(),
+        address: address.trim(),
+        timestamp: new Date().toISOString(),
+      });
+      
+      setTimeout(() => {
+        setIsSubmitting(false);
+        navigation.navigate('EmailInput');
+      }, 500);
+    }
   };
 
   return (
-    <>
-      <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
-      <ImageBackground
-        source={require('../../../assets/images/background.png')}
-        style={styles.backgroundImage}
-        resizeMode="cover">
-        <SafeAreaView style={styles.safeArea}>
-          <View style={styles.container}>
-             <TouchableOpacity
-              style={styles.backButton}
-              activeOpacity={0.8}
-              onPress={handleBack}
-              accessibilityLabel="Go back"
-              accessibilityRole="button">
-              <Image
-                source={require('../../../assets/images/back-arrow.png')}
-                style={styles.backIcon}
-              />
-            </TouchableOpacity>
-            <View style={styles.logoContainer}>
-              <Image
-                source={require('../../../assets/images/stushlogo.png')}
-                style={styles.logoImage}
-                resizeMode="contain"
-              />
-            </View>
-            <View style={styles.formContainer}>
-              <Text style={styles.heading}>TELL US ABOUT YOURSELF</Text>
-              <TextInput
-                placeholder="Date of Birth"
-                placeholderTextColor="#8D8E99"
-                style={styles.input}
-              />
-              <TextInput
-                placeholder="Home Address"
-                placeholderTextColor="#8D8E99"
-                style={styles.input}
-              />
-              <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
-                <Text style={styles.nextButtonText}>Next</Text>
-              </TouchableOpacity>
-              <View style={styles.signInContainer}>
-                <Text style={styles.signInText}>
-                  Already have an account?{' '}
-                  <Text
-                    style={styles.signInLink}
-                    onPress={() => navigation.navigate('Login')}>
-                    Sign In
-                  </Text>
-                </Text>
-              </View>
-            </View>
-          </View>
-        </SafeAreaView>
-      </ImageBackground>
-    </>
+    <AppScreen>
+      <FormContainer heading="TELL US ABOUT YOURSELF">
+        <FormInput
+          placeholder="Date of Birth"
+          value={dob}
+          onChangeText={setDob}
+          error={errors.dob}
+          clearError={() => clearError('dob')}
+        />
+        
+        <FormInput
+          placeholder="Home Address"
+          value={address}
+          onChangeText={setAddress}
+          error={errors.address}
+          clearError={() => clearError('address')}
+        />
+        
+        <FormButton
+          title="Next"
+          onPress={handleNext}
+          isLoading={isSubmitting}
+        />
+        
+        <SignInLink />
+      </FormContainer>
+    </AppScreen>
   );
 };
 
-export default About;
+export default AboutScreen;

@@ -1,146 +1,83 @@
-import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ImageBackground,
-  TextInput,
-  Image,
-} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import styles from '../../css/ContactInfo.styles';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import VerificationBase from '../../components/common/VerificationBase';
+import CodeInput from '../../components/common/CodeInput';
+import Keypad from '../../components/common/NumericKeypad';
+import ResendTimer from '../../components/common/resend';
+import styles from '../../css/Verificcation.styles';
 
-type RootStackParamList = {
-  SuccessSignup: undefined;
-};
+interface OTPVerificationScreenProps {
+  navigation: any;
+  route: any;
+}
 
-const CodeVerify = ({ }) => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+const OTPVerificationScreen: React.FC<OTPVerificationScreenProps> = ({ navigation, route }) => {
+  const { phoneNumber } = route.params || { phoneNumber: '+1234567890' };
+  const [code, setCode] = useState<string[]>(Array(6).fill(''));
 
-  const handleBack = () => {
-    navigation.goBack();
-  };
-
-  const handleVerifyOTP = () => {
+  const handleVerify = () => {
     navigation.navigate('SuccessSignup');
   };
 
+  const handleBackPress = () => {
+    navigation.goBack();
+  };
+
+  const handleKeyPress = (key: string) => {
+    if (key === 'backspace') {
+      const newCode = [...code];
+      for (let i = newCode.length - 1; i >= 0; i--) {
+        if (newCode[i]) {
+          newCode[i] = '';
+          break;
+        }
+      }
+      setCode(newCode);
+    } else if (key === 'forgot') {
+
+    } else {
+      const emptyIndex = code.findIndex(digit => !digit);
+      if (emptyIndex !== -1) {
+        const newCode = [...code];
+        newCode[emptyIndex] = key;
+        setCode(newCode);
+      }
+    }
+  };
+
+  const handleCodeChange = (index: number, value: string) => {
+    const newCode = [...code];
+    newCode[index] = value;
+    setCode(newCode);
+  };
+
+  const handleResend = () => {
+    console.log('Resending OTP...');
+  };
+
   return (
-    <ImageBackground
-      source={require('../../../assets/images/background.png')}
-      style={styles.backgroundImage}
-      resizeMode="cover">
-      <TouchableOpacity
-        style={styles.backButton}
-        activeOpacity={0.8}
-        onPress={handleBack}
-        accessibilityLabel="Go back"
-        accessibilityRole="button">
-        <Image
-          source={require('../../../assets/images/back-arrow.png')}
-          style={styles.backIcon}
+    <VerificationBase
+      title="OTP VERIFICATION"
+      instruction={`Please enter 6-digit code we have sent you at ${phoneNumber}`}
+      buttonText="Verify OTP"
+      onButtonPress={handleVerify}
+      onBackPress={handleBackPress}
+      showBackButton={true}
+    >
+      <View>
+        <CodeInput
+          code={code}
+          onCodeChange={handleCodeChange}
         />
-      </TouchableOpacity>
-      <View style={styles.container}>
-         <Text style={styles.title}>OTP Verification</Text>
-        <Text style={styles.title}>Verification</Text>
 
-         <Text style={styles.instruction}>
-          Please enter 6-digit code we have sent you at +1234567890{' '}
-        </Text>
+        <ResendTimer
+          initialSeconds={48}
+          onResend={handleResend}
+        />
 
-         <View style={styles.codeContainer}>
-          <TextInput
-            style={[styles.codeBox, styles.filledCodeBox]}
-            maxLength={1}
-            keyboardType="numeric"
-          />
-          <TextInput
-            style={styles.codeBox}
-            maxLength={1}
-            keyboardType="numeric"
-          />
-          <TextInput
-            style={styles.codeBox}
-            maxLength={1}
-            keyboardType="numeric"
-          />
-          <TextInput
-            style={styles.codeBox}
-            maxLength={1}
-            keyboardType="numeric"
-          />
-          <TextInput
-            style={styles.codeBox}
-            maxLength={1}
-            keyboardType="numeric"
-          />
-        </View>
-
-         <View style={styles.resendButton}>
-          <Text style={styles.resendText}>Resend in 00:48</Text>
-        </View>
-
-         <View style={styles.keypadContainer}>
-           <View style={styles.keypadRow}>
-            <TouchableOpacity style={styles.keypadButton}>
-              <Text style={styles.keypadText}>1</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
-              <Text style={styles.keypadText}>2</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
-              <Text style={styles.keypadText}>3</Text>
-            </TouchableOpacity>
-          </View>
-
-           <View style={styles.keypadRow}>
-            <TouchableOpacity style={styles.keypadButton}>
-              <Text style={styles.keypadText}>4</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
-              <Text style={styles.keypadText}>5</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
-              <Text style={styles.keypadText}>6</Text>
-            </TouchableOpacity>
-          </View>
-
-           <View style={styles.keypadRow}>
-            <TouchableOpacity style={styles.keypadButton}>
-              <Text style={styles.keypadText}>7</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
-              <Text style={styles.keypadText}>8</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
-              <Text style={styles.keypadText}>9</Text>
-            </TouchableOpacity>
-          </View>
-
-           <View style={styles.keypadRow}>
-            <TouchableOpacity style={styles.keypadButton}>
-              <Text style={styles.forgotText}>Forgot?</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
-              <Text style={styles.keypadText}>0</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.keypadButton}>
-              <Text style={styles.backspaceText}>⌫</Text>
-            </TouchableOpacity>
-          </View>
-
-           <TouchableOpacity
-            style={styles.verifyButton}
-            onPress={handleVerifyOTP}>
-            <Text style={styles.verifyText}>Verify OTP</Text>
-          </TouchableOpacity>
-        </View>
+        <Keypad onKeyPress={handleKeyPress} />
       </View>
-    </ImageBackground>
+    </VerificationBase>
   );
 };
-
-export default CodeVerify;
+export default OTPVerificationScreen;

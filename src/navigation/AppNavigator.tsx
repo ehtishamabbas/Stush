@@ -5,8 +5,8 @@ import LoginScreen from '../screens/auth/LoginScreen';
 import RegisterScreen from '../screens/auth/RegisterScreen';
 import EmailInputScreen from '../screens/auth/EmailInputScreen';
 import VerifyEmail from '../screens/auth/VerifyEmailScreen';
-import ContactInfoScreen from '../screens/auth/ContactInfoScreen';
-import CodeVerify from '../screens/auth/CodeVerifyScreen';
+import PhoneNumberScreen from '../screens/auth/ContactInfoScreen';
+import OTPVerificationScreen from '../screens/auth/CodeVerifyScreen';
 import SuccessSignup from '../screens/auth/SuccessSignupScreen';
 import CreatePasswordScreen from '../screens/auth/CreateAccountScreen';
 import AccountSuccess from '../screens/auth/AccountSuccessScreen';
@@ -30,12 +30,12 @@ import WorkInfo from '../screens/LoggedInLayouts/WorkInfo';
  export type RootStackParamList = {
   Splash: undefined;
   Login: undefined;
-  Register: undefined;
+  RegisterScreen: undefined;
   About: undefined;
   EmailInput: undefined;
   VerifyEmail: undefined;
-  ContactInfo: undefined;
-  CodeVerify: undefined;
+  PhoneNumberScreen: undefined;
+  OTPVerificationScreen: undefined;
   SuccessSignup: undefined;
   CreatePassword: undefined;
   AccountSuccess: undefined;
@@ -76,12 +76,12 @@ const AppNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
       <Stack.Screen name="About" component={About} />
       <Stack.Screen name="EmailInput" component={EmailInputScreen} />
       <Stack.Screen name="VerifyEmail" component={VerifyEmail} />
-      <Stack.Screen name="ContactInfo" component={ContactInfoScreen} />
-      <Stack.Screen name="CodeVerify" component={CodeVerify} />
+      <Stack.Screen name="PhoneNumberScreen" component={PhoneNumberScreen} />
+      <Stack.Screen name="OTPVerificationScreen" component={OTPVerificationScreen} />
       <Stack.Screen name="SuccessSignup" component={SuccessSignup} />
       <Stack.Screen name="CreatePassword" component={CreatePasswordScreen} />
       <Stack.Screen name="AccountSuccess" component={AccountSuccess} />

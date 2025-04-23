@@ -1,30 +1,23 @@
- import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  Image,
-  ImageBackground,
-  SafeAreaView,
-  TextInput,
-  TouchableOpacity,
-  StatusBar,
-  Alert,
-  Keyboard,
-  TouchableWithoutFeedback,
-  ActivityIndicator,
-} from 'react-native';
+import React, { useState } from 'react';
+import { Keyboard, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import styles from '../../css/RegisterScreen.styles';
+
+import AppScreen from '../../components/common/AppScreen';
+import FormContainer from '../../components/common/FormContainer';
+import FormInput from '../../components/common/FormInput';
+import FormButton from '../../components/common/FormButton';
+import SignInLink from '../../components/common/SignInLink';
 
 const EmailInputScreen = () => {
+  const navigation: any = useNavigation();
+  
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState({
     email: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const navigation: any = useNavigation();
 
-   const clearError = () => {
+  const clearError = () => {
     if (errors.email) {
       setErrors({ ...errors, email: '' });
     }
@@ -34,11 +27,11 @@ const EmailInputScreen = () => {
     let isValid = true;
     const newErrors = { email: '' };
 
-     if (!email.trim()) {
+    if (!email.trim()) {
       newErrors.email = 'Email address is required';
       isValid = false;
     } else {
-       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email.trim())) {
         newErrors.email = 'Please enter a valid email address';
         isValid = false;
@@ -53,128 +46,49 @@ const EmailInputScreen = () => {
     Keyboard.dismiss();
     if (validateForm()) {
       setIsSubmitting(true);
-       console.log('Email details:', {
+      console.log('Email details:', {
         email: email.trim(),
         timestamp: new Date().toISOString(),
       });
       
-       setTimeout(() => {
+      setTimeout(() => {
         setIsSubmitting(false);
         navigation.navigate('VerifyEmail'); 
       }, 500);
     } else {
-       if (errors.email) {
+      if (errors.email) {
         Alert.alert('Input Error', errors.email);
       }
       setIsSubmitting(false);
     }
   };
 
-  const handleBack = () => {
-    navigation.goBack();
-  };
-
-  const handleSignIn = () => {
-    navigation.navigate('Login');
-  };
-
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={{flex: 1}}>
-        <StatusBar
-          translucent
-          backgroundColor="transparent"
-          barStyle="light-content"
+    <AppScreen>
+      <FormContainer heading="STAY CONNECTED">
+        <FormInput
+          placeholder="Your Email Address"
+          value={email}
+          onChangeText={setEmail}
+          error={errors.email}
+          clearError={clearError}
+          keyboardType="email-address"
+          autoCapitalize="none"
+          returnKeyType="done"
+          maxLength={100}
+          accessibilityLabel="Email Address"
+          accessibilityHint="Enter your email address"
         />
-        <ImageBackground
-          source={require('../../../assets/images/background.png')}
-          style={styles.backgroundImage}
-          resizeMode="cover">
-          <SafeAreaView style={styles.safeArea}>
-            <View style={styles.container}>
-               <TouchableOpacity
-                style={styles.backButton}
-                activeOpacity={0.8}
-                onPress={handleBack}
-                accessibilityLabel="Go back"
-                accessibilityRole="button">
-                <Image
-                  source={require('../../../assets/images/back-arrow.png')}
-                  style={styles.backIcon}
-                />
-              </TouchableOpacity>
-              <View style={styles.logoContainer}>
-                <Image
-                  source={require('../../../assets/images/stushlogo.png')}
-                  style={styles.logoImage}
-                  resizeMode="contain"
-                />
-              </View>
-              <View style={styles.formContainer}>
-                <View style={styles.formSubContainer}>
-                  <Text style={styles.heading}>STAY CONNECTED</Text>
-
-                  <View style={styles.inputContainer}>
-                    <TextInput
-                      placeholder="Your Email Address"
-                      placeholderTextColor="#8D8E99"
-                      style={[
-                        styles.input,
-                        errors.email ? styles.inputError : null,
-                      ]}
-                      value={email}
-                      onChangeText={text => {
-                        setEmail(text);
-                        clearError();
-                      }}
-                      keyboardType="email-address"
-                      autoCapitalize="none"
-                      returnKeyType="done"
-                      maxLength={100}
-                      accessibilityLabel="Email Address"
-                      accessibilityHint="Enter your email address"
-                    />
-                    {errors.email ? (
-                      <Text style={styles.errorText}>{errors.email}</Text>
-                    ) : null}
-                  </View>
-
-                  <TouchableOpacity
-                    style={[
-                      styles.nextButton,
-                      isSubmitting ? styles.nextButtonDisabled : null,
-                    ]}
-                    activeOpacity={0.8}
-                    onPress={handleNext}
-                    disabled={isSubmitting}
-                    accessibilityLabel="Next button"
-                    accessibilityHint="Continue to verify email">
-                    {isSubmitting ? (
-                      <ActivityIndicator color="#FFFFFF" />
-                    ) : (
-                      <Text style={styles.nextButtonText}>Next</Text>
-                    )}
-                  </TouchableOpacity>
-
-                  <View style={styles.signInContainer}>
-                    <Text style={styles.signInText}>
-                      Already have an account?{' '}
-                      <Text
-                        style={styles.signInLink}
-                        onPress={handleSignIn}
-                        accessibilityRole="link"
-                        accessibilityHint="Go to sign in screen">
-                        Sign In
-                      </Text>
-                    </Text>
-                  </View>
-                </View>
-              </View>
-            </View>
-          </SafeAreaView>
-        </ImageBackground>
-      </View>
-    </TouchableWithoutFeedback>
+        
+        <FormButton
+          title="Next"
+          onPress={handleNext}
+          isLoading={isSubmitting}
+        />
+        
+        <SignInLink />
+      </FormContainer>
+    </AppScreen>
   );
 };
 
