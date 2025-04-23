@@ -37,7 +37,7 @@ export default StyleSheet.create({
   },
   instruction: {
     fontSize: moderateScale(15),
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: '#FFFFFF',
     textAlign: 'center',
     marginTop: verticalScale(20),
     marginBottom: verticalScale(30),
@@ -50,12 +50,12 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
-    paddingHorizontal: horizontalScale(20),
+    paddingHorizontal: horizontalScale(0),
     marginBottom: verticalScale(20),
   },
   codeBox: {
     width: horizontalScale(50),
-    height: verticalScale(50),
+    height: verticalScale(40),
     borderRadius: moderateScale(8),
     backgroundColor: '#091522',
     justifyContent: 'center',
@@ -91,6 +91,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginTop: verticalScale(20),
     marginBottom: verticalScale(30),
+    paddingLeft: horizontalScale(30),
   },
   keypadRow: {
     flexDirection: 'row',
@@ -99,14 +100,25 @@ export default StyleSheet.create({
     marginBottom: verticalScale(10),
   },
   keypadButton: {
-    width: horizontalScale(70),
-    height: horizontalScale(70),
+    width: horizontalScale(60),
+    height: horizontalScale(60),
     borderRadius: horizontalScale(35),
     backgroundColor: 'transparent',
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.3)',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  keypadButtons: {
+    width: horizontalScale(60),
+    height: horizontalScale(35),
+    borderRadius: horizontalScale(35),
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.3)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 15,
   },
   keypadText: {
     color: '#FFFFFF',
@@ -124,12 +136,12 @@ export default StyleSheet.create({
   
    verifyButton: {
     width: '85%',
-    height: verticalScale(50),
+    height: verticalScale(35),
     borderRadius: moderateScale(25),
     backgroundColor: '#1F75FE',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: verticalScale(20),
+    marginTop: verticalScale(10),
     marginBottom: verticalScale(20),
     elevation: 3,
     shadowColor: '#2374E1',
@@ -146,8 +158,8 @@ export default StyleSheet.create({
    phoneInputContainer: {
     flexDirection: 'row',
     width: '90%',
-    height: verticalScale(50),
-    backgroundColor: 'rgba(9, 21, 34, 0.8)',
+    height: verticalScale(35),
+    backgroundColor: '#091522',
     borderRadius: moderateScale(25),
     marginBottom: verticalScale(20),
     overflow: 'hidden',
@@ -160,7 +172,7 @@ export default StyleSheet.create({
     paddingLeft: horizontalScale(15),
     borderRightWidth: 1,
     borderRightColor: 'rgba(255, 255, 255, 0.1)',
-    backgroundColor: 'rgba(9, 21, 34, 1)',
+    backgroundColor: '#091522',
   },
   flagIcon: {
     width: horizontalScale(24),
@@ -178,8 +190,7 @@ export default StyleSheet.create({
   },
   phoneNumberInput: {
     flex: 1,
-    justifyContent: 'center',
-  },
+   },
   phoneInput: {
     color: '#FFFFFF',
     fontSize: moderateScale(16),
@@ -189,7 +200,7 @@ export default StyleSheet.create({
   
    backButton: {
     position: 'absolute',
-    top: Platform.OS === 'ios' ? verticalScale(50) : verticalScale(40),
+    top: Platform.OS === 'ios' ? verticalScale(50) : verticalScale(55),
     left: horizontalScale(16),
     zIndex: 10,
     width: horizontalScale(40),

@@ -46,7 +46,7 @@ const Keypad: React.FC<KeypadProps> = ({ onKeyPress }) => {
       </View>
 
       <View style={styles.keypadRow}>
-        <TouchableOpacity style={styles.keypadButton} onPress={() => onKeyPress('forgot')}>
+        <TouchableOpacity style={styles.keypadButtons} onPress={() => onKeyPress('forgot')}>
           <Text style={styles.forgotText}>Forgot?</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.keypadButton} onPress={() => onKeyPress('0')}>

@@ -14,7 +14,7 @@ import BonusScreen from '../screens/auth/BonusScreen';
 import WelcomeUser from '../screens/auth/welcomeUserScreen';
 import BankAccountSelectionScreen from '../screens/LoggedInLayouts/BankAccountSelectionScreen';
 import SuccessScreen from '../screens/LoggedInLayouts/SuccessScreen';
-import About from '../screens/auth/AboutScreen';
+import AboutScreen from '../screens/auth/AboutScreen';
 import Dashboard from '../screens/LoggedInLayouts/Dashboard';
 import WelcomeStush from '../screens/LoggedInLayouts/WelcomeStush';
 import Wedifferent from '../screens/LoggedInLayouts/WeDifferent';
@@ -31,13 +31,13 @@ import WorkInfo from '../screens/LoggedInLayouts/WorkInfo';
   Splash: undefined;
   Login: undefined;
   RegisterScreen: undefined;
-  About: undefined;
+  AboutScreen: undefined;
   EmailInput: undefined;
   VerifyEmail: undefined;
   PhoneNumberScreen: undefined;
   OTPVerificationScreen: undefined;
   SuccessSignup: undefined;
-  CreatePassword: undefined;
+  CreatePasswordScreen: undefined;
   AccountSuccess: undefined;
   BonusScreen: undefined;
   WelcomeUser: undefined;
@@ -77,13 +77,13 @@ const AppNavigator = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-      <Stack.Screen name="About" component={About} />
+      <Stack.Screen name="AboutScreen" component={AboutScreen} />
       <Stack.Screen name="EmailInput" component={EmailInputScreen} />
       <Stack.Screen name="VerifyEmail" component={VerifyEmail} />
       <Stack.Screen name="PhoneNumberScreen" component={PhoneNumberScreen} />
       <Stack.Screen name="OTPVerificationScreen" component={OTPVerificationScreen} />
       <Stack.Screen name="SuccessSignup" component={SuccessSignup} />
-      <Stack.Screen name="CreatePassword" component={CreatePasswordScreen} />
+      <Stack.Screen name="CreatePasswordScreen" component={CreatePasswordScreen} />
       <Stack.Screen name="AccountSuccess" component={AccountSuccess} />
       <Stack.Screen name="BonusScreen" component={BonusScreen} />
       <Stack.Screen name="WelcomeUser" component={WelcomeUser} />

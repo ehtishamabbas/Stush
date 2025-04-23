@@ -1,4 +1,3 @@
-// src/css/BaseStyles.ts
 import { StyleSheet, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
@@ -9,7 +8,6 @@ const baseStyles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingHorizontal: 24,
   },
   backgroundImage: {
     flex: 1,
@@ -41,14 +39,22 @@ const baseStyles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '700',
     letterSpacing: 1,
-    textAlign: 'center',
+    textAlign: 'left',
     marginBottom: height * 0.05,
+    marginTop: height * 0.06,
     textTransform: 'uppercase',
   },
-   formContainer: {
+  formContainer: {
     width: '100%',
     flex: 1,
-    marginTop: height * 0.07,  
+    paddingHorizontal: 34,
+    backgroundColor: 'rgba(26, 26, 26, 0.6)',
+    marginTop: height * 0.107,
+    borderTopWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.15)',
+    borderTopStartRadius: 30,
+    borderTopEndRadius: 30,
+     position: 'relative',
   },
   formSubContainer: {
     width: '100%',
@@ -58,15 +64,15 @@ const baseStyles = StyleSheet.create({
     marginBottom: 16,
   },
   input: {
-    backgroundColor: 'rgba(26, 26, 26, 0.6)',  
-    borderRadius: 30,  
-    height: 55,  
+    backgroundColor: 'rgba(26, 26, 26, 0.6)',
+    borderRadius: 30,
+    height: 55,
     paddingHorizontal: 20,
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '400',
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.15)',  
+    borderColor: 'rgba(255, 255, 255, 0.15)',
   },
   inputError: {
     borderWidth: 1,
@@ -78,14 +84,26 @@ const baseStyles = StyleSheet.create({
     marginTop: 5,
     marginLeft: 20,
   },
-   actionButton: {
-    backgroundColor: '#2673E5',  
-    borderRadius: 30, 
-    height: 55, 
+  actionButton: {
+    backgroundColor: '#2673E5',
+    borderRadius: 30,
+    height: 55,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 25,
     width: '100%',
+  },
+   actionButtons: {
+    position: 'absolute',
+    bottom: height * 0.12, 
+    left: 34,
+    right: 34,
+    backgroundColor: '#1F75FE',
+    borderRadius: 30,
+    height: 55,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonDisabled: {
     opacity: 0.7,
@@ -94,11 +112,26 @@ const baseStyles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '600',
+    textAlign: 'center',
+  },
+  actionButtonTexts: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '600',
+    textAlign: 'center',
   },
   signInContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     marginTop: 25,
+  },
+   signInContainers: {
+    position: 'absolute',
+    bottom: height * 0.05,
+    left: 0,
+    right: 0,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   signInText: {
     color: 'rgba(255, 255, 255, 0.6)',
@@ -109,12 +142,22 @@ const baseStyles = StyleSheet.create({
     color: '#2673E5',
     fontWeight: '700',
   },
+  signInTexts: {
+    color: 'rgba(255, 255, 255, 0.6)',
+    fontSize: 14,
+    textAlign: 'center',
+  },
+  signInLinks: {
+    color: '#2673E5',
+    fontWeight: '700',
+  },
   forgotPasswordContainer: {
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     marginBottom: 20,
   },
   forgotPassword: {
-    color: '#2673E5',
+    color: '#11DCE8',
+    textAlign: 'left',
     fontSize: 14,
     fontWeight: '500',
   },

@@ -5,12 +5,13 @@ import { useNavigation } from '@react-navigation/native';
 import AppScreen from '../../components/common/AppScreen';
 import FormInput from '../../components/common/FormInput';
 import FormButton from '../../components/common/FormButton';
-import SignInLink from '../../components/common/SignInLink';
+import NavigateButton from '../../components/common/NavigateBotton';
+import SignUpLink from '../../components/common/SignUpLink';
 import baseStyles from '../../css/BaseStyles';
 
 const RegisterScreen = () => {
   const navigation: any = useNavigation();
-  
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [errors, setErrors] = useState({
@@ -59,25 +60,25 @@ const RegisterScreen = () => {
     Keyboard.dismiss();
     if (validateForm()) {
       setIsSubmitting(true);
-      
-       setTimeout(() => {
+
+      setTimeout(() => {
         console.log('Registration details:', {
           firstName: firstName.trim(),
           lastName: lastName.trim(),
           timestamp: new Date().toISOString(),
         });
-        
+
         setIsSubmitting(false);
-        navigation.navigate('About');
+        navigation.navigate('AboutScreen');
       }, 500);
     }
   };
 
   return (
-    <AppScreen>
+    <AppScreen showBackButton={false} enableKeyboardAvoid={true}>
       <View style={baseStyles.formContainer}>
         <Text style={baseStyles.heading}>LET'S GET STARTED</Text>
-        
+
         <FormInput
           placeholder="First Name"
           value={firstName}
@@ -87,7 +88,7 @@ const RegisterScreen = () => {
           autoCapitalize="words"
           returnKeyType="next"
         />
-        
+
         <FormInput
           placeholder="Last Name"
           value={lastName}
@@ -97,14 +98,14 @@ const RegisterScreen = () => {
           autoCapitalize="words"
           returnKeyType="done"
         />
-        
-        <FormButton
+
+        <NavigateButton
           title="Next"
           onPress={handleNext}
           isLoading={isSubmitting}
         />
-        
-        <SignInLink />
+
+        <SignUpLink />
       </View>
     </AppScreen>
   );

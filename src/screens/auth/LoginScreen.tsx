@@ -19,7 +19,7 @@ const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
@@ -64,7 +64,7 @@ const LoginScreen = () => {
     try {
       setIsLoading(true);
 
-       await new Promise(resolve => setTimeout(resolve, 1500));
+      await new Promise(resolve => setTimeout(resolve, 1500));
 
       console.log('Login Credentials:', {
         email,
@@ -72,7 +72,7 @@ const LoginScreen = () => {
         timestamp: new Date().toISOString(),
       });
 
-       const userData = {
+      const userData = {
         email,
         timestamp: new Date().toISOString(),
       };
@@ -90,14 +90,14 @@ const LoginScreen = () => {
   };
 
   const handleSignUp = () => {
-    navigation.navigate('PhoneNumberScreen');
+    navigation.navigate('RegisterScreen');
   };
 
   return (
     <AppScreen showBackButton={false} enableKeyboardAvoid={true}>
       <View style={baseStyles.formContainer}>
         <Text style={baseStyles.heading}>SIGN IN</Text>
-        
+
         <FormInput
           placeholder="Email"
           value={email}
@@ -109,7 +109,7 @@ const LoginScreen = () => {
           returnKeyType="next"
           onSubmitEditing={() => passwordRef.current?.focus()}
         />
-        
+
         <FormInput
           ref={passwordRef}
           placeholder="Password"
@@ -121,31 +121,31 @@ const LoginScreen = () => {
           returnKeyType="done"
           onSubmitEditing={handleSignIn}
         />
-        
+
         <TouchableOpacity
           style={baseStyles.forgotPasswordContainer}
           onPress={handleForgotPassword}>
           <Text style={baseStyles.forgotPassword}>FORGOT PASSWORD?</Text>
         </TouchableOpacity>
-        
+
         <FormButton
           title="Sign In"
           onPress={handleSignIn}
           isLoading={isLoading}
         />
-        
+
         <View style={baseStyles.dividerContainer}>
           <View style={baseStyles.divider} />
           <Text style={baseStyles.dividerText}>or sign in using</Text>
           <View style={baseStyles.divider} />
         </View>
-        
+
         <SocialIcons />
-        
+
         <SignInLink
           text="Don't have an account?"
           linkText="Sign Up"
-          navigateTo="PhoneNumberScreen"
+          navigateTo="RegisterScreen"
         />
       </View>
     </AppScreen>

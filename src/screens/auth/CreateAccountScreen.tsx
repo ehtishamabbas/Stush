@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -11,6 +11,9 @@ import {
   Switch,
 } from 'react-native';
 import styles from '../../css/CreateAccount';
+import FormInput from '../../components/common/FormInput';
+import baseStyles from '../../css/BaseStyles';
+
 
 interface CreatePasswordScreenProps {
   navigation?: any;
@@ -19,14 +22,20 @@ interface CreatePasswordScreenProps {
 const CreatePasswordScreen: React.FC<CreatePasswordScreenProps> = ({
   navigation,
 }) => {
-  const [username, setUsername] = useState('NeilArm30@gmail.com');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [enablePIN, setEnablePIN] = useState(true);
   const [enableFaceID, setEnableFaceID] = useState(false);
 
+   const [email, setEmail] = useState('');
+   const [errors, setErrors] = useState({ email: '', password: '', confirmPassword: '' });
+
+   const clearError = () => {
+    if (errors.email) setErrors(prev => ({ ...prev, email: '' }));
+  };
+
   const handleNext = () => {
-     navigation.navigate('AccountSuccess');  
+    navigation.navigate('AccountSuccess');
   };
 
   const handleBack = () => {
@@ -62,37 +71,51 @@ const CreatePasswordScreen: React.FC<CreatePasswordScreenProps> = ({
               <Text style={styles.heading}>CREATE{'\n'}PASSWORD</Text>
 
               <View style={styles.inputContainer}>
-                <Text style={styles.labelText}>Username:</Text>
-                <TextInput
-                  style={styles.textInput}
-                  value={username}
-                  onChangeText={setUsername}
-                  placeholder="Enter email"
-                  placeholderTextColor="#999999"
-                  autoCapitalize="none"
+                <Text style={styles.labelText}>Email:</Text>
+                <FormInput
+                  placeholder="Your Email Address"
+                  value={email}
+                  onChangeText={setEmail}
+                  error={errors.email}
+                  clearError={clearError}
                   keyboardType="email-address"
+                  autoCapitalize="none"
+                  returnKeyType="done"
+                  maxLength={100}
+                  accessibilityLabel="Email Address"
+                  accessibilityHint="Enter your email address"
                 />
               </View>
 
               <View style={styles.inputContainer}>
-                <TextInput
-                  style={styles.textInput}
+              <FormInput
+                  placeholder="Enter New Password"
                   value={password}
                   onChangeText={setPassword}
-                  placeholder="Enter New Password"
-                  placeholderTextColor="#999999"
-                  secureTextEntry
+                  error={errors.password}
+                  clearError={clearError}
+                  keyboardType="default"
+                  autoCapitalize="none"
+                  returnKeyType="done"
+                  maxLength={100}
+                  accessibilityLabel="Email Address"
+                  accessibilityHint="Enter your new password"
                 />
               </View>
 
               <View style={styles.inputContainer}>
-                <TextInput
-                  style={styles.textInput}
+              <FormInput
+                  placeholder="Confirm New Password"
                   value={confirmPassword}
                   onChangeText={setConfirmPassword}
-                  placeholder="Confirm New Password"
-                  placeholderTextColor="#999999"
-                  secureTextEntry
+                  error={errors.confirmPassword}
+                  clearError={clearError}
+                  keyboardType="default"
+                  autoCapitalize="none"
+                  returnKeyType="done"
+                  maxLength={100}
+                  accessibilityLabel="Confirm New Password"
+                  accessibilityHint="Enter your Confirm new password again"
                 />
               </View>
 
@@ -106,7 +129,7 @@ const CreatePasswordScreen: React.FC<CreatePasswordScreenProps> = ({
                 <Text style={styles.toggleText}>Enable PIN</Text>
                 <Switch
                   style={styles.switch}
-                  trackColor={{false: '#333', true: '#32CD32'}}
+                  trackColor={{ false: '#333', true: '#32CD32' }}
                   thumbColor={enablePIN ? '#f4f3f4' : '#f4f3f4'}
                   ios_backgroundColor="#333"
                   onValueChange={() => setEnablePIN(!enablePIN)}
@@ -118,7 +141,7 @@ const CreatePasswordScreen: React.FC<CreatePasswordScreenProps> = ({
                 <Text style={styles.toggleText}>Enable Face ID</Text>
                 <Switch
                   style={styles.switch}
-                  trackColor={{false: '#333', true: '#32CD32'}}
+                  trackColor={{ false: '#333', true: '#32CD32' }}
                   thumbColor={enableFaceID ? '#f4f3f4' : '#f4f3f4'}
                   ios_backgroundColor="#333"
                   onValueChange={() => setEnableFaceID(!enableFaceID)}

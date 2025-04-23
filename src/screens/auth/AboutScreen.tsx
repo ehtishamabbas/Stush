@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { Keyboard } from 'react-native';
+import { Keyboard, View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import AppScreen from '../../components/common/AppScreen';
 import FormContainer from '../../components/common/FormContainer';
 import FormInput from '../../components/common/FormInput';
-import FormButton from '../../components/common/FormButton';
-import SignInLink from '../../components/common/SignInLink';
+import NavigateButton from '../../components/common/NavigateBotton';
+import SignUpLink from '../../components/common/SignUpLink';
+import baseStyles from '../../css/BaseStyles';
 
 const AboutScreen = () => {
   const navigation: any = useNavigation();
-  
+
   const [dob, setDob] = useState('');
   const [address, setAddress] = useState('');
   const [errors, setErrors] = useState({
@@ -29,7 +30,7 @@ const AboutScreen = () => {
     let isValid = true;
     const newErrors = { dob: '', address: '' };
 
-     
+
     setErrors(newErrors);
     return isValid;
   };
@@ -43,7 +44,7 @@ const AboutScreen = () => {
         address: address.trim(),
         timestamp: new Date().toISOString(),
       });
-      
+
       setTimeout(() => {
         setIsSubmitting(false);
         navigation.navigate('EmailInput');
@@ -52,8 +53,9 @@ const AboutScreen = () => {
   };
 
   return (
-    <AppScreen>
-      <FormContainer heading="TELL US ABOUT YOURSELF">
+    <AppScreen showBackButton={false} enableKeyboardAvoid={true}>
+      <View style={baseStyles.formContainer}>
+        <Text style={baseStyles.heading}>Tell Us About Yourself</Text>
         <FormInput
           placeholder="Date of Birth"
           value={dob}
@@ -61,7 +63,7 @@ const AboutScreen = () => {
           error={errors.dob}
           clearError={() => clearError('dob')}
         />
-        
+
         <FormInput
           placeholder="Home Address"
           value={address}
@@ -69,15 +71,15 @@ const AboutScreen = () => {
           error={errors.address}
           clearError={() => clearError('address')}
         />
-        
-        <FormButton
+
+        <NavigateButton
           title="Next"
           onPress={handleNext}
           isLoading={isSubmitting}
         />
-        
-        <SignInLink />
-      </FormContainer>
+
+        <SignUpLink />
+      </View>
     </AppScreen>
   );
 };

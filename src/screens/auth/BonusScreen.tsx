@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import styles from '../../css/Bonus';
 
+import Header from '../../components/common/Header';
+
 interface ReferFriendScreenProps {
   navigation?: any;
 }
@@ -36,25 +38,7 @@ const BonusScreen: React.FC<ReferFriendScreenProps> = ({ navigation }) => {
         resizeMode="cover">
         <SafeAreaView style={styles.safeArea}>
           <View style={styles.container}>
-            <TouchableOpacity
-              style={styles.backButton}
-              activeOpacity={0.8}
-              onPress={handleBack}
-              accessibilityLabel="Go back"
-              accessibilityRole="button">
-              <Image
-                source={require('../../../assets/images/back-arrow.png')}
-                style={styles.backIcon}
-              />
-            </TouchableOpacity>
-            <View style={styles.logoContainer}>
-              <Image
-                source={require('../../../assets/images/stushlogo.png')}
-                style={styles.logoImage}
-                accessibilityLabel="Stush Logo"
-                resizeMode="contain"
-              />
-            </View>
+            <Header navigation={navigation} onBackPress={handleBack} />
 
             <View style={styles.contentContainer}>
               <View

@@ -14,6 +14,7 @@ interface BaseSuccessScreenProps {
   navigation: any;
   title: string;
   subtitle?: string;
+  subtitlel?: string;
   imageSource: any;
   imageSize?: 'small' | 'large';
   resendText?: string;
@@ -28,6 +29,7 @@ const BaseSuccessScreen: React.FC<BaseSuccessScreenProps> = ({
   navigation,
   title,
   subtitle,
+  subtitlel,
   imageSource,
   resendText,
   buttonText,
@@ -37,8 +39,7 @@ const BaseSuccessScreen: React.FC<BaseSuccessScreenProps> = ({
   onBackPress,
 }) => {
   const handleNext = () => {
-    navigation.navigate(nextScreen);
-  };
+    navigation.navigate(nextScreen)};
 
   return (
     <>
@@ -72,6 +73,16 @@ const BaseSuccessScreen: React.FC<BaseSuccessScreenProps> = ({
               buttonStyle={styles.nextButton}
               textStyle={styles.nextButtonText}
             />
+            
+          </View>
+            <View style={styles.buttonContainer}>
+            <FormButton
+              onPress={handleNext}
+              title={buttonText}
+              buttonStyle={styles.nextButton}
+              textStyle={styles.nextButtonText}
+            />
+            
           </View>
         </SafeAreaView>
       </ImageBackground>

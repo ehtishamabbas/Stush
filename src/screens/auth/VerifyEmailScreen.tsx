@@ -16,7 +16,7 @@ interface VerifyEmailScreenProps {
 
 const VerifyEmailScreen: React.FC<VerifyEmailScreenProps> = ({navigation}) => {
   const handleContinue = () => {
-     navigation.navigate('ContactInfo');  
+     navigation.navigate('PhoneNumberScreen');  
   };
 
   const handleSignIn = () => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import BaseSuccessScreen from '../../components/common/BaseSuccessScreen';
 
+
 interface AccountSuccessProps {
   navigation: any;
 }
@@ -10,10 +11,13 @@ const AccountSuccess: React.FC<AccountSuccessProps> = ({ navigation }) => {
     <BaseSuccessScreen
       navigation={navigation}
       title="SUCCESS!"
-      subtitle="Your account has been created!"
+      subtitlel="Your account has been created"
       imageSource={require('../../../assets/images/Crypto.png')}
       buttonText="Next"
       nextScreen="BonusScreen"
+
+
+
     />
   );
 };

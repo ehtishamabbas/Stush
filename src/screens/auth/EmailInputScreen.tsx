@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { Keyboard, Alert } from 'react-native';
+import { Keyboard, Alert, View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import AppScreen from '../../components/common/AppScreen';
-import FormContainer from '../../components/common/FormContainer';
 import FormInput from '../../components/common/FormInput';
-import FormButton from '../../components/common/FormButton';
-import SignInLink from '../../components/common/SignInLink';
+import NavigateButton from '../../components/common/NavigateBotton';
+import SignUpLink from '../../components/common/SignUpLink';
+import baseStyles from '../../css/BaseStyles';
 
 const EmailInputScreen = () => {
   const navigation: any = useNavigation();
-  
+
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState({
     email: '',
@@ -50,10 +50,10 @@ const EmailInputScreen = () => {
         email: email.trim(),
         timestamp: new Date().toISOString(),
       });
-      
+
       setTimeout(() => {
         setIsSubmitting(false);
-        navigation.navigate('VerifyEmail'); 
+        navigation.navigate('VerifyEmail');
       }, 500);
     } else {
       if (errors.email) {
@@ -64,8 +64,9 @@ const EmailInputScreen = () => {
   };
 
   return (
-    <AppScreen>
-      <FormContainer heading="STAY CONNECTED">
+    <AppScreen showBackButton={false} enableKeyboardAvoid={true}>
+      <View style={baseStyles.formContainer}>
+        <Text style={baseStyles.heading}>STAY CONNECTED</Text>
         <FormInput
           placeholder="Your Email Address"
           value={email}
@@ -79,15 +80,15 @@ const EmailInputScreen = () => {
           accessibilityLabel="Email Address"
           accessibilityHint="Enter your email address"
         />
-        
-        <FormButton
+
+        <NavigateButton
           title="Next"
           onPress={handleNext}
           isLoading={isSubmitting}
         />
-        
-        <SignInLink />
-      </FormContainer>
+
+        <SignUpLink />
+      </View>
     </AppScreen>
   );
 };

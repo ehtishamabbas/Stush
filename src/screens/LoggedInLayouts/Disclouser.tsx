@@ -19,7 +19,7 @@ const Disclouser = () => {
     return (
         <ImageBackground
             source={require('../../../assets/images/backgrounds.png')}
-            style={styles.background}
+            style={styles.backgroundImage}
             resizeMode="cover"
         >
             <SafeAreaView style={styles.container}>

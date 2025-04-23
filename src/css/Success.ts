@@ -1,6 +1,8 @@
-import {StyleSheet, Dimensions, Platform, StatusBar} from 'react-native';
+import { StyleSheet, Dimensions, Platform, StatusBar } from 'react-native';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
+const { height: SCREEN_HEIGHT } = Dimensions.get('window');
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 const baseWidth = 414;
 const baseHeight = 896;
@@ -26,38 +28,44 @@ const SharedStyles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
-  
-   headerContainer: {
+
+  headerContainer: {
     width: '100%',
-    position: 'relative',
+    height: SCREEN_HEIGHT * 0.15,
+    borderBottomLeftRadius: normalize(20),
+    borderBottomRightRadius: normalize(20),
+    backgroundColor: 'rgba(31, 28, 28, 0.39)',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    elevation: 2,
+    position: 'absolute',
+    top: 0,
+    zIndex: 1,
   },
+
   logoContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: '25%', 
+    height: '25%',
     width: '100%',
-    backgroundColor: 'rgba(9, 21, 34, 0.42)',
-    borderRadius: normalize(20),
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 10,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 6,
-    elevation: 8,
-    position: 'absolute',  
-    top: 0,  
+
+    top: 40,
     paddingTop: Platform.OS === 'ios' ? normalize(30) : normalize(10),
   },
   logoImage: {
     width: 140,
     height: 45,
     resizeMode: 'contain',
+    marginTop: normalize(40),
   },
   backButton: {
     position: 'absolute',
-    top: Platform.OS === 'ios' ? 50 : 40,
+    top: Platform.OS === 'ios' ? 50 : 60,
     left: 16,
     zIndex: 10,
     width: 40,
@@ -73,10 +81,10 @@ const SharedStyles = StyleSheet.create({
     height: 24,
     resizeMode: 'contain',
   },
-  
-   contentMainContainer: {
+
+  contentMainContainer: {
     backgroundColor: 'rgba(1, 5, 10, 0.16)',
-    top: '20%',
+    top: '10%',
     width: '100%',
     height: '80%',
     alignItems: 'center',
@@ -107,6 +115,15 @@ const SharedStyles = StyleSheet.create({
     lineHeight: normalize(20),
     marginTop: normalize(10),
     marginHorizontal: normalize(20),
+  },
+  subTexts: {
+    textAlign: 'center',
+    fontWeight: '400',
+    fontSize: normalize(24),
+    color: '#FFFFFF',
+    marginTop: normalize(25),
+    marginHorizontal: normalize(20),
+    lineHeight: normalize(30),
   },
   imageContainer: {
     marginTop: normalize(40),
@@ -147,8 +164,8 @@ const SharedStyles = StyleSheet.create({
     color: '#FFFFFF',
     textAlign: 'center',
   },
-  
-   buttonContainer: {
+
+  buttonContainer: {
     alignItems: 'center',
     paddingHorizontal: normalize(20),
     marginBottom: normalize(80),
@@ -169,11 +186,11 @@ const SharedStyles = StyleSheet.create({
     fontSize: normalize(16),
     fontWeight: '600',
   },
-  
-   title: {
+
+  title: {
     fontSize: normalize(16),
     fontWeight: '600',
-    color: '#FFFFFF',  
+    color: '#FFFFFF',
     textTransform: 'uppercase',
     letterSpacing: 1,
     marginBottom: normalize(40),
@@ -191,14 +208,14 @@ const SharedStyles = StyleSheet.create({
   },
   earnText: {
     fontSize: normalize(14),
-    color: '#FFFFFF',  
+    color: '#FFFFFF',
     marginBottom: normalize(10),
     textAlign: 'center',
   },
   amountText: {
     fontSize: normalize(36),
     fontWeight: 'bold',
-    color: '#00FF87', 
+    color: '#00FF87',
     textAlign: 'center',
     marginBottom: normalize(40),
   },
@@ -214,10 +231,10 @@ const SharedStyles = StyleSheet.create({
     marginBottom: normalize(10),
   },
   bulletText: {
-    color: '#FF0000', 
+    color: '#FF0000',
     fontSize: normalize(14),
     flex: 1,
-    marginLeft: normalize(10),  
+    marginLeft: normalize(10),
   },
 });
 
