@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    marginTop: height * 0.13, // Positioned about 15% down from the logo
+    marginTop: height * 0.13,  
     paddingHorizontal: 16,
     backgroundColor: 'rgba(9, 21, 34, 0.16)',
     shadowColor: '#000000',

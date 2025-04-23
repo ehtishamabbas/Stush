@@ -5,9 +5,11 @@ const { width, height } = Dimensions.get('window');
 const baseStyles = StyleSheet.create({
   safeArea: {
     flex: 1,
+    backgroundColor: 'transparent',
   },
   container: {
     flex: 1,
+    backgroundColor: 'transparent',
   },
   backgroundImage: {
     flex: 1,
@@ -17,7 +19,7 @@ const baseStyles = StyleSheet.create({
   logoContainer: {
     alignItems: 'center',
     marginTop: height * 0.06,
-    marginBottom: height * 0.06,
+    marginBottom: height * 0.04,
   },
   logoImage: {
     width: 150,
@@ -40,13 +42,13 @@ const baseStyles = StyleSheet.create({
     fontWeight: '700',
     letterSpacing: 1,
     textAlign: 'left',
-    marginBottom: height * 0.05,
-    marginTop: height * 0.06,
+    marginBottom: height * 0.04,
+    marginTop: height * 0.04,
     textTransform: 'uppercase',
   },
   formContainer: {
-    width: '100%',
     flex: 1,
+    width: '100%',
     paddingHorizontal: 34,
     backgroundColor: 'rgba(26, 26, 26, 0.6)',
     marginTop: height * 0.107,
@@ -54,10 +56,15 @@ const baseStyles = StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0.15)',
     borderTopStartRadius: 30,
     borderTopEndRadius: 30,
-     position: 'relative',
+    justifyContent: 'space-between', // Added to position content and bottom items correctly
   },
   formSubContainer: {
     width: '100%',
+    paddingTop: 20,
+  },
+  formBottomContainer: {
+    width: '100%',
+    paddingBottom: 30,
   },
   inputContainer: {
     width: '100%',
@@ -87,23 +94,21 @@ const baseStyles = StyleSheet.create({
   actionButton: {
     backgroundColor: '#2673E5',
     borderRadius: 30,
-    height: 55,
+    height: 40,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 25,
     width: '100%',
   },
-   actionButtons: {
-    position: 'absolute',
-    bottom: height * 0.12, 
-    left: 34,
-    right: 34,
+  actionButtons: {
     backgroundColor: '#1F75FE',
     borderRadius: 30,
-    height: 55,
+    height: 40,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 'auto',  
+    marginBottom: 20,    
   },
   buttonDisabled: {
     opacity: 0.7,
@@ -123,15 +128,7 @@ const baseStyles = StyleSheet.create({
   signInContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 25,
-  },
-   signInContainers: {
-    position: 'absolute',
-    bottom: height * 0.05,
-    left: 0,
-    right: 0,
-    flexDirection: 'row',
-    justifyContent: 'center',
+    marginBottom: 30,  
   },
   signInText: {
     color: 'rgba(255, 255, 255, 0.6)',
@@ -181,6 +178,7 @@ const baseStyles = StyleSheet.create({
     justifyContent: 'space-evenly',
     marginTop: 20,
     paddingHorizontal: 20,
+    marginBottom: 30,  
   },
   socialIcon: {
     width: 40,

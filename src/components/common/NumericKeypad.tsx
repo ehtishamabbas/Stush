@@ -7,57 +7,64 @@ interface KeypadProps {
 }
 
 const Keypad: React.FC<KeypadProps> = ({ onKeyPress }) => {
+  const renderKey = (value: string, displayValue?: string) => {
+    if (value === 'forgot') {
+      return (
+        <TouchableOpacity
+          style={styles.keypadButtons}
+          onPress={() => onKeyPress(value)}
+          activeOpacity={0.7}
+        >
+          <Text style={styles.forgotText}>Forgot?</Text>
+        </TouchableOpacity>
+      );
+    } else if (value === 'backspace') {
+      return (
+        <TouchableOpacity
+          style={styles.keypadButton}
+          onPress={() => onKeyPress(value)}
+          activeOpacity={0.7}
+        >
+          <Text style={styles.backspaceText}>⌫</Text>
+        </TouchableOpacity>
+      );
+    } else {
+      return (
+        <TouchableOpacity
+          style={styles.keypadButton}
+          onPress={() => onKeyPress(value)}
+          activeOpacity={0.7}
+        >
+          <Text style={styles.keypadText}>{displayValue || value}</Text>
+        </TouchableOpacity>
+      );
+    }
+  };
+
   return (
     <View style={styles.keypadContainer}>
       <View style={styles.keypadRow}>
-        <TouchableOpacity style={styles.keypadButton} onPress={() => onKeyPress('1')}>
-          <Text style={styles.keypadText}>1</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.keypadButton} onPress={() => onKeyPress('2')}>
-          <Text style={styles.keypadText}>2</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.keypadButton} onPress={() => onKeyPress('3')}>
-          <Text style={styles.keypadText}>3</Text>
-        </TouchableOpacity>
+        {renderKey('1')}
+        {renderKey('2')}
+        {renderKey('3')}
       </View>
-
       <View style={styles.keypadRow}>
-        <TouchableOpacity style={styles.keypadButton} onPress={() => onKeyPress('4')}>
-          <Text style={styles.keypadText}>4</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.keypadButton} onPress={() => onKeyPress('5')}>
-          <Text style={styles.keypadText}>5</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.keypadButton} onPress={() => onKeyPress('6')}>
-          <Text style={styles.keypadText}>6</Text>
-        </TouchableOpacity>
+        {renderKey('4')}
+        {renderKey('5')}
+        {renderKey('6')}
       </View>
-
       <View style={styles.keypadRow}>
-        <TouchableOpacity style={styles.keypadButton} onPress={() => onKeyPress('7')}>
-          <Text style={styles.keypadText}>7</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.keypadButton} onPress={() => onKeyPress('8')}>
-          <Text style={styles.keypadText}>8</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.keypadButton} onPress={() => onKeyPress('9')}>
-          <Text style={styles.keypadText}>9</Text>
-        </TouchableOpacity>
+        {renderKey('7')}
+        {renderKey('8')}
+        {renderKey('9')}
       </View>
-
       <View style={styles.keypadRow}>
-        <TouchableOpacity style={styles.keypadButtons} onPress={() => onKeyPress('forgot')}>
-          <Text style={styles.forgotText}>Forgot?</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.keypadButton} onPress={() => onKeyPress('0')}>
-          <Text style={styles.keypadText}>0</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.keypadButton} onPress={() => onKeyPress('backspace')}>
-          <Text style={styles.backspaceText}>⌫</Text>
-        </TouchableOpacity>
+        {renderKey('forgot')}
+        {renderKey('0')}
+        {renderKey('backspace')}
       </View>
     </View>
   );
 };
 
-export default  Keypad;
+export default Keypad;

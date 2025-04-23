@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { TextInput as RNTextInput, View, Text, TouchableOpacity, Keyboard } from 'react-native';
+import { TextInput as RNTextInput, View, Text, TouchableOpacity, Keyboard, Platform, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as Keychain from 'react-native-keychain';
 
@@ -11,6 +11,7 @@ import SocialIcons from '../../components/SocialMediaIcons';
 import baseStyles from '../../css/BaseStyles';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 const LoginScreen = () => {
   const navigation: any = useNavigation();
@@ -19,9 +20,30 @@ const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [keyboardVisible, setKeyboardVisible] = useState(false);
 
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      'keyboardDidShow',
+      () => {
+        setKeyboardVisible(true);
+      }
+    );
+    const keyboardDidHideListener = Keyboard.addListener(
+      'keyboardDidHide',
+      () => {
+        setKeyboardVisible(false);
+      }
+    );
+
+    return () => {
+      keyboardDidShowListener.remove();
+      keyboardDidHideListener.remove();
+    };
+  }, []);
 
   const validateEmail = () => {
     if (!email.trim()) {
@@ -94,8 +116,16 @@ const LoginScreen = () => {
   };
 
   return (
-    <AppScreen showBackButton={false} enableKeyboardAvoid={true}>
-      <View style={baseStyles.formContainer}>
+    <AppScreen 
+      showBackButton={false}
+      enableKeyboardAvoid={true}
+      scrollable={true}
+      dismissKeyboardOnTouch={true}
+      showLogo={!keyboardVisible}>
+      <View style={[
+        baseStyles.formContainer, 
+        keyboardVisible && { marginTop: SCREEN_HEIGHT * 0.05 }
+      ]}>
         <Text style={baseStyles.heading}>SIGN IN</Text>
 
         <FormInput
@@ -142,11 +172,13 @@ const LoginScreen = () => {
 
         <SocialIcons />
 
-        <SignInLink
-          text="Don't have an account?"
-          linkText="Sign Up"
-          navigateTo="RegisterScreen"
-        />
+        <View style={baseStyles.signInContainer}>
+          <SignInLink
+            text="Don't have an account?"
+            linkText="Sign Up"
+            navigateTo="RegisterScreen"
+          />
+        </View>
       </View>
     </AppScreen>
   );

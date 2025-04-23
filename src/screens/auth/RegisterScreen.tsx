@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Keyboard, Alert, View, Text } from 'react-native';
+import { Keyboard, View, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import AppScreen from '../../components/common/AppScreen';
 import FormInput from '../../components/common/FormInput';
-import FormButton from '../../components/common/FormButton';
 import NavigateButton from '../../components/common/NavigateBotton';
 import SignUpLink from '../../components/common/SignUpLink';
 import baseStyles from '../../css/BaseStyles';
@@ -75,40 +74,46 @@ const RegisterScreen = () => {
   };
 
   return (
-    <AppScreen showBackButton={false} enableKeyboardAvoid={true}>
+    <AppScreen showBackButton={true} enableKeyboardAvoid={true}>
       <View style={baseStyles.formContainer}>
-        <Text style={baseStyles.heading}>LET'S GET STARTED</Text>
+        <View style={baseStyles.formSubContainer}>
+          <Text style={baseStyles.heading}>LET'S GET STARTED</Text>
 
-        <FormInput
-          placeholder="First Name"
-          value={firstName}
-          onChangeText={setFirstName}
-          error={errors.firstName}
-          clearError={() => clearError('firstName')}
-          autoCapitalize="words"
-          returnKeyType="next"
-        />
+          <FormInput
+            placeholder="First Name"
+            value={firstName}
+            onChangeText={setFirstName}
+            error={errors.firstName}
+            clearError={() => clearError('firstName')}
+            autoCapitalize="words"
+            returnKeyType="next"
+          />
 
-        <FormInput
-          placeholder="Last Name"
-          value={lastName}
-          onChangeText={setLastName}
-          error={errors.lastName}
-          clearError={() => clearError('lastName')}
-          autoCapitalize="words"
-          returnKeyType="done"
-        />
+          <FormInput
+            placeholder="Last Name"
+            value={lastName}
+            onChangeText={setLastName}
+            error={errors.lastName}
+            clearError={() => clearError('lastName')}
+            autoCapitalize="words"
+            returnKeyType="done"
+          />
+        </View>
 
-        <NavigateButton
-          title="Next"
-          onPress={handleNext}
-          isLoading={isSubmitting}
-        />
+        <View style={baseStyles.formBottomContainer}>
+          <NavigateButton
+            title="Next"
+            onPress={handleNext}
+            isLoading={isSubmitting}
+            buttonStyle={baseStyles.actionButton}
+          />
 
-        <SignUpLink />
+          <SignUpLink />
+        </View>
       </View>
     </AppScreen>
   );
 };
+
 
 export default RegisterScreen;

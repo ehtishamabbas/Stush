@@ -13,21 +13,21 @@ import styles from '../../css/Verificcation.styles';
 interface VerificationBaseProps {
   title: string;
   instruction: string;
-  buttonText: string;
-  onButtonPress: () => void;
   onBackPress?: () => void;
   showBackButton?: boolean;
   children: React.ReactNode;
+  buttonText?: string;
+  onButtonPress?: () => void;
 }
 
 const VerificationBase: React.FC<VerificationBaseProps> = ({
   title,
   instruction,
-  buttonText,
-  onButtonPress,
   onBackPress,
   showBackButton = false,
   children,
+  buttonText,
+  onButtonPress,
 }) => {
   return (
     <>
@@ -59,10 +59,15 @@ const VerificationBase: React.FC<VerificationBaseProps> = ({
             <Text style={styles.instruction}>{instruction}</Text>
             
             {children}
-            
-            <TouchableOpacity style={styles.verifyButton} onPress={onButtonPress}>
-              <Text style={styles.verifyText}>{buttonText}</Text>
-            </TouchableOpacity>
+            {buttonText && onButtonPress && (
+              <TouchableOpacity
+                style={styles.verifyButton}
+                activeOpacity={0.8}
+                onPress={onButtonPress}
+              >
+                <Text style={styles.verifyText}>{buttonText}</Text>
+              </TouchableOpacity>
+            )}
           </View>
         </SafeAreaView>
       </ImageBackground>

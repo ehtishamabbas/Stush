@@ -4,6 +4,7 @@ import VerificationBase from '../../components/common/VerificationBase';
 import PhoneInput from '../../components/common/PhoneInput';
 import Keypad from '../../components/common/NumericKeypad';
 import styles from '../../css/Verificcation.styles';
+import NavigateButton from '../../components/common/NavigateBotton';
 
 interface PhoneNumberScreenProps {
   navigation: any;
@@ -26,7 +27,6 @@ const PhoneNumberScreen: React.FC<PhoneNumberScreenProps> = ({ navigation }) => 
         setPhoneNumber(phoneNumber.slice(0, -1));
       }
     } else if (key === 'forgot') {
-
     } else {
       setPhoneNumber(phoneNumber + key);
     }
@@ -36,20 +36,26 @@ const PhoneNumberScreen: React.FC<PhoneNumberScreenProps> = ({ navigation }) => 
     <VerificationBase
       title="PHONE NUMBER"
       instruction="Enter your phone number below. It will be used for verification and updates."
-      buttonText="Verify Phone Number"
-      onButtonPress={handleVerify}
       onBackPress={handleBackPress}
       showBackButton={true}
     >
-      <View>
+      <View style={{ width: '100%', alignItems: 'center' }}>
         <PhoneInput
           phoneNumber={phoneNumber}
           onPhoneNumberChange={setPhoneNumber}
         />
 
         <Keypad onKeyPress={handleKeyPress} />
+
+        <NavigateButton
+          onPress={handleVerify}
+          title="Verify Phone Number"
+          buttonStyle={styles.verifyButton}
+          textStyle={styles.verifyText}
+        />
       </View>
     </VerificationBase>
   );
 };
+
 export default PhoneNumberScreen;

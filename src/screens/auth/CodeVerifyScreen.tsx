@@ -5,6 +5,7 @@ import CodeInput from '../../components/common/CodeInput';
 import Keypad from '../../components/common/NumericKeypad';
 import ResendTimer from '../../components/common/resend';
 import styles from '../../css/Verificcation.styles';
+import NavigateButton from '../../components/common/NavigateBotton';
 
 interface OTPVerificationScreenProps {
   navigation: any;
@@ -59,13 +60,11 @@ const OTPVerificationScreen: React.FC<OTPVerificationScreenProps> = ({ navigatio
     <VerificationBase
       title="OTP VERIFICATION"
       instruction={`Please enter 6-digit code we have sent you at ${phoneNumber}`}
-      buttonText="Verify OTP"
-      onButtonPress={handleVerify}
+       onButtonPress={handleVerify}
       onBackPress={handleBackPress}
       showBackButton={true}
     >
-      <View>
-        <CodeInput
+       <CodeInput
           code={code}
           onCodeChange={handleCodeChange}
         />
@@ -75,7 +74,15 @@ const OTPVerificationScreen: React.FC<OTPVerificationScreenProps> = ({ navigatio
           onResend={handleResend}
         />
 
+      <View>
+        
         <Keypad onKeyPress={handleKeyPress} />
+        <NavigateButton
+          onPress={handleVerify}
+          title="Verify OTP"
+          buttonStyle={styles.verifyButton}
+          textStyle={styles.verifyText}
+        />
       </View>
     </VerificationBase>
   );

@@ -1,4 +1,4 @@
- import { StyleSheet, Dimensions, Platform } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -10,7 +10,7 @@ const moderateScale = (size: number, factor: number = 0.5): number =>
   size + (horizontalScale(size) - size) * factor;
 
 export default StyleSheet.create({
-   backgroundImage: {
+  backgroundImage: {
     flex: 1,
     width: '100%',
     height: '100%',
@@ -26,7 +26,7 @@ export default StyleSheet.create({
     paddingHorizontal: horizontalScale(20),
   },
   
-   title: {
+  title: {
     fontSize: moderateScale(24),
     fontWeight: '700',
     color: 'white',
@@ -46,7 +46,7 @@ export default StyleSheet.create({
     maxWidth: '80%',
   },
   
-   codeContainer: {
+  codeContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
@@ -72,7 +72,7 @@ export default StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0.4)',
   },
   
-   resendButton: {
+  resendButton: {
     paddingVertical: verticalScale(10),
     paddingHorizontal: horizontalScale(25),
     borderRadius: moderateScale(20),
@@ -85,40 +85,39 @@ export default StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.7)',
   },
   
-   keypadContainer: {
+  keypadContainer: {
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: verticalScale(20),
     marginBottom: verticalScale(30),
-    paddingLeft: horizontalScale(30),
+    paddingLeft: horizontalScale(15),
   },
   keypadRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '80%',
-    marginBottom: verticalScale(10),
+    marginBottom: verticalScale(20),
   },
   keypadButton: {
     width: horizontalScale(60),
     height: horizontalScale(60),
-    borderRadius: horizontalScale(35),
-    backgroundColor: 'transparent',
+    borderRadius: horizontalScale(30),
+    backgroundColor: 'rgba(9, 21, 34, 0.5)',
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: 'rgba(255, 255, 255, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
   },
   keypadButtons: {
     width: horizontalScale(60),
-    height: horizontalScale(35),
-    borderRadius: horizontalScale(35),
-    backgroundColor: 'transparent',
+    height: horizontalScale(60),
+    borderRadius: horizontalScale(30),
+    backgroundColor: 'rgba(9, 21, 34, 0.5)',
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: 'rgba(255, 255, 255, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 15,
   },
   keypadText: {
     color: '#FFFFFF',
@@ -134,16 +133,15 @@ export default StyleSheet.create({
     fontSize: moderateScale(24),
   },
   
-   verifyButton: {
+  verifyButton: {
     width: '85%',
     height: verticalScale(35),
     borderRadius: moderateScale(25),
     backgroundColor: '#1F75FE',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: verticalScale(10),
-    marginBottom: verticalScale(20),
-    elevation: 3,
+    marginTop: verticalScale(5),
+     elevation: 3,
     shadowColor: '#2374E1',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
@@ -155,14 +153,16 @@ export default StyleSheet.create({
     color: 'white',
   },
   
-   phoneInputContainer: {
+  phoneInputContainer: {
     flexDirection: 'row',
-    width: '90%',
-    height: verticalScale(35),
+    width: '85%',
+    height: verticalScale(40),
     backgroundColor: '#091522',
     borderRadius: moderateScale(25),
     marginBottom: verticalScale(20),
     overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
   },
   countrySelector: {
     flexDirection: 'row',
@@ -172,7 +172,7 @@ export default StyleSheet.create({
     paddingLeft: horizontalScale(15),
     borderRightWidth: 1,
     borderRightColor: 'rgba(255, 255, 255, 0.1)',
-    backgroundColor: '#091522',
+    backgroundColor: 'rgba(9, 21, 34, 0.5)',
   },
   flagIcon: {
     width: horizontalScale(24),
@@ -190,15 +190,15 @@ export default StyleSheet.create({
   },
   phoneNumberInput: {
     flex: 1,
-   },
+  },
   phoneInput: {
     color: '#FFFFFF',
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(12),
     paddingHorizontal: horizontalScale(15),
     height: '100%',
   },
   
-   backButton: {
+  backButton: {
     position: 'absolute',
     top: Platform.OS === 'ios' ? verticalScale(50) : verticalScale(55),
     left: horizontalScale(16),
