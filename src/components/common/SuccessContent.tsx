@@ -21,7 +21,7 @@ const SuccessContent: React.FC<SuccessContentProps> = ({
 }) => {
   return (
     <View style={styles.contentMainContainer}>
-      <View style={styles.contentContainer}>
+      <View style={styles.container}>
         <Text style={styles.heading}>{title}</Text>
         {subtitle && <Text style={styles.subText}>{subtitle}</Text>}
 

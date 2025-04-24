@@ -27,10 +27,10 @@ const CreatePasswordScreen: React.FC<CreatePasswordScreenProps> = ({
   const [enablePIN, setEnablePIN] = useState(true);
   const [enableFaceID, setEnableFaceID] = useState(false);
 
-   const [email, setEmail] = useState('');
-   const [errors, setErrors] = useState({ email: '', password: '', confirmPassword: '' });
+  const [email, setEmail] = useState('');
+  const [errors, setErrors] = useState({ email: '', password: '', confirmPassword: '' });
 
-   const clearError = () => {
+  const clearError = () => {
     if (errors.email) setErrors(prev => ({ ...prev, email: '' }));
   };
 
@@ -71,9 +71,9 @@ const CreatePasswordScreen: React.FC<CreatePasswordScreenProps> = ({
               <Text style={styles.heading}>CREATE{'\n'}PASSWORD</Text>
 
               <View style={styles.inputContainer}>
-                <Text style={styles.labelText}>Email:</Text>
+                <Text style={styles.labelText}>Username:</Text>
                 <FormInput
-                  placeholder="Your Email Address"
+                  placeholder="NeilArm30@gmail.com"
                   value={email}
                   onChangeText={setEmail}
                   error={errors.email}
@@ -88,7 +88,7 @@ const CreatePasswordScreen: React.FC<CreatePasswordScreenProps> = ({
               </View>
 
               <View style={styles.inputContainer}>
-              <FormInput
+                <FormInput
                   placeholder="Enter New Password"
                   value={password}
                   onChangeText={setPassword}
@@ -104,7 +104,7 @@ const CreatePasswordScreen: React.FC<CreatePasswordScreenProps> = ({
               </View>
 
               <View style={styles.inputContainer}>
-              <FormInput
+                <FormInput
                   placeholder="Confirm New Password"
                   value={confirmPassword}
                   onChangeText={setConfirmPassword}
@@ -148,12 +148,15 @@ const CreatePasswordScreen: React.FC<CreatePasswordScreenProps> = ({
                   value={enableFaceID}
                 />
               </View>
+              <View style={styles.bottonContainer}>
 
-              <TouchableOpacity
-                style={styles.nextButton}
-                onPress={handleNext}>
-                <Text style={styles.nextButtonText}>Next</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.nextButton}
+                  onPress={handleNext}>
+                  <Text style={styles.nextButtonText}>Next</Text>
+                </TouchableOpacity>
+              </View>
+
             </View>
           </View>
         </SafeAreaView>

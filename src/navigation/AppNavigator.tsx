@@ -15,8 +15,8 @@ import WelcomeUser from '../screens/auth/welcomeUserScreen';
 import BankAccountSelectionScreen from '../screens/LoggedInLayouts/BankAccountSelectionScreen';
 import SuccessScreen from '../screens/LoggedInLayouts/SuccessScreen';
 import AboutScreen from '../screens/auth/AboutScreen';
-import Dashboard from '../screens/LoggedInLayouts/Dashboard';
-import WelcomeStush from '../screens/LoggedInLayouts/WelcomeStush';
+// import Dashboard from '../screens/LoggedInLayouts/Dashboard';
+import WelcomeStushScreen from '../screens/LoggedInLayouts/WelcomeStush';
 import Wedifferent from '../screens/LoggedInLayouts/WeDifferent';
 import UserIdentification from '../screens/LoggedInLayouts/Identification';
 import Disclouser from '../screens/LoggedInLayouts/Disclouser';
@@ -41,10 +41,10 @@ import WorkInfo from '../screens/LoggedInLayouts/WorkInfo';
   AccountSuccess: undefined;
   BonusScreen: undefined;
   WelcomeUser: undefined;
-  Dashboard: undefined;
+  // Dashboard: undefined;
   BankAccountSelection: undefined;
   Success: undefined;
-  WelcomeStush: undefined;
+  WelcomeStushScreen: undefined;
   Wedifferent: undefined;
   UserIdentification: undefined;
   Disclouser: undefined;
@@ -87,10 +87,10 @@ const AppNavigator = () => {
       <Stack.Screen name="AccountSuccess" component={AccountSuccess} />
       <Stack.Screen name="BonusScreen" component={BonusScreen} />
       <Stack.Screen name="WelcomeUser" component={WelcomeUser} />
-      <Stack.Screen name="Dashboard" component={Dashboard} />
+      {/* <Stack.Screen name="Dashboard" component={Dashboard} /> */}
       <Stack.Screen name="BankAccountSelection" component={BankAccountSelectionScreen} />
       <Stack.Screen name="Success" component={SuccessScreen} />
-      <Stack.Screen name="WelcomeStush" component={WelcomeStush} />
+      <Stack.Screen name="WelcomeStushScreen" component={WelcomeStushScreen} />
       <Stack.Screen name="Wedifferent" component={Wedifferent} />
       <Stack.Screen name="UserIdentification" component={UserIdentification} />  
       <Stack.Screen name="Disclouser" component={Disclouser} />

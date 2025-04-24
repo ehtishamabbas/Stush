@@ -55,7 +55,7 @@ export default StyleSheet.create({
   },
   codeBox: {
     width: horizontalScale(50),
-    height: verticalScale(40),
+    height: verticalScale(50),
     borderRadius: moderateScale(8),
     backgroundColor: '#091522',
     justifyContent: 'center',
@@ -66,6 +66,7 @@ export default StyleSheet.create({
     fontSize: moderateScale(18),
     fontWeight: '600',
     textAlign: 'center',
+    lineHeight: verticalScale(22),
   },
   filledCodeBox: {
     backgroundColor: '#091522',
@@ -90,7 +91,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: verticalScale(20),
-    marginBottom: verticalScale(30),
+    marginBottom: verticalScale(20),
     paddingLeft: horizontalScale(15),
   },
   keypadRow: {
@@ -135,7 +136,7 @@ export default StyleSheet.create({
   
   verifyButton: {
     width: '85%',
-    height: verticalScale(35),
+    height: verticalScale(45),
     borderRadius: moderateScale(25),
     backgroundColor: '#1F75FE',
     justifyContent: 'center',

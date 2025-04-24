@@ -9,14 +9,17 @@ import {
   SafeAreaView,
 } from 'react-native';
 import styles from '../../css/Email.Screen';
+import NavigateButton from '../../components/common/NavigateButton';
+import SignUpLink from '../../components/common/SignUpLink';
+import { useNavigation } from '@react-navigation/native';
+import AppScreen from '../../components/common/AppScreen';
+import baseStyles from '../../css/BaseStyles';
 
-interface VerifyEmailScreenProps {
-  navigation?: any;
-}
 
-const VerifyEmailScreen: React.FC<VerifyEmailScreenProps> = ({navigation}) => {
+const VerifyEmailScreen: React.FC = () => {
+  const navigation: any = useNavigation();
   const handleContinue = () => {
-     navigation.navigate('PhoneNumberScreen');  
+    navigation.navigate('PhoneNumberScreen');
   };
 
   const handleSignIn = () => {
@@ -24,63 +27,31 @@ const VerifyEmailScreen: React.FC<VerifyEmailScreenProps> = ({navigation}) => {
   };
 
   return (
-    <>
-      <StatusBar
-        translucent
-        backgroundColor="transparent"
-        barStyle="light-content"
-      />
-      <ImageBackground
-        source={require('../../../assets/images/background.png')}
-        style={styles.backgroundImage}
-        resizeMode="cover">
-        <SafeAreaView style={styles.safeArea}>
-          <View style={styles.container}>
-            <View style={styles.logoContainer}>
-              <Image
-                source={require('../../../assets/images/stushlogo.png')}
-                style={styles.logoImage}
-                accessibilityLabel="Stush Logo"
-                resizeMode="contain"
-              />
-            </View>
+<AppScreen showBackButton={true} enableKeyboardAvoid={true}>      
+      <View style={baseStyles.formContainer}>
 
-            <View style={styles.contentContainer}>
-              <Text style={styles.heading}>
-                VERIFY YOUR EMAIL{'\n'}
-                FOR FULL ACCESS
-              </Text>
+        <Text style={styles.heading}>
+          VERIFY YOUR EMAIL{'\n'}
+          FOR FULL ACCESS
+        </Text>
 
-              <Text style={styles.subText}>
-                Please verify your email within 24-48 hours to unlock all
-                features and enhance your security.
-              </Text>
+        <Text style={styles.subText}>
+          Please verify your email within 24-48 hours to unlock all
+          features and enhance your security.
+        </Text>
 
-              <Text style={styles.warningText}>
-                Without verification, some features may be limited.
-              </Text>
+        <Text style={styles.warningText}>
+          Without verification, some features may be limited.
+        </Text>
 
-              <TouchableOpacity
-                style={styles.nextButton}
-                onPress={handleContinue}>
-                <Text style={styles.nextButtonText}>
-                  Continue & Verify Later
-                </Text>
-              </TouchableOpacity>
+        <NavigateButton
+          title="Next"
+          onPress={handleContinue}
+        />
 
-              <View style={styles.signInContainer}>
-                <Text style={styles.signInText}>
-                  Already have an account?{' '}
-                  <Text style={styles.signInLink} onPress={handleSignIn}>
-                    Sign In
-                  </Text>
-                </Text>
-              </View>
-            </View>
-          </View>
-        </SafeAreaView>
-      </ImageBackground>
-    </>
+        <SignUpLink />
+      </View>
+    </AppScreen>
   );
 };
 

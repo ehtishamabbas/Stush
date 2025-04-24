@@ -8,16 +8,13 @@ interface AccountSuccessProps {
 
 const AccountSuccess: React.FC<AccountSuccessProps> = ({ navigation }) => {
   return (
-    <BaseSuccessScreen
+<BaseSuccessScreen
       navigation={navigation}
       title="SUCCESS!"
-      subtitlel="Your account has been created"
-      imageSource={require('../../../assets/images/Crypto.png')}
-      buttonText="Next"
-      nextScreen="BonusScreen"
-
-
-
+      subtitle="Your account has been created"
+      imageSource={require('../../../assets/images/Crypto.png')} 
+       buttonText="Next"
+      nextScreen="BonusScreen"  
     />
   );
 };

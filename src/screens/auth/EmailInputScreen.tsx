@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import AppScreen from '../../components/common/AppScreen';
 import FormInput from '../../components/common/FormInput';
-import NavigateButton from '../../components/common/NavigateBotton';
+import NavigateButton from '../../components/common/NavigateButton';
 import SignUpLink from '../../components/common/SignUpLink';
 import baseStyles from '../../css/BaseStyles';
 
@@ -64,7 +64,7 @@ const EmailInputScreen = () => {
   };
 
   return (
-    <AppScreen showBackButton={false} enableKeyboardAvoid={true}>
+    <AppScreen showBackButton={true} enableKeyboardAvoid={true}>
       <View style={baseStyles.formContainer}>
         <Text style={baseStyles.heading}>STAY CONNECTED</Text>
         <FormInput

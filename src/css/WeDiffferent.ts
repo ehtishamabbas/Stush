@@ -1,3 +1,4 @@
+// WeDiffferent.js (StyleSheet)
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -13,11 +14,12 @@ export default StyleSheet.create({
   },
   headerContainer: {
     flexDirection: 'row',
-    gap: 12,
-     backgroundColor: 'transparent',
-     marginTop: 32,
-     textAlign: 'left',
-   },
+    gap: 42,
+    backgroundColor: 'transparent',
+    marginTop: 15,
+    textAlign: 'center',
+    width: '100%',
+  },
   backButton: {
     alignSelf: 'flex-start',
     marginTop: 20,
@@ -36,48 +38,43 @@ export default StyleSheet.create({
   },
   title: {
     fontSize: 29,
-    textAlign: 'left',
+    textAlign: 'center',
     fontWeight: 'bold',
     color: '#FFFFFF',
     fontFamily: 'Orbitron-Bold',
     lineHeight: 45,
     marginTop: 22,
   },
-  titleAlt: {
-    fontSize: 28,
-    color: '#fff',
-    fontWeight: 'bold',
-    fontFamily: 'Orbitron-Bold',
-    marginBottom: 10,
-  },
   subtitle: {
     fontSize: 16,
     color: '#fff',
     marginBottom: 30,
     marginTop: 40,
+    alignSelf: 'center',
   },
-  featureBlock: {
+   leftFeatureBlock: {
     flexDirection: 'row',
+    justifyContent: 'flex-start',
     marginBottom: 30,
-     width: '100%',
+    width: '100%',
+    paddingRight: '30%',  
   },
-  featureBlocks: {
+   rightFeatureBlock: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
     marginBottom: 30,
     width: '100%',
+    paddingLeft: '30%', 
   },
-  
   featureImage: {
     width: 110,
-    height:100,
+    height: 100,
     resizeMode: 'contain',
     marginRight: 15,
   },
   featureTextWrapper: {
-     flex: 1,
+    flex: 1,
   },
-  
   featureImageWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -92,7 +89,7 @@ export default StyleSheet.create({
   featureDesc: {
     color: '#fff',
     fontSize: 14,
-    marginTop:12,
+    marginTop: 12,
   },
   footerText: {
     color: '#fff',

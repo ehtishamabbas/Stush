@@ -1,77 +1,83 @@
+
 import React from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
-  ImageBackground,
+  StyleSheet,
   SafeAreaView,
+  ImageBackground,
 } from 'react-native';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/AppNavigator';
-import styles from '../../css/welcomestush';
 
-const WelcomeStush = () => {
+import BaseScreen from '../../components/ResueableComponents/DisclouerMainScreen';
+import BulletPoints from '../../components/ResueableComponents/BulletPoints';
+import NavButton from '../../components/common/NavigateButton';
+import styles from '../../css/Disclouser';
+
+const WelcomeStushScreen = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
-  return (
-    <ImageBackground
-      source={require('../../../assets/images/backgrounds.png')}
-      style={styles.background}
-      resizeMode="cover"
-    >
-      <SafeAreaView style={styles.container}>
-        <View style={styles.headerContainer}>
-          <TouchableOpacity style={styles.backButton}>
-            <FontAwesome5 name="arrow-left" size={18} color="#fff" />
-          </TouchableOpacity>
+  const bulletItems = [
+    {
+      text: 'We verify your completed work and pay you instantly.'
+    },
+    {
+      text: 'No waiting for payday – Get access to the money you\'ve already earned.'
+    },
+    {
+      text: 'Simple, transparent fees – No surprises, just fair access to your money.'
+    }
+  ];
 
-          <Text style={styles.title}>WELCOME TO{"\n"}STUSH PAY</Text>
-        </View>
+  const handleContinue = () => {
+    navigation.navigate('Wedifferent');
+  };
+
+  const handleBack = () => {
+    navigation.goBack();
+  };
+
+  return (
+    <BaseScreen onBackPress={handleBack} showBackButton={true} showLogo={false}>
+      <View style={localStyles.contentContainer}>
+        <Text style={localStyles.title}>WELCOME TO{"\n"}STUSH PAY</Text>
 
         <Text style={styles.subtitle}>Your Money, When you need it.</Text>
+
         <Text style={styles.info}>
           This is an Earned Income Payout Service{"\n"}- NOT a loan!
         </Text>
 
-        <View style={styles.bulletContainer}>
-
-          <View style={styles.bulletRow}>
-            <FontAwesome5 name="check-circle" size={18} color="#fff" />
-            <Text style={styles.bulletText}>
-              We verify your completed work and{"\n"}pay you instantly.
-            </Text>
-          </View>
-          <View style={styles.bulletRow}>
-            <FontAwesome5 name="check-circle" size={18} color="#fff" />
-            <Text style={styles.bulletText}>
-              No waiting for payday – Get access to{"\n"}the money you’ve already earned.
-            </Text>
-          </View>
-          <View style={styles.bulletRow}>
-            <FontAwesome5 name="check-circle" size={18} color="#fff" />
-            <Text style={styles.bulletText}>
-              Simple, transparent fees – No{"\n"}surprises, just fair access to your{"\n"}money.
-            </Text>
-          </View>
-        </View>
-
-
+        <BulletPoints items={bulletItems} />
 
         <Text style={styles.footerText}>
           YOU WORKED FOR IT.{"\n"}NOW GET PAID FASTER.
         </Text>
 
-        <TouchableOpacity
-          style={styles.continueButton}
-          onPress={() => navigation.navigate('Wedifferent')}
-        >
-          <Text style={styles.continueText}>Continue</Text>
-        </TouchableOpacity>
-      </SafeAreaView>
-    </ImageBackground>
+        <NavButton
+          title="Continue"
+          onPress={handleContinue}
+        />
+      </View>
+    </BaseScreen>
   );
 };
 
-export default WelcomeStush;
+const localStyles = StyleSheet.create({
+  contentContainer: {
+    flex: 1,
+    paddingTop: 35,
+    paddingHorizontal: 20,
+  },
+  title: {
+    color: '#FFFFFF',
+    fontSize: 28,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    lineHeight: 36,
+  },
+});
+
+export default WelcomeStushScreen;

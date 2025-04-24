@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import AppScreen from '../../components/common/AppScreen';
 import FormInput from '../../components/common/FormInput';
-import NavigateButton from '../../components/common/NavigateBotton';
+import NavigateButton from '../../components/common/NavigateButton';
 import SignUpLink from '../../components/common/SignUpLink';
 import baseStyles from '../../css/BaseStyles';
 
@@ -114,6 +114,5 @@ const RegisterScreen = () => {
     </AppScreen>
   );
 };
-
 
 export default RegisterScreen;

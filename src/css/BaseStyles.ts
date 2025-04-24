@@ -30,6 +30,11 @@ const baseStyles = StyleSheet.create({
     top: 50,
     left: 20,
     zIndex: 10,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(0, 0, 0, 1)',
   },
   backIcon: {
     width: 24,
@@ -56,7 +61,7 @@ const baseStyles = StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0.15)',
     borderTopStartRadius: 30,
     borderTopEndRadius: 30,
-    justifyContent: 'space-between', // Added to position content and bottom items correctly
+    justifyContent: 'space-between',  
   },
   formSubContainer: {
     width: '100%',
@@ -68,7 +73,7 @@ const baseStyles = StyleSheet.create({
   },
   inputContainer: {
     width: '100%',
-    marginBottom: 16,
+    marginBottom: 13,
   },
   input: {
     backgroundColor: 'rgba(26, 26, 26, 0.6)',
@@ -94,16 +99,17 @@ const baseStyles = StyleSheet.create({
   actionButton: {
     backgroundColor: '#2673E5',
     borderRadius: 30,
-    height: 40,
+    height: 45,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 25,
     width: '100%',
   },
+  
   actionButtons: {
     backgroundColor: '#1F75FE',
     borderRadius: 30,
-    height: 40,
+    height: 45,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

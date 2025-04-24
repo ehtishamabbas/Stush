@@ -7,6 +7,10 @@ import {
   StatusBar,
   SafeAreaView,
   Image,
+  ScrollView,
+  Dimensions,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import styles from '../../css/Verificcation.styles';
 
@@ -29,6 +33,8 @@ const VerificationBase: React.FC<VerificationBaseProps> = ({
   buttonText,
   onButtonPress,
 }) => {
+  const screenHeight = Dimensions.get('window').height;
+  
   return (
     <>
       <StatusBar
@@ -38,38 +44,50 @@ const VerificationBase: React.FC<VerificationBaseProps> = ({
       />
       <ImageBackground
         source={require('../../../assets/images/background.png')}
-        style={styles.backgroundImage}
+        style={[styles.backgroundImage, { minHeight: screenHeight }]}
         resizeMode="cover">
-        {showBackButton && (
-          <TouchableOpacity
-            style={styles.backButton}
-            activeOpacity={0.8}
-            onPress={onBackPress}
-            accessibilityLabel="Go back"
-            accessibilityRole="button">
-            <Image
-              source={require('../../../assets/images/back-arrow.png')}
-              style={styles.backIcon}
-            />
-          </TouchableOpacity>
-        )}
-        <SafeAreaView style={styles.safeArea}>
-          <View style={styles.container}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.instruction}>{instruction}</Text>
-            
-            {children}
-            {buttonText && onButtonPress && (
-              <TouchableOpacity
-                style={styles.verifyButton}
-                activeOpacity={0.8}
-                onPress={onButtonPress}
-              >
-                <Text style={styles.verifyText}>{buttonText}</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        </SafeAreaView>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+          style={{ flex: 1 }}
+          keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}>
+          {showBackButton && (
+            <TouchableOpacity
+              style={styles.backButton}
+              activeOpacity={0.8}
+              onPress={onBackPress}
+              accessibilityLabel="Go back"
+              accessibilityRole="button">
+              <Image
+                source={require('../../../assets/images/back-arrow.png')}
+                style={styles.backIcon}
+              />
+            </TouchableOpacity>
+          )}
+          <SafeAreaView style={styles.safeArea}>
+            <ScrollView
+              contentContainerStyle={{ flexGrow: 1 }}
+              showsVerticalScrollIndicator={false}
+              bounces={false}
+              keyboardShouldPersistTaps="handled">
+              <View style={styles.container}>
+                <Text style={styles.title}>{title}</Text>
+                <Text style={styles.instruction}>{instruction}</Text>
+                
+                {children}
+                
+                {buttonText && onButtonPress && (
+                  <TouchableOpacity
+                    style={styles.verifyButton}
+                    activeOpacity={0.8}
+                    onPress={onButtonPress}
+                  >
+                    <Text style={styles.verifyText}>{buttonText}</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
+            </ScrollView>
+          </SafeAreaView>
+        </KeyboardAvoidingView>
       </ImageBackground>
     </>
   );

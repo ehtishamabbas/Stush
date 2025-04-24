@@ -30,10 +30,12 @@ export default StyleSheet.create({
         width: 24,
         height: 24,
         resizeMode: 'contain',
+        tintColor: 'white',
     },
     logoContainer: {
         alignItems: 'center',
-        marginVertical: 20,
+        marginTop: Platform.OS === 'ios' ? 60 : 50,
+        marginBottom: 20,
     },
     logoImage: {
         width: 140,
@@ -42,34 +44,62 @@ export default StyleSheet.create({
     },
     textContainer: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         marginVertical: 20,
     },
     title: {
         color: '#FFFFFF',
-        fontSize: 21,
+        fontSize: 20,
         fontWeight: 'bold',
         lineHeight: 28,
+        textTransform: 'uppercase',
+    },
+    subtitle: {
+        color: '#FFFFFF',
+        fontSize: 16,
+        textAlign: 'center',
+        marginVertical: 20,
     },
     description: {
         color: '#FFFFFF',
         fontSize: 14,
         lineHeight: 20,
         marginVertical: 10,
+        opacity: 0.8,
+    },
+    info: {
+        color: '#FFFFFF',
+        fontSize: 16,
+        textAlign: 'center',
+        marginVertical: 20,
     },
     bulletContainer: {
         marginTop: 20,
     },
     bulletRow: {
         flexDirection: 'row',
-        alignItems: 'center',
-        marginVertical: 5,
+        alignItems: 'flex-start',
+        marginVertical: 15,
     },
     bulletText: {
         color: '#FFFFFF',
-        fontSize: 13,
-        marginLeft: 10,
+        fontSize: 14,
+        marginLeft: 15,
         flex: 1,
+        lineHeight: 20,
+    },
+    bulletTextBlue: {
+        color: '#1F7FFE',
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginLeft: 15,
+    },
+    bulletDescription: {
+        color: '#FFFFFF',
+        fontSize: 14,
+        marginLeft: 15,
+        marginTop: 5,
+        opacity: 0.8,
     },
     continueButton: {
         backgroundColor: '#1F7FFE',
@@ -77,6 +107,7 @@ export default StyleSheet.create({
         borderRadius: 25,
         alignItems: 'center',
         marginVertical: 20,
+        marginHorizontal: 20,
     },
     continueText: {
         color: '#FFFFFF',
@@ -84,167 +115,33 @@ export default StyleSheet.create({
         fontWeight: 'bold',
     },
     headerContainer: {
-        padding: 35,
-        backgroundColor: 'transparent',
-    },
-    headerTitleContainer: {
         alignItems: 'center',
-        top: 0,
-        paddingVertical: 60,
-        marginBottom: 20,
-        backgroundColor: 'rgba(4, 30, 45, 0.17)',  
-        borderBottomWidth: 0,
-        borderRadius: 25,  
+        marginTop: Platform.OS === 'ios' ? 60 : 50,
+        paddingHorizontal: 30,
     },
-    headerTitle: {
+    footerText: {
         color: '#FFFFFF',
         fontSize: 20,
         fontWeight: 'bold',
-        letterSpacing: 1,
+        textAlign: 'center',
+        marginVertical: 30,
+        lineHeight: 28,
     },
-    userInfoContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 20,
-    },
-    userInfo: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    userIconContainer: {
-        width: 40,
-        height: 40,
-        borderRadius: 20,
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginRight: 10,
-    },
-    userNameContainer: {
-        justifyContent: 'center',
-    },
-    helloText: {
+    secondaryTitle: {
         color: '#FFFFFF',
-        fontSize: 14,
-        opacity: 0.7,
-    },
-    userName: {
-        color: '#FFFFFF',
-        fontSize: 16,
+        fontSize: 24,
         fontWeight: 'bold',
+        marginBottom: 5,
     },
-    headerIcons: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    iconSpacing: {
-        marginRight: 20,
-    },
-    iconSpacings: {
+    underline: {
+        height: 2,
         backgroundColor: '#1F7FFE',
-        borderRadius: 50,
-        paddingHorizontal: 8,
-         paddingVertical: 6,
-      },
-    coinImageContainer: {
-        alignItems: 'flex-start',
+        width: '100%',
         marginBottom: 15,
     },
-    coinImage: {
-        width: 60,
-        height: 60,
-    },
-    balanceContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 15,
-    },
-    balanceInfo: {
+    background: {
         flex: 1,
-    },
-    balanceLabel: {
-        color: 'white',
-        fontSize: 17,
-        opacity: 0.7,
-        fontWeight: '400',
-    },
-    balanceAmount: {
-        color: '#3EDA7F',
-        fontSize: 20,
-         fontWeight: '700',
-    },
-    statusContainer: {
-        alignItems: 'flex-end',
-    },
-    statusLabel: {
-        color: '#FFFFFF',
-        fontSize: 14,
-        fontWeight: '400',
-            },
-    statusValue: {
-        color: '#4CE444',
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    payPeriodContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 20,
-    },
-    periodInfo: {
-        flex: 1,
-    },
-    periodLabel: {
-        color: '#FFFFFF',
-        fontSize: 14,
-        fontWeight: '400',
-      },
-    periodValue: {
-        color: '#11DCE8',
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    workHoursContainer: {
-        alignItems: 'flex-end',
-    },
-    hoursLabel: {
-        color: '#FFFFFF',
-        fontSize: 14,
-        fontWeight: '400',
-    },
-    hoursValue: {
-        color: '#11DCE8',
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    rateValue: {
-        color: '#FFFFFF',
-        fontSize: 13,
-        fontWeight: '400',
-    },
-    referContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: 'rgba(128, 0, 128, 0.6)',
-        borderRadius: 10,
-        paddingHorizontal: 50,
-        paddingVertical: 15,
-         justifyContent: 'center',
-        alignSelf: 'center',
-        marginTop: 40,
-        marginBottom: 20,
-    },
-    referIcon: {
-        width: 24,
-        height: 24,
-        marginRight: 10,
-    },
-    referText: {
-        color: '#FFFFFF',
-        fontSize: 16,
-        fontWeight: 'bold',
+        width: '100%',
+        height: '100%',
     },
 });

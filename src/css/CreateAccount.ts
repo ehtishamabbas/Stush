@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   labelText: {
-    fontSize: normalize(14),
+    fontSize: normalize(16),
     color: '#FFFFFF',
     marginBottom: normalize(8),
   },
@@ -78,17 +78,17 @@ const styles = StyleSheet.create({
     borderColor: '#3A3A42',
   },
   passwordRequirements: {
-    fontSize: normalize(12),
+    fontSize: normalize(14),
     color: '#AAAAAA',
-    marginTop: normalize(16),
-    marginBottom: normalize(25),
+    marginTop: normalize(0),
+    marginBottom: normalize(2),
     lineHeight: normalize(18),
   },
   toggleContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: normalize(15),
+    marginBottom: normalize(12),
   },
   toggleText: {
     fontSize: normalize(14),
@@ -96,6 +96,10 @@ const styles = StyleSheet.create({
   },
   switch: {
     transform: [{scale: 1.4}],
+  },
+  bottonContainer: {
+    width: '100%',
+    marginTop: normalize(15),
   },
   nextButton: {
     backgroundColor: '#1F75FE',

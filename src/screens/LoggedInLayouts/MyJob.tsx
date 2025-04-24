@@ -1,85 +1,90 @@
-import React from 'react';
-import {
-    View,
-    Text,
-    Image,
-    ImageBackground,
-    TouchableOpacity,
-    ScrollView,
-    TextInput,
-} from 'react-native';
-import styles from '../../css/UserIdentification.';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../navigation/AppNavigator';
-const MyJob = () => {
-    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-    return (
-        <ImageBackground
-            source={require('../../../assets/images/backgrounds.png')}
-            style={styles.background}
-            resizeMode="cover"
-        >
-            <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
 
-                <TouchableOpacity
-                    style={styles.backButton}
-                    activeOpacity={0.8}
-                    accessibilityLabel="Go back"
-                    accessibilityRole="button">
-                    <Image
-                        source={require('../../../assets/images/back-arrow.png')}
-                        style={styles.backIcon}
-                    />
-                </TouchableOpacity>
-                <View style={styles.logoContainer}>
-                    <Image
-                        source={require('../../../assets/images/stushlogo.png')}
-                        style={styles.logoImage}
-                        accessibilityLabel="Stush Logo"
-                        resizeMode="contain"
-                    />
-                </View>
-                <View style={styles.formcontainer}>
-                    <View style={styles.textContainer}>
-                        <Text style={styles.title}>GET PAID TODAY</Text>
-                        <Text style={styles.title}>MY JOB</Text>
-                        <Text style={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra condimentum eget purus in. </Text>
+ import BaseScreen from '../../components/ResueableComponents/MainScreen';
+import Header from '../../components/common/Header';
+import Heading from '../../components/ResueableComponents/Heading';
+import ContentText from '../../components/ResueableComponents/ContenetText';
+import NavigateButton from '../../components/common/NavigateButton';
+// import CustomDropdown from '../../components/ResueableComponents/CustomDropdown';
+
+interface MyJobScreenProps {
+  navigation: any;
+}
+
+const MyJobScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
+  const [selectedJob, setSelectedJob] = useState('');
+
+  const handleNext = () => {
+    navigation.navigate('NextScreen');
+  };
+
+  const handleBack = () => {
+    navigation.goBack();
+  };
+
+  return (
+    <BaseScreen>
+      <View style={styles.container}>
+      <Header navigation={navigation} onBackPress={handleBack} />
 
 
-                    </View>
-
-                    <View style={styles.subcontainer}>
-                        <Text style={styles.titlel}>Your Employement</Text>
-
-                        <View style={styles.inputContainer}>
-                            <TextInput
-                                style={styles.textInput}
-                                placeholder=" Number"
-                                placeholderTextColor="#999999"
-                                secureTextEntry
-                            />
-
-                        </View>
-
-
-                        <TouchableOpacity style={styles.ctaButton}
-                            onPress={() => navigation.navigate('CompanyInfo')}
-                        >
-
-                            <Text style={styles.ctaButtonText}> Next</Text>
-                        </TouchableOpacity>
-
-                    </View>
-
-
-                </View>
-
-
-            </ScrollView>
-        </ImageBackground >
-    );
+        <View style={styles.contentContainer}>
+          <Heading 
+            primaryText="GET PAID TODAY" 
+            type="primary" 
+          />
+          
+          <Heading 
+            secondaryText="My Job" 
+            type="secondary" 
+          />
+          
+          <ContentText 
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra condimentum eget purus in." 
+          />
+          
+          <View style={styles.inputContainer}>
+            <ContentText 
+              text="Your Employment" 
+              customStyle={styles.labelText} 
+            />
+            
+   
+          </View>
+          
+          <View style={styles.spacer} />
+          
+          <NavigateButton 
+            title="Next" 
+            onPress={handleNext} 
+            accessibilityLabel="Go to next screen"
+          />
+        </View>
+      </View>
+    </BaseScreen>
+  );
 };
 
-export default MyJob;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  contentContainer: {
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingTop: 20,
+  },
+  inputContainer: {
+    marginTop: 20,
+  },
+  labelText: {
+    fontSize: 14,
+    marginBottom: 5,
+  },
+  spacer: {
+    flex: 1,
+  },
+});
+
+export default MyJobScreen;

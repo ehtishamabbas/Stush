@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import AppScreen from '../../components/common/AppScreen';
 import FormContainer from '../../components/common/FormContainer';
 import FormInput from '../../components/common/FormInput';
-import NavigateButton from '../../components/common/NavigateBotton';
+import NavigateButton from '../../components/common/NavigateButton';
 import SignUpLink from '../../components/common/SignUpLink';
 import baseStyles from '../../css/BaseStyles';
 
@@ -53,7 +53,7 @@ const AboutScreen = () => {
   };
 
   return (
-    <AppScreen showBackButton={false} enableKeyboardAvoid={true}>
+    <AppScreen showBackButton={true} enableKeyboardAvoid={true}>
       <View style={baseStyles.formContainer}>
         <Text style={baseStyles.heading}>Tell Us About Yourself</Text>
         <FormInput

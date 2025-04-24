@@ -31,10 +31,10 @@ const SharedStyles = StyleSheet.create({
 
   headerContainer: {
     width: '100%',
-    height: SCREEN_HEIGHT * 0.15,
+    height: SCREEN_HEIGHT * 0.20,
     borderBottomLeftRadius: normalize(20),
     borderBottomRightRadius: normalize(20),
-    backgroundColor: 'rgba(31, 28, 28, 0.39)',
+    backgroundColor: 'rgba(49, 46, 46, 0.48)',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -89,15 +89,9 @@ const SharedStyles = StyleSheet.create({
     height: '80%',
     alignItems: 'center',
     paddingHorizontal: normalize(24),
-    paddingTop: normalize(40),
+    paddingTop: normalize(77),
   },
-  contentContainer: {
-    borderLeftWidth: 0.5,
-    borderRightWidth: 0.5,
-    borderColor:
-      'linear-gradient(90deg, rgba(153, 153, 153, 0.2) 0%, rgba(255, 255, 255, 0.2) 49%, rgba(153, 153, 153, 0) 100%)',
-    alignItems: 'center',
-  },
+ 
   heading: {
     fontSize: normalize(28),
     fontWeight: '700',
@@ -106,11 +100,12 @@ const SharedStyles = StyleSheet.create({
     marginTop: normalize(20),
     letterSpacing: 1,
     textTransform: 'uppercase',
+    marginBottom: normalize(10),
   },
   subText: {
     textAlign: 'center',
     fontWeight: '400',
-    fontSize: normalize(14),
+    fontSize: normalize(16),
     color: '#FFFFFF',
     lineHeight: normalize(20),
     marginTop: normalize(10),
@@ -131,8 +126,8 @@ const SharedStyles = StyleSheet.create({
     alignItems: 'center',
   },
   contentImage: {
-    width: normalize(350),
-    height: normalize(310),
+    width: normalize(270),
+    height: normalize(220),
     resizeMode: 'contain',
   },
   smallImage: {
@@ -148,16 +143,16 @@ const SharedStyles = StyleSheet.create({
     fontWeight: '700',
   },
   whatsNextContainer: {
-    marginTop: normalize(40),
+    marginTop: normalize(120),
     width: '100%',
     alignItems: 'center',
   },
   whatsNextHeading: {
-    fontSize: normalize(16),
+    fontSize: normalize(18),
     fontWeight: '600',
     color: '#FFFFFF',
     marginBottom: normalize(8),
-    lineHeight: normalize(24),
+    lineHeight: normalize(26),
   },
   credentialsText: {
     fontSize: normalize(16),
@@ -168,7 +163,7 @@ const SharedStyles = StyleSheet.create({
   buttonContainer: {
     alignItems: 'center',
     paddingHorizontal: normalize(20),
-    marginBottom: normalize(80),
+    marginBottom: normalize(10),
     width: '100%',
     position: 'absolute',
     bottom: 0,
@@ -176,11 +171,11 @@ const SharedStyles = StyleSheet.create({
   nextButton: {
     backgroundColor: '#1F75FE',
     borderRadius: normalize(25),
-    height: normalize(50),
+    height: normalize(55),
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100%',
-  },
+    width: '90%',
+   },
   nextButtonText: {
     color: '#FFFFFF',
     fontSize: normalize(16),
