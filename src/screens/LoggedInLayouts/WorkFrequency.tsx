@@ -14,11 +14,11 @@ import baseStyles from '../../css/BaseStyles';
 interface CompanyInfoProps {
     navigation: any;
 }
-const CompanyInfo: React.FC<CompanyInfoProps> = ({ navigation }) => {
+const WorkFrequency: React.FC<CompanyInfoProps> = ({ navigation }) => {
     const [selectedJob, setSelectedJob] = useState('');
 
     const handleNext = () => {
-        navigation.navigate('InfoAboutCompany');
+        navigation.navigate('EarnedFirst');
     };
 
     const handleBack = () => {
@@ -36,60 +36,47 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ navigation }) => {
 
 
                     <Heading
-                        secondaryText={"Company\ninformation"}
+                        secondaryText={"Work\ninformation"}
                         type="secondary"
                     />
 
 
 
                     <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Company Name:</Text>
+                        <Text style={styles.labelText}>Pay Frequency:</Text>
                         <FormInput
-                            placeholder="XYZ, LLC"
+                            placeholder="-- Select --"
                             value={selectedJob}
                             onChangeText={setSelectedJob}
-                            keyboardType="email-address"
+                            keyboardType="default"
                             autoCapitalize="none"
                             returnKeyType="done"
                             maxLength={100}
-                            accessibilityLabel="Email Address"
-                            accessibilityHint="Enter your email address"
+                            accessibilityLabel="How long been employed?"
+                            accessibilityHint="Enter how long you have been employed"
                         />
                     </View>
                     <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Company Address:</Text>
+                        <Text style={styles.labelText}>Next Pay Date:</Text>
                         <FormInput
-                            placeholder="123 Main St, City, State, Zip"
+                            placeholder="-- Select --"
                             value={selectedJob}
                             onChangeText={setSelectedJob}
-                            keyboardType="email-address"
+                            keyboardType="default"
                             autoCapitalize="none"
                             returnKeyType="done"
                             maxLength={100}
-                            accessibilityLabel="Email Address"
-                            accessibilityHint="Enter your email address"
+                            accessibilityLabel="Next Pay Date"
+                            accessibilityHint="EarnedFirst"
                         />
                     </View>
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Phone:</Text>
-                        <FormInput
-                            placeholder=" +1 (111) 123-1234"
-                            value={selectedJob}
-                            onChangeText={setSelectedJob}
-                            keyboardType="email-address"
-                            autoCapitalize="none"
-                            returnKeyType="done"
-                            maxLength={100}
-                            accessibilityLabel="Email Address"
-                            accessibilityHint="Enter your email address"
-                        />
-                    </View>
+              
                     <View style={styles.spacer} />
 
                     <NavigateButton
                         title="Continue"
                         onPress={handleNext}
-                        accessibilityLabel="InfoAboutCompany"
+                        accessibilityLabel="EarnedFirst"
                     />
                 </View>
             </View>
@@ -121,4 +108,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CompanyInfo;
+export default WorkFrequency;

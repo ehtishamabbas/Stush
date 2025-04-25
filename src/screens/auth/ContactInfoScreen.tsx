@@ -5,6 +5,7 @@ import PhoneInput from '../../components/common/PhoneInput';
 import Keypad from '../../components/common/NumericKeypad';
 import styles from '../../css/Verificcation.styles';
 import NavigateButton from '../../components/common/NavigateButton';
+ 
 
 interface PhoneNumberScreenProps {
   navigation: any;

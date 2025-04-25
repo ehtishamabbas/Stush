@@ -34,7 +34,7 @@ const SharedStyles = StyleSheet.create({
     height: SCREEN_HEIGHT * 0.20,
     borderBottomLeftRadius: normalize(20),
     borderBottomRightRadius: normalize(20),
-    backgroundColor: 'rgba(49, 46, 46, 0.48)',
+    backgroundColor: 'rgba(49, 46, 46, 0.17)',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -89,7 +89,7 @@ const SharedStyles = StyleSheet.create({
     height: '80%',
     alignItems: 'center',
     paddingHorizontal: normalize(24),
-    paddingTop: normalize(77),
+    paddingTop: normalize(45),
   },
  
   heading: {
@@ -97,7 +97,7 @@ const SharedStyles = StyleSheet.create({
     fontWeight: '700',
     color: '#FFFFFF',
     textAlign: 'center',
-    marginTop: normalize(20),
+    marginTop: normalize(1),
     letterSpacing: 1,
     textTransform: 'uppercase',
     marginBottom: normalize(10),
@@ -166,7 +166,7 @@ const SharedStyles = StyleSheet.create({
     marginBottom: normalize(10),
     width: '100%',
     position: 'absolute',
-    bottom: 0,
+    bottom: 40,
   },
   nextButton: {
     backgroundColor: '#1F75FE',

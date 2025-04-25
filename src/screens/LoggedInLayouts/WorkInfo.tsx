@@ -1,93 +1,111 @@
-import React from 'react';
-import {
-    View,
-    Text,
-    Image,
-    ImageBackground,
-    TouchableOpacity,
-    ScrollView,
-    TextInput,
-} from 'react-native';
-import styles from '../../css/UserIdentification.';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../navigation/AppNavigator';
-const MyJob = () => {
-    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+
+import BaseScreen from '../../components/ResueableComponents/MainScreen';
+import Header from '../../components/common/Header';
+import Heading from '../../components/ResueableComponents/Heading';
+import ContentText from '../../components/ResueableComponents/ContenetText';
+import NavigateButton from '../../components/common/NavigateButton';
+import FormInput from '../../components/common/FormInput';
+import { Text } from 'react-native';
+import baseStyles from '../../css/BaseStyles';
+
+
+interface CompanyInfoProps {
+    navigation: any;
+}
+const WorkInfo: React.FC<CompanyInfoProps> = ({ navigation }) => {
+    const [selectedJob, setSelectedJob] = useState('');
+
+    const handleNext = () => {
+        navigation.navigate('WorkFrequency');
+    };
+
+    const handleBack = () => {
+        navigation.goBack();
+    };
+
     return (
-        <ImageBackground
-            source={require('../../../assets/images/backgrounds.png')}
-            style={styles.background}
-            resizeMode="cover"
-        >
-            <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
+        <BaseScreen>
+            <Header navigation={navigation} onBackPress={handleBack} />
 
-                <TouchableOpacity
-                    style={styles.backButton}
-                    activeOpacity={0.8}
-                    accessibilityLabel="Go back"
-                    accessibilityRole="button">
-                    <Image
-                        source={require('../../../assets/images/back-arrow.png')}
-                        style={styles.backIcon}
+            <View style={styles.container}>
+
+
+                <View style={styles.contentContainer}>
+
+
+                    <Heading
+                        secondaryText={"Work\ninformation"}
+                        type="secondary"
                     />
-                </TouchableOpacity>
-                <View style={styles.logoContainer}>
-                    <Image
-                        source={require('../../../assets/images/stushlogo.png')}
-                        style={styles.logoImage}
-                        accessibilityLabel="Stush Logo"
-                        resizeMode="contain"
+
+
+
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.labelText}>How long been employed?</Text>
+                        <FormInput
+                            placeholder="-- Select --"
+                            value={selectedJob}
+                            onChangeText={setSelectedJob}
+                            keyboardType="default"
+                            autoCapitalize="none"
+                            returnKeyType="done"
+                            maxLength={100}
+                            accessibilityLabel="How long been employed?"
+                            accessibilityHint="Enter how long you have been employed"
+                        />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.labelText}>Hourly wage:</Text>
+                        <FormInput
+                            placeholder="$25.00"
+                            value={selectedJob}
+                            onChangeText={setSelectedJob}
+                            keyboardType="default"
+                            autoCapitalize="none"
+                            returnKeyType="done"
+                            maxLength={100}
+                            accessibilityLabel="Hourly wage"
+                            accessibilityHint="Enter your hourly wage"
+                        />
+                    </View>
+              
+                    <View style={styles.spacer} />
+
+                    <NavigateButton
+                        title="Continue"
+                        onPress={handleNext}
+                        accessibilityLabel="WorkFrequency"
                     />
                 </View>
-                <View style={styles.formcontainer}>
-                    <View style={styles.textContainer}>
-                        <Text style={styles.title}>WORK</Text>
-                        <Text style={styles.title}>INFORMATION</Text>
-                        <Text style={styles.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra condimentum eget purus in. </Text>
-
-
-                    </View>
-
-                    <View style={styles.subcontainer}>
-                        <Text style={styles.titlel}>Email Address (Supervisor):</Text>
-
-                        <View style={styles.inputContainer}>
-                            <TextInput
-                                style={styles.textInput}
-                                placeholder=" Email"
-                                placeholderTextColor="#999999"
-                                secureTextEntry
-                            />
-
-                        </View>
-                        <View style={styles.inputContainer}>
-                            <TextInput
-                                style={styles.textInput}
-                                placeholder=" Number"
-                                placeholderTextColor="#999999"
-                                secureTextEntry
-                            />
-
-                        </View>
-
-                        <TouchableOpacity style={styles.ctaButton}
-                            onPress={() => navigation.navigate('BankAccountSelection')}
-                        >
-
-                            <Text style={styles.ctaButtonText}> Next</Text>
-                        </TouchableOpacity>
-
-                    </View>
-
-
-                </View>
-
-
-            </ScrollView>
-        </ImageBackground >
+            </View>
+        </BaseScreen>
     );
 };
 
-export default MyJob;
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    contentContainer: {
+        flex: 1,
+        paddingHorizontal: 30,
+        marginTop: '50%',
+        marginBottom: 40,
+    },
+    inputContainer: {
+        marginTop: 20,
+    },
+    labelText: {
+        fontSize: 14,
+        marginBottom: 5,
+        color: '#FFFFFF',
+        paddingBottom: 10,
+    },
+    spacer: {
+        flex: 1,
+    },
+});
+
+export default WorkInfo;

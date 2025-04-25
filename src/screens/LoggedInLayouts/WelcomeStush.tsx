@@ -11,7 +11,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/AppNavigator';
 
-import BaseScreen from '../../components/ResueableComponents/DisclouerMainScreen';
+import DisclouserMainScreen from '../../components/ResueableComponents/DisclouerMainScreen';
 import BulletPoints from '../../components/ResueableComponents/BulletPoints';
 import NavButton from '../../components/common/NavigateButton';
 import styles from '../../css/Disclouser';
@@ -40,7 +40,7 @@ const WelcomeStushScreen = () => {
   };
 
   return (
-    <BaseScreen onBackPress={handleBack} showBackButton={true} showLogo={false}>
+    <DisclouserMainScreen onBackPress={handleBack} showBackButton={true} showLogo={false}>
       <View style={localStyles.contentContainer}>
         <Text style={localStyles.title}>WELCOME TO{"\n"}STUSH PAY</Text>
 
@@ -61,7 +61,7 @@ const WelcomeStushScreen = () => {
           onPress={handleContinue}
         />
       </View>
-    </BaseScreen>
+    </DisclouserMainScreen>
   );
 };
 
@@ -70,6 +70,7 @@ const localStyles = StyleSheet.create({
     flex: 1,
     paddingTop: 35,
     paddingHorizontal: 20,
+    marginBottom: '15%',
   },
   title: {
     color: '#FFFFFF',

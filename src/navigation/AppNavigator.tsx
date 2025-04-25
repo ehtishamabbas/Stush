@@ -15,19 +15,28 @@ import WelcomeUser from '../screens/auth/welcomeUserScreen';
 import BankAccountSelectionScreen from '../screens/LoggedInLayouts/BankAccountSelectionScreen';
 import SuccessScreen from '../screens/LoggedInLayouts/SuccessScreen';
 import AboutScreen from '../screens/auth/AboutScreen';
-// import Dashboard from '../screens/LoggedInLayouts/Dashboard';
+import Dashboard from '../screens/LoggedInLayouts/Dashboard';
 import WelcomeStushScreen from '../screens/LoggedInLayouts/WelcomeStush';
 import Wedifferent from '../screens/LoggedInLayouts/WeDifferent';
 import UserIdentification from '../screens/LoggedInLayouts/Identification';
 import Disclouser from '../screens/LoggedInLayouts/Disclouser';
 import MyJob from '../screens/LoggedInLayouts/MyJob';
 import CompanyInfo from '../screens/LoggedInLayouts/CompanyInfo';
-import InfoAbouCompany from '../screens/LoggedInLayouts/InfoAbouCompany';
+import InfoAboutCompany from '../screens/LoggedInLayouts/InfoAboutCompany';
 import WorkInfo from '../screens/LoggedInLayouts/WorkInfo';
+import WorkFrequency from '../screens/LoggedInLayouts/WorkFrequency';
+import EarnedFirst from '../screens/LoggedInLayouts/EarnedFirst';
+import EarnedSecond from '../screens/LoggedInLayouts/EarnedSecond';
+import PlaidLink from '../screens/LoggedInLayouts/PlaidLink';
+import SuccessfullyCreated from '../screens/LoggedInLayouts/SuccessfullyCreated';
+
+
+ 
 
 
 
- export type RootStackParamList = {
+
+export type RootStackParamList = {
   Splash: undefined;
   Login: undefined;
   RegisterScreen: undefined;
@@ -41,7 +50,7 @@ import WorkInfo from '../screens/LoggedInLayouts/WorkInfo';
   AccountSuccess: undefined;
   BonusScreen: undefined;
   WelcomeUser: undefined;
-  // Dashboard: undefined;
+  Dashboard: undefined;
   BankAccountSelection: undefined;
   Success: undefined;
   WelcomeStushScreen: undefined;
@@ -50,8 +59,13 @@ import WorkInfo from '../screens/LoggedInLayouts/WorkInfo';
   Disclouser: undefined;
   MyJob: undefined;
   CompanyInfo: undefined;
-  InfoAbouCompany: undefined;
+  InfoAboutCompany: undefined;
   WorkInfo: undefined;
+  WorkFrequency: undefined;
+  EarnedFirst: undefined;
+  EarnedSecond: undefined;
+  PlaidLink: undefined;
+  SuccessfullyCreated: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -87,17 +101,22 @@ const AppNavigator = () => {
       <Stack.Screen name="AccountSuccess" component={AccountSuccess} />
       <Stack.Screen name="BonusScreen" component={BonusScreen} />
       <Stack.Screen name="WelcomeUser" component={WelcomeUser} />
-      {/* <Stack.Screen name="Dashboard" component={Dashboard} /> */}
+      <Stack.Screen name="Dashboard" component={Dashboard} />
       <Stack.Screen name="BankAccountSelection" component={BankAccountSelectionScreen} />
       <Stack.Screen name="Success" component={SuccessScreen} />
       <Stack.Screen name="WelcomeStushScreen" component={WelcomeStushScreen} />
       <Stack.Screen name="Wedifferent" component={Wedifferent} />
-      <Stack.Screen name="UserIdentification" component={UserIdentification} />  
+      <Stack.Screen name="UserIdentification" component={UserIdentification} />
       <Stack.Screen name="Disclouser" component={Disclouser} />
       <Stack.Screen name="MyJob" component={MyJob} />
       <Stack.Screen name="CompanyInfo" component={CompanyInfo} />
-      <Stack.Screen name="InfoAbouCompany" component={InfoAbouCompany} />
+      <Stack.Screen name="InfoAboutCompany" component={InfoAboutCompany} />
       <Stack.Screen name="WorkInfo" component={WorkInfo} />
+      <Stack.Screen name="WorkFrequency" component={WorkFrequency} />
+      <Stack.Screen name="EarnedFirst" component={EarnedFirst} />
+      <Stack.Screen name="EarnedSecond" component={EarnedSecond} />
+      <Stack.Screen name="PlaidLink" component={PlaidLink} />
+      <Stack.Screen name="SuccessfullyCreated" component={SuccessfullyCreated} />
     </Stack.Navigator>
   );
 };

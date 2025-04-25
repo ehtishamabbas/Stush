@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-
+ 
 interface ReferralContentProps {
   title?: string;
   amount?: string;
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 20,
+    marginVertical: 100,
   },
   borderedContainer: {
     width: '100%',
@@ -63,16 +63,16 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 18,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
+    textAlign: 'left',
+    marginTop: 120,
   },
   imageContainer: {
-    marginVertical: 20,
+    marginVertical: 120,
     alignItems: 'center',
   },
   moneyImage: {
-    width: 120,
-    height: 120,
+    width: 160,
+    height: 130,
     resizeMode: 'contain',
   },
   earnText: {

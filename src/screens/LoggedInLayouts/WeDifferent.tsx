@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -32,7 +32,7 @@ const WeDifferent = () => {
 
         <Text style={styles.subtitle}>Why Stush Pay is Different?</Text>
 
-         <View style={styles.leftFeatureBlock}>
+        <View style={styles.leftFeatureBlock}>
           <View style={styles.featureTextWrapper}>
             <View style={styles.featureImageWrapper}>
               <Text style={styles.featureTitle}>NO{"\n"}INTEREST</Text>
@@ -45,7 +45,7 @@ const WeDifferent = () => {
           </View>
         </View>
 
-         <View style={styles.rightFeatureBlock}>
+        <View style={styles.rightFeatureBlock}>
           <View style={styles.featureTextWrapper}>
             <View style={styles.featureImageWrapper}>
               <Text style={styles.featureTitle}>NO{"\n"}CREDIT{"\n"}CHECKS</Text>
@@ -58,7 +58,7 @@ const WeDifferent = () => {
           </View>
         </View>
 
-         <View style={styles.leftFeatureBlock}>
+        <View style={styles.leftFeatureBlock}>
           <View style={styles.featureTextWrapper}>
             <View style={styles.featureImageWrapper}>
               <Text style={styles.featureTitle}>NO{"\n"}TRADITIONAL{"\n"}LOANS</Text>
@@ -73,7 +73,7 @@ const WeDifferent = () => {
 
         <Text style={styles.footerText}>Your earnings. Your control.</Text>
 
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.ctaButton}
           onPress={() => navigation.navigate('UserIdentification')}
         >

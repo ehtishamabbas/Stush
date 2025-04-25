@@ -40,7 +40,7 @@ const BulletPoints: React.FC<BulletPointsProps> = ({
 
 const styles = StyleSheet.create({
   bulletContainer: {
-    marginTop: 20,
+    marginTop: 90,
   },
   bulletRow: {
     flexDirection: 'row',

@@ -66,15 +66,7 @@ const BaseSuccessScreen: React.FC<BaseSuccessScreenProps> = ({
             />
           </View>
           
-          <View style={styles.buttonContainer}>
-            <FormButton
-              onPress={handleNext}
-              title={buttonText}
-              buttonStyle={styles.nextButton}
-              textStyle={styles.nextButtonText}
-            />
-            
-          </View>
+         
             <View style={styles.buttonContainer}>
             <FormButton
               onPress={handleNext}

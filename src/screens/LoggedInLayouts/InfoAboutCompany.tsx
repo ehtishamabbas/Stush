@@ -14,11 +14,11 @@ import baseStyles from '../../css/BaseStyles';
 interface CompanyInfoProps {
     navigation: any;
 }
-const CompanyInfo: React.FC<CompanyInfoProps> = ({ navigation }) => {
+const InfoAboutCompany: React.FC<CompanyInfoProps> = ({ navigation }) => {
     const [selectedJob, setSelectedJob] = useState('');
 
     const handleNext = () => {
-        navigation.navigate('InfoAboutCompany');
+        navigation.navigate('WorkInfo');
     };
 
     const handleBack = () => {
@@ -43,9 +43,9 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ navigation }) => {
 
 
                     <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Company Name:</Text>
+                        <Text style={styles.labelText}>Email Address (Supervisor):</Text>
                         <FormInput
-                            placeholder="XYZ, LLC"
+                            placeholder="abc@gmail.com"
                             value={selectedJob}
                             onChangeText={setSelectedJob}
                             keyboardType="email-address"
@@ -57,23 +57,23 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ navigation }) => {
                         />
                     </View>
                     <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Company Address:</Text>
+                        <Text style={styles.labelText}>Name of Supervisor:</Text>
                         <FormInput
-                            placeholder="123 Main St, City, State, Zip"
+                            placeholder="John Doe"
                             value={selectedJob}
                             onChangeText={setSelectedJob}
                             keyboardType="email-address"
                             autoCapitalize="none"
                             returnKeyType="done"
                             maxLength={100}
-                            accessibilityLabel="Email Address"
-                            accessibilityHint="Enter your email address"
+                            accessibilityLabel="Name of Supervisor"
+                            accessibilityHint="Enter the name of your supervisor"
                         />
                     </View>
                     <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Phone:</Text>
+                        <Text style={styles.labelText}>Supervisor’s Phone:</Text>
                         <FormInput
-                            placeholder=" +1 (111) 123-1234"
+                            placeholder="209-000-000"
                             value={selectedJob}
                             onChangeText={setSelectedJob}
                             keyboardType="email-address"
@@ -89,7 +89,7 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ navigation }) => {
                     <NavigateButton
                         title="Continue"
                         onPress={handleNext}
-                        accessibilityLabel="InfoAboutCompany"
+                        accessibilityLabel="WorkInfo"
                     />
                 </View>
             </View>
@@ -121,4 +121,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CompanyInfo;
+export default InfoAboutCompany;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
- import MainScreen from '../../components/ResueableComponents/MainScreen';
+import MainScreen from '../../components/ResueableComponents/MainScreen';
 import Header from '../../components/common/Header';
 import ReferralContent from '../../components/ResueableComponents/Referal';
 import NavigateButton from '../../components/common/NavigateButton';
@@ -12,7 +12,7 @@ interface ReferFriendScreenProps {
 
 const ReferFriendScreen: React.FC<ReferFriendScreenProps> = ({ navigation }) => {
   const handleNext = () => {
-    navigation.navigate('WelcomeStushScreen');
+    navigation.navigate('Dashboard');
   };
 
   const handleBack = () => {
@@ -24,7 +24,7 @@ const ReferFriendScreen: React.FC<ReferFriendScreenProps> = ({ navigation }) => 
       <View style={styles.container}>
         <Header navigation={navigation} onBackPress={handleBack} />
         <View style={styles.contentContainer}>
-          <ReferralContent 
+          <ReferralContent
             title="REFER A FRIEND AND GET PAID"
             amount="$7,500"
             bulletPoints={[
@@ -32,13 +32,13 @@ const ReferFriendScreen: React.FC<ReferFriendScreenProps> = ({ navigation }) => 
               'Get $5 minimum for each referral'
             ]}
           />
-          
-          <View style={styles.spacer} />
-          
-          <NavigateButton 
-            title="Next" 
-            onPress={handleNext} 
-            accessibilityLabel="WelcomeStushScreen"
+
+ 
+          <NavigateButton
+            title="Next"
+            onPress={handleNext}
+            accessibilityLabel="Dashboard"
+            
           />
         </View>
       </View>
@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     paddingHorizontal: 20,
-    paddingTop: 105,
+    paddingTop: 1,
+    paddingBottom: '32%',
   },
   spacer: {
     flex: 1,

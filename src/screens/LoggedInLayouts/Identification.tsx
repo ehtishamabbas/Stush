@@ -13,6 +13,9 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/AppNavigator';
+import Heading from '../../components/ResueableComponents/Heading';
+import ContentText from '../../components/ResueableComponents/ContenetText';
+import NavigateButton from '../../components/common/NavigateButton';
 const UserIdentification = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
     return (
@@ -42,14 +45,20 @@ const UserIdentification = () => {
                     />
                 </View>
                 <View style={styles.formcontainer}>
-                    <View style={styles.textContainer}>
-                        <Text style={styles.title}>GET PAID TODAY</Text>
-                        <Text style={styles.title}>DISCLOSURES</Text>
-                        <Text style={styles.description}>To Keep your account secure and comply with the law, we need your Social Security Number (SSN). This is  <Text style={{ fontWeight: 'bold', color: '#1E8BF8' }}>NOT A CREDIT CHECK</Text> . We use your SSN only to verify your identity. Your information is secure and encrypted.
-                            Your Privacy and security is our top priority.</Text>
+                    <Heading
+                        primaryText="GET PAID TODAY"
+                        type="primary"
+                    />
 
+                    <Heading
+                        secondaryText="VERIFY YOUR IDENTITY"
+                        type="secondary"
+                    />
 
-                    </View>
+                    <ContentText
+                        text="To Keep your account secure and comply with the law, we need your Social Security Number (SSN). This is NOT A CREDIT CHECK. We use your SSN only to verify your identity. Your information is secure and encrypted.
+Your Privacy and security is our top priority."
+                    />
 
                     <View style={styles.subcontainer}>
                         <Text style={styles.titlel}>Social Security Number</Text>

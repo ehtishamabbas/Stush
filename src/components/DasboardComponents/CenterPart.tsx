@@ -19,7 +19,7 @@ const CenterPart = () => {
     const navigation = useNavigation<CenterPartNavigationProp>();
 
     const handleNavigate = () => {
-        navigation.navigate('WelcomeStush');
+        navigation.navigate('WelcomeStushScreen');
     };
 
     return (

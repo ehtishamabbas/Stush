@@ -23,8 +23,7 @@ const Keypad: React.FC<KeypadProps> = ({ onKeyPress }) => {
         <TouchableOpacity
           style={styles.keypadButton}
           onPress={() => onKeyPress(value)}
-          activeOpacity={0.7}
-        >
+          activeOpacity={0.7}>
           <Text style={styles.backspaceText}>⌫</Text>
         </TouchableOpacity>
       );
@@ -33,8 +32,7 @@ const Keypad: React.FC<KeypadProps> = ({ onKeyPress }) => {
         <TouchableOpacity
           style={styles.keypadButton}
           onPress={() => onKeyPress(value)}
-          activeOpacity={0.7}
-        >
+          activeOpacity={0.7}>
           <Text style={styles.keypadText}>{displayValue || value}</Text>
         </TouchableOpacity>
       );

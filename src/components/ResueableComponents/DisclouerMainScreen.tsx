@@ -9,8 +9,8 @@ import {
   StyleSheet,
   Platform,
 } from 'react-native';
-
-interface BaseScreenProps {
+import Header from '../common/Header';
+interface DisclouserMainScreenProps {
   children: React.ReactNode;
   onBackPress?: () => void;
   showBackButton?: boolean;
@@ -18,7 +18,7 @@ interface BaseScreenProps {
   customStyles?: object;
 }
 
-const BaseScreen: React.FC<BaseScreenProps> = ({
+const DisclouserMainScreen: React.FC<DisclouserMainScreenProps> = ({
   children,
   onBackPress,
   showBackButton = true,
@@ -36,32 +36,8 @@ const BaseScreen: React.FC<BaseScreenProps> = ({
         source={require('../../../assets/images/backgrounds.png')}
         style={styles.backgroundImage}
         resizeMode="cover">
+        {showLogo && <Header />}
         <SafeAreaView style={[styles.safeArea, customStyles]}>
-          {showBackButton && (
-            <TouchableOpacity
-              style={styles.backButton}
-              activeOpacity={0.8}
-              onPress={onBackPress}
-              accessibilityLabel="Go back"
-              accessibilityRole="button">
-              <Image
-                source={require('../../../assets/images/back-arrow.png')}
-                style={styles.backIcon}
-              />
-            </TouchableOpacity>
-          )}
-          
-          {showLogo && (
-            <View style={styles.logoContainer}>
-              <Image
-                source={require('../../../assets/images/stushlogo.png')}
-                style={styles.logoImage}
-                accessibilityLabel="Stush Logo"
-                resizeMode="contain"
-              />
-            </View>
-          )}
-          
           <View style={styles.container}>
             {children}
           </View>
@@ -79,23 +55,29 @@ const styles = StyleSheet.create({
   },
   safeArea: {
     flex: 1,
+    width: '100%',
+    height: '100%',
   },
   container: {
+    width: '100%',
     flex: 1,
     paddingHorizontal: 20,
+    marginTop: Platform.OS === 'ios' ? 60 : 50,
   },
   backButton: {
     position: 'absolute',
-    top: Platform.OS === 'ios' ? 50 : 40,
-    left: 16,
+    top: Platform.OS === 'ios' ? 50 : 60,
+    left: 29,
     zIndex: 10,
     width: 40,
     height: 40,
-    borderRadius: 20,
+    borderRadius: '50%',
+    borderColor: '#091522',
+    borderWidth: 1,
   },
   backIcon: {
-    width: 24,
-    height: 24,
+    width: 31,
+    height: 33,
     resizeMode: 'contain',
     tintColor: 'white',
   },
@@ -111,4 +93,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BaseScreen;
+export default DisclouserMainScreen;

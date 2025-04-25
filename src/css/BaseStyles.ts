@@ -11,6 +11,16 @@ const baseStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'transparent',
   },
+  successImage: {
+    width: 270,
+    height: 250,
+    
+  },
+  form: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   backgroundImage: {
     flex: 1,
     width: '100%',
@@ -51,6 +61,25 @@ const baseStyles = StyleSheet.create({
     marginTop: height * 0.04,
     textTransform: 'uppercase',
   },
+  subText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '400',
+    letterSpacing: 1,
+    textAlign: 'left',
+    marginBottom: height * 0.04,
+    marginTop: height * 0.04,
+  },
+  headings: {
+    color: '#FFFFFF',
+    fontSize: 22,
+    fontWeight: '700',
+    letterSpacing: 1,
+    textAlign: 'center',
+    marginBottom: height * 0.04,
+    marginTop: height * 0.04,
+    textTransform: 'uppercase',
+  },
   formContainer: {
     flex: 1,
     width: '100%',
@@ -61,6 +90,16 @@ const baseStyles = StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0.15)',
     borderTopStartRadius: 30,
     borderTopEndRadius: 30,
+    justifyContent: 'space-between',  
+  },
+  formContainers: {
+    flex: 1,
+    width: '100%',
+    paddingHorizontal: 34,
+     marginTop: height * 0.107,
+     backgroundColor: 'rgba(170, 17, 17, 0.6)',
+     
+     textAlign: 'center',
     justifyContent: 'space-between',  
   },
   formSubContainer: {
@@ -109,13 +148,13 @@ const baseStyles = StyleSheet.create({
   actionButtons: {
     backgroundColor: '#1F75FE',
     borderRadius: 30,
-    height: 45,
+    height: 48,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 'auto',  
-    marginBottom: 20,    
-  },
+    marginBottom: 20,
+   },
   buttonDisabled: {
     opacity: 0.7,
   },

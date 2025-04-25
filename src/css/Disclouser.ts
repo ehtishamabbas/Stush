@@ -124,7 +124,7 @@ export default StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',
-        marginVertical: 30,
+        marginVertical: 130,
         lineHeight: 28,
     },
     secondaryTitle: {

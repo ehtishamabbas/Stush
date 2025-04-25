@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: normalize(12),
+    marginBottom: normalize(42),
   },
   toggleText: {
     fontSize: normalize(14),
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   },
   bottonContainer: {
     width: '100%',
-    marginTop: normalize(15),
+    marginTop: normalize(45),
   },
   nextButton: {
     backgroundColor: '#1F75FE',

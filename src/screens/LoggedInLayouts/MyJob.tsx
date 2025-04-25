@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 
- import BaseScreen from '../../components/ResueableComponents/MainScreen';
+import BaseScreen from '../../components/ResueableComponents/MainScreen';
 import Header from '../../components/common/Header';
 import Heading from '../../components/ResueableComponents/Heading';
 import ContentText from '../../components/ResueableComponents/ContenetText';
 import NavigateButton from '../../components/common/NavigateButton';
-// import CustomDropdown from '../../components/ResueableComponents/CustomDropdown';
+import FormInput from '../../components/common/FormInput';
+import { Text } from 'react-native';
+import baseStyles from '../../css/BaseStyles';
+
 
 interface MyJobScreenProps {
   navigation: any;
 }
-
 const MyJobScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
   const [selectedJob, setSelectedJob] = useState('');
 
   const handleNext = () => {
-    navigation.navigate('NextScreen');
+    navigation.navigate('CompanyInfo');
   };
 
   const handleBack = () => {
@@ -25,40 +27,48 @@ const MyJobScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
 
   return (
     <BaseScreen>
-      <View style={styles.container}>
       <Header navigation={navigation} onBackPress={handleBack} />
+
+      <View style={styles.container}>
 
 
         <View style={styles.contentContainer}>
-          <Heading 
-            primaryText="GET PAID TODAY" 
-            type="primary" 
+          <Heading
+            primaryText="GET PAID TODAY"
+            type="primary"
           />
-          
-          <Heading 
-            secondaryText="My Job" 
-            type="secondary" 
+
+          <Heading
+            secondaryText="My Job"
+            type="secondary"
           />
-          
-          <ContentText 
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra condimentum eget purus in." 
+
+          <ContentText
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra condimentum eget purus in."
           />
-          
+
           <View style={styles.inputContainer}>
-            <ContentText 
-              text="Your Employment" 
-              customStyle={styles.labelText} 
+            <Text style={styles.labelText}>Your Employement</Text>
+            <FormInput
+              placeholder="- Select -"
+              value={selectedJob}
+              onChangeText={setSelectedJob}
+              keyboardType="email-address"
+              autoCapitalize="none"
+              returnKeyType="done"
+              maxLength={100}
+              accessibilityLabel="Email Address"
+              accessibilityHint="Enter your email address"
             />
-            
-   
           </View>
-          
+
+
           <View style={styles.spacer} />
-          
-          <NavigateButton 
-            title="Next" 
-            onPress={handleNext} 
-            accessibilityLabel="Go to next screen"
+
+          <NavigateButton
+            title="Next"
+            onPress={handleNext}
+            accessibilityLabel="CompanyInfo"
           />
         </View>
       </View>
@@ -73,7 +83,8 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     paddingHorizontal: 20,
-    paddingTop: 20,
+    marginTop: '50%',
+    marginBottom: 40,
   },
   inputContainer: {
     marginTop: 20,
@@ -81,6 +92,8 @@ const styles = StyleSheet.create({
   labelText: {
     fontSize: 14,
     marginBottom: 5,
+    color: '#FFFFFF',
+    paddingBottom: 10,
   },
   spacer: {
     flex: 1,

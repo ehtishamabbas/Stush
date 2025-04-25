@@ -1,5 +1,4 @@
-// WeDiffferent.js (StyleSheet)
-import { StyleSheet } from 'react-native';
+ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   background: {
@@ -11,6 +10,7 @@ export default StyleSheet.create({
     padding: 20,
     alignItems: 'center',
     width: '100%',
+    marginBottom: 30,
   },
   headerContainer: {
     flexDirection: 'row',
@@ -23,7 +23,7 @@ export default StyleSheet.create({
   backButton: {
     alignSelf: 'flex-start',
     marginTop: 20,
-    paddingHorizontal: 12,
+    paddingHorizontal: 32,
     paddingVertical: 10,
     borderRadius: 24,
     backgroundColor: '#091522',
@@ -43,13 +43,13 @@ export default StyleSheet.create({
     color: '#FFFFFF',
     fontFamily: 'Orbitron-Bold',
     lineHeight: 45,
-    marginTop: 22,
+    marginTop: 12,
   },
   subtitle: {
     fontSize: 16,
     color: '#fff',
-    marginBottom: 30,
-    marginTop: 40,
+    marginBottom: 20,
+    marginTop: 30,
     alignSelf: 'center',
   },
    leftFeatureBlock: {
@@ -57,18 +57,17 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
     marginBottom: 30,
     width: '100%',
-    paddingRight: '30%',  
-  },
+   },
    rightFeatureBlock: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
     marginBottom: 30,
     width: '100%',
-    paddingLeft: '30%', 
+    paddingLeft: '45%', 
   },
   featureImage: {
-    width: 110,
-    height: 100,
+    width: 140,
+    height: 120,
     resizeMode: 'contain',
     marginRight: 15,
   },
@@ -89,13 +88,13 @@ export default StyleSheet.create({
   featureDesc: {
     color: '#fff',
     fontSize: 14,
-    marginTop: 12,
+    marginTop: 10,
   },
   footerText: {
     color: '#fff',
     fontSize: 21,
     textAlign: 'center',
-    marginVertical: 30,
+    marginVertical: 20,
   },
   ctaButton: {
     backgroundColor: '#1F75FE',
