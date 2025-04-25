@@ -8,8 +8,7 @@ const SuccessScreen = () => {
   const [balanceData, setBalanceData] = useState<any>(null);
   const navigation: any = useNavigation();
 
-  // Fetch balance data
-  const getBalance = useCallback(async () => {
+   const getBalance = useCallback(async () => {
     await fetch('http://localhost:3000/api/plaid/accounts', {
       method: 'GET',
       headers: {

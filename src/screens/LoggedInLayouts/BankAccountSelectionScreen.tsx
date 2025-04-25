@@ -52,17 +52,16 @@ const BankAccountSelectionScreen = () => {
     } else {
       const tokenConfiguration = createLinkTokenConfiguration(linkToken);
 
-      // Define AND execute the async function
-      const setupLink = async () => {
+       const setupLink = async () => {
         try {
-          await destroy(); // Clear previous session state
+          await destroy();  
           create(tokenConfiguration);
         } catch (e) {
           console.error('Error during flow:', e);
         }
       };
 
-      setupLink(); // Actually call the function
+      setupLink();  
     }
   }, [linkToken, createLinkToken]);
 

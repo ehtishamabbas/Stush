@@ -19,7 +19,7 @@ const PlaidLinkScreen: React.FC<PlaidLinkScreenProps> = ({ navigation }) => {
     const [selectedJob, setSelectedJob] = useState('');
 
     const handleNext = () => {
-        navigation.navigate('SuccessfullyCreated');
+        navigation.navigate('BankAccountSelectionScreen');
     };
 
     const handleBack = () => {
@@ -41,7 +41,7 @@ const PlaidLinkScreen: React.FC<PlaidLinkScreenProps> = ({ navigation }) => {
     ];
 
     const handleAgree = () => {
-        navigation.navigate('MyJob');
+        navigation.navigate('BankAccountSelectionScreen');
     };
 
 
@@ -82,7 +82,8 @@ const PlaidLinkScreen: React.FC<PlaidLinkScreenProps> = ({ navigation }) => {
                     />
 
                     <Heading
-                        secondaryText="USES PLAID TO LINK YOUR\nBANK"
+                         secondaryText={"USES PLAID TO LINK YOUR\nBANK"}
+
                         type="secondary"
                     />
 
@@ -101,7 +102,7 @@ const PlaidLinkScreen: React.FC<PlaidLinkScreenProps> = ({ navigation }) => {
                     <NavigateButton
                         title="Next"
                         onPress={handleNext}
-                        accessibilityLabel="SuccessfullyCreated"
+                        accessibilityLabel="BankAccountSelectionScreen"
                     />
 
 

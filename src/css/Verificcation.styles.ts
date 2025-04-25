@@ -137,7 +137,7 @@ export default StyleSheet.create({
   
   verifyButton: {
     width: '85%',
-    height: verticalScale(40),
+    height: verticalScale(34),
     borderRadius: moderateScale(25),
     backgroundColor: '#1F75FE',
     justifyContent: 'center',

@@ -7,7 +7,7 @@ import NavigateButton from '../../components/common/NavigateButton';
 import SignUpLink from '../../components/common/SignUpLink';
 import baseStyles from '../../css/BaseStyles';
 import ContentText from '../../components/ResueableComponents/ContenetText';
-const SuccessfullyCreated = () => {
+const LinkedSuccessScreen = () => {
     const navigation: any = useNavigation();
 
 
@@ -32,7 +32,7 @@ const SuccessfullyCreated = () => {
             <View style={baseStyles.formContainers}>
                 <View style={baseStyles.successImageContainer}>
                     <Image
-                        source={require('../../../assets/images/successman.png')}
+                        source={require('../../../assets/images/successfulstartup.png')}
                         style={baseStyles.successImage}
                     />
                     <Text style={baseStyles.headings}>Success!</Text>
@@ -58,4 +58,4 @@ linked to this application"
     );
 };
 
-export default SuccessfullyCreated;
+export default LinkedSuccessScreen;

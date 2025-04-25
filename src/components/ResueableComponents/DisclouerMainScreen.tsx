@@ -17,7 +17,7 @@ interface DisclouserMainScreenProps {
   showLogo?: boolean;
   customStyles?: object;
 }
-
+import LocalStyles from '../../css/LocalStyle';
 const DisclouserMainScreen: React.FC<DisclouserMainScreenProps> = ({
   children,
   onBackPress,
@@ -34,11 +34,16 @@ const DisclouserMainScreen: React.FC<DisclouserMainScreenProps> = ({
       />
       <ImageBackground
         source={require('../../../assets/images/backgrounds.png')}
-        style={styles.backgroundImage}
+        style={LocalStyles.backgroundImage}
         resizeMode="cover">
         {showLogo && <Header />}
-        <SafeAreaView style={[styles.safeArea, customStyles]}>
-          <View style={styles.container}>
+        {showBackButton && onBackPress && (
+          <TouchableOpacity style={LocalStyles.backButton} onPress={onBackPress}>
+            <Image source={require('../../../assets/images/back-arrow.png')} style={LocalStyles.backIcon} />
+          </TouchableOpacity>
+        )}
+        <SafeAreaView style={[LocalStyles.safeArea, customStyles]}>
+          <View style={LocalStyles.containers}>
             {children}
           </View>
         </SafeAreaView>
@@ -46,51 +51,5 @@ const DisclouserMainScreen: React.FC<DisclouserMainScreenProps> = ({
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    width: '100%',
-    height: '100%',
-  },
-  safeArea: {
-    flex: 1,
-    width: '100%',
-    height: '100%',
-  },
-  container: {
-    width: '100%',
-    flex: 1,
-    paddingHorizontal: 20,
-    marginTop: Platform.OS === 'ios' ? 60 : 50,
-  },
-  backButton: {
-    position: 'absolute',
-    top: Platform.OS === 'ios' ? 50 : 60,
-    left: 29,
-    zIndex: 10,
-    width: 40,
-    height: 40,
-    borderRadius: '50%',
-    borderColor: '#091522',
-    borderWidth: 1,
-  },
-  backIcon: {
-    width: 31,
-    height: 33,
-    resizeMode: 'contain',
-    tintColor: 'white',
-  },
-  logoContainer: {
-    alignItems: 'center',
-    marginTop: Platform.OS === 'ios' ? 60 : 50,
-    marginBottom: 10,
-  },
-  logoImage: {
-    width: 140,
-    height: 45,
-    resizeMode: 'contain',
-  },
-});
-
+ 
 export default DisclouserMainScreen;

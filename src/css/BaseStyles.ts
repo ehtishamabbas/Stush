@@ -12,9 +12,16 @@ const baseStyles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   successImage: {
-    width: 270,
-    height: 250,
-    
+    width: 290,
+    height: 270,
+     
+  },
+  successImageContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingLeft: 24,
+     
   },
   form: {
     flexDirection: 'column',
@@ -72,8 +79,8 @@ const baseStyles = StyleSheet.create({
   },
   headings: {
     color: '#FFFFFF',
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: 24,
+    fontWeight: '900',
     letterSpacing: 1,
     textAlign: 'center',
     marginBottom: height * 0.04,
@@ -97,8 +104,6 @@ const baseStyles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 34,
      marginTop: height * 0.107,
-     backgroundColor: 'rgba(170, 17, 17, 0.6)',
-     
      textAlign: 'center',
     justifyContent: 'space-between',  
   },

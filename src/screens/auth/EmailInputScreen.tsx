@@ -53,7 +53,7 @@ const EmailInputScreen = () => {
 
       setTimeout(() => {
         setIsSubmitting(false);
-        navigation.navigate('VerifyEmail');
+        navigation.navigate('ConnectScreen');
       }, 500);
     } else {
       if (errors.email) {
@@ -85,6 +85,7 @@ const EmailInputScreen = () => {
           title="Next"
           onPress={handleNext}
           isLoading={isSubmitting}
+          accessibilityLabel="ConnectScreen"
         />
 
         <SignUpLink />

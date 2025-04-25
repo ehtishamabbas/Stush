@@ -19,7 +19,7 @@ import Dashboard from '../screens/LoggedInLayouts/Dashboard';
 import WelcomeStushScreen from '../screens/LoggedInLayouts/WelcomeStush';
 import Wedifferent from '../screens/LoggedInLayouts/WeDifferent';
 import UserIdentification from '../screens/LoggedInLayouts/Identification';
-import Disclouser from '../screens/LoggedInLayouts/Disclouser';
+import DisclosuresScreen from '../screens/LoggedInLayouts/Disclouser';
 import MyJob from '../screens/LoggedInLayouts/MyJob';
 import CompanyInfo from '../screens/LoggedInLayouts/CompanyInfo';
 import InfoAboutCompany from '../screens/LoggedInLayouts/InfoAboutCompany';
@@ -29,6 +29,15 @@ import EarnedFirst from '../screens/LoggedInLayouts/EarnedFirst';
 import EarnedSecond from '../screens/LoggedInLayouts/EarnedSecond';
 import PlaidLink from '../screens/LoggedInLayouts/PlaidLink';
 import SuccessfullyCreated from '../screens/LoggedInLayouts/SuccessfullyCreated';
+import ConnectScreen from '../screens/LoggedInLayouts/ConnectScreen';
+import SelectBankScreen from '../screens/LoggedInLayouts/SelectBankScreen';
+import BankSelectedScreen from '../screens/LoggedInLayouts/BankSelectedScreen';
+import PayrollProviderScreen from '../screens/LoggedInLayouts/PayrollProviderScreen';
+import SecondBankSelectScreen from '../screens/LoggedInLayouts/SecondBankSelectScreen';
+import LinkedSuccessScreen from '../screens/LoggedInLayouts/LinkedSuccessScreen';
+
+
+
 
 
  
@@ -56,7 +65,7 @@ export type RootStackParamList = {
   WelcomeStushScreen: undefined;
   Wedifferent: undefined;
   UserIdentification: undefined;
-  Disclouser: undefined;
+  DisclosuresScreen: undefined;
   MyJob: undefined;
   CompanyInfo: undefined;
   InfoAboutCompany: undefined;
@@ -66,6 +75,12 @@ export type RootStackParamList = {
   EarnedSecond: undefined;
   PlaidLink: undefined;
   SuccessfullyCreated: undefined;
+  ConnectScreen: undefined;
+  SelectBankScreen: undefined;
+  BankSelectedScreen: undefined;
+  PayrollProviderScreen: undefined;
+  SecondBankSelectScreen: undefined;
+  LinkedSuccessScreen: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -107,7 +122,7 @@ const AppNavigator = () => {
       <Stack.Screen name="WelcomeStushScreen" component={WelcomeStushScreen} />
       <Stack.Screen name="Wedifferent" component={Wedifferent} />
       <Stack.Screen name="UserIdentification" component={UserIdentification} />
-      <Stack.Screen name="Disclouser" component={Disclouser} />
+      <Stack.Screen name="DisclosuresScreen" component={DisclosuresScreen} />
       <Stack.Screen name="MyJob" component={MyJob} />
       <Stack.Screen name="CompanyInfo" component={CompanyInfo} />
       <Stack.Screen name="InfoAboutCompany" component={InfoAboutCompany} />
@@ -117,6 +132,12 @@ const AppNavigator = () => {
       <Stack.Screen name="EarnedSecond" component={EarnedSecond} />
       <Stack.Screen name="PlaidLink" component={PlaidLink} />
       <Stack.Screen name="SuccessfullyCreated" component={SuccessfullyCreated} />
+      <Stack.Screen name="ConnectScreen" component={ConnectScreen} />
+      <Stack.Screen name="SelectBankScreen" component={SelectBankScreen} />
+      <Stack.Screen name="BankSelectedScreen" component={BankSelectedScreen} />
+      <Stack.Screen name="PayrollProviderScreen" component={PayrollProviderScreen} />
+      <Stack.Screen name="SecondBankSelectScreen" component={SecondBankSelectScreen} />
+      <Stack.Screen name="LinkedSuccessScreen" component={LinkedSuccessScreen} />
     </Stack.Navigator>
   );
 };

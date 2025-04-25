@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 interface HeadingProps {
   primaryText?: string;
@@ -21,7 +22,7 @@ const Heading: React.FC<HeadingProps> = ({
   alignment = 'left',
 }) => {
   const containerStyle = [
-    styles.container, 
+    styles.container,
     customStyle,
     alignment === 'center' ? styles.centerAlign : {}
   ];
@@ -33,13 +34,19 @@ const Heading: React.FC<HeadingProps> = ({
           {primaryText}
         </Text>
       )}
-      
+
       {(type === 'secondary' || type === 'both') && secondaryText && (
         <>
           <Text style={[styles.secondaryText, customSecondaryStyle]}>
             {secondaryText}
           </Text>
-          <View style={styles.underline} />
+          <LinearGradient
+            colors={['transparent', '#1F7FFE']}
+            start={{ x: 1, y: 0 }}
+            end={{ x: 0, y: 0 }}
+
+            style={styles.underline}
+          />
         </>
       )}
     </View>
@@ -69,10 +76,14 @@ const styles = StyleSheet.create({
   },
   underline: {
     height: 2,
-    backgroundColor: '#1F7FFE',
-    width: '100%',
+    width: '80%',
     marginBottom: 10,
   },
+ 
+
 });
 
 export default Heading;
+
+
+ 
