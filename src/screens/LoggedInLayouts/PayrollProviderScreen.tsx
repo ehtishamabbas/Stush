@@ -69,7 +69,7 @@ const PayrollProviderScreen = () => {
     ];
 
     const handleAgree = () => {
-        navigation.navigate('MyJob');
+        navigation.navigate('SecondBankSelectScreen');
     };
 
     const handleBack = () => {

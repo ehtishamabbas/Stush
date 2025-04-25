@@ -61,23 +61,11 @@ const welcomeUserStyles = (width: number, height: number) => {
       marginTop: '20%',
     },
     circularTrack: {
-      position: 'absolute',
-      width: circleSize,
-      height: circleSize,
-      borderRadius: circleSize / 2,
-      borderWidth: 2,
-      borderColor: 'rgba(255, 255, 255, 0.1)',
+     
     },
     circularProgress: {
-      position: 'absolute',
-      width: circleSize,
-      height: circleSize,
-      borderRadius: circleSize / 2,
-      borderWidth: 3,
-      borderTopColor: '#00E0FF',
-      borderRightColor: 'transparent',
-      borderBottomColor: 'transparent',
-      borderLeftColor: '#00E0FF',
+    
+     
     },
     featureList: {
       width: '85%',

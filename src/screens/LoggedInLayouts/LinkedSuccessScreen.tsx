@@ -22,7 +22,7 @@ const LinkedSuccessScreen = () => {
         setIsSubmitting(true);
         setTimeout(() => {
             setIsSubmitting(false);
-            navigation.navigate('ConnectScreen');
+            navigation.navigate('Next Screen');
         }, 500);
     }
 
@@ -47,11 +47,8 @@ linked to this application"
                 <NavigateButton
                     title="Next"
                     onPress={handleNext}
-                    accessibilityLabel="ConnectScreen"
-
-
+                    accessibilityLabel="Next Screen"
                 />
-
                 <SignUpLink />
             </View>
         </AppScreen>

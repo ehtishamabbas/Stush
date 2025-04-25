@@ -67,8 +67,8 @@ const SelectBankScreen = () => {
         }
     ];
 
-    const handleAgree = () => {
-        navigation.navigate('MyJob');
+    const handleNavigate = () => {
+        navigation.navigate('BankSelectedScreen');
     };
 
     const handleBack = () => {
@@ -104,7 +104,7 @@ const SelectBankScreen = () => {
 
     const renderBankItems = () => {
         return bankItems.map((item: BankItem, index: number) => (
-            <TouchableOpacity key={index} style={LocalStyles.bankRow}>
+            <TouchableOpacity key={index} style={LocalStyles.bankRow} onPress={handleNavigate}>
                 <View style={[LocalStyles.iconContainer, { backgroundColor: item.iconBg }]}>
                     {renderBankIcon(item)}
                 </View>

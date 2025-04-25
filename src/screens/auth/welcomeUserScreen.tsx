@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import { Text, View, Image, ImageBackground, useWindowDimensions, Animated } from 'react-native';
+import { Text, View, Image, ImageBackground, useWindowDimensions, Animated, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch } from 'react-redux';
 import { StackNavigationProp } from '@react-navigation/stack';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
 
 type WelcomeUser = {
   navigation: StackNavigationProp<any>;
@@ -31,35 +32,38 @@ const WelcomeUser: React.FC<WelcomeUser> = ({ navigation }) => {
     }).start();
   }, [navigation, dispatch, fadeAnim, rotateAnim]);
 
- 
+  const handleNavigate = () => {
+    navigation.navigate('Dashboard');
+};
 
   return (
     <ImageBackground
       source={require('../../../assets/images/background.png')}
       style={styles.backgroundImage}
       resizeMode="cover">
-      <SafeAreaView style={styles.containerr}>
+      <SafeAreaView style={styles.containerr} >
         <Animated.View style={[styles.contentContainerr, { opacity: fadeAnim }]}>
           <Text style={styles.welcomeText}>Welcome, John</Text>
 
-          <SafeAreaView style={styles.container}>
-            <Animated.View style={[styles.contentContainer, { opacity: fadeAnim }]}>
-              <View style={styles.circularTrack} />
+          <SafeAreaView style={styles.container }>
+            <Pressable onPress={handleNavigate} >
+              <Animated.View style={[styles.contentContainer, { opacity: fadeAnim }]} >
+                <View style={styles.circularTrack} />
 
-              <Animated.View
-                style={[
-                  styles.circularProgress,
-                 ]}
-              />
+                <Animated.View
+                  style={[
+                    styles.circularProgress,
+                    { transform: [{ rotate: rotateAnim.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] }) }] },
+                  ]}
+                />
 
-              <Text style={{
-                color: 'white',
-                fontSize: Math.min(width, height) * 0.12,
-                fontWeight: '600',
-              }}>
-                Slush
-              </Text>
-            </Animated.View>
+                <Image
+              source={require('../../../assets/images/stush-logo.png')}
+              style={styles.logoImage}
+                  resizeMode="contain"
+                />
+              </Animated.View>
+            </Pressable>
           </SafeAreaView>
 
           <View style={styles.featureList}>

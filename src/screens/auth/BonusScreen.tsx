@@ -12,7 +12,7 @@ interface ReferFriendScreenProps {
 
 const ReferFriendScreen: React.FC<ReferFriendScreenProps> = ({ navigation }) => {
   const handleNext = () => {
-    navigation.navigate('Dashboard');
+    navigation.navigate('WelcomeUser');
   };
 
   const handleBack = () => {
@@ -37,7 +37,7 @@ const ReferFriendScreen: React.FC<ReferFriendScreenProps> = ({ navigation }) => 
           <NavigateButton
             title="Next"
             onPress={handleNext}
-            accessibilityLabel="Dashboard"
+            accessibilityLabel="Next Screen"
             
           />
         </View>
