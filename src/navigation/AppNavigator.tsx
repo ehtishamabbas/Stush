@@ -4,7 +4,7 @@ import SplashScreen from '../screens/auth/SplashScreen';
 import LoginScreen from '../screens/auth/LoginScreen';
 import RegisterScreen from '../screens/auth/RegisterScreen';
 import EmailInputScreen from '../screens/auth/EmailInputScreen';
-import VerifyEmail from '../screens/auth/VerifyEmailScreen';
+import VerifyEmailScreen from '../screens/auth/VerifyEmailScreen';
 import PhoneNumberScreen from '../screens/auth/ContactInfoScreen';
 import OTPVerificationScreen from '../screens/auth/CodeVerifyScreen';
 import SuccessSignup from '../screens/auth/SuccessSignupScreen';
@@ -51,7 +51,7 @@ export type RootStackParamList = {
   RegisterScreen: undefined;
   AboutScreen: undefined;
   EmailInput: undefined;
-  VerifyEmail: undefined;
+  VerifyEmailScreen: undefined;
   PhoneNumberScreen: undefined;
   OTPVerificationScreen: undefined;
   SuccessSignup: undefined;
@@ -108,7 +108,7 @@ const AppNavigator = () => {
       <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
       <Stack.Screen name="AboutScreen" component={AboutScreen} />
       <Stack.Screen name="EmailInput" component={EmailInputScreen} />
-      <Stack.Screen name="VerifyEmail" component={VerifyEmail} />
+      <Stack.Screen name="VerifyEmailScreen" component={VerifyEmailScreen} />
       <Stack.Screen name="PhoneNumberScreen" component={PhoneNumberScreen} />
       <Stack.Screen name="OTPVerificationScreen" component={OTPVerificationScreen} />
       <Stack.Screen name="SuccessSignup" component={SuccessSignup} />

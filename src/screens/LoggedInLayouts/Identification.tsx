@@ -15,7 +15,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/AppNavigator';
 import Heading from '../../components/ResueableComponents/Heading';
 import ContentText from '../../components/ResueableComponents/ContenetText';
-import NavigateButton from '../../components/common/NavigateButton';
+import Header from '../../components/common/Header';
 const UserIdentification = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
     return (
@@ -26,24 +26,7 @@ const UserIdentification = () => {
         >
             <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}>
 
-                <TouchableOpacity
-                    style={styles.backButton}
-                    activeOpacity={0.8}
-                    accessibilityLabel="Go back"
-                    accessibilityRole="button">
-                    <Image
-                        source={require('../../../assets/images/back-arrow.png')}
-                        style={styles.backIcon}
-                    />
-                </TouchableOpacity>
-                <View style={styles.logoContainer}>
-                    <Image
-                        source={require('../../../assets/images/stushlogo.png')}
-                        style={styles.logoImage}
-                        accessibilityLabel="Stush Logo"
-                        resizeMode="contain"
-                    />
-                </View>
+             <Header/>
                 <View style={styles.formcontainer}>
                     <Heading
                         primaryText="GET PAID TODAY"
@@ -90,7 +73,7 @@ Your Privacy and security is our top priority."
 
                         </View>
                         <TouchableOpacity style={styles.ctaButton}
-                            onPress={() => navigation.navigate('Disclouser')}
+                            onPress={() => navigation.navigate('DisclosuresScreen')}
                         >
 
                             <Text style={styles.ctaButtonText}> Next</Text>

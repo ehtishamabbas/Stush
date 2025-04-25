@@ -112,7 +112,7 @@ const LoginScreen = () => {
   };
 
   const handleSignUp = () => {
-    navigation.navigate('BankSelectedScreen');
+    navigation.navigate('RegisterScreen');
   };
 
   return (
@@ -176,7 +176,7 @@ const LoginScreen = () => {
           <SignInLink
             text="Don't have an account?"
             linkText="Sign Up"
-            navigateTo="SecondBankSelectScreen"
+            navigateTo="RegisterScreen"
           />
         </View>
       </View>

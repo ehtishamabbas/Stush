@@ -53,7 +53,7 @@ const EmailInputScreen = () => {
 
       setTimeout(() => {
         setIsSubmitting(false);
-        navigation.navigate('ConnectScreen');
+        navigation.navigate('VerifyEmailScreen');
       }, 500);
     } else {
       if (errors.email) {
