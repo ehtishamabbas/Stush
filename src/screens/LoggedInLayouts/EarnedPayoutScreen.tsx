@@ -11,14 +11,14 @@ import { Text } from 'react-native';
 import baseStyles from '../../css/BaseStyles';
 
 
-interface CompanyInfoProps {
+interface MyJobScreenProps {
     navigation: any;
 }
-const EarnedFirst: React.FC<CompanyInfoProps> = ({ navigation }) => {
+const EarnedPayoutScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
     const [selectedJob, setSelectedJob] = useState('');
 
     const handleNext = () => {
-        navigation.navigate('EarnedSecond');
+        navigation.navigate('PlaidLink');
     };
 
     const handleBack = () => {
@@ -33,40 +33,26 @@ const EarnedFirst: React.FC<CompanyInfoProps> = ({ navigation }) => {
 
 
                 <View style={styles.contentContainer}>
-
+                    <Heading
+                        primaryText="GET PAID TODAY"
+                        type="primary"
+                    />
 
                     <Heading
-                        secondaryText={"EARNED INCOME\nPAYOUT"}
+                        secondaryText="Add Another Employer"
                         type="secondary"
                     />
+
                     <ContentText
-                        text={"Do you get direct deposit?"}
+                        text="If you have income from another employer, please add their details now. If you've added all your employers, simply select 'No More Employers to Add' to continue"
                     />
 
-
-
-                
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>How many hours have you worked for current Work Period?</Text>
-                        <FormInput
-                            placeholder="XXX"
-                            value={selectedJob}
-                            onChangeText={setSelectedJob}
-                            keyboardType="default"
-                            autoCapitalize="none"
-                            returnKeyType="done"
-                            maxLength={100}
-                            accessibilityLabel="Hours worked"
-                            accessibilityHint="Enter hours worked"
-                        />
-                    </View>
-              
                     <View style={styles.spacer} />
 
                     <NavigateButton
-                        title="Continue"
+                        title="No More Employers to Add"
                         onPress={handleNext}
-                        accessibilityLabel="EarnedSecond"
+                        accessibilityLabel="No More Employers to Add screen"
                     />
                 </View>
             </View>
@@ -80,7 +66,7 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         flex: 1,
-        paddingHorizontal: 30,
+        paddingHorizontal: 20,
         marginTop: '50%',
         marginBottom: 40,
     },
@@ -98,4 +84,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default EarnedFirst;
+export default EarnedPayoutScreen;

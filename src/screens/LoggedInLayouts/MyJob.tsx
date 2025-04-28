@@ -39,16 +39,28 @@ const MyJobScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
           />
 
           <Heading
-            secondaryText="My Job"
+            secondaryText="Employment Status"
             type="secondary"
           />
 
           <ContentText
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra condimentum eget purus in."
+            text="Choose the option that best fits you so we can personalize your Stush experience."
           />
 
           <View style={styles.inputContainer}>
             <Text style={styles.labelText}>Your Employement</Text>
+            <FormInput
+              placeholder="- Select -"
+              value={selectedJob}
+              onChangeText={setSelectedJob}
+              keyboardType="email-address"
+              autoCapitalize="none"
+              returnKeyType="done"
+              maxLength={100}
+              accessibilityLabel="Email Address"
+              accessibilityHint="Enter your email address"
+            />
+              <Text style={styles.labelText}>How Many Employers do you have?</Text>
             <FormInput
               placeholder="- Select -"
               value={selectedJob}

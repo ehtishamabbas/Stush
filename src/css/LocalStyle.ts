@@ -52,7 +52,7 @@ const LocalStyles = StyleSheet.create({
       bulletRow: {
         flexDirection: 'row',
         alignItems: 'flex-start',
-        marginVertical: 15,
+        marginVertical: 5,
       },
       textContainer: {
         flex: 1,

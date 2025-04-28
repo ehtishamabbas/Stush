@@ -8,6 +8,7 @@ import {
     Image,
     TouchableOpacity,
 } from 'react-native';
+
 import { ImageSourcePropType, StyleProp, ViewStyle } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -52,7 +53,7 @@ const BankSelectedScreen = () => {
     ];
 
     const handleAgree = () => {
-        navigation.navigate('SuccessfullyCreated');
+        navigation.navigate('AnotherBankScreen');
     };
 
     const handleBack = () => {

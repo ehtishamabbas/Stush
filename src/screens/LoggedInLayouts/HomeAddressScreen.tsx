@@ -8,17 +8,16 @@ import ContentText from '../../components/ResueableComponents/ContenetText';
 import NavigateButton from '../../components/common/NavigateButton';
 import FormInput from '../../components/common/FormInput';
 import { Text } from 'react-native';
-import baseStyles from '../../css/BaseStyles';
 
 
-interface CompanyInfoProps {
+interface HomeAddressScreenProps {
     navigation: any;
 }
-const InfoAboutCompany: React.FC<CompanyInfoProps> = ({ navigation }) => {
+const HomeAddressScreen: React.FC<HomeAddressScreenProps> = ({ navigation }) => {
     const [selectedJob, setSelectedJob] = useState('');
 
     const handleNext = () => {
-        navigation.navigate('WorkInfo');
+        navigation.navigate('SetupSuccessScreen');
     };
 
     const handleBack = () => {
@@ -33,64 +32,68 @@ const InfoAboutCompany: React.FC<CompanyInfoProps> = ({ navigation }) => {
 
 
                 <View style={styles.contentContainer}>
-
+                    <Heading
+                        primaryText="GET PAID TODAY"
+                        type="primary"
+                    />
 
                     <Heading
-                        secondaryText={"Company\ninformation"}
+                        secondaryText="Confirm Home Address"
                         type="secondary"
                     />
-<ContentText
-            text="Reminder: We will not contact your employer without your permission."
-          />
 
+                    <ContentText
+                        text="Please enter your current home address. This helps us verify your information and ensure secure account management."
+                    />
+                    <ContentText
+                        text="(Tip: Use the address where you receive important mail like bank statements.)"
+                    />
                     <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Email Address (Supervisor):</Text>
+                        <Text style={styles.labelText}>Address:</Text>
                         <FormInput
-                            placeholder="abc@gmail.com"
+                            placeholder="123 Main Street"
                             value={selectedJob}
                             onChangeText={setSelectedJob}
-                            keyboardType="email-address"
+                            keyboardType="default"
                             autoCapitalize="none"
                             returnKeyType="done"
                             maxLength={100}
-                            accessibilityLabel="Email Address"
-                            accessibilityHint="Enter your email address"
+                            accessibilityLabel="Address"
+                            accessibilityHint="Enter your address"
                         />
-                    </View>
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Name of Supervisor:</Text>
+                        <Text style={styles.labelText}>Apt:</Text>
                         <FormInput
-                            placeholder="John Doe"
+                            placeholder="4C"
                             value={selectedJob}
                             onChangeText={setSelectedJob}
-                            keyboardType="email-address"
+                            keyboardType="default"
                             autoCapitalize="none"
                             returnKeyType="done"
                             maxLength={100}
-                            accessibilityLabel="Name of Supervisor"
-                            accessibilityHint="Enter the name of your supervisor"
+                            accessibilityLabel="Apt"
+                            accessibilityHint="Enter your apt"
                         />
-                    </View>
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Supervisor’s Phone:</Text>
+                            <Text style={styles.labelText}>City, State, Zip</Text>
                         <FormInput
-                            placeholder="209-000-000"
+                            placeholder="Las Vegas, NV 10001"
                             value={selectedJob}
                             onChangeText={setSelectedJob}
-                            keyboardType="email-address"
+                            keyboardType="default"
                             autoCapitalize="none"
                             returnKeyType="done"
                             maxLength={100}
-                            accessibilityLabel="Email Address"
-                            accessibilityHint="Enter your email address"
+                            accessibilityLabel="City, State, Zip"
+                            accessibilityHint="Enter your city, state, zip"
                         />
                     </View>
+
+
                     <View style={styles.spacer} />
 
                     <NavigateButton
-                        title="Continue"
+                        title="Next"
                         onPress={handleNext}
-                        accessibilityLabel="WorkInfo"
+                        accessibilityLabel="CompanyInfo Screen"
                     />
                 </View>
             </View>
@@ -104,7 +107,7 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         flex: 1,
-        paddingHorizontal: 30,
+        paddingHorizontal: 20,
         marginTop: '50%',
         marginBottom: 40,
     },
@@ -122,4 +125,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default InfoAboutCompany;
+export default HomeAddressScreen;

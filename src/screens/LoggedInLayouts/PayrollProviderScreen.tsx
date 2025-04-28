@@ -124,7 +124,7 @@ const PayrollProviderScreen = () => {
     };
 
     return (
-        <BaseScreen onBackPress={handleBack} showBackButton={true} showLogo={true}>
+        <BaseScreen onBackPress={handleBack} showBackButton={false} showLogo={true}>
             <ScrollView>
                 <View style={LocalStyles.contentContainers}>
                     <Heading

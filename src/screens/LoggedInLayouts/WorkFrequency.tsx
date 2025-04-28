@@ -70,7 +70,9 @@ const WorkFrequency: React.FC<CompanyInfoProps> = ({ navigation }) => {
                             accessibilityHint="EarnedFirst"
                         />
                     </View>
-              
+                    <ContentText
+            text="We’ll confirm your pay frequency and date through payroll records. If you’ve had any recent changes, they might not show up right away"
+          />
                     <View style={styles.spacer} />
 
                     <NavigateButton

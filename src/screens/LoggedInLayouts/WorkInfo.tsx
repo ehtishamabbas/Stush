@@ -70,7 +70,9 @@ const WorkInfo: React.FC<CompanyInfoProps> = ({ navigation }) => {
                             accessibilityHint="Enter your hourly wage"
                         />
                     </View>
-              
+                    <ContentText
+            text="We’ll verify your hourly rate through payroll records. If you’ve had any recent changes, they might not show up right away"
+          />
                     <View style={styles.spacer} />
 
                     <NavigateButton

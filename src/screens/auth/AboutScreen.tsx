@@ -64,13 +64,7 @@ const AboutScreen = () => {
           clearError={() => clearError('dob')}
         />
 
-        <FormInput
-          placeholder="Home Address"
-          value={address}
-          onChangeText={setAddress}
-          error={errors.address}
-          clearError={() => clearError('address')}
-        />
+        
 
         <NavigateButton
           title="Next"

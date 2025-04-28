@@ -4,10 +4,9 @@ import { useNavigation } from '@react-navigation/native';
 
 import AppScreen from '../../components/common/AppScreen';
 import NavigateButton from '../../components/common/NavigateButton';
-import SignUpLink from '../../components/common/SignUpLink';
 import baseStyles from '../../css/BaseStyles';
 import ContentText from '../../components/ResueableComponents/ContenetText';
-const LinkedSuccessScreen = () => {
+const SetupSuccessScreen = () => {
     const navigation: any = useNavigation();
 
 
@@ -22,7 +21,7 @@ const LinkedSuccessScreen = () => {
         setIsSubmitting(true);
         setTimeout(() => {
             setIsSubmitting(false);
-            navigation.navigate('Next Screen');
+            navigation.navigate('DisclosuresScreen');
         }, 500);
     }
 
@@ -31,27 +30,29 @@ const LinkedSuccessScreen = () => {
         <AppScreen showBackButton={true} enableKeyboardAvoid={true}>
             <View style={baseStyles.formContainers}>
                 <View style={baseStyles.successImageContainer}>
-                    <Image
-                        source={require('../../../assets/images/successfulstartup.png')}
-                        style={baseStyles.successImage}
-                    />
+                    
                     <Text style={baseStyles.headings}>Success!</Text>
                     <ContentText
-                        text="Your account has successfully been
-linked to this application"
+                        text="You're all set! We've successfully verified your identity. Let's continue setting up your account to get you full access to Stush Pay."
+                    />
+                       <ContentText
+                        text="(Tap 'Continue' to move forward.)"
                     />
                 </View>
 
 
 
                 <NavigateButton
-                    title="Next"
+                    title="Continue"
                     onPress={handleNext}
-                    accessibilityLabel="Next Screen"
+                    accessibilityLabel="Disclosures Screen"
+
+
                 />
-            </View>
+
+             </View>
         </AppScreen>
     );
 };
-    
-export default LinkedSuccessScreen;
+
+export default SetupSuccessScreen;

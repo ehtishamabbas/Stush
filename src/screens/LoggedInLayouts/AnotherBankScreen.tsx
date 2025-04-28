@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
     View,
     Text,
@@ -16,14 +16,11 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import BaseScreen from '../../components/ResueableComponents/DisclouerMainScreen';
 import Heading from '../../components/ResueableComponents/Heading';
-import styles from '../../css/Disclouser';
-import LocalStyles from '../../css/LocalStyle';
-import FormInput from '../../components/common/FormInput';
+ import styles from '../../css/Disclouser';
+ import LocalStyles from '../../css/LocalStyle';
 import NavigateButton from '../../components/common/NavigateButton';
-import ContentText from '../../components/ResueableComponents/ContenetText';
 
-
-
+ 
 
 type BankItem = {
     title: string;
@@ -35,24 +32,41 @@ type BankItem = {
     style?: StyleProp<ViewStyle>;
 };
 
-const SecondBankSelectScreen = () => {
+const AnotherBankScreen = () => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-    const [selectedJob, setSelectedJob] = useState<string>('');
 
     const bankItems: BankItem[] = [
+        {
+            title: 'First Platypus Bank',
+            text: 'Previously linked',
+            iconBg: '#7353E1',
+            iconText: 'FPB',
+        },
+        {
+            title: 'Bank of America',
+            iconBg: 'none',
+            image: require('../../../assets/images/america.png'),
+
+        },
 
         {
-            title: 'ADP',
+            title: 'Chase Bank',
             iconBg: 'none',
-            image: require('../../../assets/images/ADP.png'),
-
-        }
-
-
+            image: require('../../../assets/images/chasebank.png'),
+            style: {
+                width: '60%',
+                height: '60%',
+            },
+        },
+        {
+            title: 'Citibank',
+            iconBg: 'none',
+            image: require('../../../assets/images/citibank.png'),
+        } 
     ];
 
-    const handleAgree = () => {
-        navigation.navigate('OtherPayrollScreen');
+    const handleNavigate = () => {
+        navigation.navigate('AuthorizationScreen');
     };
 
     const handleBack = () => {
@@ -88,7 +102,7 @@ const SecondBankSelectScreen = () => {
 
     const renderBankItems = () => {
         return bankItems.map((item: BankItem, index: number) => (
-            <TouchableOpacity key={index} style={LocalStyles.bankRow}>
+            <TouchableOpacity key={index} style={LocalStyles.bankRow} onPress={handleNavigate}>
                 <View style={[LocalStyles.iconContainer, { backgroundColor: item.iconBg }]}>
                     {renderBankIcon(item)}
                 </View>
@@ -110,60 +124,31 @@ const SecondBankSelectScreen = () => {
         <BaseScreen onBackPress={handleBack} showBackButton={false} showLogo={true}>
             <ScrollView>
                 <View style={LocalStyles.contentContainers}>
-
-
                     <Heading
                         primaryText="GET PAID TODAY"
-                        secondaryText="Select Your Bank"
+                        secondaryText="Add another Bank"
                         type="both"
                     />
 
                     <Text style={styles.description}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra condimentum eget purus in.
-                    </Text>
-                    <View style={LocalStyles.selectedBankContainer}>
-                        <View style={LocalStyles.banksContainer}>
-                            {renderBankItems()}
-                        </View>
+                    If you have additional bank accounts where your paycheck is deposited, please connect them now. If you’ve already added all relevant accounts, simply select 'No More Banks to Add' to continue                    </Text>
 
-
-
-                    </View>
-                    <View style={LocalStyles.secondaryContainer}>
-                        <Text style={LocalStyles.text}>Enter your password</Text>
-                        <ContentText
-                            text={"Login to securely re-link your account\nUser ID: abs.........."}
-                        />
-                        <View style={LocalStyles.inputContainer}>
-                            <Text style={LocalStyles.labelText}>Password</Text>
-                            <FormInput
-                                placeholder="**********"
-                                value={selectedJob}
-                                onChangeText={setSelectedJob}
-                                keyboardType="default"
-                                autoCapitalize="none"
-                                returnKeyType="done"
-                                maxLength={100}
-                                accessibilityLabel="Password"
-                                accessibilityHint="Enter your password"
-                            />
-                        </View>
+                    <View style={LocalStyles.banksContainer}>
+                        {renderBankItems()}
                     </View>
 
+                    <View style={LocalStyles.spacers} />
                     <NavigateButton
-                        title="Continue"
-                        onPress={handleAgree}
-
+                        title="No More Banks to Add"
+                        onPress={() => navigation.navigate('AuthorizationScreen')}
+                        accessibilityLabel="No More Banks to Add"
                     />
-                    <Text style={LocalStyles.loginText}>Login with different credentials</Text>
-
-
+                    
                 </View>
-
             </ScrollView>
         </BaseScreen>
     );
 };
 
-
-export default SecondBankSelectScreen;
+ 
+export default AnotherBankScreen;

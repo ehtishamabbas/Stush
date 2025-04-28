@@ -6,19 +6,14 @@ import Header from '../../components/common/Header';
 import Heading from '../../components/ResueableComponents/Heading';
 import ContentText from '../../components/ResueableComponents/ContenetText';
 import NavigateButton from '../../components/common/NavigateButton';
-import FormInput from '../../components/common/FormInput';
-import { Text } from 'react-native';
-import baseStyles from '../../css/BaseStyles';
 
-
-interface CompanyInfoProps {
+interface MyJobScreenProps {
     navigation: any;
 }
-const EarnedFirst: React.FC<CompanyInfoProps> = ({ navigation }) => {
-    const [selectedJob, setSelectedJob] = useState('');
+const PayrollAuthorizationScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
 
     const handleNext = () => {
-        navigation.navigate('EarnedSecond');
+        navigation.navigate('LinkedSuccessScreen');
     };
 
     const handleBack = () => {
@@ -33,40 +28,29 @@ const EarnedFirst: React.FC<CompanyInfoProps> = ({ navigation }) => {
 
 
                 <View style={styles.contentContainer}>
-
+                    <Heading
+                        primaryText="GET PAID TODAY"
+                        type="primary"
+                    />
 
                     <Heading
-                        secondaryText={"EARNED INCOME\nPAYOUT"}
+                        secondaryText={"Payroll Provider\nAuthorization"}
                         type="secondary"
                     />
+
                     <ContentText
-                        text={"Do you get direct deposit?"}
+                        text="To verify your income and provide you with early access to your earned wages, we need your authorization to connect with your payroll provider. This allows us to securely access your payment data and ensure accurate deductions. "
                     />
 
-
-
-                
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>How many hours have you worked for current Work Period?</Text>
-                        <FormInput
-                            placeholder="XXX"
-                            value={selectedJob}
-                            onChangeText={setSelectedJob}
-                            keyboardType="default"
-                            autoCapitalize="none"
-                            returnKeyType="done"
-                            maxLength={100}
-                            accessibilityLabel="Hours worked"
-                            accessibilityHint="Enter hours worked"
-                        />
-                    </View>
-              
+                    <ContentText
+                        text="By proceeding, you give us permission to link your payroll account and retrieve necessary payroll information. Read More."
+                    />
                     <View style={styles.spacer} />
 
                     <NavigateButton
-                        title="Continue"
+                        title="I Agree"
                         onPress={handleNext}
-                        accessibilityLabel="EarnedSecond"
+                        accessibilityLabel="No More Employers to Add screen"
                     />
                 </View>
             </View>
@@ -80,7 +64,7 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         flex: 1,
-        paddingHorizontal: 30,
+        paddingHorizontal: 20,
         marginTop: '50%',
         marginBottom: 40,
     },
@@ -98,4 +82,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default EarnedFirst;
+export default PayrollAuthorizationScreen;

@@ -40,7 +40,9 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ navigation }) => {
                         type="secondary"
                     />
 
-
+<ContentText
+            text="We respect your privacy. We will never contact your workplace without your permission, and in most cases, contacting your employer is not necessary."
+          />
 
                     <View style={styles.inputContainer}>
                         <Text style={styles.labelText}>Company Name:</Text>

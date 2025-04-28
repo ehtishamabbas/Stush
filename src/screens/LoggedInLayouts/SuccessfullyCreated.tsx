@@ -22,7 +22,7 @@ const SuccessfullyCreated = () => {
         setIsSubmitting(true);
         setTimeout(() => {
             setIsSubmitting(false);
-            navigation.navigate('ConnectScreen');
+            navigation.navigate('AnotherPayrollScreen');
         }, 500);
     }
 
@@ -45,15 +45,11 @@ linked to this application"
 
 
                 <NavigateButton
-                    title="Next"
+                    title="Continue"
                     onPress={handleNext}
-                    accessibilityLabel="ConnectScreen"
-
-
+                    accessibilityLabel="AnotherPayroll Screen"
                 />
-
-                <SignUpLink />
-            </View>
+             </View>
         </AppScreen>
     );
 };

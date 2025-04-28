@@ -15,7 +15,6 @@ import BaseScreen from '../../components/ResueableComponents/DisclouerMainScreen
 import Heading from '../../components/ResueableComponents/Heading';
 import NavButton from '../../components/common/NavigateButton';
 import styles from '../../css/Disclouser';
-import Header from '../../components/common/Header';
 import LocalStyles from '../../css/LocalStyle';
 
 const DisclosuresScreen = () => {
@@ -23,18 +22,18 @@ const DisclosuresScreen = () => {
 
   const bulletItems = [
     {
-      title: 'Disclosure 1',
-      text: 'Lorem Ipsum is simply dummy text of the printing and',
+      title: 'Access to Earnings',
+      text: 'Stush provides early access to your earned wages. We do not offer loans, charge interest, or require credit checks. Read More.',
       isBlueTitle: true
     },
     {
-      title: 'Disclosure 2',
-      text: 'Lorem Ipsum is simply dummy text of the printing and',
+      title: 'Data Privacy & Security',
+      text: 'Your personal and banking information is securely encrypted. We never sell your data. Read More.',
       isBlueTitle: true
     },
     {
-      title: 'Disclosure 3',
-      text: 'Lorem Ipsum is simply dummy text of the printing and',
+      title: 'Income Verification Consent',
+      text: 'By continuing, you allow Stush to verify your income and deposits through secure connections to your payroll or bank. Read More',
       isBlueTitle: true
     }
   ];
@@ -70,7 +69,7 @@ const DisclosuresScreen = () => {
   };
 
   return (
-    <BaseScreen onBackPress={handleBack} showBackButton={true} showLogo={true}>
+    <BaseScreen onBackPress={handleBack} showBackButton={false} showLogo={true}>
       <ScrollView>
         <View style={LocalStyles.contentContainers}>
           <Heading
@@ -80,7 +79,7 @@ const DisclosuresScreen = () => {
           />
 
           <Text style={styles.description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra condimentum eget purus in.
+          Before we get started, here’s what you should know. We believe in being clear, upfront, and simple. Please take a moment to review these important  points about how Stush works:
           </Text>
 
            <View style={LocalStyles.bulletContainer}>

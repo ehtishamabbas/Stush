@@ -35,8 +35,15 @@ import BankSelectedScreen from '../screens/LoggedInLayouts/BankSelectedScreen';
 import PayrollProviderScreen from '../screens/LoggedInLayouts/PayrollProviderScreen';
 import SecondBankSelectScreen from '../screens/LoggedInLayouts/SecondBankSelectScreen';
 import LinkedSuccessScreen from '../screens/LoggedInLayouts/LinkedSuccessScreen';
-
-
+import HomeAddressScreen from '../screens/LoggedInLayouts/HomeAddressScreen';
+import SetupSuccessScreen from '../screens/LoggedInLayouts/SetupSuccessScreen';
+import EarnedPayoutScreen from '../screens/LoggedInLayouts/EarnedPayoutScreen';
+import AnotherBankScreen from '../screens/LoggedInLayouts/AnotherBankScreen';
+import AuthorizationScreen from '../screens/LoggedInLayouts/AuthorizationScreen';
+import SecondBankSceen from '../screens/LoggedInLayouts/SecondBankSceen';
+import AnotherPayrollScreen from '../screens/LoggedInLayouts/AnotherPayrollScreen';
+import OtherPayrollScreen from '../screens/LoggedInLayouts/OtherPayrollScreen';
+import PayrollAuthorizationScreen from '../screens/LoggedInLayouts/PayrollAuthorizationScreen';
 
 
 
@@ -81,6 +88,15 @@ export type RootStackParamList = {
   PayrollProviderScreen: undefined;
   SecondBankSelectScreen: undefined;
   LinkedSuccessScreen: undefined;
+  HomeAddressScreen: undefined;
+  SetupSuccessScreen: undefined;
+  EarnedPayoutScreen: undefined;
+  AnotherBankScreen: undefined;
+  AuthorizationScreen: undefined;
+  SecondBankSceen: undefined;
+  AnotherPayrollScreen: undefined;
+  OtherPayrollScreen: undefined;
+  PayrollAuthorizationScreen: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -138,6 +154,15 @@ const AppNavigator = () => {
       <Stack.Screen name="PayrollProviderScreen" component={PayrollProviderScreen} />
       <Stack.Screen name="SecondBankSelectScreen" component={SecondBankSelectScreen} />
       <Stack.Screen name="LinkedSuccessScreen" component={LinkedSuccessScreen} />
+      <Stack.Screen name="HomeAddressScreen" component={HomeAddressScreen} />
+      <Stack.Screen name="SetupSuccessScreen" component={SetupSuccessScreen} />
+      <Stack.Screen name="EarnedPayoutScreen" component={EarnedPayoutScreen} />
+      <Stack.Screen name="AnotherBankScreen" component={AnotherBankScreen} />
+      <Stack.Screen name="AuthorizationScreen" component={AuthorizationScreen} />
+      <Stack.Screen name="SecondBankSceen" component={SecondBankSceen} />
+      <Stack.Screen name="AnotherPayrollScreen" component={AnotherPayrollScreen} />
+      <Stack.Screen name="OtherPayrollScreen" component={OtherPayrollScreen} />
+      <Stack.Screen name="PayrollAuthorizationScreen" component={PayrollAuthorizationScreen} />
     </Stack.Navigator>
   );
 };

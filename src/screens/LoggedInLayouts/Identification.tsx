@@ -2,7 +2,6 @@ import React from 'react';
 import {
     View,
     Text,
-    Image,
     ImageBackground,
     TouchableOpacity,
     ScrollView,
@@ -73,7 +72,7 @@ Your Privacy and security is our top priority."
 
                         </View>
                         <TouchableOpacity style={styles.ctaButton}
-                            onPress={() => navigation.navigate('DisclosuresScreen')}
+                            onPress={() => navigation.navigate('HomeAddressScreen')}
                         >
 
                             <Text style={styles.ctaButtonText}> Next</Text>

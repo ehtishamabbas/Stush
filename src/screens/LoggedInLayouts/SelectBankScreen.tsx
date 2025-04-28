@@ -133,7 +133,7 @@ const SelectBankScreen = () => {
                     />
 
                     <Text style={styles.description}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Viverra condimentum eget purus in.
+                    Please add all bank accounts where you receive or deposit your paycheck. Be sure to include any accounts your employer uses for direct deposit
                     </Text>
 
                     <View style={LocalStyles.banksContainer}>

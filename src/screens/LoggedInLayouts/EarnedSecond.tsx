@@ -18,7 +18,7 @@ const EarnedSecond: React.FC<CompanyInfoProps> = ({ navigation }) => {
     const [selectedJob, setSelectedJob] = useState('');
 
     const handleNext = () => {
-        navigation.navigate('PlaidLink');
+        navigation.navigate('EarnedPayoutScreen');
     };
 
     const handleBack = () => {
@@ -77,7 +77,7 @@ const EarnedSecond: React.FC<CompanyInfoProps> = ({ navigation }) => {
                     <NavigateButton
                         title="Continue"
                         onPress={handleNext}
-                        accessibilityLabel="PlaidLink"
+                        accessibilityLabel="PlaidLink screen"
                     />
                 </View>
             </View>
