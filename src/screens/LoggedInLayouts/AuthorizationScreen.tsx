@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Text } from 'react-native';
 
 import BaseScreen from '../../components/ResueableComponents/MainScreen';
 import Header from '../../components/common/Header';
 import Heading from '../../components/ResueableComponents/Heading';
 import ContentText from '../../components/ResueableComponents/ContenetText';
 import NavigateButton from '../../components/common/NavigateButton';
- 
+
 
 
 interface MyJobScreenProps {
   navigation: any;
 }
 const AuthorizationScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
- 
+
   const handleNext = () => {
     navigation.navigate('SecondBankSceen');
   };
@@ -40,17 +40,18 @@ const AuthorizationScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
             type="secondary"
           />
 
-          <ContentText
-            text="By continuing, you authorize Stush to automatically deduct any and all funds from your linked bank account whenever you or your employer deposits your paycheck. "
-          />
+          <ContentText>
+            By continuing, you authorize Stush to automatically deduct any and all funds from your linked bank account whenever you or your employer deposits your paycheck.
+          </ContentText>
 
-          <ContentText
-            text="These deductions will be for the agreed-upon services and reimbursement payments as outlined in our terms."
-          />
-          <ContentText
-            text="Please review carefully before proceeding. Read More."
-          />
- 
+          <ContentText>
+            These deductions will be for the agreed-upon services and reimbursement payments as outlined in our terms.
+          </ContentText>
+          <ContentText>
+            Please review carefully before proceeding. <Text style={{ fontWeight: 'bold' }}>Read More.</Text>
+          </ContentText>
+
+
 
           <View style={styles.spacer} />
 

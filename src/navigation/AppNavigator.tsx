@@ -44,6 +44,13 @@ import SecondBankSceen from '../screens/LoggedInLayouts/SecondBankSceen';
 import AnotherPayrollScreen from '../screens/LoggedInLayouts/AnotherPayrollScreen';
 import OtherPayrollScreen from '../screens/LoggedInLayouts/OtherPayrollScreen';
 import PayrollAuthorizationScreen from '../screens/LoggedInLayouts/PayrollAuthorizationScreen';
+import EnableLocationScreen from '../screens/LoggedInLayouts/EnableLocationScreen';
+import LocationVerificationScreen from '../screens/LoggedInLayouts/EnableLocations';
+import EarnedIncomeScreen from '../screens/LoggedInLayouts/EarnedIncomeScreen';
+import AddEmployerScreen from '../screens/LoggedInLayouts/AddEmployerScreen';
+import AddPayrollScreen from '../screens/LoggedInLayouts/AddPayrollScreen';
+
+
 
 
 
@@ -97,6 +104,12 @@ export type RootStackParamList = {
   AnotherPayrollScreen: undefined;
   OtherPayrollScreen: undefined;
   PayrollAuthorizationScreen: undefined;
+  EnableLocations: undefined;
+  EnableLocationScreen: undefined;
+  LocationVerificationScreen: undefined;
+  EarnedIncomeScreen: undefined;
+  AddEmployerScreen: undefined;
+  AddPayrollScreen: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -163,7 +176,12 @@ const AppNavigator = () => {
       <Stack.Screen name="AnotherPayrollScreen" component={AnotherPayrollScreen} />
       <Stack.Screen name="OtherPayrollScreen" component={OtherPayrollScreen} />
       <Stack.Screen name="PayrollAuthorizationScreen" component={PayrollAuthorizationScreen} />
-    </Stack.Navigator>
+      <Stack.Screen name="EnableLocationScreen" component={EnableLocationScreen} />
+        <Stack.Screen name="LocationVerificationScreen" component={LocationVerificationScreen} />
+        <Stack.Screen name="EarnedIncomeScreen" component={EarnedIncomeScreen} />
+        <Stack.Screen name="AddEmployerScreen" component={AddEmployerScreen} />
+        <Stack.Screen name="AddPayrollScreen" component={AddPayrollScreen} />
+      </Stack.Navigator>
   );
 };
 

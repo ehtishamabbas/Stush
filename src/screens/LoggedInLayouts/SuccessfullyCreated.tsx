@@ -36,10 +36,9 @@ const SuccessfullyCreated = () => {
                         style={baseStyles.successImage}
                     />
                     <Text style={baseStyles.headings}>Success!</Text>
-                    <ContentText
-                        text="Your account has successfully been
-linked to this application"
-                    />
+                    <ContentText>
+                        Your account has been successfully created!
+                    </ContentText>
                 </View>
 
 

@@ -111,9 +111,7 @@ const LoginScreen = () => {
     }
   };
 
-  const handleSignUp = () => {
-    navigation.navigate('RegisterScreen');
-  };
+  
 
   return (
     <AppScreen 
@@ -176,7 +174,7 @@ const LoginScreen = () => {
           <SignInLink
             text="Don't have an account?"
             linkText="Sign Up"
-            navigateTo="RegisterScreen"
+            navigateTo="SelectBankScreen"
           />
         </View>
       </View>

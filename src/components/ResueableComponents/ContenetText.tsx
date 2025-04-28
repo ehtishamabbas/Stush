@@ -2,17 +2,19 @@ import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 
 interface ContentTextProps {
-  text: string;
+  children?: React.ReactNode;
+  text?: string;
   customStyle?: object;
 }
 
 const ContentText: React.FC<ContentTextProps> = ({
   text,
+  children,
   customStyle = {},
 }) => {
   return (
     <Text style={[styles.text, customStyle]}>
-      {text}
+      {text || children}
     </Text>
   );
 };

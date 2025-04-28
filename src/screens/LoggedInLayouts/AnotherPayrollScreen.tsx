@@ -6,14 +6,14 @@ import Header from '../../components/common/Header';
 import Heading from '../../components/ResueableComponents/Heading';
 import ContentText from '../../components/ResueableComponents/ContenetText';
 import NavigateButton from '../../components/common/NavigateButton';
- 
+
 
 
 interface MyJobScreenProps {
   navigation: any;
 }
-const  AnotherPayrollScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
- 
+const AnotherPayrollScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
+
   const handleNext = () => {
     navigation.navigate('PayrollProviderScreen');
   };
@@ -40,15 +40,13 @@ const  AnotherPayrollScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
             type="secondary"
           />
 
-        
+          <ContentText>
+            This Application Uses Plaid to Access your Payroll or Work hours provider.
+          </ContentText>
+          <ContentText>
+            This helps us securely connect your account for instant access to your earnings.
+          </ContentText>
 
-          <ContentText
-            text="This Application Uses Plaid to Access your Payroll or Work hours provider."
-          />
-          <ContentText
-            text="This helps us securely connect your account for instant access to your earnings."
-          />
- 
 
           <View style={styles.spacer} />
 

@@ -22,7 +22,7 @@ const LinkedSuccessScreen = () => {
         setIsSubmitting(true);
         setTimeout(() => {
             setIsSubmitting(false);
-            navigation.navigate('Next Screen');
+            navigation.navigate('LocationVerificationScreen');
         }, 500);
     }
 
@@ -36,10 +36,10 @@ const LinkedSuccessScreen = () => {
                         style={baseStyles.successImage}
                     />
                     <Text style={baseStyles.headings}>Success!</Text>
-                    <ContentText
-                        text="Your account has successfully been
-linked to this application"
-                    />
+                    <ContentText>
+                        Your account has successfully been
+linked to this application
+                    </ContentText>
                 </View>
 
 
