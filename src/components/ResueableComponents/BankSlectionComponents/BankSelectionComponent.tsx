@@ -1,4 +1,4 @@
- import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -98,14 +98,15 @@ const BankSelectionComponent = ({
                         {description}
                     </Text>
 
-                    <BankList 
+                    <BankList
                         items={bankItems}
                         onItemPress={handleItemPress}
                         selectedBank={selectedBank}
                     />
+                    <View style={{ height: 40 }} />
 
                     {showPasswordInput && (
-                        <PasswordSection 
+                        <PasswordSection
                             password={password}
                             setPassword={setPassword}
                         />

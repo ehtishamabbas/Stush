@@ -42,7 +42,7 @@ const PayrollProviderScreen = () => {
     return (
         <BankSelectionComponent
             primaryText="GET PAID TODAY"
-            secondaryText="Select Your Payroll Or\nWork Hours Provider"
+            secondaryText={"Select Your Payroll Or\nWork Hours Provider"}
             description="Select or select the system your employer uses to process payroll or track work hours."
             bankItems={bankItems}
             showBackButton={false}

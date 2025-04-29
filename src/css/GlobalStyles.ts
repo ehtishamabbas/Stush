@@ -1,8 +1,8 @@
- import { StyleSheet, Dimensions, Platform } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
- const normalize = (size: number) => {
+const normalize = (size: number) => {
   const scale = SCREEN_WIDTH / 375;
   return Math.round(size * scale);
 };
@@ -12,14 +12,14 @@ const GlobalStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
   },
-  
+
   contentContainer: {
     flex: 1,
     paddingHorizontal: normalize(20),
-    marginTop: SCREEN_HEIGHT * 0.25,
+    marginTop: SCREEN_HEIGHT * 0.22,
     paddingBottom: normalize(20),
   },
-  
+
   headerContainer: {
     width: '100%',
     height: SCREEN_HEIGHT * 0.20,
@@ -70,7 +70,7 @@ const GlobalStyles = StyleSheet.create({
     height: 24,
     resizeMode: 'contain',
   },
-  
+
   primaryHeadingText: {
     fontSize: normalize(16),
     fontWeight: '600',
@@ -90,29 +90,30 @@ const GlobalStyles = StyleSheet.create({
     color: '#FFFFFF',
     marginBottom: normalize(15),
     lineHeight: normalize(20),
+    textAlign: 'center',
   },
-  
+
   buttonContainer: {
-    width: '100%',
-    marginVertical: normalize(8),
+    width: '90%',
+    alignSelf: 'center',
+    marginVertical: normalize(10),
   },
   primaryButton: {
     backgroundColor: '#2B7DF7',
-    borderRadius: normalize(8),
+    borderRadius: normalize(38),
     paddingVertical: normalize(14),
     alignItems: 'center',
     justifyContent: 'center',
   },
   secondaryButton: {
-    backgroundColor: '#5A5A5A',
-    borderRadius: normalize(8),
+    backgroundColor: 'rgba(90, 90, 90, 0.5)', borderRadius: normalize(38),
     paddingVertical: normalize(14),
     alignItems: 'center',
     justifyContent: 'center',
   },
   greenButton: {
     backgroundColor: '#4CD964',
-    borderRadius: normalize(8),
+    borderRadius: normalize(38),
     paddingVertical: normalize(14),
     alignItems: 'center',
     justifyContent: 'center',
@@ -122,7 +123,7 @@ const GlobalStyles = StyleSheet.create({
     fontSize: normalize(16),
     fontWeight: '600',
   },
-  
+
   inputContainer: {
     marginVertical: normalize(15),
     width: '100%',
@@ -134,22 +135,22 @@ const GlobalStyles = StyleSheet.create({
   },
   input: {
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: normalize(8),
+    borderRadius: normalize(18),
     paddingHorizontal: normalize(15),
     paddingVertical: normalize(12),
     color: '#FFFFFF',
     fontSize: normalize(16),
   },
-  
+
   checkboxContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: normalize(10),
   },
   checkbox: {
-    width: normalize(24),
-    height: normalize(24),
-    borderRadius: normalize(12),
+    width: normalize(22),
+    height: normalize(22),
+    borderRadius: normalize(50),
     borderWidth: 2,
     borderColor: '#FFFFFF',
     alignItems: 'center',
@@ -166,12 +167,12 @@ const GlobalStyles = StyleSheet.create({
     fontWeight: 'bold',
   },
   checkboxText: {
-    color: '#FFFFFF',
+    color: 'rgba(9, 21, 34, 1)',
     fontSize: normalize(14),
     flex: 1,
     lineHeight: normalize(18),
   },
-  
+
   spacer: {
     flex: 1,
   },
@@ -180,7 +181,7 @@ const GlobalStyles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    padding: normalize(20),
+    padding: normalize(30),
   },
   footerText: {
     color: 'rgba(255, 255, 255, 0.7)',
@@ -192,7 +193,7 @@ const GlobalStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  
+
   locationHeader: {
     marginTop: normalize(10),
     marginBottom: normalize(20),
@@ -211,7 +212,7 @@ const GlobalStyles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 255, 255, 0.3)',
   },
-  
+
   depositButtonsContainer: {
     flexDirection: 'row',
     marginVertical: normalize(15),
@@ -234,6 +235,20 @@ const GlobalStyles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: normalize(16),
     fontWeight: '600',
+  },
+  popupContainer: {
+    position: 'absolute',
+    zIndex: 9,
+    width: '100%',
+      top: '50%',
+    left: '50%',
+    transform: [{ translateX: '-45%' }, { translateY: '-52%' }],
+    backgroundColor: 'rgba(255, 255, 255, 0.97)',
+    paddingHorizontal: normalize(35),
+    paddingVertical: normalize(50),
+    borderRadius: normalize(40),
+    justifyContent: 'center',
+
   },
 });
 

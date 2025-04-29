@@ -37,7 +37,9 @@ const AnotherBankScreen = () => {
     ];
 
     return (
+        
         <BankSelectionComponent
+             
             primaryText="GET PAID TODAY"
             secondaryText="Add another Bank"
             description="If you have additional bank accounts where your paycheck is deposited, please connect them now. If you've already added all relevant accounts, simply select 'No More Banks to Add' to continue"

@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-
-import BaseScreen from '../../components/ResueableComponents/MainScreen';
-import Header from '../../components/common/Header';
+import { View, Text, StyleSheet } from 'react-native';
+import Screen from '../../components/common/Screen';
+import Button from '../../components/common/Button';
+import Input from '../../components/common/Input';
 import Heading from '../../components/ResueableComponents/Heading';
 import ContentText from '../../components/ResueableComponents/ContenetText';
-import NavigateButton from '../../components/common/NavigateButton';
-import FormInput from '../../components/common/FormInput';
-import { Text } from 'react-native';
-import baseStyles from '../../css/BaseStyles';
+import GlobalStyles from '../../css/GlobalStyles';
 
-
-interface CompanyInfoProps {
+interface EarnedIncomeScreenProps {
     navigation: any;
 }
-const EarnedFirst: React.FC<CompanyInfoProps> = ({ navigation }) => {
-    const [selectedJob, setSelectedJob] = useState('');
 
-    const handleNext = () => {
+const EarnedIncomeScreen: React.FC<EarnedIncomeScreenProps> = ({ navigation }) => {
+    const [hours, setHours] = useState('');
+    const [directDeposit, setDirectDeposit] = useState<string | null>(null);
+
+    const handleContinue = () => {
         navigation.navigate('EarnedSecond');
     };
 
@@ -25,77 +23,86 @@ const EarnedFirst: React.FC<CompanyInfoProps> = ({ navigation }) => {
         navigation.goBack();
     };
 
+    const setYesDeposit = () => {
+        setDirectDeposit('yes');
+    };
+
+    const setNoDeposit = () => {
+        setDirectDeposit('no');
+    };
+
     return (
-        <BaseScreen>
-            <Header navigation={navigation} onBackPress={handleBack} />
+        <Screen navigation={navigation} onBackPress={handleBack}>
+            <View style={GlobalStyles.contentContainer}>
+                <Heading
+                    secondaryText={"EARNED INCOME\nPAYOUT"}
+                    type="secondary"
+                />
 
-            <View style={styles.container}>
+                <ContentText>
+                    Do you get direct deposit?
+                </ContentText>
 
-
-                <View style={styles.contentContainer}>
-
-
-                    <Heading
-                        secondaryText={"EARNED INCOME\nPAYOUT"}
-                        type="secondary"
+                <View style={styles.depositButtonsRow}>
+                    <Button
+                        title="YES"
+                        onPress={setYesDeposit}
+                        style={[
+                            styles.depositButton,
+                            directDeposit === 'yes' ? styles.activeButton : styles.inactiveButton
+                        ]}
                     />
-                    <ContentText
-                        text={"Do you get direct deposit?"}
-                    />
-
-
-
-                
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>How many hours have you worked for current Work Period?</Text>
-                        <FormInput
-                            placeholder="XXX"
-                            value={selectedJob}
-                            onChangeText={setSelectedJob}
-                            keyboardType="default"
-                            autoCapitalize="none"
-                            returnKeyType="done"
-                            maxLength={100}
-                            accessibilityLabel="Hours worked"
-                            accessibilityHint="Enter hours worked"
-                        />
-                    </View>
-              
-                    <View style={styles.spacer} />
-
-                    <NavigateButton
-                        title="Continue"
-                        onPress={handleNext}
-                        accessibilityLabel="EarnedSecond"
+                    <View style={styles.buttonSpacer} />
+                    <Button
+                        title="NO"
+                        onPress={setNoDeposit}
+                        style={[
+                            styles.depositButton,
+                            directDeposit === 'no' ? styles.activeButton : styles.inactiveButton
+                        ]}
                     />
                 </View>
+
+                <Input
+                    label="How many hours have you worked for current Work Period?"
+                    placeholder="XXX"
+                    value={hours}
+                    onChangeText={setHours}
+                    keyboardType="numeric"
+                    accessibilityLabel="Hours worked"
+                    accessibilityHint="Enter hours worked"
+                />
+
+                <View style={GlobalStyles.spacer} />
+
+                <Button
+                    title="Continue"
+                    onPress={handleContinue}
+                    variant="primary"
+                />
             </View>
-        </BaseScreen>
+        </Screen>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
+    depositButtonsRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginVertical: 15,
+    },
+    depositButton: {
         flex: 1,
     },
-    contentContainer: {
-        flex: 1,
-        paddingHorizontal: 30,
-        marginTop: '50%',
-        marginBottom: 40,
+    buttonSpacer: {
+        width: 10,
     },
-    inputContainer: {
-        marginTop: 20,
+    activeButton: {
+        backgroundColor: '#2B7DF7',
     },
-    labelText: {
-        fontSize: 14,
-        marginBottom: 5,
-        color: '#FFFFFF',
-        paddingBottom: 10,
-    },
-    spacer: {
-        flex: 1,
+    inactiveButton: {
+        backgroundColor: '#5A5A5A',
     },
 });
 
-export default EarnedFirst;
+export default EarnedIncomeScreen;

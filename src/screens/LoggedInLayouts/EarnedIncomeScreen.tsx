@@ -35,13 +35,11 @@ const EarnedIncomeScreen: React.FC<EarnedIncomeScreenProps> = ({ navigation }) =
     <Screen navigation={navigation} onBackPress={handleBack}>
       <View style={GlobalStyles.contentContainer}>
         <Heading
-          secondaryText="EARNED INCOME\nPAYOUT"
-          type="secondary"
+           type="secondary"
         />
         
         <ContentText>
-          Do you get direct deposit?
-        </ContentText>
+         </ContentText>
         
         <View style={styles.depositButtonsRow}>
           <Button

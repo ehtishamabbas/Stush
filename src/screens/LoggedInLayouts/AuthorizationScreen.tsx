@@ -48,7 +48,7 @@ const AuthorizationScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
             These deductions will be for the agreed-upon services and reimbursement payments as outlined in our terms.
           </ContentText>
           <ContentText>
-            Please review carefully before proceeding. <Text style={{ fontWeight: 'bold' }}>Read More.</Text>
+            Please review carefully before proceeding. <Text style={{ fontWeight: 'bold',color: '#FFFFFF' }}>Read More.</Text>
           </ContentText>
 
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import GlobalStyles from '../../css/GlobalStyles';
 
 interface BulletItem {
   text: string;
@@ -21,8 +22,18 @@ const BulletPoints: React.FC<BulletPointsProps> = ({
     <View style={[styles.bulletContainer, customStyle]}>
       {items.map((item, index) => (
         <View key={index} style={styles.bulletRow}>
-          <FontAwesome5 name="check-circle" size={18} color="#fff" />
-          <View style={styles.textContainer}>
+          <View style={[
+            GlobalStyles.checkbox,
+            { backgroundColor: 'white' }
+          ]}>
+            {true && (
+              <FontAwesome5
+                name="check"
+                size={11}
+                color="#1F75FE"
+              />
+            )}
+          </View>          <View style={styles.textContainer}>
             {item.title && (
               <Text style={item.isBlueTitle ? styles.bulletTextBlue : styles.bulletText}>
                 {item.title}

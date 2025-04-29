@@ -16,7 +16,7 @@ const AddPayrollScreen: React.FC<AddPayrollScreenProps> = ({ navigation }) => {
   };
 
   const handleNoMorePayroll = () => {
-    navigation.navigate('FinishScreen');
+    navigation.navigate('PayrollAuthorizationScreen');
   };
 
   const handleBack = () => {
@@ -28,7 +28,7 @@ const AddPayrollScreen: React.FC<AddPayrollScreenProps> = ({ navigation }) => {
       <View style={GlobalStyles.contentContainer}>
         <Heading
           primaryText="GET PAID TODAY"
-          secondaryText="Add Another Payroll Provider"
+          secondaryText={"Add Another Payroll\nProvider"}
           type="both"
         />
         
@@ -39,14 +39,15 @@ const AddPayrollScreen: React.FC<AddPayrollScreenProps> = ({ navigation }) => {
         <ContentText>
           If not, just tap 'No More to Add' to continue.
         </ContentText>
-        
-        <View style={GlobalStyles.spacer} />
-        
         <Button
           title="Add Payroll Provider"
           onPress={handleAddPayroll}
           variant="green"
         />
+        
+        <View style={GlobalStyles.spacer} />
+        
+      
         
         <View style={{ height: 10 }} />
         

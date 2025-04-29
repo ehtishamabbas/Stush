@@ -1,4 +1,3 @@
-// src/screens/LocationVerificationScreen.tsx
 import React from 'react';
 import { View, Text } from 'react-native';
 import Screen from '../../components/common/Screen';
@@ -13,11 +12,11 @@ interface LocationVerificationScreenProps {
 
 const LocationVerificationScreen: React.FC<LocationVerificationScreenProps> = ({ navigation }) => {
   const handleEnableLocation = () => {
-    navigation.navigate('EarnedIncomeScreen');
+    navigation.navigate('NextScreen');
   };
 
   const handleNotNow = () => {
-    navigation.navigate('EarnedIncomeScreen');
+    navigation.navigate('EnableLocationScreen');
   };
 
   const handleBack = () => {
@@ -31,31 +30,27 @@ const LocationVerificationScreen: React.FC<LocationVerificationScreenProps> = ({
           secondaryText={"ENABLE\nLOCATION"}
           type="secondary"
         />
-        
+
         <ContentText>
           Enable location to verify work hours.
         </ContentText>
-        
+
         <ContentText>
           To ensure you get paid for the hours you work, Slush needs to verify your location while you're on the job.
         </ContentText>
-        
-        <View style={GlobalStyles.spacer} />
-        
+
+
         <Button
           title="Enable Location"
           onPress={handleEnableLocation}
           variant="primary"
         />
-        
-        <View style={{ height: 10 }} />
-        
         <Button
           title="Not Now"
           onPress={handleNotNow}
           variant="secondary"
         />
-        
+
         <View style={GlobalStyles.footer}>
           <Text style={GlobalStyles.footerText}>
             By enabling location, you agree to our [Privacy Policy] and [Terms of Service]. You can change this anytime in your settings.

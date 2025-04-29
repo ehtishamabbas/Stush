@@ -27,7 +27,7 @@ import WorkInfo from '../screens/LoggedInLayouts/WorkInfo';
 import WorkFrequency from '../screens/LoggedInLayouts/WorkFrequency';
 import EarnedFirst from '../screens/LoggedInLayouts/EarnedFirst';
 import EarnedSecond from '../screens/LoggedInLayouts/EarnedSecond';
-import PlaidLink from '../screens/LoggedInLayouts/PlaidLink';
+import PlaidLinkScreen from '../screens/LoggedInLayouts/PlaidLink';
 import SuccessfullyCreated from '../screens/LoggedInLayouts/SuccessfullyCreated';
 import ConnectScreen from '../screens/LoggedInLayouts/ConnectScreen';
 import SelectBankScreen from '../screens/LoggedInLayouts/SelectBankScreen';
@@ -42,19 +42,18 @@ import AnotherBankScreen from '../screens/LoggedInLayouts/AnotherBankScreen';
 import AuthorizationScreen from '../screens/LoggedInLayouts/AuthorizationScreen';
 import SecondBankSceen from '../screens/LoggedInLayouts/SecondBankSceen';
 import AnotherPayrollScreen from '../screens/LoggedInLayouts/AnotherPayrollScreen';
-import OtherPayrollScreen from '../screens/LoggedInLayouts/OtherPayrollScreen';
 import PayrollAuthorizationScreen from '../screens/LoggedInLayouts/PayrollAuthorizationScreen';
 import EnableLocationScreen from '../screens/LoggedInLayouts/EnableLocationScreen';
 import LocationVerificationScreen from '../screens/LoggedInLayouts/EnableLocations';
-import EarnedIncomeScreen from '../screens/LoggedInLayouts/EarnedIncomeScreen';
 import AddEmployerScreen from '../screens/LoggedInLayouts/AddEmployerScreen';
 import AddPayrollScreen from '../screens/LoggedInLayouts/AddPayrollScreen';
+import HoursAccuracyScreen from '../screens/LoggedInLayouts/HoursAccuracyScreen';
 
 
 
 
 
- 
+
 
 
 
@@ -87,7 +86,7 @@ export type RootStackParamList = {
   WorkFrequency: undefined;
   EarnedFirst: undefined;
   EarnedSecond: undefined;
-  PlaidLink: undefined;
+  PlaidLinkScreen: undefined;
   SuccessfullyCreated: undefined;
   ConnectScreen: undefined;
   SelectBankScreen: undefined;
@@ -102,14 +101,13 @@ export type RootStackParamList = {
   AuthorizationScreen: undefined;
   SecondBankSceen: undefined;
   AnotherPayrollScreen: undefined;
-  OtherPayrollScreen: undefined;
   PayrollAuthorizationScreen: undefined;
   EnableLocations: undefined;
   EnableLocationScreen: undefined;
   LocationVerificationScreen: undefined;
-  EarnedIncomeScreen: undefined;
   AddEmployerScreen: undefined;
   AddPayrollScreen: undefined;
+  HoursAccuracyScreen: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -159,7 +157,7 @@ const AppNavigator = () => {
       <Stack.Screen name="WorkFrequency" component={WorkFrequency} />
       <Stack.Screen name="EarnedFirst" component={EarnedFirst} />
       <Stack.Screen name="EarnedSecond" component={EarnedSecond} />
-      <Stack.Screen name="PlaidLink" component={PlaidLink} />
+      <Stack.Screen name="PlaidLinkScreen" component={PlaidLinkScreen} />
       <Stack.Screen name="SuccessfullyCreated" component={SuccessfullyCreated} />
       <Stack.Screen name="ConnectScreen" component={ConnectScreen} />
       <Stack.Screen name="SelectBankScreen" component={SelectBankScreen} />
@@ -174,14 +172,13 @@ const AppNavigator = () => {
       <Stack.Screen name="AuthorizationScreen" component={AuthorizationScreen} />
       <Stack.Screen name="SecondBankSceen" component={SecondBankSceen} />
       <Stack.Screen name="AnotherPayrollScreen" component={AnotherPayrollScreen} />
-      <Stack.Screen name="OtherPayrollScreen" component={OtherPayrollScreen} />
       <Stack.Screen name="PayrollAuthorizationScreen" component={PayrollAuthorizationScreen} />
       <Stack.Screen name="EnableLocationScreen" component={EnableLocationScreen} />
-        <Stack.Screen name="LocationVerificationScreen" component={LocationVerificationScreen} />
-        <Stack.Screen name="EarnedIncomeScreen" component={EarnedIncomeScreen} />
-        <Stack.Screen name="AddEmployerScreen" component={AddEmployerScreen} />
-        <Stack.Screen name="AddPayrollScreen" component={AddPayrollScreen} />
-      </Stack.Navigator>
+      <Stack.Screen name="LocationVerificationScreen" component={LocationVerificationScreen} />
+      <Stack.Screen name="AddEmployerScreen" component={AddEmployerScreen} />
+      <Stack.Screen name="AddPayrollScreen" component={AddPayrollScreen} />
+      <Stack.Screen name="HoursAccuracyScreen" component={HoursAccuracyScreen} />
+    </Stack.Navigator>
   );
 };
 

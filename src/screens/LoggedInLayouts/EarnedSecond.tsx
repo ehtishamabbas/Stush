@@ -4,11 +4,9 @@ import { View, StyleSheet } from 'react-native';
 import BaseScreen from '../../components/ResueableComponents/MainScreen';
 import Header from '../../components/common/Header';
 import Heading from '../../components/ResueableComponents/Heading';
-import ContentText from '../../components/ResueableComponents/ContenetText';
 import NavigateButton from '../../components/common/NavigateButton';
 import FormInput from '../../components/common/FormInput';
 import { Text } from 'react-native';
-import baseStyles from '../../css/BaseStyles';
 
 
 interface CompanyInfoProps {
@@ -18,7 +16,7 @@ const EarnedSecond: React.FC<CompanyInfoProps> = ({ navigation }) => {
     const [selectedJob, setSelectedJob] = useState('');
 
     const handleNext = () => {
-        navigation.navigate('EarnedPayoutScreen');
+        navigation.navigate('AddEmployerScreen');
     };
 
     const handleBack = () => {

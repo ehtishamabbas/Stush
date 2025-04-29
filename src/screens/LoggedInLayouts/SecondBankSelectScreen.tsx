@@ -25,7 +25,7 @@ const SecondBankSelectScreen = () => {
             showContinueButton={true}
             continueButtonText="Continue"
             showLoginWithDifferentCredentials={true}
-            navigateTo="OtherPayrollScreen"
+            navigateTo="AddPayrollScreen"
         />
     );
 };

@@ -16,7 +16,7 @@ const AddEmployerScreen: React.FC<AddEmployerScreenProps> = ({ navigation }) => 
   };
 
   const handleNoMoreEmployers = () => {
-    navigation.navigate('AddPayrollScreen');
+    navigation.navigate('PlaidLinkScreen');
   };
 
   const handleBack = () => {
@@ -35,15 +35,16 @@ const AddEmployerScreen: React.FC<AddEmployerScreenProps> = ({ navigation }) => 
         <ContentText>
           If you have income from another employer, please add their details now. If you've added all your employers, simply select 'No More Employers to Add' to continue
         </ContentText>
-        
-        <View style={GlobalStyles.spacer} />
-        
         <Button
           title="Add Employer"
           onPress={handleAddEmployer}
           variant="green"
         />
         
+        
+        <View style={GlobalStyles.spacer} />
+        
+ 
         <View style={{ height: 10 }} />
         
         <Button

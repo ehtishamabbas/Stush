@@ -51,6 +51,7 @@ const MyJobScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
             <Text style={styles.labelText}>Your Employement</Text>
             <FormInput
               placeholder="- Select -"
+ 
               value={selectedJob}
               onChangeText={setSelectedJob}
               keyboardType="email-address"

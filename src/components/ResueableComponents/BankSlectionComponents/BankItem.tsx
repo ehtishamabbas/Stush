@@ -1,4 +1,3 @@
-// BankItem.tsx
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { BankItem as BankItemType } from './Types';
@@ -10,6 +9,7 @@ type BankItemProps = {
     onPress?: () => void;
     disabled?: boolean;
 };
+
 
 const BankItemComponent = ({ item, onPress, disabled = false }: BankItemProps) => {
     return (

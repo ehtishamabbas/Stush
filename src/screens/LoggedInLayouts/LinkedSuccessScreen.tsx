@@ -38,14 +38,14 @@ const LinkedSuccessScreen = () => {
                     <Text style={baseStyles.headings}>Success!</Text>
                     <ContentText>
                         Your account has successfully been
-linked to this application
+                        linked to this application
                     </ContentText>
                 </View>
 
 
 
                 <NavigateButton
-                    title="Next"
+                    title="Continue"
                     onPress={handleNext}
                     accessibilityLabel="Next Screen"
                 />
@@ -53,5 +53,5 @@ linked to this application
         </AppScreen>
     );
 };
-    
+
 export default LinkedSuccessScreen;

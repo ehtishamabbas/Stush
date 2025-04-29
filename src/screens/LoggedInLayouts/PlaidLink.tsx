@@ -8,7 +8,7 @@ import ContentText from '../../components/ResueableComponents/ContenetText';
 import NavigateButton from '../../components/common/NavigateButton';
 import { Text } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
+import GlobalStyles from '../../css/GlobalStyles';
 
 
 
@@ -40,18 +40,26 @@ const PlaidLinkScreen: React.FC<PlaidLinkScreenProps> = ({ navigation }) => {
 
     ];
 
- 
+
 
 
 
     const renderBulletPoints = () => {
         return bulletItems.map((item, index) => (
             <View key={index} style={localStyles.bulletRow}>
-                <FontAwesome5
-                    name="check-circle"
-                    size={22}
-                    color={item.isBlueTitle ? '#FFFFFF' : '#FFFFFF'}
-                 />
+                <View style={[
+                    GlobalStyles.checkbox,
+                    { backgroundColor: 'white' }
+                ]}>
+                    {item.isBlueTitle && (
+                        <FontAwesome5
+                            name="check"
+                            size={11}
+                            color="#1F75FE"
+                        />
+                    )}
+                </View>
+
                 <View style={localStyles.textContainer}>
                     {item.title && (
                         <Text style={item.isBlueTitle ? localStyles.blueTitle : localStyles.whiteTitle}>
@@ -80,7 +88,7 @@ const PlaidLinkScreen: React.FC<PlaidLinkScreenProps> = ({ navigation }) => {
                     />
 
                     <Heading
-                         secondaryText={"USES PLAID TO LINK YOUR\nBANK"}
+                        secondaryText={"USES PLAID TO LINK YOUR\nBANK"}
 
                         type="secondary"
                     />
@@ -143,9 +151,10 @@ const localStyles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         marginBottom: 5,
+
     }
- 
-      
+
+
 });
 
 const styles = StyleSheet.create({

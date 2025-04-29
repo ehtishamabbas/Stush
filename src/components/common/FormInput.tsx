@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import { View, TextInput, Text, TextInputProps } from 'react-native';
 import baseStyles from '../../css/BaseStyles';
+import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 
 interface FormInputProps extends TextInputProps {
   placeholder: string;
@@ -33,6 +34,10 @@ const FormInput = forwardRef<TextInput, FormInputProps>(
           secureTextEntry={secureTextEntry}
           keyboardType={keyboardType}
           {...props}
+          accessibilityLabel={placeholder}
+          accessibilityHint="Enter your text"
+          accessibilityRole="text"
+
         />
         {error ? <Text style={baseStyles.errorText}>{error}</Text> : null}
       </View>
