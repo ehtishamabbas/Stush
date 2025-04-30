@@ -97,6 +97,13 @@ export default StyleSheet.create({
         alignItems: 'center',
         marginBottom: 15,
     },
+    Container: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 25,
+        paddingHorizontal: 25,
+    },
     balanceInfo: {
         flex: 1,
     },

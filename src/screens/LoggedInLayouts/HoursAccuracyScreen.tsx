@@ -18,7 +18,7 @@ const HoursAccuracyScreen: React.FC<HoursAccuracyScreenProps> = ({ navigation })
     const [enablePIN, setEnablePIN] = useState(true);
     const [enableFaceID, setEnableFaceID] = useState(false);
     const handleNext = () => {
-        navigation.navigate('SuccessfullyCreated');
+        navigation.navigate('WorkDetailsScreen');
     };
 
     const handleBack = () => {

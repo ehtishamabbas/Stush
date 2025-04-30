@@ -174,7 +174,7 @@ const LoginScreen = () => {
           <SignInLink
             text="Don't have an account?"
             linkText="Sign Up"
-            navigateTo="LocationVerificationScreen"
+            navigateTo="RegisterScreen"
           />
         </View>
       </View>

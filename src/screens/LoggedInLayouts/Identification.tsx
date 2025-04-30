@@ -77,6 +77,7 @@ Your Privacy and security is our top priority."
 
                             <Text style={styles.ctaButtonText}> Next</Text>
                         </TouchableOpacity>
+                        <View style={{ marginBottom: 16 }} />
 
                     </View>
 

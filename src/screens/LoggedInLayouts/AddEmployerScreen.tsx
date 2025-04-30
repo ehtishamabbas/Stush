@@ -52,6 +52,8 @@ const AddEmployerScreen: React.FC<AddEmployerScreenProps> = ({ navigation }) => 
           onPress={handleNoMoreEmployers}
           variant="primary"
         />
+                            <View style={{ marginBottom: 16 }} />
+
       </View>
     </Screen>
   );

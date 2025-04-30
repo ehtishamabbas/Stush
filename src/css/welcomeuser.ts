@@ -72,6 +72,11 @@ const welcomeUserStyles = (width: number, height: number) => {
       marginTop: height * 0.05,
       paddingHorizontal: width * 0.05,
     },
+    featureLists: {
+      width: '85%',
+      marginTop: height * 0.05,
+      paddingHorizontal: width * 0.05,
+    },
     featureItem: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -83,6 +88,34 @@ const welcomeUserStyles = (width: number, height: number) => {
       fontWeight: '400',
       marginLeft: 10 * scale,
     },
+    feature:{
+      color: '#FFFFFF',
+      fontSize: 22 * scale,
+      fontWeight: '600',
+      textAlign: 'center',
+      marginLeft: 30 * scale,
+      marginTop: 10 * scale,
+      lineHeight: 28 * scale,
+    },
+ 
+    featureTexts:{
+      color: '#FFFFFF',
+      fontSize: 16 * scale,
+      fontWeight: '400',
+      textAlign: 'center',
+      marginLeft: 30 * scale,
+      marginTop: 15 * scale,
+      lineHeight: 20 * scale,
+    },
+    na:{
+      color: '#FFFFFF',
+      fontSize: 22 * scale,
+      fontWeight: '600',
+      textAlign: 'right',
+      right: 0 * scale,
+      position:'absolute'
+    
+    }
   });
 };
 

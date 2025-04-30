@@ -48,7 +48,15 @@ import LocationVerificationScreen from '../screens/LoggedInLayouts/EnableLocatio
 import AddEmployerScreen from '../screens/LoggedInLayouts/AddEmployerScreen';
 import AddPayrollScreen from '../screens/LoggedInLayouts/AddPayrollScreen';
 import HoursAccuracyScreen from '../screens/LoggedInLayouts/HoursAccuracyScreen';
-
+import WorkDetailsScreen from '../screens/LoggedInLayouts/WorkDetailsScreen';
+import PaySheduleScreen from '../screens/LoggedInLayouts/PaySheduleScreen';
+import PayRateScreen from '../screens/LoggedInLayouts/PayRateScreen';
+import EmploymentStatusScreen from '../screens/LoggedInLayouts/EmploymentStatusScreen';
+import VerifyHoursScreen from '../screens/LoggedInLayouts/VerifyHoursScreen';
+import AlmostCompleteScreen from '../screens/LoggedInLayouts/AlmostCompleteScreen';
+import CongratulationScreen from '../screens/LoggedInLayouts/CongratulationScreen';
+import ReceiveFundScreen from '../screens/LoggedInLayouts/ReceiveFundScreen';
+import UnlimitedAccess from '../screens/LoggedInLayouts/UnlimitedAccess';
 
 
 
@@ -108,6 +116,15 @@ export type RootStackParamList = {
   AddEmployerScreen: undefined;
   AddPayrollScreen: undefined;
   HoursAccuracyScreen: undefined;
+  WorkDetailsScreen: undefined;
+  PaySheduleScreen: undefined;
+  PayRateScreen: undefined;
+  EmploymentStatusScreen: undefined;
+  VerifyHoursScreen: undefined;
+  AlmostCompleteScreen: undefined;
+  CongratulationScreen: undefined;
+  ReceiveFundScreen: undefined;
+  UnlimitedAccess: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -178,6 +195,15 @@ const AppNavigator = () => {
       <Stack.Screen name="AddEmployerScreen" component={AddEmployerScreen} />
       <Stack.Screen name="AddPayrollScreen" component={AddPayrollScreen} />
       <Stack.Screen name="HoursAccuracyScreen" component={HoursAccuracyScreen} />
+      <Stack.Screen name="WorkDetailsScreen" component={WorkDetailsScreen} />
+      <Stack.Screen name="PaySheduleScreen" component={PaySheduleScreen} />
+      <Stack.Screen name="PayRateScreen" component={PayRateScreen} />
+      <Stack.Screen name="EmploymentStatusScreen" component={EmploymentStatusScreen} />
+      <Stack.Screen name="VerifyHoursScreen" component={VerifyHoursScreen} />
+      <Stack.Screen name="AlmostCompleteScreen" component={AlmostCompleteScreen} />
+      <Stack.Screen name="CongratulationScreen" component={CongratulationScreen} />
+      <Stack.Screen name="ReceiveFundScreen" component={ReceiveFundScreen} />
+      <Stack.Screen name="UnlimitedAccess" component={UnlimitedAccess} />
     </Stack.Navigator>
   );
 };

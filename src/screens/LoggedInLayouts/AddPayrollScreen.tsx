@@ -56,6 +56,8 @@ const AddPayrollScreen: React.FC<AddPayrollScreenProps> = ({ navigation }) => {
           onPress={handleNoMorePayroll}
           variant="primary"
         />
+                            <View style={{ marginBottom: 16 }} />
+
       </View>
     </Screen>
   );

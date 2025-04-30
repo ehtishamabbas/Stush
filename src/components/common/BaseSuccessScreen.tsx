@@ -39,7 +39,8 @@ const BaseSuccessScreen: React.FC<BaseSuccessScreenProps> = ({
   onBackPress,
 }) => {
   const handleNext = () => {
-    navigation.navigate(nextScreen)};
+    navigation.navigate(nextScreen)
+  };
 
   return (
     <>
@@ -55,7 +56,7 @@ const BaseSuccessScreen: React.FC<BaseSuccessScreenProps> = ({
         <SafeAreaView style={styles.safeArea}>
           <View style={styles.container}>
             <Header navigation={navigation} onBackPress={onBackPress} />
-            
+
             <SuccessContent
               title={title}
               subtitle={subtitle}
@@ -65,16 +66,16 @@ const BaseSuccessScreen: React.FC<BaseSuccessScreenProps> = ({
               whatsNextSubtext={whatsNextSubtext}
             />
           </View>
-          
-         
-            <View style={styles.buttonContainer}>
+
+
+          <View style={styles.buttonContainer}>
             <FormButton
               onPress={handleNext}
               title={buttonText}
               buttonStyle={styles.nextButton}
               textStyle={styles.nextButtonText}
             />
-            
+
           </View>
         </SafeAreaView>
       </ImageBackground>

@@ -6,6 +6,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 
+
 type WelcomeUser = {
   navigation: StackNavigationProp<any>;
 };

@@ -1,6 +1,7 @@
 import { StyleSheet, Dimensions, Platform } from 'react-native';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
+const scale = SCREEN_WIDTH / 375; 
 
 const normalize = (size: number) => {
   const scale = SCREEN_WIDTH / 375;
@@ -134,8 +135,10 @@ const GlobalStyles = StyleSheet.create({
     marginBottom: normalize(10),
   },
   input: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: normalize(18),
+    backgroundColor: '#091522',
+    borderRadius: normalize(44),
+    borderWidth: 0.5,
+    borderColor: 'rgba(255, 255, 255, 0.15)',
     paddingHorizontal: normalize(15),
     paddingVertical: normalize(12),
     color: '#FFFFFF',
@@ -156,6 +159,16 @@ const GlobalStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: normalize(15),
+  },
+  checkboxs: {
+    width: normalize(15),
+    height: normalize(15),
+    borderRadius: normalize(30),
+    borderWidth: 1,
+    borderColor: 'green',
+    padding: normalize(1),
+    
+   
   },
   checkedCheckbox: {
     backgroundColor: '#2B7DF7',
@@ -248,8 +261,91 @@ const GlobalStyles = StyleSheet.create({
     paddingVertical: normalize(50),
     borderRadius: normalize(40),
     justifyContent: 'center',
-
   },
+  dollertext: {
+    color: '#FFFFFF',
+    fontSize: normalize(12),
+    fontWeight: '600',
+  },
+  dollersign: {
+    color: '#FFFFFF',
+    fontSize: normalize(21),
+    lineHeight: normalize(28),
+ 
+  },
+  featureList: {
+    width: '85%',
+    marginTop: SCREEN_HEIGHT * 0.01,
+   },
+  featureLists: {
+    width: '85%',
+    marginTop: SCREEN_HEIGHT * 0.05,
+    paddingHorizontal: SCREEN_WIDTH * 0.05,
+  },
+  featureItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 8 * scale,
+  },
+  featureText: {
+    color: '#FFFFFF',
+    fontSize: 16 * scale,
+    fontWeight: '400',
+    marginLeft: 10 * scale,
+  },
+  feature:{
+    color: '#FFFFFF',
+    fontSize: 22 * scale,
+    fontWeight: '600',
+    textAlign: 'center',
+    marginLeft: 30 * scale,
+    marginTop: 10 * scale,
+    lineHeight: 28 * scale,
+  },
+
+  featureTexts:{
+    color: '#FFFFFF',
+    fontSize: 16 * scale,
+    fontWeight: '400',
+    textAlign: 'center',
+    marginLeft: 30 * scale,
+    marginTop: 15 * scale,
+    lineHeight: 20 * scale,
+  },
+  na:{
+    color: '#FFFFFF',
+    fontSize: 22 * scale,
+    fontWeight: '600',
+    textAlign: 'right',
+    right: 0 * scale,
+    position:'absolute'
+  
+  },
+  labelText: {
+    fontSize: 14,
+    marginBottom: 5,
+    color: '#FFFFFF',
+    paddingBottom: 10,
+},
+unorderedList: {
+  marginVertical: 10,
+},
+listItem: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: 5,
+},
+bullet: {
+    color: '#FFFFFF',
+    fontSize: 19,
+    marginRight: 8,
+},
+listItemText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    flex: 1,
+    flexWrap: 'wrap',
+},
 });
 
 export default GlobalStyles;

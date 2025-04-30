@@ -1,5 +1,4 @@
-// SharedStyles.ts
-import { StyleSheet, Dimensions, Platform } from 'react-native';
+ import { StyleSheet, Dimensions, Platform } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 const baseWidth = 414;
@@ -73,6 +72,12 @@ const SharedStyles = StyleSheet.create({
     },
     blueTitle: {
         color: '#1F7FFE',
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginBottom: 5,
+    },
+    blueTitlel: {
+        color: '#FFFFFF',
         fontSize: 16,
         fontWeight: 'bold',
         marginBottom: 5,
@@ -192,6 +197,12 @@ const SharedStyles = StyleSheet.create({
         marginBottom: '10%',
         width: '100%',
     },
+    bulletImage: {
+        width: 49,
+        height: 49,
+        resizeMode: 'contain',
+        
+     },
 });
 
 export default SharedStyles;
