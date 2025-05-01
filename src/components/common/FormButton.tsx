@@ -4,7 +4,7 @@ import baseStyles from '../../css/BaseStyles';
 
 interface FormButtonProps {
   onPress: () => void;
-  title: string;
+  title: string | React.ReactNode;
   isLoading?: boolean;
   disabled?: boolean;
   buttonStyle?: any;
@@ -29,12 +29,16 @@ const FormButton: React.FC<FormButtonProps> = ({
       activeOpacity={0.8}
       onPress={onPress}
       disabled={isLoading || disabled}
-      accessibilityLabel={`${title} button`}
-      accessibilityHint={`Press to ${title.toLowerCase()}`}>
+      accessibilityLabel={`Button`}
+      accessibilityHint={`Press to proceed`}>
       {isLoading ? (
         <ActivityIndicator color="#FFFFFF" />
       ) : (
-        <Text style={[baseStyles.actionButtonText, textStyle]}>{title}</Text>
+        typeof title === 'string' ? (
+          <Text style={[baseStyles.actionButtonText, textStyle]}>{title}</Text>
+        ) : (
+          title
+        )
       )}
     </TouchableOpacity>
   );

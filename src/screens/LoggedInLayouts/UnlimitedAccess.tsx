@@ -10,9 +10,7 @@ interface UnlimitedAccessProps {
 }
 
 const UnlimitedAccess: React.FC<UnlimitedAccessProps> = ({ navigation }) => {
-    const handleEnableLocation = () => {
-        navigation.navigate('ReceiveFundScreen');
-    };
+   
     const listItems = [
         'No Delays – :  Instant access to your funds.',
         'Helping Kids: – Every subscription makes a difference.',

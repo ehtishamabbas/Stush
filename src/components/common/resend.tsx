@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 import styles from '../../css/Verificcation.styles';
 
 interface ResendTimerProps {
@@ -8,7 +8,7 @@ interface ResendTimerProps {
 }
 
 const ResendTimer: React.FC<ResendTimerProps> = ({ initialSeconds, onResend }) => {
- 
+
   return (
     <TouchableOpacity 
       style={styles.resendButton} 

@@ -22,7 +22,6 @@ const EmailInputScreen = () => {
       setErrors({ ...errors, email: '' });
     }
   };
-
   const validateForm = () => {
     let isValid = true;
     const newErrors = { email: '' };

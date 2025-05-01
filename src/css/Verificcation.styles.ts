@@ -195,12 +195,16 @@ export default StyleSheet.create({
   },
   phoneInput: {
     color: '#FFFFFF',
-    fontSize: moderateScale(12),
+    fontSize: moderateScale(15),
     paddingHorizontal: horizontalScale(15),
     height: '100%',
   },
-  
-  backButton: {
+  errorText: {
+    color: 'red',
+    fontSize: moderateScale(12),
+    marginTop: verticalScale(5),
+  },
+    backButton: {
     position: 'absolute',
     top: Platform.OS === 'ios' ? verticalScale(50) : verticalScale(55),
     left: horizontalScale(16),

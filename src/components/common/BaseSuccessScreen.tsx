@@ -13,15 +13,15 @@ import FormButton from '../../components/common/FormButton';
 interface BaseSuccessScreenProps {
   navigation: any;
   title: string;
-  subtitle?: string;
-  subtitlel?: string;
+  subtitle?: string | React.ReactNode;
+  subtitlel?: string | React.ReactNode;
   imageSource: any;
   imageSize?: 'small' | 'large';
-  resendText?: string;
-  buttonText: string;
+  resendText?: string | React.ReactNode;
+  buttonText: string | React.ReactNode;
   nextScreen: string;
-  whatsNextText?: string;
-  whatsNextSubtext?: string;
+  whatsNextText?: string | React.ReactNode;
+  whatsNextSubtext?: string | React.ReactNode;
   onBackPress?: () => void;
 }
 

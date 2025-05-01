@@ -10,9 +10,9 @@ const Keypad: React.FC<KeypadProps> = ({ onKeyPress }) => {
   const renderKey = (value: string, displayValue?: string) => {
     if (value === 'forgot') {
       return (
-        <TouchableOpacity
-          style={styles.keypadButtons}
-          onPress={() => onKeyPress(value)}
+        <TouchableOpacity 
+          style={styles.keypadButtons} 
+          onPress={() => onKeyPress(value)} 
           activeOpacity={0.7}
         >
           <Text style={styles.forgotText}>Forgot?</Text>
@@ -20,19 +20,21 @@ const Keypad: React.FC<KeypadProps> = ({ onKeyPress }) => {
       );
     } else if (value === 'backspace') {
       return (
-        <TouchableOpacity
-          style={styles.keypadButton}
-          onPress={() => onKeyPress(value)}
-          activeOpacity={0.7}>
+        <TouchableOpacity 
+          style={styles.keypadButton} 
+          onPress={() => onKeyPress(value)} 
+          activeOpacity={0.7}
+        >
           <Text style={styles.backspaceText}>⌫</Text>
         </TouchableOpacity>
       );
     } else {
       return (
-        <TouchableOpacity
-          style={styles.keypadButton}
-          onPress={() => onKeyPress(value)}
-          activeOpacity={0.7}>
+        <TouchableOpacity 
+          style={styles.keypadButton} 
+          onPress={() => onKeyPress(value)} 
+          activeOpacity={0.7}
+        >
           <Text style={styles.keypadText}>{displayValue || value}</Text>
         </TouchableOpacity>
       );

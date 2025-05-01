@@ -111,17 +111,17 @@ const LoginScreen = () => {
     }
   };
 
-  
+
 
   return (
-    <AppScreen 
+    <AppScreen
       showBackButton={false}
       enableKeyboardAvoid={true}
       scrollable={true}
       dismissKeyboardOnTouch={true}
       showLogo={!keyboardVisible}>
       <View style={[
-        baseStyles.formContainer, 
+        baseStyles.formContainer,
         keyboardVisible && { marginTop: SCREEN_HEIGHT * 0.05 }
       ]}>
         <Text style={baseStyles.heading}>SIGN IN</Text>
@@ -174,7 +174,7 @@ const LoginScreen = () => {
           <SignInLink
             text="Don't have an account?"
             linkText="Sign Up"
-            navigateTo="RegisterScreen"
+            navigateTo="CreatePasswordScreen"
           />
         </View>
       </View>

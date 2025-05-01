@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import Screen from '../../components/common/Screen';
 import Button from '../../components/common/Button';
@@ -12,16 +12,16 @@ interface AddEmployerScreenProps {
 
 const AddEmployerScreen: React.FC<AddEmployerScreenProps> = ({ navigation }) => {
   const handleAddEmployer = () => {
-     navigation.navigate('EmployerFormScreen');
+    navigation.navigate('EmployerFormScreen');
   };
 
   const handleNoMoreEmployers = () => {
     navigation.navigate('PlaidLinkScreen');
   };
 
-  const handleBack = () => {
+  function handleBack() {
     navigation.goBack();
-  };
+  }
 
   return (
     <Screen navigation={navigation} onBackPress={handleBack}>
@@ -31,7 +31,7 @@ const AddEmployerScreen: React.FC<AddEmployerScreenProps> = ({ navigation }) => 
           secondaryText="Add Another Employer"
           type="both"
         />
-        
+
         <ContentText>
           If you have income from another employer, please add their details now. If you've added all your employers, simply select 'No More Employers to Add' to continue
         </ContentText>
@@ -40,19 +40,19 @@ const AddEmployerScreen: React.FC<AddEmployerScreenProps> = ({ navigation }) => 
           onPress={handleAddEmployer}
           variant="green"
         />
-        
-        
+
+
         <View style={GlobalStyles.spacer} />
-        
- 
+
+
         <View style={{ height: 10 }} />
-        
+
         <Button
           title="No More Employers to Add"
           onPress={handleNoMoreEmployers}
           variant="primary"
         />
-                            <View style={{ marginBottom: 16 }} />
+        <View style={{ marginBottom: 16 }} />
 
       </View>
     </Screen>

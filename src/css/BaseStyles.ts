@@ -14,14 +14,14 @@ const baseStyles = StyleSheet.create({
   successImage: {
     width: 290,
     height: 270,
-     
+
   },
   successImageContainer: {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     paddingLeft: 24,
-     
+
   },
   form: {
     flexDirection: 'column',
@@ -47,11 +47,12 @@ const baseStyles = StyleSheet.create({
     top: 50,
     left: 20,
     zIndex: 10,
-    borderRadius: 20,
+    borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 2,
+    borderWidth: 1, padding: 8,
     borderColor: 'rgba(0, 0, 0, 1)',
+    backgroundColor: '#091522',
   },
   backIcon: {
     width: 24,
@@ -97,15 +98,15 @@ const baseStyles = StyleSheet.create({
     borderColor: 'rgba(255, 255, 255, 0.15)',
     borderTopStartRadius: 30,
     borderTopEndRadius: 30,
-    justifyContent: 'space-between',  
+    justifyContent: 'space-between',
   },
   formContainers: {
     flex: 1,
     width: '100%',
     paddingHorizontal: 34,
-     marginTop: height * 0.107,
-     textAlign: 'center',
-    justifyContent: 'space-between',  
+    marginTop: height * 0.107,
+    textAlign: 'center',
+    justifyContent: 'space-between',
   },
   formSubContainer: {
     width: '100%',
@@ -149,7 +150,7 @@ const baseStyles = StyleSheet.create({
     marginTop: 25,
     width: '100%',
   },
-  
+
   actionButtons: {
     backgroundColor: '#1F75FE',
     borderRadius: 30,
@@ -157,9 +158,9 @@ const baseStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 'auto',  
+    marginTop: 'auto',
     marginBottom: 20,
-   },
+  },
   buttonDisabled: {
     opacity: 0.7,
   },
@@ -178,7 +179,7 @@ const baseStyles = StyleSheet.create({
   signInContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginBottom: 30,  
+    marginBottom: 30,
   },
   signInText: {
     color: 'rgba(255, 255, 255, 0.6)',
@@ -228,7 +229,7 @@ const baseStyles = StyleSheet.create({
     justifyContent: 'space-evenly',
     marginTop: 20,
     paddingHorizontal: 20,
-    marginBottom: 30,  
+    marginBottom: 30,
   },
   socialIcon: {
     width: 40,

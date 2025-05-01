@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import VerificationBase from '../../components/common/VerificationBase';
 import CodeInput from '../../components/common/CodeInput';
 import Keypad from '../../components/common/NumericKeypad';
- import styles from '../../css/Verificcation.styles';
-import NavigateButton from '../../components/common/NavigateButton';
 import ResendTimer from '../../components/common/resend';
+import styles from '../../css/Verificcation.styles';
+
 
 interface OTPVerificationScreenProps {
   navigation: any;
@@ -13,10 +13,21 @@ interface OTPVerificationScreenProps {
 }
 
 const OTPVerificationScreen: React.FC<OTPVerificationScreenProps> = ({ navigation, route }) => {
-  const { phoneNumber } = route.params || { phoneNumber: '+1234567890' };
+
+  const { phoneNumber } = route?.params || { phoneNumber: '+123456789110' };
   const [code, setCode] = useState<string[]>(Array(6).fill(''));
+  const [error, setError] = useState<string | undefined>(undefined);
+
+  const handleError = (message?: string) => {
+    setError(message ?? undefined);
+  };
 
   const handleVerify = () => {
+    const fullCode = code.join('');
+    if (fullCode.length !== 6) {
+      handleError('Please enter a 6-digit code');
+      return;
+    }
     navigation.navigate('SuccessSignup');
   };
 
@@ -25,39 +36,60 @@ const OTPVerificationScreen: React.FC<OTPVerificationScreenProps> = ({ navigatio
   };
 
   const handleKeyPress = (key: string) => {
-     handleCodeChange
+    if (key === 'backspace') {
+      const newCode = [...code];
+      const lastFilledIndex = newCode.findIndex((val, idx) => val !== '' && newCode.slice(idx + 1).every(v => v === ''));
+      if (lastFilledIndex !== -1) {
+        newCode[lastFilledIndex] = '';
+        setCode(newCode);
+      }
+    } else if (key === 'forgot') {
+      navigation.navigate('ForgotPassword');
+    } else {
+      const newCode = [...code];
+      const nextEmptyIndex = newCode.findIndex(val => val === '');
+      if (nextEmptyIndex !== -1) {
+        newCode[nextEmptyIndex] = key;
+        setCode(newCode);
+      }
+    }
+    handleError();
   };
 
-  const handleCodeChange = (index: number, value: string) => {
-    const newCode = [...code];
-    newCode[index] = value;
-    setCode(newCode);
-  };
-
-  const handleResend = () => {
-    console.log('Resending OTP...');
+  const validateCode = (newCode: string[]) => {
+    if (newCode.filter(Boolean).length === 6) {
+      handleError();
+    }
   };
 
   return (
     <VerificationBase
-      title="OTP VERIFICATION"
-      instruction={`Please enter 6-digit code we have sent you at ${phoneNumber}`}
+      title="VERIFY CODE"
+      instruction={`Enter the 6-digit code sent to ${phoneNumber}`}
       onBackPress={handleBackPress}
       showBackButton={true}
       buttonText="Verify OTP"
       onButtonPress={handleVerify}
     >
+      {error && <Text style={{ color: 'red', fontSize: 20, textAlign: 'center' }}>{error}</Text>}
+
       <CodeInput
         code={code}
-       />
+        onCodeChange={(newCode) => {
+          setCode(newCode);
+          validateCode(newCode);
+        }}
+        error={error}
+      />
 
       <ResendTimer
         initialSeconds={48}
-        onResend={handleResend}
+        onResend={handleVerify}
       />
 
       <View style={{ marginBottom: 10 }}>
         <Keypad onKeyPress={handleKeyPress} />
+
       </View>
 
 

@@ -3,12 +3,12 @@ import { View, Text, Image } from 'react-native';
 import styles from '../../css/Success';
 
 interface SuccessContentProps {
-  title: string;
-  subtitle?: string;
+  title: string | React.ReactNode;
+  subtitle?: string | React.ReactNode;
   imageSource: any;
-  resendText?: string;
-  whatsNextText?: string;
-  whatsNextSubtext?: string;
+  resendText?: string | React.ReactNode;
+  whatsNextText?: string | React.ReactNode;
+  whatsNextSubtext?: string | React.ReactNode;
 }
 
 const SuccessContent: React.FC<SuccessContentProps> = ({
