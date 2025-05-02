@@ -3,16 +3,17 @@ import {
     View,
     Text,
     Image,
-    ImageBackground,
     StatusBar,
-    SafeAreaView,
 } from 'react-native';
 import styles from '../../css/Dashboard.styles';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { useUser } from '../../globalState';
 
 const HeaderPart = () => {
+    const { user } = useUser();
+
     return (
-        <View  >
+        <View>
             <StatusBar
                 translucent
                 backgroundColor="transparent"
@@ -34,7 +35,7 @@ const HeaderPart = () => {
                         </View>
                         <View style={styles.userNameContainer}>
                             <Text style={styles.helloText}>Hello!</Text>
-                            <Text style={styles.userName}>JOHN DOE</Text>
+                            <Text style={styles.userName}>{user?.firstName && user?.lastName ? `${user.firstName} ${user.lastName}` : 'JOHN DOE'}</Text>
                         </View>
                     </View>
 

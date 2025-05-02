@@ -59,6 +59,9 @@ const WelcomeStushScreen = () => {
         <NavButton
           title="Continue"
           onPress={handleContinue}
+          accessibilityLabel='Continue to the next screen'
+          accessibilityHint='Continue to the next screen'
+
         />
       </View>
     </DisclouserMainScreen>
@@ -70,7 +73,7 @@ const localStyles = StyleSheet.create({
     flex: 1,
     paddingTop: 35,
     paddingHorizontal: 20,
-    marginBottom: '15%',
+    marginBottom: '18%',
   },
   title: {
     color: '#FFFFFF',

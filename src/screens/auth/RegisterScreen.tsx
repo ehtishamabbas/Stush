@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Keyboard, View, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useUser } from '../../globalState';
 
 import AppScreen from '../../components/common/AppScreen';
 import FormInput from '../../components/common/FormInput';
@@ -10,6 +11,7 @@ import baseStyles from '../../css/BaseStyles';
 
 const RegisterScreen = () => {
   const navigation: any = useNavigation();
+  const { setUser } = useUser();
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -66,6 +68,12 @@ const RegisterScreen = () => {
           lastName: lastName.trim(),
           timestamp: new Date().toISOString(),
         });
+
+        const userData = {
+          firstName: firstName.trim(),
+          lastName: lastName.trim()
+        };
+        setUser(userData);
 
         setIsSubmitting(false);
         navigation.navigate('AboutScreen');
