@@ -8,7 +8,7 @@ import ContentText from '../../components/ResueableComponents/ContenetText';
 import NavigateButton from '../../components/common/NavigateButton';
 import FormInput from '../../components/common/FormInput';
 import { Text } from 'react-native';
-import baseStyles from '../../css/BaseStyles';
+import style from '../../css/SharedStyle';
 
 
 interface CompanyInfoProps {
@@ -29,10 +29,10 @@ const WorkFrequency: React.FC<CompanyInfoProps> = ({ navigation }) => {
         <BaseScreen>
             <Header navigation={navigation} onBackPress={handleBack} />
 
-            <View style={styles.container}>
+            <View style={style.container}>
 
 
-                <View style={styles.contentContainer}>
+                <View style={style.innerContainer}>
 
 
                     <Heading
@@ -42,8 +42,8 @@ const WorkFrequency: React.FC<CompanyInfoProps> = ({ navigation }) => {
 
 
 
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Pay Frequency:</Text>
+                    <View style={style.inputContainer}>
+                        <Text style={style.labelText}>Pay Frequency:</Text>
                         <FormInput
                             placeholder="-- Select --"
                             value={selectedJob}
@@ -56,8 +56,8 @@ const WorkFrequency: React.FC<CompanyInfoProps> = ({ navigation }) => {
                             accessibilityHint="Enter how long you have been employed"
                         />
                     </View>
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Next Pay Date:</Text>
+                    <View style={style.inputContainer}>
+                        <Text style={style.labelText}>Next Pay Date:</Text>
                         <FormInput
                             placeholder="-- Select --"
                             value={selectedJob}
@@ -73,7 +73,7 @@ const WorkFrequency: React.FC<CompanyInfoProps> = ({ navigation }) => {
                     <ContentText
             text="We’ll confirm your pay frequency and date through payroll records. If you’ve had any recent changes, they might not show up right away"
           />
-                    <View style={styles.spacer} />
+                    <View style={style.spacer} />
 
                     <NavigateButton
                         title="Continue"
@@ -84,30 +84,5 @@ const WorkFrequency: React.FC<CompanyInfoProps> = ({ navigation }) => {
             </View>
         </BaseScreen>
     );
-};
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    contentContainer: {
-        flex: 1,
-        paddingHorizontal: 30,
-        marginTop: '50%',
-        marginBottom: 40,
-    },
-    inputContainer: {
-        marginTop: 20,
-    },
-    labelText: {
-        fontSize: 14,
-        marginBottom: 5,
-        color: '#FFFFFF',
-        paddingBottom: 10,
-    },
-    spacer: {
-        flex: 1,
-    },
-});
-
+}; 
 export default WorkFrequency;

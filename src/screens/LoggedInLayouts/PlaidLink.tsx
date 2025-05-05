@@ -9,6 +9,8 @@ import NavigateButton from '../../components/common/NavigateButton';
 import { Text } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import GlobalStyles from '../../css/GlobalStyles';
+import style from '../../css/SharedStyle';
+
 
 
 
@@ -46,7 +48,7 @@ const PlaidLinkScreen: React.FC<PlaidLinkScreenProps> = ({ navigation }) => {
 
     const renderBulletPoints = () => {
         return bulletItems.map((item, index) => (
-            <View key={index} style={localStyles.bulletRow}>
+            <View key={index} style={style.bulletRow}>
                 <View style={[
                     GlobalStyles.checkbox,
                     { backgroundColor: 'white' }
@@ -60,13 +62,13 @@ const PlaidLinkScreen: React.FC<PlaidLinkScreenProps> = ({ navigation }) => {
                     )}
                 </View>
 
-                <View style={localStyles.textContainer}>
+                <View style={style.textContainer}>
                     {item.title && (
-                        <Text style={item.isBlueTitle ? localStyles.blueTitle : localStyles.whiteTitle}>
+                        <Text style={item.isBlueTitle ? style.blueTitle : style.whiteTitle}>
                             {item.title}
                         </Text>
                     )}
-                    <Text style={localStyles.bulletText}>
+                    <Text style={style.bulletText}>
                         {item.text}
                     </Text>
                 </View>
@@ -78,10 +80,10 @@ const PlaidLinkScreen: React.FC<PlaidLinkScreenProps> = ({ navigation }) => {
         <BaseScreen>
             <Header navigation={navigation} onBackPress={handleBack} />
 
-            <View style={styles.container}>
+            <View style={style.container}>
 
 
-                <View style={styles.contentContainer}>
+                <View style={style.innerContainer}>
                     <Heading
                         primaryText="THIS APPLICATION"
                         type="primary"
@@ -97,7 +99,7 @@ const PlaidLinkScreen: React.FC<PlaidLinkScreenProps> = ({ navigation }) => {
                         text="Now Lets Add Your Bank account(s) that you use to receive your pay"
                     />
 
-                    <View style={localStyles.bulletContainer}>
+                    <View style={style.bulletContainer}>
                         {renderBulletPoints()}
                     </View>
 
@@ -117,68 +119,5 @@ const PlaidLinkScreen: React.FC<PlaidLinkScreenProps> = ({ navigation }) => {
         </BaseScreen>
     );
 };
-
-const localStyles = StyleSheet.create({
-    bulletContainer: {
-        marginTop: 30,
-        marginBottom: 45,
-    },
-    bulletRow: {
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        marginVertical: 15,
-    },
-    textContainer: {
-        flex: 1,
-        marginLeft: 15,
-    },
-    bulletText: {
-        color: '#FFFFFF',
-        backgroundColor: 'rgba(0, 0, 0, 0.1)',
-        padding: 5,
-        borderRadius: 3,
-        fontSize: 14,
-        lineHeight: 20,
-    },
-    blueTitle: {
-        color: '#1F7FFE',
-        fontSize: 16,
-        fontWeight: 'bold',
-        marginBottom: 5,
-    },
-    whiteTitle: {
-        color: '#FFFFFF',
-        fontSize: 16,
-        fontWeight: 'bold',
-        marginBottom: 5,
-
-    }
-
-
-});
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    contentContainer: {
-        flex: 1,
-        paddingHorizontal: 20,
-        marginTop: '50%',
-        marginBottom: 40,
-    },
-    inputContainer: {
-        marginTop: 20,
-    },
-    labelText: {
-        fontSize: 14,
-        marginBottom: 5,
-        color: '#FFFFFF',
-        paddingBottom: 10,
-    },
-    spacer: {
-        flex: 1,
-    },
-});
-
+ 
 export default PlaidLinkScreen;

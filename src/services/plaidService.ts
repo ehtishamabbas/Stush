@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export const plaidApi = {
-  // Get link token from our backend
   async getLinkToken(): Promise<string> {
     try {
       const response = await axios.post(
@@ -20,8 +19,7 @@ export const plaidApi = {
     }
   },
 
-  // Exchange public token
-  async exchangePublicToken(publicToken: string, metadata: any): Promise<any> {
+   async exchangePublicToken(publicToken: string, metadata: any): Promise<any> {
     try {
       const response = await axios.post(
         'http://localhost:3000/api/plaid/exchange-token',
@@ -39,8 +37,7 @@ export const plaidApi = {
     }
   },
 
-  // Get connected bank accounts
-  async getAccounts(): Promise<any[]> {
+   async getAccounts(): Promise<any[]> {
     try {
       const response = await axios.get('http://localhost:3000/api/plaid/accounts', {
         headers: {
@@ -55,19 +52,16 @@ export const plaidApi = {
   },
 };
 
-// Function to open Plaid Link
-export const openPlaidLink = async (linkToken: string): Promise<{ success: boolean, metadata?: any }> => {
+ export const openPlaidLink = async (linkToken: string): Promise<{ success: boolean, metadata?: any }> => {
   return new Promise((resolve, reject) => {
     try {
-      // Dynamically create a component to use the hook
-      const PlaidLinkComponent = require('react-native-plaid-link-sdk').PlaidLink;
+       const PlaidLinkComponent = require('react-native-plaid-link-sdk').PlaidLink;
 
       if (!PlaidLinkComponent) {
         throw new Error('PlaidLink component not found');
       }
 
-      // Configure and render PlaidLink component
-      const config = {
+       const config = {
         token: linkToken,
         onSuccess: async (success: { publicToken: string; metadata: any }) => {
           try {
@@ -91,13 +85,11 @@ export const openPlaidLink = async (linkToken: string): Promise<{ success: boole
         },
       };
 
-      // Use the component's open method directly from imported SDK
-      require('react-native-plaid-link-sdk').openLink(config);
+       require('react-native-plaid-link-sdk').openLink(config);
     } catch (error) {
       console.error('Error opening Plaid Link:', error);
 
-      // Try alternative approach with newer version of SDK
-      try {
+       try {
         const { createPlaidLink } = require('react-native-plaid-link-sdk');
 
         const linkHandler = createPlaidLink({

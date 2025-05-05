@@ -6,6 +6,7 @@ import Header from '../../components/common/Header';
 import Heading from '../../components/ResueableComponents/Heading';
 import ContentText from '../../components/ResueableComponents/ContenetText';
 import NavigateButton from '../../components/common/NavigateButton';
+import { style } from '../../css/SharedStyle';
 
 interface MyJobScreenProps {
     navigation: any;
@@ -24,10 +25,10 @@ const PayrollAuthorizationScreen: React.FC<MyJobScreenProps> = ({ navigation }) 
         <BaseScreen>
             <Header navigation={navigation} onBackPress={handleBack} />
 
-            <View style={styles.container}>
+            <View style={style.container}>
 
 
-                <View style={styles.contentContainer}>
+                <View style={style.innerContainer}>
                     <Heading
                         primaryText="GET PAID TODAY"
                         type="primary"
@@ -45,7 +46,7 @@ const PayrollAuthorizationScreen: React.FC<MyJobScreenProps> = ({ navigation }) 
                     <ContentText
                         text="By proceeding, you give us permission to link your payroll account and retrieve necessary payroll information. Read More."
                     />
-                    <View style={styles.spacer} />
+                    <View style={style.spacer} />
 
                     <NavigateButton
                         title="I Agree"
@@ -57,29 +58,5 @@ const PayrollAuthorizationScreen: React.FC<MyJobScreenProps> = ({ navigation }) 
         </BaseScreen>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    contentContainer: {
-        flex: 1,
-        paddingHorizontal: 20,
-        marginTop: '50%',
-        marginBottom: 40,
-    },
-    inputContainer: {
-        marginTop: 20,
-    },
-    labelText: {
-        fontSize: 14,
-        marginBottom: 5,
-        color: '#FFFFFF',
-        paddingBottom: 10,
-    },
-    spacer: {
-        flex: 1,
-    },
-});
-
+ 
 export default PayrollAuthorizationScreen;

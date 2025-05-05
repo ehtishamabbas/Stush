@@ -6,6 +6,7 @@ import Heading from '../../components/ResueableComponents/Heading';
 import ContentText from '../../components/ResueableComponents/ContenetText';
 import NavigateButton from '../../components/common/NavigateButton';
 import FormInput from '../../components/common/FormInput';
+import style from '../../css/SharedStyle';
 
 interface HomeAddressScreenProps {
     navigation: any;
@@ -61,21 +62,21 @@ const HomeAddressScreen: React.FC<HomeAddressScreenProps> = ({ navigation }) => 
         <BaseScreen>
             <Header navigation={navigation} onBackPress={handleBack} />
             <KeyboardAvoidingView
-                style={styles.container}
+                style={style.container}
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                 keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
-                contentContainerStyle={styles.contentContainer}
+                contentContainerStyle={style.subContainer}
             >
                 <ScrollView>
-                    <View style={styles.contentContainer}>
+                    <View style={style.subContainer}>
                         <Heading primaryText="GET PAID TODAY" type="primary" />
                         <Heading secondaryText="Confirm Home Address" type="secondary" />
 
                         <ContentText text="Please enter  your current home address. This help us verify your information and ensure secure account management." />
                         <ContentText text="(Tip: Use the address where you receive important mail like bank statements.)" />
 
-                        <View style={styles.inputContainer}>
-                            <Text style={styles.labelText}>Address:</Text>
+                        <View style={style.inputContainer}>
+                            <Text style={style.labelText}>Address:</Text>
                             <FormInput
                                 placeholder="123 Main Street"
                                 value={address}
@@ -89,9 +90,9 @@ const HomeAddressScreen: React.FC<HomeAddressScreenProps> = ({ navigation }) => 
 
                                 clearError={() => clearError('address')}
                             />
-                            {errors.address ? <Text style={styles.errorText}>{errors.address}</Text> : null}
+                            {errors.address ? <Text style={style.errorText}>{errors.address}</Text> : null}
 
-                            <Text style={styles.labelText}>Apt:</Text>
+                            <Text style={style.labelText}>Apt:</Text>
                             <FormInput
                                 placeholder="4C"
                                 value={apt}
@@ -104,9 +105,9 @@ const HomeAddressScreen: React.FC<HomeAddressScreenProps> = ({ navigation }) => 
                                 accessibilityHint="Enter your apartment or unit number"
                                 clearError={() => clearError('apt')}
                             />
-                            {errors.apt ? <Text style={styles.errorText}>{errors.apt}</Text> : null}
+                            {errors.apt ? <Text style={style.errorText}>{errors.apt}</Text> : null}
 
-                            <Text style={styles.labelText}>City, State, Zip</Text>
+                            <Text style={style.labelText}>City, State, Zip</Text>
                             <FormInput
                                 placeholder="Las Vegas, NV 10001"
                                 value={cityStateZip}
@@ -119,10 +120,10 @@ const HomeAddressScreen: React.FC<HomeAddressScreenProps> = ({ navigation }) => 
                                 accessibilityHint="Enter your city, state, and zip code"
                                 clearError={() => clearError('cityStateZip')}
                             />
-                            {errors.cityStateZip ? <Text style={styles.errorText}>{errors.cityStateZip}</Text> : null}
+                            {errors.cityStateZip ? <Text style={style.errorText}>{errors.cityStateZip}</Text> : null}
                         </View>
 
-                        <View style={styles.spacer} />
+                        <View style={style.space} />
 
                         <NavigateButton
                             title="Next"
@@ -135,35 +136,5 @@ const HomeAddressScreen: React.FC<HomeAddressScreenProps> = ({ navigation }) => 
         </BaseScreen>
     );
 };
-
-const styles = StyleSheet.create({
-    errorText: {
-        color: 'red',
-        fontSize: 12,
-        marginVertical: 5,
-    },
-    container: {
-        flex: 1,
-    },
-    contentContainer: {
-        flex: 1,
-        paddingHorizontal: 20,
-        marginTop: '50%',
-        marginBottom: 40,
-    },
-    inputContainer: {
-        marginTop: 20,
-    },
-    labelText: {
-        fontSize: 14,
-        marginBottom: 5,
-        color: '#FFFFFF',
-        paddingBottom: 10,
-    },
-    spacer: {
-        flex: 1,
-        marginTop: 40,
-    },
-});
-
+ 
 export default HomeAddressScreen;

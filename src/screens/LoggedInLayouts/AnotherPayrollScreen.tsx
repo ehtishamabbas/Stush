@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
-
+import React from 'react';
+import { View } from 'react-native';
 import BaseScreen from '../../components/ResueableComponents/MainScreen';
 import Header from '../../components/common/Header';
 import Heading from '../../components/ResueableComponents/Heading';
 import ContentText from '../../components/ResueableComponents/ContenetText';
 import NavigateButton from '../../components/common/NavigateButton';
-
-
+import { style } from '../../css/SharedStyle';
 
 interface MyJobScreenProps {
   navigation: any;
@@ -26,10 +24,10 @@ const AnotherPayrollScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
     <BaseScreen>
       <Header navigation={navigation} onBackPress={handleBack} />
 
-      <View style={styles.container}>
+      <View style={style.mainContainer}>
 
 
-        <View style={styles.contentContainer}>
+        <View style={style.innerContainer}>
           <Heading
             primaryText="NOW LETS CONNECT"
             type="primary"
@@ -48,7 +46,7 @@ const AnotherPayrollScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
           </ContentText>
 
 
-          <View style={styles.spacer} />
+          <View style={style.spacer} />
 
           <NavigateButton
             title="Next"
@@ -59,30 +57,5 @@ const AnotherPayrollScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
       </View>
     </BaseScreen>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  contentContainer: {
-    flex: 1,
-    paddingHorizontal: 20,
-    marginTop: '50%',
-    marginBottom: 40,
-  },
-  inputContainer: {
-    marginTop: 20,
-  },
-  labelText: {
-    fontSize: 14,
-    marginBottom: 5,
-    color: '#FFFFFF',
-    paddingBottom: 10,
-  },
-  spacer: {
-    flex: 1,
-  },
-});
-
+}; 
 export default AnotherPayrollScreen;

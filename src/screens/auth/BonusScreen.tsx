@@ -5,12 +5,13 @@ import MainScreen from '../../components/ResueableComponents/MainScreen';
 import Header from '../../components/common/Header';
 import ReferralContent from '../../components/ResueableComponents/Referal';
 import NavigateButton from '../../components/common/NavigateButton';
+import { style } from '../../css/SharedStyle';
 
-interface ReferFriendScreenProps {
+interface BonusScreenProps {
   navigation: any;
 }
 
-const ReferFriendScreen: React.FC<ReferFriendScreenProps> = ({ navigation }) => {
+const BonusScreen: React.FC<BonusScreenProps> = ({ navigation }) => {
   const handleNext = () => {
     navigation.navigate('WelcomeUser');
   };
@@ -21,9 +22,9 @@ const ReferFriendScreen: React.FC<ReferFriendScreenProps> = ({ navigation }) => 
 
   return (
     <MainScreen>
-      <View style={styles.container}>
+      <View style={style.container}>
         <Header navigation={navigation} onBackPress={handleBack} />
-        <View style={styles.contentContainer}>
+        <View style={style.contentContainer}>
           <ReferralContent
             title="REFER A FRIEND AND GET PAID"
             amount="$7,500"
@@ -46,19 +47,6 @@ const ReferFriendScreen: React.FC<ReferFriendScreenProps> = ({ navigation }) => 
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  contentContainer: {
-    flex: 1,
-    paddingHorizontal: 20,
-    paddingTop: 1,
-    paddingBottom: '32%',
-  },
-  spacer: {
-    flex: 1,
-  },
-});
+ 
 
-export default ReferFriendScreen;
+export default BonusScreen;

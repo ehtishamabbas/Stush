@@ -6,7 +6,7 @@ import Header from '../../components/common/Header';
 import Heading from '../../components/ResueableComponents/Heading';
 import ContentText from '../../components/ResueableComponents/ContenetText';
 import NavigateButton from '../../components/common/NavigateButton';
-
+import { style } from '../../css/SharedStyle';
 
 
 interface MyJobScreenProps {
@@ -26,10 +26,10 @@ const AuthorizationScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
     <BaseScreen>
       <Header navigation={navigation} onBackPress={handleBack} />
 
-      <View style={styles.container}>
+      <View style={style.container}>
 
 
-        <View style={styles.contentContainer}>
+        <View style={style.subContainer}>
           <Heading
             primaryText="GET PAID TODAY"
             type="primary"
@@ -53,7 +53,7 @@ const AuthorizationScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
 
 
 
-          <View style={styles.spacer} />
+          <View style={style.spacer} />
 
           <NavigateButton
             title="I Agree"
@@ -66,28 +66,6 @@ const AuthorizationScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  contentContainer: {
-    flex: 1,
-    paddingHorizontal: 20,
-    marginTop: '50%',
-    marginBottom: 40,
-  },
-  inputContainer: {
-    marginTop: 20,
-  },
-  labelText: {
-    fontSize: 14,
-    marginBottom: 5,
-    color: '#FFFFFF',
-    paddingBottom: 10,
-  },
-  spacer: {
-    flex: 1,
-  },
-});
+ 
 
 export default AuthorizationScreen;

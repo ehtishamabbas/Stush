@@ -8,7 +8,7 @@ import Input from '../../components/common/Input';
 import ContentText from '../../components/ResueableComponents/ContenetText';
 import { ScrollView } from 'react-native-gesture-handler';
 import Button from '../../components/common/Button';
-
+import { style } from '../../css/SharedStyle';
 interface PaySheduleScreenProps {
     navigation: any;
 }
@@ -34,8 +34,8 @@ const PaySheduleScreen: React.FC<PaySheduleScreenProps> = ({ navigation }) => {
             <ScrollView>
                 <Header navigation={navigation} onBackPress={handleBack} />
 
-                <View style={styles.container}>
-                    <View style={styles.contentContainer}>
+                <View style={style.container}>
+                    <View style={style.innerContainer}>
                         <Heading
                             secondaryText={"PAY SCHEDULE\nCONFIRMATION"}
                             type="secondary"
@@ -87,9 +87,9 @@ const PaySheduleScreen: React.FC<PaySheduleScreenProps> = ({ navigation }) => {
                                 if (match) {
                                     const restText = item.slice(match.length + 1).trim();
                                     return (
-                                        <View style={styles.listItem}>
-                                            <Text style={styles.bullet}>•</Text>
-                                            <Text style={styles.listItemText}>
+                                        <View style={style.listItem}>
+                                            <Text style={style.bullet}>•</Text>
+                                            <Text style={style.listItemText}>
                                                 <Text style={{ fontWeight: 'bold', color: 'white' }}>{match}</Text>
                                                 {`: ${restText}`}
                                             </Text>
@@ -98,16 +98,15 @@ const PaySheduleScreen: React.FC<PaySheduleScreenProps> = ({ navigation }) => {
                                 }
 
                                 return (
-                                    <View style={styles.listItem}>
-                                        <Text style={styles.bullet}>•</Text>
-                                        <Text style={styles.listItemText}>{item}</Text>
+                                    <View style={style.listItem}>
+                                        <Text style={style.bullet}>•</Text>
+                                        <Text style={style.listItemText}>{item}</Text>
                                     </View>
                                 );
                             }}
-                            style={styles.unorderedList}
+                            style={style.unorderedList}
                         />
-
-                        <View style={styles.spacer} />
+                        <View style={style.spacer} />
 
                         <Button
                             title="Confirm Schedule"
@@ -120,49 +119,4 @@ const PaySheduleScreen: React.FC<PaySheduleScreenProps> = ({ navigation }) => {
         </BaseScreen>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    contentContainer: {
-        flex: 1,
-        paddingHorizontal: 30,
-        marginTop: '50%',
-        marginBottom: 40,
-    },
-    unorderedList: {
-        marginVertical: 10,
-    },
-    inputContainer: {
-        marginTop: 20,
-    },
-    labelText: {
-        fontSize: 14,
-        marginBottom: 5,
-        color: '#FFFFFF',
-        paddingBottom: 10,
-    },
-    spacer: {
-        flex: 1,
-        marginBottom: 20,
-    },
-    listItem: {
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        marginBottom: 5,
-    },
-    bullet: {
-        color: '#FFFFFF',
-        fontSize: 19,
-        marginRight: 8,
-    },
-    listItemText: {
-        color: '#FFFFFF',
-        fontSize: 14,
-        flex: 1,
-        flexWrap: 'wrap',
-    },
-});
-
 export default PaySheduleScreen;

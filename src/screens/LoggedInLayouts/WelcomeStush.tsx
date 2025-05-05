@@ -15,6 +15,7 @@ import DisclouserMainScreen from '../../components/ResueableComponents/Disclouer
 import BulletPoints from '../../components/ResueableComponents/BulletPoints';
 import NavButton from '../../components/common/NavigateButton';
 import styles from '../../css/Disclouser';
+import style from '../../css/SharedStyle';
 
 const WelcomeStushScreen = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
@@ -41,8 +42,8 @@ const WelcomeStushScreen = () => {
 
   return (
     <DisclouserMainScreen onBackPress={handleBack} showBackButton={true} showLogo={false}>
-      <View style={localStyles.contentContainer}>
-        <Text style={localStyles.title}>WELCOME TO{"\n"}STUSH PAY</Text>
+      <View style={style.objectContainer}>
+        <Text style={style.title}>WELCOME TO{"\n"}STUSH PAY</Text>
 
         <Text style={styles.subtitle}>Your Money, When you need it.</Text>
 
@@ -66,22 +67,5 @@ const WelcomeStushScreen = () => {
       </View>
     </DisclouserMainScreen>
   );
-};
-
-const localStyles = StyleSheet.create({
-  contentContainer: {
-    flex: 1,
-    paddingTop: 35,
-    paddingHorizontal: 20,
-    marginBottom: '18%',
-  },
-  title: {
-    color: '#FFFFFF',
-    fontSize: 28,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    lineHeight: 36,
-  },
-});
-
+}; 
 export default WelcomeStushScreen;

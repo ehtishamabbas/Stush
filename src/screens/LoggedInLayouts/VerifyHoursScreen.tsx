@@ -6,6 +6,7 @@ import Header from '../../components/common/Header';
 import Heading from '../../components/ResueableComponents/Heading';
 import ContentText from '../../components/ResueableComponents/ContenetText';
 import NavigateButton from '../../components/common/NavigateButton';
+import { style } from '../../css/SharedStyle';
 
 interface MyJobScreenProps {
     navigation: any;
@@ -23,10 +24,10 @@ const VerifyHoursScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
         <BaseScreen>
             <Header navigation={navigation} onBackPress={handleBack} />
 
-            <View style={styles.container}>
+            <View style={style.container}>
 
 
-                <View style={styles.contentContainer}>
+                <View style={style.innerContainer}>
 
                     <Heading
                         secondaryText={"VERIFY\nPAST HOURS"}
@@ -41,34 +42,34 @@ const VerifyHoursScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
                     <ContentText>
                         <Text style={{ fontWeight: '800', lineHeight: 20, letterSpacing: 1 }}>If We Can’t Verify, Don’t Worry!</Text>
                     </ContentText>
-                    <View style={styles.innerContainer}>
+                    <View style={style.outercontainer}>
 
-                        <View style={styles.imageContainer}>
+                        <View style={style.imageContainer}>
                             <Image
                                 source={require('../../../assets/images/LastHours.png')}
                                 resizeMode="cover"
-                                style={styles.image}
+                                style={style.image}
                             />
-                            <Text style={styles.imageText}>Your work hours will be tracked automatically.</Text>
+                            <Text style={style.imageText}>Your work hours will be tracked automatically.</Text>
                         </View>
-                        <View style={styles.imageContainer}>
+                        <View style={style.imageContainer}>
                             <Image
                                 source={require('../../../assets/images/LastHours.png')}
                                 resizeMode="cover"
-                                style={styles.image}
+                                style={style.image}
                             />
-                            <Text style={styles.imageText}>Your  available balance will update automatically</Text>
+                            <Text style={style.imageText}>Your  available balance will update automatically</Text>
                         </View>
                     </View>
 
                     <View>
-                        <View style={styles.imageContainerr}>
+                        <View style={style.imageContainerr}>
                             <Image
                                 source={require('../../../assets/images/LastHours.png')}
                                 resizeMode="cover"
-                                style={styles.image}
+                                style={style.image}
                             />
-<Text style={styles.imageText}>
+<Text style={style.imageText}>
   Your available balance will update automatically {'\n '}
   <Text style={{ color: 'white', fontWeight: '900' }}>STUSH  PAY</Text>
 </Text>
@@ -86,49 +87,5 @@ const VerifyHoursScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
             </View>
         </BaseScreen>
     );
-};
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: '100%',
-    },
-    contentContainer: {
-        flex: 1,
-        paddingHorizontal: 20,
-        marginTop: '50%',
-        marginBottom: 40,
-    },
-    image: {
-        width: 54,
-        height: 54,
-    },
-    imageContainer: {
-        flexDirection: 'column',
-        gap: 10,
-        color: '#FFFFFF',
-    },
-    imageText: {
-        color: '#FFFFFF',
-        fontSize: 16,
-        textAlign: 'center',
-        lineHeight: 20,
-
-    },
-    innerContainer: {
-        padding: 20,
-        width: '50%',
-        flexDirection: 'row',
-        gap: 40,
-    },
-    imageContainerr: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 10,
-        color: '#FFFFFF',
-    },
-
-});
-
+}; 
 export default VerifyHoursScreen;

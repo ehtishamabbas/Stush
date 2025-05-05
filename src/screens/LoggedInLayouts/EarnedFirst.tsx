@@ -6,6 +6,7 @@ import Input from '../../components/common/Input';
 import Heading from '../../components/ResueableComponents/Heading';
 import ContentText from '../../components/ResueableComponents/ContenetText';
 import GlobalStyles from '../../css/GlobalStyles';
+import { style } from '../../css/SharedStyle';
 
 interface EarnedIncomeScreenProps {
     navigation: any;
@@ -43,22 +44,22 @@ const EarnedIncomeScreen: React.FC<EarnedIncomeScreenProps> = ({ navigation }) =
                     Do you get direct deposit?
                 </ContentText>
 
-                <View style={styles.depositButtonsRow}>
+                <View style={style.depositButtonsRow}>
                     <Button
                         title="YES"
                         onPress={setYesDeposit}
                         style={[
-                            styles.depositButton,
-                            directDeposit === 'yes' ? styles.activeButton : styles.inactiveButton
+                            style.depositButton,
+                            directDeposit === 'yes' ? style.activeButton : style.inactiveButton
                         ]}
                     />
-                    <View style={styles.buttonSpacer} />
+                    <View style={style.buttonSpacer} />
                     <Button
                         title="NO"
                         onPress={setNoDeposit}
                         style={[
-                            styles.depositButton,
-                            directDeposit === 'no' ? styles.activeButton : styles.inactiveButton
+                            style.depositButton,
+                            directDeposit === 'no' ? style.activeButton : style.inactiveButton
                         ]}
                     />
                 </View>
@@ -84,25 +85,5 @@ const EarnedIncomeScreen: React.FC<EarnedIncomeScreenProps> = ({ navigation }) =
         </Screen>
     );
 };
-
-const styles = StyleSheet.create({
-    depositButtonsRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginVertical: 15,
-    },
-    depositButton: {
-        flex: 1,
-    },
-    buttonSpacer: {
-        width: 10,
-    },
-    activeButton: {
-        backgroundColor: '#2B7DF7',
-    },
-    inactiveButton: {
-        backgroundColor: '#5A5A5A',
-    },
-});
-
+ 
 export default EarnedIncomeScreen;

@@ -9,6 +9,7 @@ import NavigateButton from '../../components/common/NavigateButton';
 import FormInput from '../../components/common/FormInput';
 import { Text } from 'react-native';
 import baseStyles from '../../css/BaseStyles';
+import style from '../../css/SharedStyle';
 
 
 interface MyJobScreenProps {
@@ -29,10 +30,10 @@ const EarnedPayoutScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
         <BaseScreen>
             <Header navigation={navigation} onBackPress={handleBack} />
 
-            <View style={styles.container}>
+            <View style={style.container}>
 
 
-                <View style={styles.contentContainer}>
+                <View style={style.subContainer}>
                     <Heading
                         primaryText="GET PAID TODAY"
                         type="primary"
@@ -47,7 +48,7 @@ const EarnedPayoutScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
                         text="If you have income from another employer, please add their details now. If you've added all your employers, simply select 'No More Employers to Add' to continue"
                     />
 
-                    <View style={styles.spacer} />
+                    <View style={style.spacer} />
 
                     <NavigateButton
                         title="No More Employers to Add"
@@ -59,29 +60,5 @@ const EarnedPayoutScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
         </BaseScreen>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    contentContainer: {
-        flex: 1,
-        paddingHorizontal: 20,
-        marginTop: '50%',
-        marginBottom: 40,
-    },
-    inputContainer: {
-        marginTop: 20,
-    },
-    labelText: {
-        fontSize: 14,
-        marginBottom: 5,
-        color: '#FFFFFF',
-        paddingBottom: 10,
-    },
-    spacer: {
-        flex: 1,
-    },
-});
 
 export default EarnedPayoutScreen;

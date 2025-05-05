@@ -9,6 +9,7 @@ import ContentText from '../../components/ResueableComponents/ContenetText';
 import { ScrollView } from 'react-native-gesture-handler';
 import Button from '../../components/common/Button';
 import styles from '../../css/Dashboard.styles';
+import { style } from '../../css/SharedStyle';
 
 interface CongratulationScreenProps {
     navigation: any;
@@ -36,7 +37,7 @@ const CongratulationScreen: React.FC<CongratulationScreenProps> = ({ navigation 
                 <Header navigation={navigation} onBackPress={handleBack} />
 
                 <View style={styles.container}>
-                    <View style={style.contentContainer}>
+                    <View style={style.subContainer}>
                         <Heading
                             secondaryText="CONGRATULATIONS"
                             type="secondary"
@@ -92,24 +93,5 @@ const CongratulationScreen: React.FC<CongratulationScreenProps> = ({ navigation 
         </BaseScreen>
     );
 };
-
-const style = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    contentContainer: {
-        flex: 1,
-        paddingHorizontal: 30,
-        marginTop: '50%',
-        marginBottom: 40,
-    },
-
-
-    spacer: {
-        flex: 1,
-        marginBottom: 100,
-    },
-
-});
-
+ 
 export default CongratulationScreen;

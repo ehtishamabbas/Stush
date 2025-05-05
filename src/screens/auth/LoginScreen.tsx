@@ -2,14 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import { TextInput as RNTextInput, View, Text, TouchableOpacity, Keyboard, Platform, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as Keychain from 'react-native-keychain';
-
 import AppScreen from '../../components/common/AppScreen';
 import FormInput from '../../components/common/FormInput';
 import FormButton from '../../components/common/FormButton';
 import SignInLink from '../../components/common/SignInLink';
 import SocialIcons from '../../components/SocialMediaIcons';
 import baseStyles from '../../css/BaseStyles';
-
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -21,10 +19,8 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [keyboardVisible, setKeyboardVisible] = useState(false);
-
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
@@ -56,7 +52,6 @@ const LoginScreen = () => {
     setEmailError('');
     return true;
   };
-
   const validatePassword = () => {
     if (!password.trim()) {
       setPasswordError('Password is required');
@@ -65,10 +60,8 @@ const LoginScreen = () => {
     setPasswordError('');
     return true;
   };
-
   const clearEmailError = () => setEmailError('');
   const clearPasswordError = () => setPasswordError('');
-
   const handleForgotPassword = () => {
     navigation.navigate('ForgotPassword');
   };
@@ -82,7 +75,6 @@ const LoginScreen = () => {
     if (!isEmailValid || !isPasswordValid) {
       return;
     }
-
     try {
       setIsLoading(true);
 
@@ -110,9 +102,6 @@ const LoginScreen = () => {
       setIsLoading(false);
     }
   };
-
-
-
   return (
     <AppScreen
       showBackButton={false}
@@ -137,7 +126,6 @@ const LoginScreen = () => {
           returnKeyType="next"
           onSubmitEditing={() => passwordRef.current?.focus()}
         />
-
         <FormInput
           ref={passwordRef}
           placeholder="Password"
@@ -149,8 +137,7 @@ const LoginScreen = () => {
           returnKeyType="done"
           onSubmitEditing={handleSignIn}
         />
-
-        <TouchableOpacity
+     <TouchableOpacity
           style={baseStyles.forgotPasswordContainer}
           onPress={handleForgotPassword}>
           <Text style={baseStyles.forgotPassword}>FORGOT PASSWORD?</Text>
@@ -167,14 +154,12 @@ const LoginScreen = () => {
           <Text style={baseStyles.dividerText}>or sign in using</Text>
           <View style={baseStyles.divider} />
         </View>
-
         <SocialIcons />
-
         <View style={baseStyles.signInContainer}>
           <SignInLink
             text="Don't have an account?"
             linkText="Sign Up"
-            navigateTo="UserIdentification"
+            navigateTo="WorkInfo"
           />
         </View>
       </View>

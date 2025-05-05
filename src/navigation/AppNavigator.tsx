@@ -20,7 +20,7 @@ import WelcomeStushScreen from '../screens/LoggedInLayouts/WelcomeStush';
 import Wedifferent from '../screens/LoggedInLayouts/WeDifferent';
 import UserIdentification from '../screens/LoggedInLayouts/Identification';
 import DisclosuresScreen from '../screens/LoggedInLayouts/Disclouser';
-import MyJob from '../screens/LoggedInLayouts/MyJob';
+import MyJobScreen from '../screens/LoggedInLayouts/MyJob';
 import CompanyInfo from '../screens/LoggedInLayouts/CompanyInfo';
 import InfoAboutCompany from '../screens/LoggedInLayouts/InfoAboutCompany';
 import WorkInfo from '../screens/LoggedInLayouts/WorkInfo';
@@ -87,7 +87,7 @@ export type RootStackParamList = {
   Wedifferent: undefined;
   UserIdentification: undefined;
   DisclosuresScreen: undefined;
-  MyJob: undefined;
+  MyJobScreen: undefined;
   CompanyInfo: undefined;
   InfoAboutCompany: undefined;
   WorkInfo: undefined;
@@ -167,7 +167,7 @@ const AppNavigator = () => {
       <Stack.Screen name="Wedifferent" component={Wedifferent} />
       <Stack.Screen name="UserIdentification" component={UserIdentification} />
       <Stack.Screen name="DisclosuresScreen" component={DisclosuresScreen} />
-      <Stack.Screen name="MyJob" component={MyJob} />
+      <Stack.Screen name="MyJobScreen" component={MyJobScreen} />
       <Stack.Screen name="CompanyInfo" component={CompanyInfo} />
       <Stack.Screen name="InfoAboutCompany" component={InfoAboutCompany} />
       <Stack.Screen name="WorkInfo" component={WorkInfo} />

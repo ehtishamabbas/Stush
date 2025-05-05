@@ -9,6 +9,7 @@ import NavigateButton from '../../components/common/NavigateButton';
 import FormInput from '../../components/common/FormInput';
 import { Text } from 'react-native';
 import baseStyles from '../../css/BaseStyles';
+import style from '../../css/SharedStyle';
 
 
 interface MyJobScreenProps {
@@ -29,10 +30,10 @@ const MyJobScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
     <BaseScreen>
       <Header navigation={navigation} onBackPress={handleBack} />
 
-      <View style={styles.container}>
+      <View style={style.container}>
 
 
-        <View style={styles.contentContainer}>
+        <View style={style.subContainer}>
           <Heading
             primaryText="GET PAID TODAY"
             type="primary"
@@ -47,8 +48,8 @@ const MyJobScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
             text="Choose the option that best fits you so we can personalize your Stush experience."
           />
 
-          <View style={styles.inputContainer}>
-            <Text style={styles.labelText}>Your Employement</Text>
+          <View style={style.inputContainer}>
+            <Text style={style.labelText}>Your Employement</Text>
             <FormInput
               placeholder="- Select -"
  
@@ -61,7 +62,7 @@ const MyJobScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
               accessibilityLabel="Email Address"
               accessibilityHint="Enter your email address"
             />
-              <Text style={styles.labelText}>How Many Employers do you have?</Text>
+              <Text style={style.labelText}>How Many Employers do you have?</Text>
             <FormInput
               placeholder="- Select -"
               value={selectedJob}
@@ -76,7 +77,7 @@ const MyJobScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
           </View>
 
 
-          <View style={styles.spacer} />
+          <View style={style.spacer} />
 
           <NavigateButton
             title="Next"
@@ -88,29 +89,5 @@ const MyJobScreen: React.FC<MyJobScreenProps> = ({ navigation }) => {
     </BaseScreen>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  contentContainer: {
-    flex: 1,
-    paddingHorizontal: 20,
-    marginTop: '50%',
-    marginBottom: 40,
-  },
-  inputContainer: {
-    marginTop: 20,
-  },
-  labelText: {
-    fontSize: 14,
-    marginBottom: 5,
-    color: '#FFFFFF',
-    paddingBottom: 10,
-  },
-  spacer: {
-    flex: 1,
-  },
-});
-
+ 
 export default MyJobScreen;

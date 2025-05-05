@@ -8,11 +8,11 @@ import Input from '../../components/common/Input';
 import ContentText from '../../components/ResueableComponents/ContenetText';
 import { ScrollView } from 'react-native-gesture-handler';
 import Button from '../../components/common/Button';
+import { style } from '../../css/SharedStyle';
 
 interface PayRateScreenProps {
     navigation: any;
 }
-
 const PayRateScreen: React.FC<PayRateScreenProps> = ({ navigation }) => {
     const [hours, setHours] = useState('');
 
@@ -39,13 +39,12 @@ const PayRateScreen: React.FC<PayRateScreenProps> = ({ navigation }) => {
             <ScrollView>
                 <Header navigation={navigation} onBackPress={handleBack} />
 
-                <View style={styles.container}>
-                    <View style={styles.contentContainer}>
+                <View style={style.container}>
+                    <View style={style.innerContainer}>
                         <Heading
                             secondaryText={"HOURLY PAY RATE\nCONFIRMATION"}
                             type="secondary"
                         />
-
                         <ContentText>
                             Based on the information you provided; we have determined your hourly pay rate as follows. This rate will be used to calculate your Stush wage access.                        </ContentText>
 
@@ -63,28 +62,26 @@ const PayRateScreen: React.FC<PayRateScreenProps> = ({ navigation }) => {
                             <FlatList
                                 data={listItems}
                                 renderItem={({ item }) => (
-                                    <View style={styles.listSection}>
-                                        <Text style={styles.sectionTitle}>{item.title}</Text>
+                                    <View style={style.listSection}>
+                                        <Text style={style.sectionTitle}>{item.title}</Text>
                                         {item.items.map((itemText, itemIndex) => (
-                                            <View key={itemIndex} style={styles.listItem}>
-                                                <Text style={styles.bullet}>•</Text>
-                                                <Text style={styles.listItemText}>{itemText}</Text>
+                                            <View key={itemIndex} style={style.listItem}>
+                                                <Text style={style.bullet}>•</Text>
+                                                <Text style={style.listItemText}>{itemText}</Text>
                                             </View>
                                         ))}
                                     </View>
                                 )}
-                                style={styles.unorderedList}
+                                style={style.unorderedList}
                                 keyExtractor={(item, index) => index.toString()}
                             />
                         </View>
-
                         <ContentText>
-                           <Text style={{ color: '#FFFFFF', fontWeight: 'bold' }}>Note:</Text> These details might not be 100% accurate at first, but as you use Stush Pay, we will automatically adjust them for precision. </ContentText>
+                            <Text style={{ color: '#FFFFFF', fontWeight: 'bold' }}>Note:</Text> These details might not be 100% accurate at first, but as you use Stush Pay, we will automatically adjust them for precision. </ContentText>
 
 
 
-                        <View style={styles.spacer} />
-
+                        <View style={style.spac} />
                         <Button
                             title="Confirm Rate"
                             onPress={handleNext}
@@ -96,64 +93,4 @@ const PayRateScreen: React.FC<PayRateScreenProps> = ({ navigation }) => {
         </BaseScreen>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    contentContainer: {
-        flex: 1,
-        paddingHorizontal: 30,
-        marginTop: '50%',
-        marginBottom: 40,
-    },
-    unorderedList: {
-        marginVertical: 10,
-    },
-    inputContainer: {
-        marginTop: 20,
-    },
-    labelText: {
-        fontSize: 14,
-        marginBottom: 5,
-        color: '#FFFFFF',
-        paddingBottom: 10,
-    },
-    spacer: {
-        flex: 1,
-        marginBottom: 20,
-    },
-    listItem: {
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        marginBottom: 5,
-    },
-    bullet: {
-        color: '#FFFFFF',
-        fontSize: 19,
-        marginRight: 8,
-    },
-    listItemText: {
-        color: '#FFFFFF',
-        fontSize: 14,
-        flex: 1,
-        flexWrap: 'wrap',
-    },
-    sectionTitle: {
-        fontSize: 14,
-        fontWeight: 'bold',
-        color: '#FFFFFF',
-        marginBottom: 10
-    },
-    listSection: {
-        marginBottom: 15,
-    },
-    listSectionText: {
-        color: '#FFFFFF',
-        fontSize: 14,
-        flex: 1,
-        flexWrap: 'wrap',
-    },
-});
-
-export default  PayRateScreen;
+export default PayRateScreen;

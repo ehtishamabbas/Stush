@@ -9,6 +9,7 @@ import NavigateButton from '../../components/common/NavigateButton';
 import FormInput from '../../components/common/FormInput';
 import { Text } from 'react-native';
 import baseStyles from '../../css/BaseStyles';
+import style from '../../css/SharedStyle';
 
 
 interface CompanyInfoProps {
@@ -29,22 +30,22 @@ const InfoAboutCompany: React.FC<CompanyInfoProps> = ({ navigation }) => {
         <BaseScreen>
             <Header navigation={navigation} onBackPress={handleBack} />
 
-            <View style={styles.container}>
+            <View style={style.container}>
 
 
-                <View style={styles.contentContainer}>
+                <View style={style.subContainer}>
 
 
                     <Heading
                         secondaryText={"Company\ninformation"}
                         type="secondary"
                     />
-<ContentText
-            text="Reminder: We will not contact your employer without your permission."
-          />
+                    <ContentText
+                        text="Reminder: We will not contact your employer without your permission."
+                    />
 
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Email Address (Supervisor):</Text>
+                    <View style={style.inputContainer}>
+                        <Text style={style.labelText}>Email Address (Supervisor):</Text>
                         <FormInput
                             placeholder="abc@gmail.com"
                             value={selectedJob}
@@ -57,8 +58,8 @@ const InfoAboutCompany: React.FC<CompanyInfoProps> = ({ navigation }) => {
                             accessibilityHint="Enter your email address"
                         />
                     </View>
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Name of Supervisor:</Text>
+                    <View style={style.inputContainer}>
+                        <Text style={style.labelText}>Name of Supervisor:</Text>
                         <FormInput
                             placeholder="John Doe"
                             value={selectedJob}
@@ -71,8 +72,8 @@ const InfoAboutCompany: React.FC<CompanyInfoProps> = ({ navigation }) => {
                             accessibilityHint="Enter the name of your supervisor"
                         />
                     </View>
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Supervisor’s Phone:</Text>
+                    <View style={style.inputContainer}>
+                        <Text style={style.labelText}>Supervisor’s Phone:</Text>
                         <FormInput
                             placeholder="209-000-000"
                             value={selectedJob}
@@ -85,7 +86,7 @@ const InfoAboutCompany: React.FC<CompanyInfoProps> = ({ navigation }) => {
                             accessibilityHint="Enter your email address"
                         />
                     </View>
-                    <View style={styles.spacer} />
+                    <View style={style.spacer} />
 
                     <NavigateButton
                         title="Continue"
@@ -97,29 +98,5 @@ const InfoAboutCompany: React.FC<CompanyInfoProps> = ({ navigation }) => {
         </BaseScreen>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    contentContainer: {
-        flex: 1,
-        paddingHorizontal: 30,
-        marginTop: '50%',
-        marginBottom: 40,
-    },
-    inputContainer: {
-        marginTop: 20,
-    },
-    labelText: {
-        fontSize: 14,
-        marginBottom: 5,
-        color: '#FFFFFF',
-        paddingBottom: 10,
-    },
-    spacer: {
-        flex: 1,
-    },
-});
-
+ 
 export default InfoAboutCompany;

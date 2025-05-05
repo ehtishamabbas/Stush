@@ -7,18 +7,16 @@ import Heading from '../../components/ResueableComponents/Heading';
 import NavigateButton from '../../components/common/NavigateButton';
 import FormInput from '../../components/common/FormInput';
 import { Text } from 'react-native';
-
+import style from '../../css/SharedStyle';
 
 interface CompanyInfoProps {
     navigation: any;
 }
 const EarnedSecond: React.FC<CompanyInfoProps> = ({ navigation }) => {
     const [selectedJob, setSelectedJob] = useState('');
-
     const handleNext = () => {
         navigation.navigate('AddEmployerScreen');
     };
-
     const handleBack = () => {
         navigation.goBack();
     };
@@ -26,23 +24,14 @@ const EarnedSecond: React.FC<CompanyInfoProps> = ({ navigation }) => {
     return (
         <BaseScreen>
             <Header navigation={navigation} onBackPress={handleBack} />
-
-            <View style={styles.container}>
-
-
-                <View style={styles.contentContainer}>
-
-
+            <View style={style.container}>
+                <View style={style.subContainer}>
                     <Heading
                         secondaryText={"EARNED INCOME\nPAYOUT"}
                         type="secondary"
                     />
-
-
-
-
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>How many hours do you want to get paid for?</Text>
+                    <View style={style.inputContainer}>
+                        <Text style={style.labelText}>How many hours do you want to get paid for?</Text>
                         <FormInput
                             placeholder="10"
                             value={selectedJob}
@@ -55,8 +44,8 @@ const EarnedSecond: React.FC<CompanyInfoProps> = ({ navigation }) => {
                             accessibilityHint="Enter how long you have been employed"
                         />
                     </View>
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.labelText}>Total amount requested: (hours X hourly wage)</Text>
+                    <View style={style.inputContainer}>
+                        <Text style={style.labelText}>Total amount requested: (hours X hourly wage)</Text>
                         <FormInput
                             placeholder="$200.00"
                             value={selectedJob}
@@ -69,8 +58,7 @@ const EarnedSecond: React.FC<CompanyInfoProps> = ({ navigation }) => {
                             accessibilityHint="Enter next pay date"
                         />
                     </View>
-
-                    <View style={styles.spacer} />
+                    <View style={style.spacer} />
 
                     <NavigateButton
                         title="Continue"
@@ -82,29 +70,5 @@ const EarnedSecond: React.FC<CompanyInfoProps> = ({ navigation }) => {
         </BaseScreen>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    contentContainer: {
-        flex: 1,
-        paddingHorizontal: 30,
-        marginTop: '50%',
-        marginBottom: 40,
-    },
-    inputContainer: {
-        marginTop: 20,
-    },
-    labelText: {
-        fontSize: 14,
-        marginBottom: 5,
-        color: '#FFFFFF',
-        paddingBottom: 10,
-    },
-    spacer: {
-        flex: 1,
-    },
-});
 
 export default EarnedSecond;

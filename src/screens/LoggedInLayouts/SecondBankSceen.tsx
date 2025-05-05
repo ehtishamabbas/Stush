@@ -6,6 +6,7 @@ import Header from '../../components/common/Header';
 import Heading from '../../components/ResueableComponents/Heading';
 import ContentText from '../../components/ResueableComponents/ContenetText';
 import Button from '../../components/common/Button';
+import styles from '../../css/SharedStyle';
 
 interface MyJobScreenProps {
   navigation: any;
@@ -32,7 +33,7 @@ const SecondBankSceen: React.FC<MyJobScreenProps> = ({ navigation }) => {
         <Header navigation={navigation} onBackPress={handleBack} />
 
         <View style={styles.container}>
-          <View style={styles.contentContainer}>
+          <View style={styles.innerContainer}>
             <Heading
               primaryText="GET PAID TODAY"
               type="primary"
@@ -85,53 +86,5 @@ const SecondBankSceen: React.FC<MyJobScreenProps> = ({ navigation }) => {
     </BaseScreen>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  contentContainer: {
-    flex: 1,
-    paddingHorizontal: 20,
-    marginTop: '55%',
-    marginBottom: 40,
-  },
-  unorderedList: {
-    marginVertical: 10,
-  },
-  listItem: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    marginBottom: 5,
-  },
-  bullet: {
-    color: '#FFFFFF',
-    fontSize: 19,
-    marginRight: 8,
-  },
-  listItemText: {
-    color: '#FFFFFF',
-    fontSize: 14,
-  },
-  readMoreText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '700',
-    marginTop: 26,
-  },
-  spacer: {
-    flex: 1,
-  },
-  agreeButton: {
-    backgroundColor: '#3B82F6',
-    borderRadius: 25,
-    paddingVertical: 15,
-  },
-  agreeButtonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-});
 
 export default SecondBankSceen;

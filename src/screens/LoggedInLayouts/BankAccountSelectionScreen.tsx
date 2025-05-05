@@ -109,10 +109,8 @@ const BankAccountSelectionScreen = () => {
   const handleLogout = async () => {
     try {
       setIsLoading(true);
-      // Clear Keychain storage
-      await Keychain.resetGenericPassword();
-      // Navigate back to login screen
-      navigation.navigate('Login');
+       await Keychain.resetGenericPassword();
+        navigation.navigate('Login');
     } catch (error) {
       console.error('Error during logout:', error);
     } finally {
