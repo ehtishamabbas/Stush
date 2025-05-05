@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { Keyboard, View, Text, StyleSheet } from 'react-native';
+import { Keyboard, View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useUser } from '../../globalState';
-
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import { useUser } from '../../store/globalState';
+  
 import AppScreen from '../../components/common/AppScreen';
 import FormInput from '../../components/common/FormInput';
 import NavigateButton from '../../components/common/NavigateButton';
 import SignUpLink from '../../components/common/SignUpLink';
 import baseStyles from '../../css/BaseStyles';
+import { NavigationProp } from '@react-navigation/native';
 
 const RegisterScreen = () => {
-  const navigation: any = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const { setUser } = useUser();
 
   const [firstName, setFirstName] = useState('');
@@ -76,7 +78,7 @@ const RegisterScreen = () => {
         setUser(userData);
 
         setIsSubmitting(false);
-        navigation.navigate('AboutScreen');
+      navigation.navigate('EmailInput');
       }, 500);
     }
   };

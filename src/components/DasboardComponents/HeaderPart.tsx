@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import styles from '../../css/Dashboard.styles';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { useUser } from '../../globalState';
+import { useUser } from '../../store/globalState';
 
 const HeaderPart = () => {
     const { user } = useUser();

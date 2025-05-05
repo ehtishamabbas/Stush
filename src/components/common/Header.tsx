@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Image, TouchableOpacity, Platform } from 'react-native';
 import styles from '../../css/Success';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import { NavigationProp } from '@react-navigation/native';
 
 interface HeaderProps {
-  navigation?: any;
+  navigation?: NavigationProp<RootStackParamList>;
   showBackButton?: boolean;
   onBackPress?: () => void;
 }

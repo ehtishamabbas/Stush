@@ -17,11 +17,11 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import baseStyles from '../../css/BaseStyles';
-
- if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import { NavigationProp } from '@react-navigation/native';
+if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
-
 interface AppScreenProps {
   children: ReactNode;
   showBackButton?: boolean;
@@ -39,7 +39,7 @@ const AppScreen: React.FC<AppScreenProps> = ({
   enableKeyboardAvoid = false,
   scrollable = true
 }) => {
-  const navigation: any = useNavigation();
+  const navigation: NavigationProp<RootStackParamList> = useNavigation();
   const [keyboardVisible, setKeyboardVisible] = useState(false);
   const { height: screenHeight } = Dimensions.get('window');
 

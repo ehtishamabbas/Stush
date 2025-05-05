@@ -7,11 +7,9 @@ interface CodeInputProps {
   onCodeChange: (code: string[]) => void;
   error?: string;
 }
-
 const CodeInput: React.FC<CodeInputProps> = ({ code, onCodeChange, error }) => {
   return (
     <SafeAreaView>
- 
     <View style={styles.codeContainer}>
       {Array.from({ length: 6 }).map((_, index) => (
         <TextInput

@@ -4,11 +4,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch } from 'react-redux';
 import { StackNavigationProp } from '@react-navigation/stack';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
+import { NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from '../../navigation/AppNavigator';
 
 
 type WelcomeUser = {
-  navigation: StackNavigationProp<any>;
+  navigation?: NavigationProp<RootStackParamList>;
 };
 
 const WelcomeUser: React.FC<WelcomeUser> = ({ navigation }) => {
@@ -34,7 +35,7 @@ const WelcomeUser: React.FC<WelcomeUser> = ({ navigation }) => {
   }, [navigation, dispatch, fadeAnim, rotateAnim]);
 
   const handleNavigate = () => {
-    navigation.navigate('Dashboard');
+    navigation?.navigate('Dashboard');
 };
 
   return (

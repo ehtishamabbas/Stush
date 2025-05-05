@@ -4,6 +4,7 @@ import SplashScreen from '../screens/auth/SplashScreen';
 import LoginScreen from '../screens/auth/LoginScreen';
 import RegisterScreen from '../screens/auth/RegisterScreen';
 import EmailInputScreen from '../screens/auth/EmailInputScreen';
+import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen';
 import VerifyEmailScreen from '../screens/auth/VerifyEmailScreen';
 import PhoneNumberScreen from '../screens/auth/ContactInfoScreen';
 import OTPVerificationScreen from '../screens/auth/CodeVerifyScreen';
@@ -57,7 +58,8 @@ import AlmostCompleteScreen from '../screens/LoggedInLayouts/AlmostCompleteScree
 import CongratulationScreen from '../screens/LoggedInLayouts/CongratulationScreen';
 import ReceiveFundScreen from '../screens/LoggedInLayouts/ReceiveFundScreen';
 import UnlimitedAccess from '../screens/LoggedInLayouts/UnlimitedAccess';
-
+import LoggedCredentials from '../screens/auth/LoggedCredentials';
+import WelcomeBackScreen from '../screens/auth/WelcomeBackScreen';
 
 
 
@@ -72,6 +74,7 @@ export type RootStackParamList = {
   RegisterScreen: undefined;
   AboutScreen: undefined;
   EmailInput: undefined;
+  ForgotPasswordScreen: undefined;
   VerifyEmailScreen: undefined;
   PhoneNumberScreen: undefined;
   OTPVerificationScreen: undefined;
@@ -125,6 +128,8 @@ export type RootStackParamList = {
   CongratulationScreen: undefined;
   ReceiveFundScreen: undefined;
   UnlimitedAccess: undefined;
+  LoggedCredentials: undefined;
+  WelcomeBackScreen: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -152,6 +157,7 @@ const AppNavigator = () => {
       <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
       <Stack.Screen name="AboutScreen" component={AboutScreen} />
       <Stack.Screen name="EmailInput" component={EmailInputScreen} />
+      <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
       <Stack.Screen name="VerifyEmailScreen" component={VerifyEmailScreen} />
       <Stack.Screen name="PhoneNumberScreen" component={PhoneNumberScreen} />
       <Stack.Screen name="OTPVerificationScreen" component={OTPVerificationScreen} />
@@ -204,6 +210,8 @@ const AppNavigator = () => {
       <Stack.Screen name="CongratulationScreen" component={CongratulationScreen} />
       <Stack.Screen name="ReceiveFundScreen" component={ReceiveFundScreen} />
       <Stack.Screen name="UnlimitedAccess" component={UnlimitedAccess} />
+      <Stack.Screen name="LoggedCredentials" component={LoggedCredentials} />
+      <Stack.Screen name="WelcomeBackScreen" component={WelcomeBackScreen} />
     </Stack.Navigator>
   );
 };

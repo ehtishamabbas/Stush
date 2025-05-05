@@ -97,7 +97,17 @@ const welcomeUserStyles = (width: number, height: number) => {
       marginTop: 10 * scale,
       lineHeight: 28 * scale,
     },
- 
+    button:{
+      width: '85%',
+      marginTop: height * 0.03,
+      paddingVertical: 4,
+      paddingHorizontal: width * 0.1,
+     },
+    image:{
+      width: 160,
+      height: 160,
+      paddingVertical: 110,
+    },
     featureTexts:{
       color: '#FFFFFF',
       fontSize: 16 * scale,

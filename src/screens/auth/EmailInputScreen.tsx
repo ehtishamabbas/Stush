@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { Keyboard, Alert, View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import { RootStackParamList } from '../../navigation/AppNavigator';
 import AppScreen from '../../components/common/AppScreen';
 import FormInput from '../../components/common/FormInput';
 import NavigateButton from '../../components/common/NavigateButton';
 import SignUpLink from '../../components/common/SignUpLink';
 import baseStyles from '../../css/BaseStyles';
+import { NavigationProp } from '@react-navigation/native';
 
 const EmailInputScreen = () => {
-  const navigation: any = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState({
@@ -30,13 +31,12 @@ const EmailInputScreen = () => {
       newErrors.email = 'Email address is required';
       isValid = false;
     } else {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!emailRegex.test(email.trim())) {
         newErrors.email = 'Please enter a valid email address';
         isValid = false;
       }
     }
-
     setErrors(newErrors);
     return isValid;
   };

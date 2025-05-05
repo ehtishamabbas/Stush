@@ -5,16 +5,17 @@ import CodeInput from '../../components/common/CodeInput';
 import Keypad from '../../components/common/NumericKeypad';
 import ResendTimer from '../../components/common/resend';
 import styles from '../../css/Verificcation.styles';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-
-interface OTPVerificationScreenProps {
-  navigation: any;
-  route: any;
+interface OTPVerificationScreenParams {
+  phoneNumber: string;
 }
+type OTPVerificationScreenProps = NativeStackScreenProps<RootStackParamList, 'OTPVerificationScreen'>;
 
-const OTPVerificationScreen: React.FC<OTPVerificationScreenProps> = ({ navigation, route }) => {
+export const OTPVerificationScreen = ({ navigation, route }: OTPVerificationScreenProps) => {
 
-  const { phoneNumber } = route?.params || { phoneNumber: '+123456789110' };
+  const { phoneNumber } = route.params || { phoneNumber: '+123456789110' };
   const [code, setCode] = useState<string[]>(Array(6).fill(''));
   const [error, setError] = useState<string | undefined>(undefined);
 
@@ -44,7 +45,7 @@ const OTPVerificationScreen: React.FC<OTPVerificationScreenProps> = ({ navigatio
         setCode(newCode);
       }
     } else if (key === 'forgot') {
-      navigation.navigate('ForgotPassword');
+      navigation.navigate('ForgotPasswordScreen');
     } else {
       const newCode = [...code];
       const nextEmptyIndex = newCode.findIndex(val => val === '');

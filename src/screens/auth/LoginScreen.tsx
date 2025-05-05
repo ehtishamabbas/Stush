@@ -8,11 +8,14 @@ import FormButton from '../../components/common/FormButton';
 import SignInLink from '../../components/common/SignInLink';
 import SocialIcons from '../../components/SocialMediaIcons';
 import baseStyles from '../../css/BaseStyles';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import { NavigationProp } from '@react-navigation/native';
+
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 const LoginScreen = () => {
-  const navigation: any = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const passwordRef = useRef<RNTextInput>(null);
 
   const [email, setEmail] = useState('');
@@ -63,7 +66,7 @@ const LoginScreen = () => {
   const clearEmailError = () => setEmailError('');
   const clearPasswordError = () => setPasswordError('');
   const handleForgotPassword = () => {
-    navigation.navigate('ForgotPassword');
+    navigation.navigate('ForgotPasswordScreen');
   };
 
   const handleSignIn = async () => {
@@ -95,7 +98,7 @@ const LoginScreen = () => {
       setEmail('');
       setPassword('');
 
-      navigation.navigate('BankAccountSelection');
+      navigation.navigate('LoggedCredentials');
     } catch (error) {
       console.error('Login error:', error);
     } finally {
@@ -137,7 +140,7 @@ const LoginScreen = () => {
           returnKeyType="done"
           onSubmitEditing={handleSignIn}
         />
-     <TouchableOpacity
+        <TouchableOpacity
           style={baseStyles.forgotPasswordContainer}
           onPress={handleForgotPassword}>
           <Text style={baseStyles.forgotPassword}>FORGOT PASSWORD?</Text>
@@ -159,7 +162,7 @@ const LoginScreen = () => {
           <SignInLink
             text="Don't have an account?"
             linkText="Sign Up"
-            navigateTo="WorkInfo"
+            navigateTo="RegisterScreen"
           />
         </View>
       </View>

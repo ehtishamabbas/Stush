@@ -116,6 +116,29 @@ const styles = StyleSheet.create({
     fontSize: normalize(16),
     fontWeight: '600',
   },
+  unorderedList: {
+    marginVertical: 10,
+  },
+  listItem: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: 5,
+  },
+  bullet: {
+    color: '#FFFFFF',
+    fontSize: 19,
+    marginRight: 8,
+  },
+  listItemText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+  },
+  readMoreText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '700',
+    marginTop: 26,
+  },
 });
 
 export default styles;

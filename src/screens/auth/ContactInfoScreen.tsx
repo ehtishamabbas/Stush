@@ -5,11 +5,12 @@ import PhoneInput from '../../components/common/PhoneInput';
 import Keypad from '../../components/common/NumericKeypad';
 import styles from '../../css/Verificcation.styles';
 import NavigateButton from '../../components/common/NavigateButton';
-
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import { NavigationProp } from '@react-navigation/native';
 
 const phoneNumberRegex = /^\+?\d{10,15}$/;
 
-const PhoneNumberScreen = ({ navigation }: { navigation: any }) => {
+const PhoneNumberScreen = ({ navigation }: { navigation: NavigationProp<RootStackParamList> }) => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [error, setError] = useState<string | null>(null);
 
@@ -19,7 +20,7 @@ const PhoneNumberScreen = ({ navigation }: { navigation: any }) => {
       return;
     }
     setError(null);
-    navigation.navigate('OTPVerificationScreen', { phoneNumber });
+    navigation.navigate('OTPVerificationScreen');
   };
   const handleBackPress = () => {
     navigation.goBack();
@@ -30,7 +31,7 @@ const PhoneNumberScreen = ({ navigation }: { navigation: any }) => {
         setPhoneNumber(phoneNumber.slice(0, -1));
       }
     } else if (key === 'forgot') {
-      navigation.navigate('ForgotPassword');
+      navigation.navigate('ForgotPasswordScreen');
     } else {
       const newNumber = phoneNumber + key;
       if (newNumber.length <= 15) {

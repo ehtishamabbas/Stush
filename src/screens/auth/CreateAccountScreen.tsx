@@ -3,21 +3,18 @@ import {
   View,
   Text,
   Image,
-  ImageBackground,
-  TouchableOpacity,
-  StatusBar,
+   TouchableOpacity,
   SafeAreaView,
-  TextInput,
   Switch,
 } from 'react-native';
 import styles from '../../css/CreateAccount';
 import FormInput from '../../components/common/FormInput';
-import baseStyles from '../../css/BaseStyles';
 import AppScreen from '../../components/common/AppScreen';
-
+import { NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from '../../navigation/AppNavigator';
 
 interface CreatePasswordScreenProps {
-  navigation?: any;
+  navigation?: NavigationProp<RootStackParamList>;
 }
 
 const CreatePasswordScreen: React.FC<CreatePasswordScreenProps> = ({
@@ -31,6 +28,7 @@ const CreatePasswordScreen: React.FC<CreatePasswordScreenProps> = ({
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState({ email: '', password: '', confirmPassword: '' });
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   const clearError = () => {
     setErrors({ email: '', password: '', confirmPassword: '' });
   };
@@ -50,6 +48,10 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       newErrors.password = 'Password is required';
       isValid = false;
     }
+    if (!passwordRegex.test(password)) {
+      newErrors.password = 'At least 12 characters and combination of uppercase ,lowercase letters, numbers, and special characters.';
+      isValid = false;
+    }
     if (!confirmPassword) {
       newErrors.confirmPassword = 'Confirm Password is required';
       isValid = false;
@@ -63,12 +65,12 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   };
   const handleNext = () => {
     if (validateForm()) {
-      navigation.navigate('AccountSuccess');
+      navigation?.navigate('AccountSuccess');
     }
   };
 
   const handleBack = () => {
-    navigation.goBack();
+    navigation?.goBack();
   };
 
   return (

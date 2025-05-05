@@ -1,9 +1,10 @@
 import React from 'react';
 import BaseSuccessScreen from '../../components/common/BaseSuccessScreen';
-
+import { NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from '../../navigation/AppNavigator';
 
 interface AccountSuccessProps {
-  navigation: any;
+  navigation?: NavigationProp<RootStackParamList>;
 }
 
 const AccountSuccess: React.FC<AccountSuccessProps> = ({ navigation }) => {

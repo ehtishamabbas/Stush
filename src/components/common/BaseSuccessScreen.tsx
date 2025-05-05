@@ -9,9 +9,11 @@ import styles from '../../css/Success';
 import Header from '../../components/common/Header';
 import SuccessContent from '../../components/common/SuccessContent';
 import FormButton from '../../components/common/FormButton';
+import { RootStackParamList } from '../../navigation/AppNavigator';
+import { NavigationProp } from '@react-navigation/native';
 
 interface BaseSuccessScreenProps {
-  navigation: any;
+  navigation: NavigationProp<RootStackParamList>;
   title: string;
   subtitle?: string | React.ReactNode;
   subtitlel?: string | React.ReactNode;
@@ -19,7 +21,7 @@ interface BaseSuccessScreenProps {
   imageSize?: 'small' | 'large';
   resendText?: string | React.ReactNode;
   buttonText: string | React.ReactNode;
-  nextScreen: string;
+  nextScreen: keyof RootStackParamList;
   whatsNextText?: string | React.ReactNode;
   whatsNextSubtext?: string | React.ReactNode;
   onBackPress?: () => void;
@@ -39,7 +41,7 @@ const BaseSuccessScreen: React.FC<BaseSuccessScreenProps> = ({
   onBackPress,
 }) => {
   const handleNext = () => {
-    navigation.navigate(nextScreen)
+    navigation.navigate('Login')
   };
 
   return (

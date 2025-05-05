@@ -6,18 +6,20 @@ import Header from '../../components/common/Header';
 import ReferralContent from '../../components/ResueableComponents/Referal';
 import NavigateButton from '../../components/common/NavigateButton';
 import { style } from '../../css/SharedStyle';
+import { NavigationProp } from '@react-navigation/native';
+import { RootStackParamList } from '../../navigation/AppNavigator';
 
 interface BonusScreenProps {
-  navigation: any;
+  navigation?: NavigationProp<RootStackParamList>;
 }
 
 const BonusScreen: React.FC<BonusScreenProps> = ({ navigation }) => {
   const handleNext = () => {
-    navigation.navigate('WelcomeUser');
+    navigation?.navigate('WelcomeUser');
   };
 
   const handleBack = () => {
-    navigation.goBack();
+    navigation?.goBack();
   };
 
   return (
@@ -33,8 +35,6 @@ const BonusScreen: React.FC<BonusScreenProps> = ({ navigation }) => {
               'Get $5 minimum for each referral'
             ]}
           />
-
- 
           <NavigateButton
             title="Next"
             onPress={handleNext}

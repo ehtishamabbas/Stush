@@ -6,7 +6,6 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import styles from '../../css/footerpart';
-
 const BottomPart = () => {
     return (
         <View style={styles.bottomContainer}>
@@ -20,7 +19,6 @@ const BottomPart = () => {
                         need!
                     </Text>
                 </View>
-
                 <View style={styles.benefitItem}>
                     <Text style={styles.benefitTexts}>
                          No Hidden Fees.

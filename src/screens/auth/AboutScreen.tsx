@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Keyboard, View, Text } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-
+ import { RootStackParamList } from '../../navigation/AppNavigator';
 import AppScreen from '../../components/common/AppScreen';
 import FormInput from '../../components/common/FormInput';
 import NavigateButton from '../../components/common/NavigateButton';
 import SignUpLink from '../../components/common/SignUpLink';
 import baseStyles from '../../css/BaseStyles';
+import { useNavigation } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
+
 const dobRegex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+
 const AboutScreen = () => {
-  const navigation: any = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   const [dob, setDob] = useState('');
   const [errors, setErrors] = useState({
@@ -22,9 +25,6 @@ const AboutScreen = () => {
       setErrors({ ...errors, [field]: '' });
     }
   };
-
-
-
   const handleNext = () => {
     Keyboard.dismiss();
     if (dob.trim() === '') {
